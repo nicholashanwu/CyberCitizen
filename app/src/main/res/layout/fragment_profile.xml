@@ -19,7 +19,7 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:fontFamily="@font/quicksand_bold"
-            android:text="Welcome back, Nicholas!"
+            android:text="Welcome back, Lisa!"
             android:textAlignment="viewStart"
             android:textSize="36sp"
             app:layout_constraintStart_toStartOf="parent"
