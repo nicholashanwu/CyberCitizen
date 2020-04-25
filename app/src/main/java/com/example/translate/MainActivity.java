@@ -362,7 +362,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (isTest) {
-            showMessage("", "Please go back by using the button in the bottom left");
+            showMessage("", "Please go back by using the button in the top left");
         } else {
             super.onBackPressed();
         }
