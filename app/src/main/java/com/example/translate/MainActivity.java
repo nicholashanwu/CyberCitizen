@@ -34,8 +34,6 @@ import androidx.navigation.ui.NavigationUI;
 
 public class MainActivity extends AppCompatActivity {
 
-    private DatabaseHelper myDb;
-    private static FirebaseTranslator englishChineseTranslator;
     private BottomNavigationView bottomBar;
     boolean isTest;
 
@@ -179,7 +177,6 @@ public class MainActivity extends AppCompatActivity {
         if (firstStart) {
             initDatabase task = new initDatabase(this);
             task.execute();
-            downloadModel();
             updateSharedPreferences();
         }
 
@@ -343,15 +340,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void downloadModel() {
-        showMessage("Translation Model Downloading", "Lingo Pal uses Google Firebase ML Kit API Translation services to perform translation. " +
-                "By using this app, you agree to have your data sent to Google. ");
-
-        DownloadModelTask task = new DownloadModelTask();
-        task.execute();
-
-    }
-
     public void showMessage(String title, String message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle(title);
@@ -399,45 +387,6 @@ public class MainActivity extends AppCompatActivity {
             super.onPostExecute(aVoid);
             myDb.close();
         }
-
-    }
-
-    public class DownloadModelTask extends AsyncTask<Void, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Void... voids) {
-            FirebaseTranslatorOptions options =
-                    new FirebaseTranslatorOptions.Builder()
-                            .setSourceLanguage(FirebaseTranslateLanguage.EN)
-                            .setTargetLanguage(FirebaseTranslateLanguage.ZH)
-                            .build();
-            englishChineseTranslator =
-                    FirebaseNaturalLanguage.getInstance().getTranslator(options);
-
-            FirebaseModelDownloadConditions conditions = new FirebaseModelDownloadConditions.Builder()
-                    .requireWifi()
-                    .build();
-            englishChineseTranslator.downloadModelIfNeeded(conditions)
-                    .addOnSuccessListener(
-                            new OnSuccessListener<Void>() {
-                                @Override
-                                public void onSuccess(Void v) {
-                                    System.out.println("success");
-                                    showMessage("Translation Model downloaded", "Check out the My Words section!");
-
-                                }
-                            })
-                    .addOnFailureListener(
-                            new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    System.out.println("failure");
-                                    showMessage("Translation Model failed to download", "");
-                                }
-                            });
-            return null;
-        }
-
 
     }
 

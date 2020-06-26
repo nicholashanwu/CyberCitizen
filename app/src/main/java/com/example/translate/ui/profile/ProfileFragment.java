@@ -53,7 +53,6 @@ public class ProfileFragment extends Fragment {
 
         Glide.with(getContext()).load(R.drawable.envelope).apply(new RequestOptions().override(600, 600)).into(mIvSaved);
         Glide.with(getContext()).load(R.drawable.tools).apply(new RequestOptions().override(600, 600)).into(mIvMastered);
-        Glide.with(getContext()).load(R.drawable.exam).apply(new RequestOptions().override(600, 600)).into(mIvMyList);
         Glide.with(getContext()).load(R.drawable.tzuyu).apply(new RequestOptions().override(100, 100)).into(mBtnProfileImageProfile);
 
         mBtnStartSaved.setOnClickListener(new View.OnClickListener() {
@@ -111,21 +110,6 @@ public class ProfileFragment extends Fragment {
                 res.close();
             }
         });
-
-        mBtnStartMyList.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(getView()).navigate(R.id.action_navigation_profile_to_navigation_my_list_fragment);
-
-                if (myDb.progressAchievement("Average Addition")) {
-                    showAchievement("Average Addition");
-                    if (myDb.progressAchievement("Self-Improver")) {
-                        showAchievement("Self-Improver");
-                    }
-                }
-            }
-        });
-
     }
 
     private void showMessage(String title, String message) {
