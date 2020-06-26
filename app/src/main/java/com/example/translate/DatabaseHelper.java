@@ -33,6 +33,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private static final String VAR_2 = "name";
 	private static final String VAR_3 = "score";
 
+	private static final String CONTENT_TABLE_NAME = "content_table";
+	private static final String TYP_1 = "id_pk";
+	private static final String TYP_2 = "category";
+	private static final String TYP_3 = "content";
+
 	public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
@@ -58,12 +63,19 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		db.execSQL("CREATE TABLE " + SCORE_TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
 				"NAME TEXT, " +
 				"SCORE INTEGER)");
+
+		db.execSQL("CREATE TABLE " + CONTENT_TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+				"CATEGORY TEXT, " +
+				"CONTENT TEXT)");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         db.execSQL("DROP TABLE IF EXISTS " + A_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + SCORE_TABLE_NAME);
+        db.execSQL("DROP TABLE IF EXISTS " + CONTENT_TABLE_NAME);
+
         onCreate(db);
     }
 
@@ -101,6 +113,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return result != -1;
 	}
 
+	public boolean insertContentData(String category, String content) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues contentValues = new ContentValues();
+		contentValues.put(TYP_2, category);
+		contentValues.put(TYP_3, content);
+		long result = db.insert(CONTENT_TABLE_NAME, null, contentValues);
+		return result != -1;
+	}
+
 	public Cursor getAllData() {
 		SQLiteDatabase db = this.getWritableDatabase();
 		return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
@@ -114,6 +135,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public Cursor getScores() {
 		SQLiteDatabase db = this.getWritableDatabase();
 		return db.rawQuery("SELECT * FROM " + SCORE_TABLE_NAME, null);
+	}
+
+	public Cursor getContentCategory(String category) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		return db.rawQuery("SELECT * FROM " + CONTENT_TABLE_NAME + " WHERE category = '" + category + "'", null);
 	}
 
     ////////////////////////////////////////////

@@ -25,6 +25,9 @@
             app:destination="@id/navigation_profile"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_navigation_home_to_contentScrollerFragment"
+            app:destination="@id/contentScrollerFragment" />
     </fragment>
 
     <fragment
@@ -152,6 +155,14 @@
             app:destination="@id/navigation_dashboard"
             app:enterAnim="@anim/fragment_close_enter"
             app:exitAnim="@anim/fragment_close_exit" />
+    </fragment>
+    <fragment
+        android:id="@+id/contentScrollerFragment"
+        android:name="com.example.translate.ui.home.ContentScrollerFragment"
+        android:label="ContentScrollerFragment" >
+        <action
+            android:id="@+id/action_contentScrollerFragment_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 
 </navigation>

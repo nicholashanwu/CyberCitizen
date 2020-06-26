@@ -10,17 +10,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.ml.common.modeldownload.FirebaseModelDownloadConditions;
-import com.google.firebase.ml.naturallanguage.FirebaseNaturalLanguage;
-import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslateLanguage;
-import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslator;
-import com.google.firebase.ml.naturallanguage.translate.FirebaseTranslatorOptions;
-
-import java.lang.ref.WeakReference;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
@@ -31,6 +20,10 @@ import androidx.navigation.NavOptions;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.lang.ref.WeakReference;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -332,6 +325,13 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertScoreData("C", 0);
         myDb.insertScoreData("P", 0);
         myDb.insertScoreData("F", 0);
+    }
+
+    public static void insertContentData(DatabaseHelper myDb, Activity activity) {
+        myDb.insertContentData("introduction", "this is content 1");
+        myDb.insertContentData("introduction", "this is content 2");
+        myDb.insertContentData("introduction", "this is content 2");
+        myDb.insertContentData("introduction", "this is content 2");
     }
 
     private void enableBottomBar(boolean enable) {

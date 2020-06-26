@@ -8,15 +8,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-import com.example.translate.R;
-import com.makeramen.roundedimageview.RoundedImageView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
+import com.example.translate.R;
+import com.makeramen.roundedimageview.RoundedImageView;
 
 public class HomeFragment extends Fragment {
 
@@ -46,8 +46,8 @@ public class HomeFragment extends Fragment {
 			public void onClick(View view) {
 
 				Bundle bundle = new Bundle();
-				bundle.putString("learningType", "numbers");
-                Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_navigation_learning, bundle);
+				bundle.putString("learningType", "introduction");
+                Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_contentScrollerFragment, bundle);
 			}
 		});
 
@@ -95,13 +95,11 @@ public class HomeFragment extends Fragment {
 
 	private void loadImages(View view) {
 		mBtnProfileImage = view.findViewById(R.id.btnProfileImageHome);
-		ImageView mIvHome = view.findViewById(R.id.ivHome);
 		ImageView mIvNumbers = view.findViewById(R.id.ivNumbers);
 		ImageView mIvGreetings = view.findViewById(R.id.ivGreetings);
 		ImageView mIvFood = view.findViewById(R.id.ivFood);
 		ImageView mIvHelp = view.findViewById(R.id.ivHelp);
 		Glide.with(getContext()).load(R.drawable.tzuyu).apply(new RequestOptions().override(100, 100)).into(mBtnProfileImage);
-        Glide.with(getContext()).load(R.drawable.wall_of_china).apply(new RequestOptions().centerCrop()).into(mIvHome);
 		Glide.with(getContext()).load(R.drawable.undraw_visual_data).apply(new RequestOptions().override(800, 600).centerCrop()).into(mIvNumbers);
 		Glide.with(getContext()).load(R.drawable.undraw_conversation).apply(new RequestOptions().override(800, 600).centerCrop()).into(mIvGreetings);
 		Glide.with(getContext()).load(R.drawable.undraw_hamburger).apply(new RequestOptions().override(800, 600).centerCrop()).into(mIvFood);

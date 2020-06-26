@@ -18,19 +18,9 @@
 
         <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:background="#673AB7">
 
-
-            <ImageView
-                android:id="@+id/ivHome"
-                android:layout_width="match_parent"
-                android:layout_height="240dp"
-                android:elevation="-90dp"
-                android:fadingEdge="none"
-
-                android:fadingEdgeLength="100dp"
-                android:requiresFadingEdge="none"
-                android:scaleType="fitXY" />
 
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/btnProfileImageHome"
@@ -55,311 +45,319 @@
 
                 <TextView
                     android:id="@+id/txtHome"
-                    android:layout_width="wrap_content"
+                    android:layout_width="270dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginLeft="36dp"
                     android:layout_marginTop="0dp"
                     android:layout_marginEnd="32dp"
                     android:layout_marginRight="0dp"
-                    android:layout_marginBottom="108dp"
+                    android:layout_marginBottom="32dp"
                     android:fontFamily="@font/quicksand_bold"
-                    android:text="@string/home_title"
-                    android:textColor="#222222"
+                    android:text="Welcome To Cyber Citizen"
+                    android:textColor="#FFFFFF"
                     android:textSize="36sp" />
 
-                <TextView
-                    android:id="@+id/textView2"
+                <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:fontFamily="@font/quicksand_bold"
-                    android:text="Learning"
-                    android:textColor="#FFFFFF"
-                    android:textSize="24sp" />
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
                     android:layout_margin="8dp"
-                    app:cardCornerRadius="4dp"
-                    app:cardElevation="4dp"
-                    app:contentPadding="8dp">
+                    app:cardCornerRadius="48dp">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/linearLayout4"
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
 
-
-                        <TextView
-                            android:id="@+id/txtLevelOne"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:layout_marginLeft="8dp"
                             android:layout_marginTop="8dp"
-                            android:fontFamily="@font/quicksand_bold"
-                            android:letterSpacing="0.1"
-                            android:lineSpacingExtra="0dp"
-                            android:padding="0dp"
-                            android:text="@string/numbers_level"
-                            android:textSize="10sp"
-                            android:textStyle="bold"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <TextView
-                            android:id="@+id/txtNumbers"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="@font/quicksand_bold"
-                            android:text="@string/numbers_title"
-                            android:textSize="24sp"
-                            app:layout_constraintStart_toStartOf="@+id/txtLevelOne"
-                            app:layout_constraintTop_toBottomOf="@+id/txtLevelOne" />
-
-
-                        <ImageView
-                            android:id="@+id/ivNumbers"
-                            android:layout_width="180dp"
-                            android:layout_height="120dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
                             android:layout_marginBottom="8dp"
-                            android:src="@android:mipmap/sym_def_app_icon"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                            app:cardCornerRadius="40dp"
+                            app:cardElevation="4dp"
+                            app:contentPadding="8dp">
 
-                        <Button
-                            android:id="@+id/btnStartNumbers"
-                            style="@style/Widget.MaterialComponents.Button.TextButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:background="#FFFFFF"
-                            android:fontFamily="@font/quicksand_bold"
-                            android:text="@string/button_start"
-                            android:textAlignment="viewStart"
-                            android:textColor="@color/colorGreenDark"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="8dp"
-                    app:cardCornerRadius="4dp"
-                    app:cardElevation="4dp"
-                    app:contentPadding="8dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/linearLayout5"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/linearLayout4"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
 
 
-                        <TextView
-                            android:id="@+id/txtLevelTwo"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="@font/quicksand_bold"
-                            android:letterSpacing="0.1"
-                            android:lineSpacingExtra="0dp"
-                            android:padding="0dp"
-                            android:text="@string/essentials_level"
-                            android:textSize="10sp"
-                            android:textStyle="bold"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                                <TextView
+                                    android:id="@+id/txtLevelOne"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:letterSpacing="0.1"
+                                    android:lineSpacingExtra="0dp"
+                                    android:padding="0dp"
+                                    android:text="@string/numbers_level"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/txtEssentials"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="@font/quicksand_bold"
-                            android:text="@string/essentials_title"
-                            android:textSize="24sp"
-                            app:layout_constraintStart_toStartOf="@+id/txtLevelTwo"
-                            app:layout_constraintTop_toBottomOf="@+id/txtLevelTwo" />
-
-
-                        <ImageView
-                            android:id="@+id/ivGreetings"
-                            android:layout_width="180dp"
-                            android:layout_height="120dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginBottom="8dp"
-                            android:src="@android:mipmap/sym_def_app_icon"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-
-                        <Button
-                            android:id="@+id/btnStartGreetings"
-                            style="@style/Widget.MaterialComponents.Button.TextButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/quicksand_bold"
-                            android:text="@string/button_start"
-                            android:textAlignment="viewStart"
-                            android:textColor="@color/colorGreenDark"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent" />
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="8dp"
-                    app:cardCornerRadius="4dp"
-                    app:cardElevation="4dp"
-                    app:contentPadding="8dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/linearLayout6"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                                <TextView
+                                    android:id="@+id/txtNumbers"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="Introduction"
+                                    android:textSize="24sp"
+                                    app:layout_constraintStart_toStartOf="@+id/txtLevelOne"
+                                    app:layout_constraintTop_toBottomOf="@+id/txtLevelOne" />
 
 
-                        <TextView
-                            android:id="@+id/txtLevelThree"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="@font/quicksand_bold"
-                            android:letterSpacing="0.1"
-                            android:lineSpacingExtra="0dp"
-                            android:padding="0dp"
-                            android:text="@string/food_level"
-                            android:textSize="10sp"
-                            android:textStyle="bold"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                                <ImageView
+                                    android:id="@+id/ivNumbers"
+                                    android:layout_width="180dp"
+                                    android:layout_height="120dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:src="@android:mipmap/sym_def_app_icon"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/txtFood"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="@font/quicksand_bold"
-                            android:text="@string/food_title"
-                            android:textSize="24sp"
-                            app:layout_constraintStart_toStartOf="@+id/txtLevelThree"
-                            app:layout_constraintTop_toBottomOf="@+id/txtLevelThree" />
+                                <Button
+                                    android:id="@+id/btnStartNumbers"
+                                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:background="#FFFFFF"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="@string/button_start"
+                                    android:textAlignment="viewStart"
+                                    android:textColor="@color/colorGreenDark"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent" />
 
+                            </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <ImageView
-                            android:id="@+id/ivFood"
-                            android:layout_width="180dp"
-                            android:layout_height="120dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginBottom="8dp"
-                            android:src="@android:mipmap/sym_def_app_icon"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                        </androidx.cardview.widget.CardView>
 
-                        <Button
-                            android:id="@+id/btnStartFood"
-                            style="@style/Widget.MaterialComponents.Button.TextButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/quicksand_bold"
-                            android:text="@string/button_start"
-                            android:textAlignment="viewStart"
-                            android:textColor="@color/colorGreenDark"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent" />
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:layout_margin="8dp"
+                            app:cardCornerRadius="40dp"
+                            app:cardElevation="4dp"
+                            app:contentPadding="8dp">
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </androidx.cardview.widget.CardView>
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="8dp"
-                    app:cardCornerRadius="4dp"
-                    app:cardElevation="4dp"
-                    app:contentPadding="8dp">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:id="@+id/linearLayout7"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/linearLayout5"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
 
 
-                        <TextView
-                            android:id="@+id/txtLevelFour"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
-                            android:fontFamily="@font/quicksand_bold"
-                            android:letterSpacing="0.1"
-                            android:lineSpacingExtra="0dp"
-                            android:padding="0dp"
-                            android:text="@string/emergency_level"
-                            android:textSize="10sp"
-                            android:textStyle="bold"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                                <TextView
+                                    android:id="@+id/txtLevelTwo"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:letterSpacing="0.1"
+                                    android:lineSpacingExtra="0dp"
+                                    android:padding="0dp"
+                                    android:text="@string/essentials_level"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
 
-                        <TextView
-                            android:id="@+id/txtHelp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="7dp"
-                            android:fontFamily="@font/quicksand_bold"
-                            android:text="@string/emergency_title"
-                            android:textSize="24sp"
-                            app:layout_constraintStart_toStartOf="@+id/txtLevelFour"
-                            app:layout_constraintTop_toBottomOf="@+id/txtLevelFour" />
+                                <TextView
+                                    android:id="@+id/txtEssentials"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="@string/essentials_title"
+                                    android:textSize="24sp"
+                                    app:layout_constraintStart_toStartOf="@+id/txtLevelTwo"
+                                    app:layout_constraintTop_toBottomOf="@+id/txtLevelTwo" />
 
 
-                        <ImageView
-                            android:id="@+id/ivHelp"
-                            android:layout_width="180dp"
-                            android:layout_height="120dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginBottom="8dp"
-                            android:src="@android:mipmap/sym_def_app_icon"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
+                                <ImageView
+                                    android:id="@+id/ivGreetings"
+                                    android:layout_width="180dp"
+                                    android:layout_height="120dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:src="@android:mipmap/sym_def_app_icon"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
 
-                        <Button
-                            android:id="@+id/btnStartHelp"
-                            style="@style/Widget.MaterialComponents.Button.TextButton"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:fontFamily="@font/quicksand_bold"
-                            android:text="@string/button_start"
-                            android:textAlignment="viewStart"
-                            android:textColor="@color/colorGreenDark"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintStart_toStartOf="parent" />
+                                <Button
+                                    android:id="@+id/btnStartGreetings"
+                                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="@string/button_start"
+                                    android:textAlignment="viewStart"
+                                    android:textColor="@color/colorGreenDark"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent" />
 
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:layout_margin="8dp"
+                            app:cardCornerRadius="40dp"
+                            app:cardElevation="4dp"
+                            app:contentPadding="8dp">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/linearLayout6"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+
+                                <TextView
+                                    android:id="@+id/txtLevelThree"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:letterSpacing="0.1"
+                                    android:lineSpacingExtra="0dp"
+                                    android:padding="0dp"
+                                    android:text="@string/food_level"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/txtFood"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="8dp"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="@string/food_title"
+                                    android:textSize="24sp"
+                                    app:layout_constraintStart_toStartOf="@+id/txtLevelThree"
+                                    app:layout_constraintTop_toBottomOf="@+id/txtLevelThree" />
+
+
+                                <ImageView
+                                    android:id="@+id/ivFood"
+                                    android:layout_width="180dp"
+                                    android:layout_height="120dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:src="@android:mipmap/sym_def_app_icon"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <Button
+                                    android:id="@+id/btnStartFood"
+                                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="@string/button_start"
+                                    android:textAlignment="viewStart"
+                                    android:textColor="@color/colorGreenDark"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.cardview.widget.CardView>
+
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="match_parent"
+                            android:layout_height="200dp"
+                            android:layout_margin="8dp"
+                            app:cardCornerRadius="40dp"
+                            app:cardElevation="4dp"
+                            app:contentPadding="8dp">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:id="@+id/linearLayout7"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+
+                                <TextView
+                                    android:id="@+id/txtLevelFour"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginStart="8dp"
+                                    android:layout_marginTop="8dp"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:letterSpacing="0.1"
+                                    android:lineSpacingExtra="0dp"
+                                    android:padding="0dp"
+                                    android:text="@string/emergency_level"
+                                    android:textSize="10sp"
+                                    android:textStyle="bold"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <TextView
+                                    android:id="@+id/txtHelp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="7dp"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="@string/emergency_title"
+                                    android:textSize="24sp"
+                                    app:layout_constraintStart_toStartOf="@+id/txtLevelFour"
+                                    app:layout_constraintTop_toBottomOf="@+id/txtLevelFour" />
+
+
+                                <ImageView
+                                    android:id="@+id/ivHelp"
+                                    android:layout_width="180dp"
+                                    android:layout_height="120dp"
+                                    android:layout_marginTop="8dp"
+                                    android:layout_marginEnd="8dp"
+                                    android:layout_marginBottom="8dp"
+                                    android:src="@android:mipmap/sym_def_app_icon"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <Button
+                                    android:id="@+id/btnStartHelp"
+                                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:fontFamily="@font/quicksand_bold"
+                                    android:text="@string/button_start"
+                                    android:textAlignment="viewStart"
+                                    android:textColor="@color/colorGreenDark"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </androidx.cardview.widget.CardView>
+                    </LinearLayout>
 
                 </androidx.cardview.widget.CardView>
 
             </LinearLayout>
+
         </FrameLayout>
     </androidx.core.widget.NestedScrollView>
 

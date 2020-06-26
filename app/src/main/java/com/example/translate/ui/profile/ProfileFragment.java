@@ -13,17 +13,17 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.translate.DatabaseHelper;
 import com.example.translate.R;
 import com.example.translate.ui.dashboard.AchievementAdapter;
 import com.makeramen.roundedimageview.RoundedImageView;
-
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 public class ProfileFragment extends Fragment {
 
@@ -43,13 +43,10 @@ public class ProfileFragment extends Fragment {
 
         CardView mBtnStartSaved = view.findViewById(R.id.btnStartSaved);
         CardView mBtnStartLearned = view.findViewById(R.id.btnStartLearned);
-        CardView mBtnStartMyList = view.findViewById(R.id.btnStartMyList);
         HorizontalScrollView mHsvCards = view.findViewById(R.id.hsvCards);
         RoundedImageView mBtnProfileImageProfile = view.findViewById(R.id.btnProfileImageProfile);
         ImageView mIvSaved = view.findViewById(R.id.ivSaved);
         ImageView mIvMastered = view.findViewById(R.id.ivMastered);
-        ImageView mIvMyList = view.findViewById(R.id.ivMyList);
-
 
         Glide.with(getContext()).load(R.drawable.envelope).apply(new RequestOptions().override(600, 600)).into(mIvSaved);
         Glide.with(getContext()).load(R.drawable.tools).apply(new RequestOptions().override(600, 600)).into(mIvMastered);
