@@ -46,11 +46,11 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ContentV
 
 	@Override
 	public void onBindViewHolder(ContentViewHolder holder, int position) {
-//		if (!mCursor.moveToPosition(position)) {
-//			return;
-//		}
+		if (!mCursor.moveToPosition(position)) {
+			return;
+		}
 
-		String name = mCursor.getString(1);
+		String name = mCursor.getString(2);
 
 		holder.mName.setText(name);
 	}

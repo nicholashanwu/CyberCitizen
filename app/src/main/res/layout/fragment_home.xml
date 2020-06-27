@@ -22,6 +22,12 @@
             android:background="#673AB7">
 
 
+            <Button
+                android:id="@+id/btnInitDatabase"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Button" />
+
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/btnProfileImageHome"
                 android:layout_width="36dp"

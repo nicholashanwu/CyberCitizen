@@ -181,6 +181,7 @@ public class MainActivity extends AppCompatActivity {
 
         bottomBar = findViewById(R.id.nav_view);
 
+
         setColors();
 
 
@@ -330,8 +331,8 @@ public class MainActivity extends AppCompatActivity {
     public static void insertContentData(DatabaseHelper myDb, Activity activity) {
         myDb.insertContentData("introduction", "this is content 1");
         myDb.insertContentData("introduction", "this is content 2");
-        myDb.insertContentData("introduction", "this is content 2");
-        myDb.insertContentData("introduction", "this is content 2");
+        myDb.insertContentData("introduction", "this is content 3");
+        myDb.insertContentData("introduction", "this is content 4");
     }
 
     private void enableBottomBar(boolean enable) {
@@ -374,10 +375,10 @@ public class MainActivity extends AppCompatActivity {
                 return null;
             }
 
-
             insertWordData(myDb, activity);
             insertAchievementData(myDb, activity);
             insertScoreData(myDb, activity);
+            insertContentData(myDb, activity);
 
             return null;
         }
