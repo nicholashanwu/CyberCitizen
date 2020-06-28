@@ -6,7 +6,43 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.HomeFragment">
 
+    <ProgressBar
+        android:id="@+id/progressBarContent"
+        style="?android:progressBarStyleHorizontal"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="64dp"
+        android:elevation="16dp"
+        android:progress="0"
+        android:progressDrawable="@drawable/circle"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabContentDone"
+        android:layout_width="67dp"
+        android:layout_height="63dp"
+        android:layout_gravity="bottom"
+        android:layout_weight="1"
+        android:background="@null"
+        android:clickable="true"
+        android:elevation="16dp"
+        android:focusable="auto"
+        android:src="@drawable/baseline_done_white_48"
+        app:backgroundTint="@color/colorGreen"
+        app:elevation="8dp"
+        app:fabCustomSize="64dp"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBarContent"
+        app:layout_constraintEnd_toEndOf="@+id/progressBarContent"
+        app:layout_constraintStart_toStartOf="@+id/progressBarContent"
+        app:layout_constraintTop_toTopOf="@+id/progressBarContent"
+        app:rippleColor="#33FFFFFF"
+        app:tint="#FFFFFF" />
+
     <androidx.core.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginBottom="55dp"

@@ -11,12 +11,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.translate.R;
 
-
-//////////////////////////
-
 public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ContentViewHolder> {
 	private Context mContext;
 	private Cursor mCursor;
+	private int count = 1;
 
 	public ContentAdapter(Context context, Cursor cursor) {
 		mContext = context;
@@ -49,7 +47,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ContentV
 		if (!mCursor.moveToPosition(position)) {
 			return;
 		}
-
+		//count = position;
 		String name = mCursor.getString(2);
 
 		holder.mName.setText(name);
@@ -57,7 +55,14 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ContentV
 
 	@Override
 	public int getItemCount() {
-		return mCursor.getCount();
+		//return mCursor.getCount();
+		return count;
+	}
+
+	public void increaseCount() {
+		count++;
+		notifyDataSetChanged();
+		//notifyItemInserted(count);
 	}
 
 }
