@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -27,6 +28,7 @@ public class ContentScrollerFragment extends Fragment {
 	private DatabaseHelper myDb;
 	private FloatingActionButton mFabContentDone;
 	private ProgressBar mProgressBarContent;
+	private int progress = 0;
 
 	public ContentScrollerFragment() {
 		// Required empty public constructor
@@ -62,6 +64,13 @@ public class ContentScrollerFragment extends Fragment {
 			public void onClick(View v) {
 				//add new row
 				//move cursor
+				progress++;
+				int percentage = 100 * progress/res.getCount();
+				mProgressBarContent.setProgress(percentage, true);
+
+
+				res.getCount();
+
 				mAdapter.increaseCount();
 			}
 		});

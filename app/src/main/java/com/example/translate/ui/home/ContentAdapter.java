@@ -60,7 +60,9 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ContentV
 	}
 
 	public void increaseCount() {
-		count++;
+		if(count < mCursor.getCount()){
+			count++;
+		}
 		notifyDataSetChanged();
 		//notifyItemInserted(count);
 	}
