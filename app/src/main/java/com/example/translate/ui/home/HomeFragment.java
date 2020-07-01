@@ -37,8 +37,6 @@ public class HomeFragment extends Fragment {
 
 		mFabOneOne = view.findViewById(R.id.fabOneOne);
 
-		loadImages(view);
-
 		mFabOneOne.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -50,10 +48,6 @@ public class HomeFragment extends Fragment {
 
 	}
 
-	private void loadImages(View view) {
-		mBtnProfileImage = view.findViewById(R.id.btnProfileImageHome);
-
-	}
 
 
 }

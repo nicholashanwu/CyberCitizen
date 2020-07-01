@@ -11,10 +11,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.example.translate.DatabaseHelper;
 import com.example.translate.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,6 +31,10 @@ public class ContentScrollerFragment extends Fragment {
 	private DatabaseHelper myDb;
 	private FloatingActionButton mFabContentDone;
 	private ProgressBar mProgressBarContent;
+	private ProgressBar mProgressBarContentPage;
+	private CardView mCvContent;
+	private RecyclerView mRecyclerView;
+	private int pageNumber = 1;
 	private int progress = 0;
 
 	public ContentScrollerFragment() {
@@ -52,12 +59,23 @@ public class ContentScrollerFragment extends Fragment {
 		mTxtContentScrollerTitle = view.findViewById(R.id.txtContentScrollerTitle);
 		mFabContentDone = view.findViewById(R.id.fabContentDone);
 		mProgressBarContent = view.findViewById(R.id.progressBarContent);
+		mProgressBarContentPage = view.findViewById(R.id.progressBarContentPage);
+		mCvContent = view.findViewById(R.id.cvContent);
+		mRecyclerView = view.findViewById(R.id.rvContent);
+
+
 		mTxtContentScrollerTitle.setText(learningType);
 
 		myDb = new DatabaseHelper(getActivity());
-		final Cursor res = getAllContent(learningType);
+		final Cursor res = getAllContent(learningType, pageNumber);
 		res.moveToFirst();
-		setAdapter(view, res);
+		setAdapter(res);
+
+		progress = 0;
+		mProgressBarContent.setProgress(0, true);
+		mProgressBarContentPage.setProgress(1);
+		mProgressBarContentPage.setMax(2);
+
 
 		mFabContentDone.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -66,23 +84,29 @@ public class ContentScrollerFragment extends Fragment {
 				//move cursor
 				progress++;
 				int percentage = 100 * progress/res.getCount();
-				mProgressBarContent.setProgress(percentage, true);
+
+				if(percentage == 100){
+					moveToNextPage();
+				} else {
+					mProgressBarContent.setProgress(percentage, true);
+					mAdapter.increaseCount();
+
+				}
 
 
-				res.getCount();
 
-				mAdapter.increaseCount();
+
+
 			}
 		});
 
 	}
 
-	private Cursor getAllContent(String learningType) {
-		return myDb.getContentCategory(learningType);
+	private Cursor getAllContent(String learningType, int pageNumber) {
+		return myDb.getContentCategory(learningType, pageNumber);
 	}
 
-	private void setAdapter(View view, Cursor res) {
-		RecyclerView mRecyclerView = view.findViewById(R.id.rvContent);
+	private void setAdapter(Cursor res) {
 		RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this.getContext());
 		mRecyclerView.setLayoutManager(mLayoutManager);
 		mAdapter = new ContentAdapter(getContext(), res);
@@ -91,8 +115,22 @@ public class ContentScrollerFragment extends Fragment {
 		mRecyclerView.setNestedScrollingEnabled(false);
 	}
 
-	// on button click:
-	// add new row to recyclerview
+	private void moveToNextPage(){
+		mProgressBarContentPage.setProgress(mProgressBarContent.getProgress() + 1, true);
+		YoYo.with(Techniques.SlideOutLeft).duration(200).playOn(mCvContent);
+		YoYo.with(Techniques.SlideInRight).duration(200).delay(300).playOn(mCvContent);
 
-	//
+
+		pageNumber++;
+
+		setAdapter(getAllContent(learningType, pageNumber));
+
+		progress = 0;
+		mProgressBarContent.setProgress(0, true);
+
+
+		//animate recyclerview moving away
+		//replace recyclerview
+	}
+
 }

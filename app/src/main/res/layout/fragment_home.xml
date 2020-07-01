@@ -38,7 +38,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="72dp"
-                app:cardCornerRadius="48dp">
+                app:cardCornerRadius="24dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -49,12 +49,15 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="8dp"
-                        app:cardCornerRadius="48dp">
+                        app:cardCornerRadius="16dp">
 
                         <com.alespero.expandablecardview.ExpandableCardView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="16dp"
                             android:elevation="8dp"
                             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                             app:animationDuration="300"
@@ -62,18 +65,34 @@
                             app:inner_view="@layout/inner_layout_one"
                             app:startExpanded="false"
                             app:title="What is Cyber?" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:elevation="10dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.1"
+                            android:text="LEVEL ONE"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textSize="10sp" />
+
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="8dp"
-                        app:cardCornerRadius="48dp">
+                        app:cardCornerRadius="16dp">
 
                         <com.alespero.expandablecardview.ExpandableCardView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="16dp"
                             android:elevation="8dp"
                             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                             app:animationDuration="300"
@@ -81,18 +100,34 @@
                             app:inner_view="@layout/inner_layout_two"
                             app:startExpanded="false"
                             app:title="Cyber 101?" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:elevation="10dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.1"
+                            android:text="LEVEL ONE"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textSize="10sp" />
+
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="8dp"
-                        app:cardCornerRadius="48dp">
+                        app:cardCornerRadius="16dp">
 
                         <com.alespero.expandablecardview.ExpandableCardView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="16dp"
                             android:elevation="8dp"
                             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                             app:animationDuration="300"
@@ -100,18 +135,34 @@
                             app:inner_view="@layout/inner_layout_three"
                             app:startExpanded="false"
                             app:title="Social Engineering" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:elevation="10dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.1"
+                            android:text="LEVEL ONE"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textSize="10sp" />
+
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_margin="8dp"
-                        app:cardCornerRadius="48dp">
+                        app:cardCornerRadius="16dp">
 
                         <com.alespero.expandablecardview.ExpandableCardView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_margin="8dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginTop="16dp"
+                            android:layout_marginRight="8dp"
+                            android:layout_marginBottom="16dp"
                             android:elevation="8dp"
                             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                             app:animationDuration="300"
@@ -119,6 +170,19 @@
                             app:inner_view="@layout/inner_layout_four"
                             app:startExpanded="false"
                             app:title="Protecting Yourself" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="16dp"
+                            android:elevation="10dp"
+                            android:fontFamily="sans-serif-medium"
+                            android:letterSpacing="0.1"
+                            android:text="LEVEL ONE"
+                            android:textAllCaps="true"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                            android:textSize="10sp" />
+
                     </androidx.cardview.widget.CardView>
 
 
@@ -126,6 +190,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
                         android:layout_margin="8dp"
+                        app:cardCornerRadius="16dp"
                         app:cardElevation="4dp"
                         app:contentPadding="8dp">
 

@@ -37,6 +37,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private static final String TYP_1 = "id_pk";
 	private static final String TYP_2 = "category";
 	private static final String TYP_3 = "content";
+	private static final String TYP_4 = "pageNumber";
+
 
 	public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 2);
@@ -65,7 +67,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 		db.execSQL("CREATE TABLE " + SENTENCE_TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
 				"CATEGORY TEXT, " +
-				"CONTENT TEXT)");
+				"CONTENT TEXT, " +
+				"PAGENUMBER INTEGER)");
     }
 
     @Override
@@ -112,11 +115,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return result != -1;
 	}
 
-	public boolean insertContentData(String category, String content) {
+	public boolean insertContentData(String category, String content, int pageNumber) {
 		SQLiteDatabase db = this.getWritableDatabase();
 		ContentValues contentValues = new ContentValues();
 		contentValues.put(TYP_2, category);
 		contentValues.put(TYP_3, content);
+		contentValues.put(TYP_4, pageNumber);
 		long result = db.insert(SENTENCE_TABLE_NAME, null, contentValues);
 		return result != -1;
 	}
@@ -136,9 +140,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return db.rawQuery("SELECT * FROM " + SCORE_TABLE_NAME, null);
 	}
 
-	public Cursor getContentCategory(String category) {
+	public Cursor getContentCategory(String category, int pageNumber) {
 		SQLiteDatabase db = this.getWritableDatabase();
-		return db.rawQuery("SELECT * FROM " + SENTENCE_TABLE_NAME + " WHERE category = '" + category + "'", null);
+		//return db.rawQuery("SELECT * FROM " + SENTENCE_TABLE_NAME + " WHERE category = '" + category + "'", null);
+		return db.rawQuery("SELECT * FROM " + SENTENCE_TABLE_NAME + " WHERE category = '" + category + "' AND pagenumber = '" + pageNumber +"'" , null);
 	}
 
     ////////////////////////////////////////////

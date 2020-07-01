@@ -329,10 +329,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static void insertContentData(DatabaseHelper myDb, Activity activity) {
-        myDb.insertContentData("introduction", "this is content 1");
-        myDb.insertContentData("introduction", "this is content 2");
-        myDb.insertContentData("introduction", "this is content 3");
-        myDb.insertContentData("introduction", "this is content 4");
+        myDb.insertContentData("introduction", "this is content 1", 1);
+        myDb.insertContentData("introduction", "this is content 2", 1);
+        myDb.insertContentData("introduction", "this is content 3", 1);
+        myDb.insertContentData("introduction", "this is content 4", 1);
+        myDb.insertContentData("introduction", "this is new content 1", 2);
+        myDb.insertContentData("introduction", "this is new content 2", 2);
+        myDb.insertContentData("introduction", "this is new content 3", 2);
+        myDb.insertContentData("introduction", "this is new content 4", 2);
+
     }
 
     private void enableBottomBar(boolean enable) {
