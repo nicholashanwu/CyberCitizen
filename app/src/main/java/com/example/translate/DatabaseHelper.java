@@ -142,9 +142,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	public Cursor getContentCategory(String category, int pageNumber) {
 		SQLiteDatabase db = this.getWritableDatabase();
-		//return db.rawQuery("SELECT * FROM " + SENTENCE_TABLE_NAME + " WHERE category = '" + category + "'", null);
 		return db.rawQuery("SELECT * FROM " + SENTENCE_TABLE_NAME + " WHERE category = '" + category + "' AND pagenumber = '" + pageNumber +"'" , null);
 	}
+
+	public int getContentCategoryPageCount(String category, int pageNumber) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor c = db.rawQuery("SELECT MAX(pagenumber) FROM " + SENTENCE_TABLE_NAME + " WHERE category = '" + category + "'", null);
+		c.moveToFirst();
+		return c.getInt(0);
+	}
+
+
 
     ////////////////////////////////////////////
 

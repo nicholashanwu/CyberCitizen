@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -35,6 +34,7 @@ public class ContentScrollerFragment extends Fragment {
 	private CardView mCvContent;
 	private RecyclerView mRecyclerView;
 	private int pageNumber = 1;
+	private int totalPageCount;
 	private int progress = 0;
 
 	public ContentScrollerFragment() {
@@ -68,6 +68,7 @@ public class ContentScrollerFragment extends Fragment {
 
 		myDb = new DatabaseHelper(getActivity());
 		final Cursor res = getAllContent(learningType, pageNumber);
+
 		res.moveToFirst();
 		setAdapter(res);
 
@@ -85,6 +86,12 @@ public class ContentScrollerFragment extends Fragment {
 				progress++;
 				int percentage = 100 * progress/res.getCount();
 
+				if(pageNumber == totalPageCount) {
+					// TODO: show message congratulations
+					//ok button takes them back to home screen
+				}
+
+
 				if(percentage == 100){
 					moveToNextPage();
 				} else {
@@ -94,15 +101,13 @@ public class ContentScrollerFragment extends Fragment {
 				}
 
 
-
-
-
 			}
 		});
 
 	}
 
 	private Cursor getAllContent(String learningType, int pageNumber) {
+		totalPageCount = myDb.getContentCategoryPageCount(learningType, pageNumber);
 		return myDb.getContentCategory(learningType, pageNumber);
 	}
 
@@ -120,17 +125,12 @@ public class ContentScrollerFragment extends Fragment {
 		YoYo.with(Techniques.SlideOutLeft).duration(200).playOn(mCvContent);
 		YoYo.with(Techniques.SlideInRight).duration(200).delay(300).playOn(mCvContent);
 
-
 		pageNumber++;
 
 		setAdapter(getAllContent(learningType, pageNumber));
 
 		progress = 0;
 		mProgressBarContent.setProgress(0, true);
-
-
-		//animate recyclerview moving away
-		//replace recyclerview
 	}
 
 }
