@@ -10,6 +10,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -21,8 +22,7 @@ import com.makeramen.roundedimageview.RoundedImageView;
 
 public class HomeFragment extends Fragment {
 
-	private RoundedImageView mBtnProfileImage;
-	private FloatingActionButton mFabOneOne;
+	private CardView mCvOneOne;
 
 	public View onCreateView(@NonNull LayoutInflater inflater,
 							 ViewGroup container, Bundle savedInstanceState) {
@@ -35,9 +35,9 @@ public class HomeFragment extends Fragment {
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
-		mFabOneOne = view.findViewById(R.id.fabOneOne);
+		mCvOneOne = view.findViewById(R.id.cvOneOne);
 
-		mFabOneOne.setOnClickListener(new View.OnClickListener() {
+		mCvOneOne.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Bundle bundle = new Bundle();

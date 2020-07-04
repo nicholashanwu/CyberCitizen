@@ -19,7 +19,7 @@
         android:translationZ="90dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@id/fabBackContent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabContentDone"
@@ -42,9 +42,23 @@
         app:rippleColor="#33FFFFFF"
         app:tint="#FFFFFF" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabBackContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:src="@drawable/outline_arrow_back_white_48"
+        app:layout_constraintBottom_toBottomOf="@+id/progressBarContent"
+        app:layout_constraintEnd_toStartOf="@+id/progressBarContent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/progressBarContent" />
+
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="197dp"
+        tools:layout_editor_absoluteY="101dp">
 
         <LinearLayout
             android:layout_width="match_parent"

@@ -35,6 +35,7 @@ public class ContentScrollerFragment extends Fragment {
 	private ContentAdapter mAdapter;
 	private DatabaseHelper myDb;
 	private FloatingActionButton mFabContentDone;
+	private FloatingActionButton mFabBackContent;
 	private ProgressBar mProgressBarContent;
 	private ProgressBar mProgressBarContentPage;
 	private CardView mCvContent;
@@ -70,6 +71,7 @@ public class ContentScrollerFragment extends Fragment {
 		mCvContent = view.findViewById(R.id.cvContent);
 		mRecyclerView = view.findViewById(R.id.rvContent);
 		mTxtProgressPageNumbers = view.findViewById(R.id.txtProgressPageNumbers);
+		mFabBackContent = view.findViewById(R.id.fabBackContent);
 
 
 		myDb = new DatabaseHelper(getActivity());
@@ -82,8 +84,8 @@ public class ContentScrollerFragment extends Fragment {
 
 		progress = 0;
 		mProgressBarContent.setProgress(0, true);
-		mProgressBarContentPage.setProgress(1);
-		mProgressBarContentPage.setMax(2);
+		mProgressBarContentPage.setProgress(pageNumber);
+		mProgressBarContentPage.setMax(totalPageCount);
 
 
 		mFabContentDone.setOnClickListener(new View.OnClickListener() {
@@ -93,12 +95,27 @@ public class ContentScrollerFragment extends Fragment {
 				progress++;
 				int percentage = 100 * progress/res.getCount();
 
+				mProgressBarContent.setProgress(percentage, true);
 
 				if(percentage == 100){
 					moveToNextPage();
 				} else {
-					mProgressBarContent.setProgress(percentage, true);
 					mAdapter.increaseCount();
+				}
+			}
+		});
+
+		mFabBackContent.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+
+				if(progress == 0) {
+					moveToPreviousPage();
+				} else {
+					progress--;
+					int percentage = 100 * progress/res.getCount();
+					mProgressBarContent.setProgress(percentage, true);
+					mAdapter.decreaseCount();
 				}
 			}
 		});
@@ -122,14 +139,34 @@ public class ContentScrollerFragment extends Fragment {
 
 	private void moveToNextPage(){
 
-		if(pageNumber == totalPageCount) {
+		if(pageNumber >= totalPageCount) {
 			showMessage("Congratulations!");
 		} else {
-			mProgressBarContentPage.setProgress(mProgressBarContent.getProgress() + 1, true);
+			mProgressBarContentPage.setProgress(mProgressBarContentPage.getProgress() + 1, true);
 			YoYo.with(Techniques.SlideOutLeft).duration(200).playOn(mCvContent);
 			YoYo.with(Techniques.SlideInRight).duration(200).delay(300).playOn(mCvContent);
 
 			pageNumber++;
+
+			setAdapter(getAllContent(learningType, pageNumber));
+			mTxtProgressPageNumbers.setText(pageNumber + "/" + totalPageCount);
+
+			progress = 0;
+			mProgressBarContent.setProgress(0, true);
+		}
+
+	}
+
+	private void moveToPreviousPage(){
+
+		if(pageNumber == 1) {
+			//do nothing
+		} else {
+			mProgressBarContentPage.setProgress(mProgressBarContentPage.getProgress() - 1, true);
+			YoYo.with(Techniques.SlideOutRight).duration(200).playOn(mCvContent);
+			YoYo.with(Techniques.SlideInLeft).duration(200).delay(300).playOn(mCvContent);
+
+			pageNumber--;
 
 			setAdapter(getAllContent(learningType, pageNumber));
 			mTxtProgressPageNumbers.setText(pageNumber + "/" + totalPageCount);
@@ -157,8 +194,17 @@ public class ContentScrollerFragment extends Fragment {
 			}
 		});
 
+		builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+			@Override
+			public void onDismiss(DialogInterface dialog) {
+				Navigation.findNavController(getView()).popBackStack();
+			}
+		});
+
 		txtTitle.setText(title);
 		builder.setView(view);
+
+
 		builder.show();
 	}
 

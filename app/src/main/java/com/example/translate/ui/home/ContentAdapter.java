@@ -66,4 +66,11 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ContentV
 		notifyDataSetChanged();
 	}
 
+	public void decreaseCount() {
+		if(count > 0){
+			count--;
+		}
+		notifyDataSetChanged();
+	}
+
 }
