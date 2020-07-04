@@ -203,8 +203,8 @@ public class MainActivity extends AppCompatActivity {
                 enableBottomBar(true);
                 isTest = false;
                 if (destination.getId() == R.id.navigation_home) {
-                    bottomBar.setBackgroundColor(getResources().getColor(R.color.colorGreenDark));
-                    setStatusBarColor(R.color.colorGreenDark);
+                    bottomBar.setBackgroundColor(getResources().getColor(R.color.colorPurpleDark));
+                    setStatusBarColor(R.color.colorPurpleDark);
                 } else if (destination.getId() == R.id.navigation_test_home) {
                     bottomBar.setBackgroundColor(getResources().getColor(R.color.colorRedDark));
                     setStatusBarColor(R.color.colorRedDark);
@@ -214,7 +214,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (destination.getId() == R.id.navigation_learning) {
                     isTest = true;
                     bottomBar.setBackgroundColor(Color.parseColor("#444444"));
-                    setStatusBarColor(R.color.colorGreenDark);
+                    setStatusBarColor(R.color.colorPurpleDark);
                     enableBottomBar(false);
                 } else if (destination.getId() == R.id.navigation_test) {
                     isTest = true;

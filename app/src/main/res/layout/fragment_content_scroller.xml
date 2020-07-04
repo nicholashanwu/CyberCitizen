@@ -67,12 +67,30 @@
                 android:textColor="#FFFFFF"
                 android:textSize="36sp" />
 
+            <TextView
+                android:id="@+id/txtProgressPageNumbers"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:letterSpacing="0.1"
+                android:text="Progress"
+                android:textAlignment="textEnd"
+                android:textAllCaps="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:textStyle="bold" />
+
             <ProgressBar
                 android:id="@+id/progressBarContentPage"
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp" />
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginBottom="16dp"
+                android:progressTint="#FFFFFF" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvContent"

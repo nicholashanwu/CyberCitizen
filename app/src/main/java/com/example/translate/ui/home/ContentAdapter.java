@@ -64,7 +64,6 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ContentV
 			count++;
 		}
 		notifyDataSetChanged();
-		//notifyItemInserted(count);
 	}
 
 }
