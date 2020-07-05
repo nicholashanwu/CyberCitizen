@@ -21,6 +21,7 @@ import com.makeramen.roundedimageview.RoundedImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -41,7 +42,8 @@ public class DashboardFragment extends Fragment {
     private RoundCornerProgressBar mPbF;
     private RoundCornerProgressBar mPbAchievement;
     private RoundedImageView mBtnProfileImage;
-
+    private CardView mBtnStartSaved;
+    private CardView mBtnStartLearned;
 
     public DashboardFragment() {
     }
@@ -76,6 +78,8 @@ public class DashboardFragment extends Fragment {
         mPbF = view.findViewById(R.id.pbF);
         mPbAchievement = view.findViewById(R.id.pbAchievement);
         mBtnProfileImage = view.findViewById(R.id.btnProfileImageDashboard);
+        mBtnStartSaved = view.findViewById(R.id.btnStartSaved);
+        mBtnStartLearned = view.findViewById(R.id.btnStartLearned);
 
         Glide.with(getContext()).load(R.drawable.tzuyu).apply(new RequestOptions().override(100, 100)).into(mBtnProfileImage);
 
@@ -108,6 +112,63 @@ public class DashboardFragment extends Fragment {
         mTxtLevel.setText(String.valueOf(level));
 
         myDb.close();
+
+        mBtnStartSaved.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Cursor res = myDb.getSaved();
+                if (res.getCount() == 0) {
+                    showMessage("No Saved Words...", "No saved!");
+                } else {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("learningType", "saved");
+                    Navigation.findNavController(getView()).navigate(R.id.action_navigation_dashboard_to_navigation_learning, bundle);
+
+                    if (myDb.progressAchievement("Dedicated")) {
+                        showAchievement("Dedicated");
+                        if (myDb.progressAchievement("Self-Improver")) {
+                            showAchievement("Self-Improver");
+                        }
+                    }
+
+
+                    for (int i = 0; i < res.getCount(); i++) {
+                        if (myDb.progressAchievement("Smart Saver")) {
+                            showAchievement("Smart Saver");
+                        }
+
+                        if (myDb.progressAchievement("Sophisticated Saver")) {
+                            showAchievement("Sophisticated Saver");
+                        }
+                    }
+
+
+                }
+                res.close();
+            }
+        });
+
+        mBtnStartLearned.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Cursor res = myDb.getLearned();
+                if (res.getCount() == 0) {
+                    showMessage("No Data", "No learned!");
+                } else {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("learningType", "learned");
+                    Navigation.findNavController(getView()).navigate(R.id.action_navigation_dashboard_to_navigation_learning, bundle);
+                    if (myDb.progressAchievement("Pursuing Perfection")) {
+                        showAchievement("Pursuing Perfection");
+                        if (myDb.progressAchievement("Self-Improver")) {
+                            showAchievement("Self-Improver");
+                        }
+                    }
+                }
+                res.close();
+            }
+        });
+
     }
 
     public void getValues() {
@@ -281,5 +342,28 @@ public class DashboardFragment extends Fragment {
         builder.setView(view);
         builder.show();
     }
+
+    private void showMessage(String title, String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+        View view = LayoutInflater.from(getActivity()).inflate(R.layout.custom_alert_dialog_profile, null);
+
+        TextView txtTitle = view.findViewById(R.id.title);
+        ImageButton imageButton = view.findViewById(R.id.image);
+
+        imageButton.setImageResource(R.mipmap.over_40);
+
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                //closes dialog
+            }
+        });
+
+        txtTitle.setText(title);
+        builder.setView(view);
+        builder.show();
+    }
+
+
 
 }

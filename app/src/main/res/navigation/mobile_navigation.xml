@@ -51,18 +51,7 @@
         android:id="@+id/navigation_profile"
         android:name="com.example.translate.ui.profile.ProfileFragment"
         android:label="Profile"
-        tools:layout="@layout/fragment_profile">
-        <action
-            android:id="@+id/action_navigation_profile_to_navigation_learning"
-            app:destination="@id/navigation_learning"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit" />
-        <action
-            android:id="@+id/action_navigation_profile_to_navigation_my_list_fragment"
-            app:destination="@id/navigation_my_list_fragment"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit" />
-    </fragment>
+        tools:layout="@layout/fragment_profile"/>
 
     <fragment
         android:id="@+id/navigation_learning"
@@ -77,9 +66,6 @@
             app:destination="@id/navigation_home"
             app:enterAnim="@anim/fragment_close_enter"
             app:exitAnim="@anim/fragment_close_exit" />
-        <action
-            android:id="@+id/action_navigation_learning_to_navigation_my_list_fragment"
-            app:destination="@id/navigation_my_list_fragment" />
         <action
             android:id="@+id/action_navigation_learning_to_navigation_profile"
             app:destination="@id/navigation_profile"
@@ -101,33 +87,8 @@
             app:destination="@id/navigation_test_home"
             app:enterAnim="@anim/fragment_close_enter"
             app:exitAnim="@anim/fragment_close_exit" />
-        <action
-            android:id="@+id/action_navigation_test_to_navigation_my_list_fragment"
-            app:destination="@id/navigation_my_list_fragment"
-            app:enterAnim="@anim/fragment_close_enter"
-            app:exitAnim="@anim/fragment_close_exit" />
     </fragment>
 
-
-    <fragment
-        android:id="@+id/navigation_my_list_fragment"
-        android:name="com.example.translate.ui.profile.MyListFragment"
-        android:label="My List"
-        tools:layout="@layout/fragment_my_list">
-        <action
-            android:id="@+id/action_navigation_my_list_fragment_to_navigation_profile"
-            app:destination="@id/navigation_profile"
-            app:enterAnim="@anim/fragment_close_enter"
-            app:exitAnim="@anim/fragment_close_exit" />
-        <action
-            android:id="@+id/action_navigation_my_list_fragment_to_navigation_learning"
-            app:destination="@id/navigation_learning" />
-        <action
-            android:id="@+id/action_navigation_my_list_fragment_to_navigation_test"
-            app:destination="@id/navigation_test"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit" />
-    </fragment>
 
     <fragment
         android:id="@+id/navigation_dashboard"
@@ -144,6 +105,9 @@
             app:destination="@id/navigation_profile"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_navigation_dashboard_to_navigation_learning"
+            app:destination="@id/navigation_learning" />
     </fragment>
     <fragment
         android:id="@+id/navigation_achievement"
@@ -164,5 +128,10 @@
             android:id="@+id/action_contentScrollerFragment_to_navigation_home"
             app:destination="@id/navigation_home" />
     </fragment>
+    <fragment
+        android:id="@+id/compassFragment"
+        android:name="com.example.translate.ui.compass.CompassFragment"
+        android:label="fragment_compass"
+        tools:layout="@layout/fragment_compass" />
 
 </navigation>

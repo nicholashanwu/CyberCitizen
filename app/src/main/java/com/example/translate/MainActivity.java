@@ -14,6 +14,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.NavOptions;
@@ -107,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 .setPopUpTo(navController.getGraph().getStartDestination(), false)
                 .build();
 
-        bottomBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+        /*bottomBar.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 boolean handled = false;
@@ -149,6 +150,8 @@ public class MainActivity extends AppCompatActivity {
                     enableBottomBar(false);
                     isTest = true;
                     handled = true;
+                } else if (item.getItemId() != R.id.navigation_home) {
+                    navController.navigate(item.getItemId(), null, slideRightNavOptions);
                 } else {
                     navController.navigate(item.getItemId(), null);
                     handled = true;
@@ -156,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                 return handled;
 
             }
-        });
+        });*/
     }
 
     @Override
@@ -186,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_test_home, R.id.navigation_profile)
+                R.id.navigation_home, R.id.navigation_test_home, R.id.navigation_profile, R.id.navigation_dashboard)
                 .build();
 
         final NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -220,12 +223,7 @@ public class MainActivity extends AppCompatActivity {
                     isTest = true;
                     bottomBar.setBackgroundColor(Color.parseColor("#444444"));
                     enableBottomBar(false);
-                } else if (destination.getId() == R.id.navigation_my_list_fragment) {
-                    isTest = true;
-                    bottomBar.setBackgroundColor(Color.parseColor("#444444"));
-                    enableBottomBar(false);
-                    setStatusBarColor(R.color.colorBlueDark);
-                } else if (destination.getId() == R.id.navigation_dashboard) {
+                }  else if (destination.getId() == R.id.navigation_dashboard) {
                     bottomBar.setBackgroundColor(getResources().getColor(R.color.colorYellowDark));
                     setStatusBarColor(R.color.colorYellowDark);
                 } else if (destination.getId() == R.id.navigation_achievement) {
@@ -240,6 +238,8 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
     public void updateSharedPreferences() {
 
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
@@ -249,60 +249,59 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static void insertWordData(DatabaseHelper myDb, Activity activity) {
-        myDb.insertData("One", "一", "Yī", "numbers", false, false);
-        myDb.insertData("Two", "二", "Èr", "numbers", false, false);
-        myDb.insertData("Three", "三", "Sān", "numbers", false, false);
-        myDb.insertData("Four", "四", "Sì", "numbers", false, false);
-        myDb.insertData("Five", "五", "Wǔ", "numbers", false, false);
-        myDb.insertData("Six", "六", "Liù", "numbers", false, false);
-        myDb.insertData("Seven", "七", "Qī", "numbers", false, false);
-        myDb.insertData("Eight", "八", "Bā", "numbers", false, false);
-        myDb.insertData("Nine", "九", "Jiǔ", "numbers", false, false);
-        myDb.insertData("Ten", "十", "Shí", "numbers", false, false);
-        myDb.insertData("Twenty", "二十", "Èrshí", "numbers", false, false);
-        myDb.insertData("Fifty", "五十", "Wǔshí", "numbers", false, false);
-        myDb.insertData("One Hundred", "一百", "Yībǎi", "numbers", false, false);
-        myDb.insertData("One Thousand", "一千", "Yīqiān", "numbers", false, false);
+        myDb.insertData("One", "一", "numbers", false, false);
+        myDb.insertData("Two", "二", "numbers", false, false);
+        myDb.insertData("Three", "三", "numbers", false, false);
+        myDb.insertData("Four", "四", "numbers", false, false);
+        myDb.insertData("Five", "五", "numbers", false, false);
+        myDb.insertData("Six", "六", "numbers", false, false);
+        myDb.insertData("Seven", "七", "numbers", false, false);
+        myDb.insertData("Eight", "八", "numbers", false, false);
+        myDb.insertData("Nine", "九", "numbers", false, false);
+        myDb.insertData("Ten", "十", "numbers", false, false);
+        myDb.insertData("Twenty", "二十", "numbers", false, false);
+        myDb.insertData("Fifty", "五十", "numbers", false, false);
+        myDb.insertData("One Hundred", "一百", "numbers", false, false);
+        myDb.insertData("One Thousand", "一千", "numbers", false, false);
 
-        myDb.insertData("Hello", "你好", "Nǐ hǎo", "essentials", false, false);
-        myDb.insertData("How are you?", "你好吗", "Nǐ hǎo ma", "essentials", false, false);
-        myDb.insertData("Thank you", "谢谢", "Xièxiè", "essentials", false, false);
-        myDb.insertData("Good", "好", "Hǎo", "essentials", false, false);
-        myDb.insertData("Not good", "不好", "Bù hǎo", "essentials", false, false);
-        myDb.insertData("Sorry", "对不起", "Duìbùqǐ", "essentials", false, false);
-        myDb.insertData("Ok!", "好的", "Hǎo de", "essentials", false, false);
-        myDb.insertData("Good Morning", "早上好", "Zǎoshang hǎo", "essentials", false, false);
-        myDb.insertData("Goodnight", "晚安", "Wǎn'ān", "essentials", false, false);
-        myDb.insertData("Good Evening", "晚上好", "Wǎnshàng hǎo", "essentials", false, false);
-        myDb.insertData("I am-", "我是", "Wǒ shì", "essentials", false, false);
-        myDb.insertData("Bye", "再见", "Zàijiàn", "essentials", false, false);
+        myDb.insertData("Hello", "你好", "essentials", false, false);
+        myDb.insertData("How are you?", "你好吗", "essentials", false, false);
+        myDb.insertData("Thank you", "谢谢", "essentials", false, false);
+        myDb.insertData("Good", "好", "essentials", false, false);
+        myDb.insertData("Not good", "不好", "essentials", false, false);
+        myDb.insertData("Sorry", "对不起", "essentials", false, false);
+        myDb.insertData("Ok!", "好的", "essentials", false, false);
+        myDb.insertData("Good Morning", "早上好", "essentials", false, false);
+        myDb.insertData("Goodnight", "晚安", "essentials", false, false);
+        myDb.insertData("Good Evening", "晚上好", "essentials", false, false);
+        myDb.insertData("I am-", "我是", "essentials", false, false);
+        myDb.insertData("Bye", "再见", "essentials", false, false);
 
-        myDb.insertData("Apple", "苹果", "Píngguǒ", "food", false, false);
-        myDb.insertData("Banana", "香蕉", "Xiāngjiāo", "food", false, false);
-        myDb.insertData("Orange", "橙子", "Chéngzi", "food", false, false);
-        myDb.insertData("Hamburger", "汉堡包", "Hànbǎobāo", "food", false, false);
-        myDb.insertData("Dumpling", "饺子", "Jiǎozi", "food", false, false);
-        myDb.insertData("Rice", "白饭", "Báifàn", "food", false, false);
-        myDb.insertData("Noodles", "面条", "Miàntiáo", "food", false, false);
-        myDb.insertData("Orange Juice", "橙汁", "Chéngzhī", "food", false, false);
-        myDb.insertData("Apple Juice", "苹果汁", "Píngguǒ zhī", "food", false, false);
-        myDb.insertData("Coffee", "咖啡", "Kāfēi", "food", false, false);
-        myDb.insertData("Tea", "茶", "Chá", "food", false, false);
-        myDb.insertData("Pizza", "比萨", "Bǐsà", "food", false, false);
-        myDb.insertData("Sushi", "寿司", "Shòusī", "food", false, false);
+        myDb.insertData("Apple", "苹果", "food", false, false);
+        myDb.insertData("Banana", "香蕉", "food", false, false);
+        myDb.insertData("Orange", "橙子", "food", false, false);
+        myDb.insertData("Hamburger", "汉堡包", "food", false, false);
+        myDb.insertData("Dumpling", "饺子", "food", false, false);
+        myDb.insertData("Rice", "白饭", "food", false, false);
+        myDb.insertData("Noodles", "面条", "food", false, false);
+        myDb.insertData("Orange Juice", "橙汁", "food", false, false);
+        myDb.insertData("Apple Juice", "苹果汁", "food", false, false);
+        myDb.insertData("Coffee", "咖啡", "food", false, false);
+        myDb.insertData("Tea", "茶", "food", false, false);
+        myDb.insertData("Pizza", "比萨", "food", false, false);
+        myDb.insertData("Sushi", "寿司", "food", false, false);
 
-        myDb.insertData("Police", "警察", "Jǐngchá", "help", false, false);
-        myDb.insertData("Police Station", "警察局", "Jǐngchá jú", "help", false, false);
-        myDb.insertData("Ambulance", "救护车", "Jiùhù chē", "help", false, false);
-        myDb.insertData("Hospital", "医院", "Yīyuàn", "help", false, false);
-        myDb.insertData("Fire", "火", "Huǒ", "help", false, false);
-        myDb.insertData("Drugstore", "药店", "Yàodiàn", "help", false, false);
-        myDb.insertData("Help", "救命", "Jiùmìng", "help", false, false);
-        myDb.insertData("Stay Away", "远离", "Yuǎnlí", "help", false, false);
-        myDb.insertData("Headache", "头痛", "Tóutòng", "help", false, false);
-        myDb.insertData("Hot Water", "热水", "Rè shuǐ", "help", false, false);
-        myDb.insertData("Go Away!", "走开", "Zǒu kāi", "help", false, false);
-
+        myDb.insertData("Police", "警察", "help", false, false);
+        myDb.insertData("Police Station", "警察局", "help", false, false);
+        myDb.insertData("Ambulance", "救护车", "help", false, false);
+        myDb.insertData("Hospital", "医院", "help", false, false);
+        myDb.insertData("Fire", "火", "help", false, false);
+        myDb.insertData("Drugstore", "药店", "help", false, false);
+        myDb.insertData("Help", "救命", "help", false, false);
+        myDb.insertData("Stay Away", "远离", "help", false, false);
+        myDb.insertData("Headache", "头痛", "help", false, false);
+        myDb.insertData("Hot Water", "热水", "help", false, false);
+        myDb.insertData("Go Away!", "走开", "help", false, false);
 
     }
 

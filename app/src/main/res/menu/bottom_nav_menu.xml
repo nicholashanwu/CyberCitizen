@@ -21,5 +21,4 @@
         android:icon="@drawable/outline_perm_identity_black_48dp"
         android:title="@string/title_profile" />
 
-
 </menu>

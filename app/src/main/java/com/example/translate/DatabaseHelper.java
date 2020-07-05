@@ -13,12 +13,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_NAME = "content_table";
 
     private static final String COL_1 = "id_pk";
-    private static final String COL_2 = "phraseEn";
-    private static final String COL_3 = "phraseCn";
-    private static final String COL_4 = "pinyin";
-    private static final String COL_5 = "category";
-    private static final String COL_6 = "learned";
-    private static final String COL_7 = "saved";
+    private static final String COL_2 = "phrase";
+    private static final String COL_3 = "definition";
+    private static final String COL_4 = "category";
+    private static final String COL_5 = "learned";
+    private static final String COL_6 = "saved";
 
     private static final String A_TABLE_NAME = "achievement_table";
     private static final String ATT_1 = "id_pk";
@@ -47,9 +46,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "PHRASEEN TEXT, " +
-                "PHRASECN TEXT, " +
-                "PINYIN TEXT, " +
+                "PHRASE TEXT, " +
+                "DEFINITION TEXT, " +
                 "CATEGORY TEXT, " +
                 "LEARNED BOOLEAN, " +
                 "SAVED BOOLEAN)");
@@ -81,15 +79,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean insertData(String phraseEn, String phraseCn, String pinyin, String category, boolean learned, boolean saved) {
+    public boolean insertData(String phrase, String definition, String category, boolean learned, boolean saved) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2, phraseEn);
-        contentValues.put(COL_3, phraseCn);
-        contentValues.put(COL_4, pinyin);
-        contentValues.put(COL_5, category);
-        contentValues.put(COL_6, learned);
-        contentValues.put(COL_7, saved);
+        contentValues.put(COL_2, phrase);
+        contentValues.put(COL_3, definition);
+        contentValues.put(COL_4, category);
+        contentValues.put(COL_5, learned);
+        contentValues.put(COL_6, saved);
         long result = db.insert(TABLE_NAME, null, contentValues);
         return result != -1;
     }
@@ -171,28 +168,28 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE learned = 1", null);
     }
 
-	public Cursor getSaveStatus(String phraseEn) {
+	public Cursor getSaveStatus(String phrase) {
 		SQLiteDatabase db = this.getWritableDatabase();
-		return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE phraseEn = '" + phraseEn + "'", null);
+		return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE phrase = '" + phrase + "'", null);
 	}
 
-	public Cursor getLearnedStatus(String phraseEn) {
+	public Cursor getLearnedStatus(String phrase) {
 		SQLiteDatabase db = this.getWritableDatabase();
-		return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE phraseEn = '" + phraseEn + "'", null);
+		return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE phrase = '" + phrase + "'", null);
 	}
 
-	public void updateSave(String phraseEn, boolean saved) {
+	public void updateSave(String phrase, boolean saved) {
 		SQLiteDatabase db = this.getWritableDatabase();
 		ContentValues contentValues = new ContentValues();
-		contentValues.put(COL_7, saved);
-		db.update(TABLE_NAME, contentValues, "phraseEn = ?", new String[]{phraseEn});
+		contentValues.put(COL_6, saved);
+		db.update(TABLE_NAME, contentValues, "phrase = ?", new String[]{phrase});
 	}
 
-	public void updateLearned(String phraseEn, boolean learned) {
+	public void updateLearned(String phrase, boolean learned) {
 		SQLiteDatabase db = this.getWritableDatabase();
 		ContentValues contentValues = new ContentValues();
-		contentValues.put(COL_6, learned);
-		db.update(TABLE_NAME, contentValues, "phraseEn = ?", new String[]{phraseEn});
+		contentValues.put(COL_5, learned);
+		db.update(TABLE_NAME, contentValues, "phrase = ?", new String[]{phrase});
 	}
 
 	public void dropTable() {

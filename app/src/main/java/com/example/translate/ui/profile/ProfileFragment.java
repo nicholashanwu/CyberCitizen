@@ -45,12 +45,7 @@ public class ProfileFragment extends Fragment {
         CardView mBtnStartLearned = view.findViewById(R.id.btnStartLearned);
         HorizontalScrollView mHsvCards = view.findViewById(R.id.hsvCards);
         RoundedImageView mBtnProfileImageProfile = view.findViewById(R.id.btnProfileImageProfile);
-        ImageView mIvSaved = view.findViewById(R.id.ivSaved);
-        ImageView mIvMastered = view.findViewById(R.id.ivMastered);
 
-        Glide.with(getContext()).load(R.drawable.envelope).apply(new RequestOptions().override(600, 600)).into(mIvSaved);
-        Glide.with(getContext()).load(R.drawable.tools).apply(new RequestOptions().override(600, 600)).into(mIvMastered);
-        Glide.with(getContext()).load(R.drawable.tzuyu).apply(new RequestOptions().override(100, 100)).into(mBtnProfileImageProfile);
 
         mBtnStartSaved.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,7 +56,7 @@ public class ProfileFragment extends Fragment {
                 } else {
                     Bundle bundle = new Bundle();
                     bundle.putString("learningType", "saved");
-                    Navigation.findNavController(getView()).navigate(R.id.action_navigation_profile_to_navigation_learning, bundle);
+                    //Navigation.findNavController(getView()).navigate(R.id.action_navigation_profile_to_navigation_learning, bundle);
 
                     if (myDb.progressAchievement("Dedicated")) {
                         showAchievement("Dedicated");
@@ -96,7 +91,7 @@ public class ProfileFragment extends Fragment {
                 } else {
                     Bundle bundle = new Bundle();
                     bundle.putString("learningType", "learned");
-                    Navigation.findNavController(getView()).navigate(R.id.action_navigation_profile_to_navigation_learning, bundle);
+                    //Navigation.findNavController(getView()).navigate(R.id.action_navigation_profile_to_navigation_learning, bundle);
                     if (myDb.progressAchievement("Pursuing Perfection")) {
                         showAchievement("Pursuing Perfection");
                         if (myDb.progressAchievement("Self-Improver")) {
