@@ -17,8 +17,8 @@
         android:title="Dashboard" />"
 
     <item
-        android:id="@+id/navigation_profile"
-        android:icon="@drawable/outline_perm_identity_black_48dp"
-        android:title="@string/title_profile" />
+        android:id="@+id/navigation_compass"
+        android:icon="@drawable/outline_explore_white_48"
+        android:title="Compass" />
 
 </menu>

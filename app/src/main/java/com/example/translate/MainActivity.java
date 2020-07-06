@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_test_home, R.id.navigation_profile, R.id.navigation_dashboard)
+                R.id.navigation_home, R.id.navigation_test_home, R.id.navigation_compass, R.id.navigation_dashboard)
                 .build();
 
         final NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -211,7 +211,7 @@ public class MainActivity extends AppCompatActivity {
                 } else if (destination.getId() == R.id.navigation_test_home) {
                     bottomBar.setBackgroundColor(getResources().getColor(R.color.colorRedDark));
                     setStatusBarColor(R.color.colorRedDark);
-                } else if (destination.getId() == R.id.navigation_profile) {
+                } else if (destination.getId() == R.id.navigation_compass) {
                     bottomBar.setBackgroundColor(getResources().getColor(R.color.colorBlueDark));
                     setStatusBarColor(R.color.colorBlueDark);
                 } else if (destination.getId() == R.id.navigation_learning) {

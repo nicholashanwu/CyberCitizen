@@ -22,7 +22,7 @@
             app:popExitAnim="@anim/fragment_close_exit" />
         <action
             android:id="@+id/action_navigation_home_to_navigation_profile"
-            app:destination="@id/navigation_profile"
+            app:destination="@id/navigation_compass"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left" />
         <action
@@ -42,16 +42,16 @@
             app:exitAnim="@anim/fragment_open_exit" />
         <action
             android:id="@+id/action_navigation_test_home_to_navigation_profile"
-            app:destination="@id/navigation_profile"
+            app:destination="@id/navigation_compass"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left" />
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_profile"
-        android:name="com.example.translate.ui.profile.ProfileFragment"
-        android:label="Profile"
-        tools:layout="@layout/fragment_profile"/>
+        android:id="@+id/navigation_compass"
+        android:name="com.example.translate.ui.profile.CompassFragment"
+        android:label="Compass"
+        tools:layout="@layout/fragment_compass" />
 
     <fragment
         android:id="@+id/navigation_learning"
@@ -68,7 +68,7 @@
             app:exitAnim="@anim/fragment_close_exit" />
         <action
             android:id="@+id/action_navigation_learning_to_navigation_profile"
-            app:destination="@id/navigation_profile"
+            app:destination="@id/navigation_compass"
             app:enterAnim="@anim/fragment_close_enter"
             app:exitAnim="@anim/fragment_close_exit" />
     </fragment>
@@ -102,7 +102,7 @@
             app:exitAnim="@anim/fragment_open_exit" />
         <action
             android:id="@+id/action_navigation_dashboard_to_navigation_profile"
-            app:destination="@id/navigation_profile"
+            app:destination="@id/navigation_compass"
             app:enterAnim="@anim/slide_in_right"
             app:exitAnim="@anim/slide_out_left" />
         <action
