@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/navigation_home"
-        android:icon="@drawable/outline_extension_black_48dp"
+        android:icon="@drawable/ic_outline_school_24"
         android:title="@string/title_learn" />
 
     <item
@@ -13,8 +13,8 @@
 
     <item
         android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/outline_dashboard_black_48dp"
-        android:title="Dashboard" />"
+        android:icon="@drawable/ic_outline_emoji_events_24"
+        android:title="Achievements" />"
 
     <item
         android:id="@+id/navigation_compass"

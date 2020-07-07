@@ -51,7 +51,14 @@
         android:id="@+id/navigation_compass"
         android:name="com.example.translate.ui.profile.CompassFragment"
         android:label="Compass"
-        tools:layout="@layout/fragment_compass" />
+        tools:layout="@layout/fragment_compass" >
+        <action
+            android:id="@+id/action_navigation_compass_to_navigation_resource"
+            app:destination="@id/navigation_resource" />
+        <action
+            android:id="@+id/action_navigation_compass_to_navigation_google"
+            app:destination="@id/navigation_google" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_learning"
@@ -129,9 +136,14 @@
             app:destination="@id/navigation_home" />
     </fragment>
     <fragment
-        android:id="@+id/compassFragment"
-        android:name="com.example.translate.ui.compass.CompassFragment"
-        android:label="fragment_compass"
-        tools:layout="@layout/fragment_compass" />
+        android:id="@+id/navigation_resource"
+        android:name="com.example.translate.ui.profile.ResourceFragment"
+        android:label="fragment_resource"
+        tools:layout="@layout/fragment_resource" />
+    <fragment
+        android:id="@+id/navigation_google"
+        android:name="com.example.translate.ui.profile.GoogleFragment"
+        android:label="fragment_google"
+        tools:layout="@layout/fragment_google" />
 
 </navigation>
