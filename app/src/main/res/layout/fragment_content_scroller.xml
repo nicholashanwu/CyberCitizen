@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,58 +7,10 @@
     android:background="#673AB7"
     tools:context=".ui.home.HomeFragment">
 
-    <ProgressBar
-        android:id="@+id/progressBarContent"
-        style="?android:progressBarStyleHorizontal"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginBottom="64dp"
-        android:elevation="16dp"
-        android:progress="0"
-        android:progressDrawable="@drawable/circle"
-        android:translationZ="90dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/fabBackContent" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabContentDone"
-        android:layout_width="67dp"
-        android:layout_height="63dp"
-        android:layout_gravity="bottom"
-        android:layout_weight="1"
-        android:background="@null"
-        android:clickable="true"
-        android:elevation="16dp"
-        android:focusable="auto"
-        android:src="@drawable/baseline_done_white_48"
-        app:backgroundTint="@color/colorGreen"
-        app:elevation="8dp"
-        app:fabCustomSize="64dp"
-        app:layout_constraintBottom_toBottomOf="@+id/progressBarContent"
-        app:layout_constraintEnd_toEndOf="@+id/progressBarContent"
-        app:layout_constraintStart_toStartOf="@+id/progressBarContent"
-        app:layout_constraintTop_toTopOf="@+id/progressBarContent"
-        app:rippleColor="#33FFFFFF"
-        app:tint="#FFFFFF" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabBackContent"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:clickable="true"
-        android:src="@drawable/outline_arrow_back_white_48"
-        app:layout_constraintBottom_toBottomOf="@+id/progressBarContent"
-        app:layout_constraintEnd_toStartOf="@+id/progressBarContent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/progressBarContent" />
-
-    <ScrollView
+    <androidx.core.widget.NestedScrollView
         android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="197dp"
-        tools:layout_editor_absoluteY="101dp">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -68,6 +20,20 @@
 
             <TextView
                 android:id="@+id/txtContentScrollerTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginEnd="32dp"
+                android:layout_marginRight="0dp"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="Welcome To Cyber Citizen"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/txtContentScrollerPageTitle"
                 android:layout_width="270dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -115,11 +81,43 @@
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/rvContent"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_margin="16dp" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginBottom="16dp" />
             </androidx.cardview.widget.CardView>
 
         </LinearLayout>
-    </ScrollView>
+    </androidx.core.widget.NestedScrollView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabBackContent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="16dp"
+        android:layout_marginBottom="64dp"
+        android:backgroundTint="@color/colorGreen"
+        android:clickable="true"
+        android:src="@drawable/outline_arrow_back_white_48"
+        app:backgroundTint="#00000000" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabContentDone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="64dp"
+        android:background="@null"
+        android:clickable="true"
+        android:elevation="16dp"
+        android:focusable="auto"
+        android:src="@drawable/baseline_done_white_48"
+        app:backgroundTint="@color/colorGreen"
+        app:elevation="8dp"
+        app:rippleColor="#33FFFFFF" />
+
+</RelativeLayout>

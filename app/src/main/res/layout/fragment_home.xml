@@ -37,20 +37,19 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="72dp"
+                android:layout_marginBottom="24dp"
+                android:paddingBottom="72dp"
                 app:cardBackgroundColor="#F5F5F5"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="0dp"
-                app:cardMaxElevation="0dp"
-                app:contentPaddingBottom="72dp">
+                app:cardMaxElevation="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:clipChildren="false"
                     android:clipToPadding="false"
-                    android:orientation="vertical"
-                    android:paddingBottom="24dp">
+                    android:orientation="vertical">
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"

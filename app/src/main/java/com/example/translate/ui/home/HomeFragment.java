@@ -43,7 +43,7 @@ public class HomeFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				Bundle bundle = new Bundle();
-				bundle.putString("learningType", "introduction");
+				bundle.putString("learningType", "What is Cyber?");
 				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_contentScrollerFragment, bundle);
 			}
 		});

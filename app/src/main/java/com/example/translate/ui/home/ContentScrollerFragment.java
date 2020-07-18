@@ -32,6 +32,7 @@ public class ContentScrollerFragment extends Fragment {
 	private String learningType;
 	private TextView mTxtContentScrollerTitle;
 	private TextView mTxtProgressPageNumbers;
+	private TextView mTxtContentScrollerPageTitle;
 	private ContentAdapter mAdapter;
 	private DatabaseHelper myDb;
 	private FloatingActionButton mFabContentDone;
@@ -52,7 +53,7 @@ public class ContentScrollerFragment extends Fragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-		// Inflate the layout for this fragment
+
 		View view = inflater.inflate(R.layout.fragment_content_scroller, container, false);
 
 		return view;
@@ -63,10 +64,9 @@ public class ContentScrollerFragment extends Fragment {
 		super.onViewCreated(view, savedInstanceState);
 
 		learningType = getArguments().getString("learningType");
-		System.out.println(learningType);
 		mTxtContentScrollerTitle = view.findViewById(R.id.txtContentScrollerTitle);
+		mTxtContentScrollerPageTitle = view.findViewById(R.id.txtContentScrollerPageTitle);
 		mFabContentDone = view.findViewById(R.id.fabContentDone);
-		mProgressBarContent = view.findViewById(R.id.progressBarContent);
 		mProgressBarContentPage = view.findViewById(R.id.progressBarContentPage);
 		mCvContent = view.findViewById(R.id.cvContent);
 		mRecyclerView = view.findViewById(R.id.rvContent);
@@ -83,24 +83,23 @@ public class ContentScrollerFragment extends Fragment {
 		setAdapter(res);
 
 		progress = 0;
-		mProgressBarContent.setProgress(0, true);
 		mProgressBarContentPage.setProgress(pageNumber);
 		mProgressBarContentPage.setMax(totalPageCount);
 
+		System.out.println(res.getCount());
 
 		mFabContentDone.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 
-				progress++;
-				int percentage = 100 * progress/res.getCount();
 
-				mProgressBarContent.setProgress(percentage, true);
-
-				if(percentage == 100){
+				if(progress == res.getCount()){
 					moveToNextPage();
 				} else {
+
 					mAdapter.increaseCount();
+					progress++;
+
 				}
 			}
 		});
@@ -113,8 +112,7 @@ public class ContentScrollerFragment extends Fragment {
 					moveToPreviousPage();
 				} else {
 					progress--;
-					int percentage = 100 * progress/res.getCount();
-					mProgressBarContent.setProgress(percentage, true);
+
 					mAdapter.decreaseCount();
 				}
 			}
@@ -129,6 +127,7 @@ public class ContentScrollerFragment extends Fragment {
 
 	private void setAdapter(Cursor res) {
 		res.moveToFirst();
+		mTxtContentScrollerPageTitle.setText(res.getString(3));
 		RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(this.getContext());
 		mRecyclerView.setLayoutManager(mLayoutManager);
 		mAdapter = new ContentAdapter(getContext(), res);
@@ -151,8 +150,7 @@ public class ContentScrollerFragment extends Fragment {
 			setAdapter(getAllContent(learningType, pageNumber));
 			mTxtProgressPageNumbers.setText(pageNumber + "/" + totalPageCount);
 
-			progress = 0;
-			mProgressBarContent.setProgress(0, true);
+			progress = 1;
 		}
 
 	}
@@ -172,7 +170,6 @@ public class ContentScrollerFragment extends Fragment {
 			mTxtProgressPageNumbers.setText(pageNumber + "/" + totalPageCount);
 
 			progress = 0;
-			mProgressBarContent.setProgress(0, true);
 		}
 
 	}
@@ -185,18 +182,11 @@ public class ContentScrollerFragment extends Fragment {
 
 		imageButton.setImageResource(R.mipmap.over_75);
 
-		builder.setPositiveButton("AWESOME", new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialogInterface, int i) {
-				res.close();
-				myDb.close();
-				Navigation.findNavController(getView()).popBackStack();
-			}
-		});
-
 		builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
 			@Override
 			public void onDismiss(DialogInterface dialog) {
+				res.close();
+				myDb.close();
 				Navigation.findNavController(getView()).popBackStack();
 			}
 		});

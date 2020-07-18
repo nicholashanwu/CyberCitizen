@@ -21,10 +21,6 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ContentV
 		mCursor = cursor;
 	}
 
-//    public interface RecyclerViewClickListener {
-//        void onClick(View view, int position);
-//    }
-
 	public static class ContentViewHolder extends RecyclerView.ViewHolder {
 		public TextView mName;
 
@@ -48,7 +44,7 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ContentV
 			return;
 		}
 		//count = position;
-		String name = mCursor.getString(2);
+		String name = mCursor.getString(4);
 
 		holder.mName.setText(name);
 	}
@@ -60,6 +56,8 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ContentV
 	}
 
 	public void increaseCount() {
+		System.out.println("count = " + count);
+		System.out.println("mCursor = " + mCursor.getCount());
 		if(count < mCursor.getCount()){
 			count++;
 		}

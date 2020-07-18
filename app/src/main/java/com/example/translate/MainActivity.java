@@ -328,14 +328,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static void insertContentData(DatabaseHelper myDb, Activity activity) {
-        myDb.insertContentData("introduction", "this is content 1", 1);
-        myDb.insertContentData("introduction", "this is content 2", 1);
-        myDb.insertContentData("introduction", "this is content 3", 1);
-        myDb.insertContentData("introduction", "this is content 4", 1);
-        myDb.insertContentData("introduction", "this is new content 1", 2);
-        myDb.insertContentData("introduction", "this is new content 2", 2);
-        myDb.insertContentData("introduction", "this is new content 3", 2);
-        myDb.insertContentData("introduction", "this is new content 4", 2);
+        myDb.insertContentData("What is Cyber?", 1, "Introduction", "Would you be comfortable living in a house that some stranger had access to? What if the door couldn't be locked or there was a hidden underground tunnel leading to the basement? Would you feel as though your safety and privacy is upheld? Using the internet and digital services is that house. If you need to store your personal belongings there, how do you go about protecting it?");
+        myDb.insertContentData("What is Cyber?", 1, "Introduction", "The revolution of applications, IoT, computer and mobile devices has paved the way for cyberattacks leaving both individuals and companies vulnerable. With the vast number of ways in which attacks can occur, the question is \"when\" not \"if\".");
+        myDb.insertContentData("What is Cyber?", 2, "A Brief History", "Early on, we had old legacy systems such as mainframes with limited access. They were centrally managed without easy access to the mainframe and instead access was usually through command-line terminals. Hence attack routes and methods to access data or compromise the data was difficult. ");
+        myDb.insertContentData("What is Cyber?", 2, "A Brief History", "As we digitally progressed, the need to connect became more effervescent beginning with wired local access networks (LAN) that soon transitioned to Wireless Local Area Networks (WLAN) or better known as Wi-Fi. This provided ease of connection for both honest individuals as well as users with malicious intent. ");
+        myDb.insertContentData("What is Cyber?", 2, "A Brief History", "Instead of all data being stored on centralised servers, we now have distributed devices such as computers with their own computational power, servers with their own processing power and even servers in the Cloud. With services spread across networks and devices, many more vulnerabilities exist.");
+        myDb.insertContentData("What is Cyber?", 2, "A Brief History", "What is cybersecurity? Cybersecurity is how data, computer systems and networks are protected from digital attacks or compromises such as hackers or viruses. It is hence extremely important for organisations, governments and individuals to place a high focus on cybersecurity.");
+        myDb.insertContentData("What is Cyber?", 3, "A Brief History", "content");
+
 
     }
 

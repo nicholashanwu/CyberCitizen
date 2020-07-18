@@ -35,8 +35,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private static final String SENTENCE_TABLE_NAME = "sentence_table";
 	private static final String TYP_1 = "id_pk";
 	private static final String TYP_2 = "category";
-	private static final String TYP_3 = "content";
-	private static final String TYP_4 = "pageNumber";
+	private static final String TYP_3 = "pageNumber";
+	private static final String TYP_4 = "pageTitle";
+	private static final String TYP_5 = "content";
 
 
 	public DatabaseHelper(Context context) {
@@ -65,9 +66,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 		db.execSQL("CREATE TABLE " + SENTENCE_TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
 				"CATEGORY TEXT, " +
-				"CONTENT TEXT, " +
-				"PAGENUMBER INTEGER)");
-    }
+				"PAGENUMBER INTEGER, " +
+				"PAGETITLE TEXT, " +
+				"CONTENT TEXT)");
+	}
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -112,12 +114,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return result != -1;
 	}
 
-	public boolean insertContentData(String category, String content, int pageNumber) {
+	public boolean insertContentData(String category, int pageNumber, String pageTitle, String content) {
 		SQLiteDatabase db = this.getWritableDatabase();
 		ContentValues contentValues = new ContentValues();
 		contentValues.put(TYP_2, category);
-		contentValues.put(TYP_3, content);
-		contentValues.put(TYP_4, pageNumber);
+		contentValues.put(TYP_3, pageNumber);
+		contentValues.put(TYP_4, pageTitle);
+		contentValues.put(TYP_5, content);
 		long result = db.insert(SENTENCE_TABLE_NAME, null, contentValues);
 		return result != -1;
 	}
