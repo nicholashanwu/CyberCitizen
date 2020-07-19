@@ -238,8 +238,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
     public void updateSharedPreferences() {
 
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
@@ -249,33 +247,28 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static void insertWordData(DatabaseHelper myDb, Activity activity) {
-        myDb.insertData("One", "一", "numbers", false, false);
-        myDb.insertData("Two", "二", "numbers", false, false);
-        myDb.insertData("Three", "三", "numbers", false, false);
-        myDb.insertData("Four", "四", "numbers", false, false);
-        myDb.insertData("Five", "五", "numbers", false, false);
-        myDb.insertData("Six", "六", "numbers", false, false);
-        myDb.insertData("Seven", "七", "numbers", false, false);
-        myDb.insertData("Eight", "八", "numbers", false, false);
-        myDb.insertData("Nine", "九", "numbers", false, false);
-        myDb.insertData("Ten", "十", "numbers", false, false);
-        myDb.insertData("Twenty", "二十", "numbers", false, false);
-        myDb.insertData("Fifty", "五十", "numbers", false, false);
-        myDb.insertData("One Hundred", "一百", "numbers", false, false);
-        myDb.insertData("One Thousand", "一千", "numbers", false, false);
+        myDb.insertData("Antivirus Software", "Computer programs that can detect, block and remove viruses and malware.", "What is Cyber?", false, false);
+        myDb.insertData("Backup", "Extra copies of files and data that can be used to restore data when lost or damaged.", "What is Cyber?", false, false);
+        myDb.insertData("Data Breach", "A result of a cyberattack that allows cybercriminals to gain unauthorised access to a system or network to steal the private, sensitive or personal and financial data of users within. ", "What is Cyber?", false, false);
+        myDb.insertData("DDos", "Distributed Denial of service attack that attempts to cause an online service unavailable by overwhelming it with a flood of traffic in packets. ", "What is Cyber?", false, false);
+        myDb.insertData("Encryption", "Process of using codes to make readable text unreadable. Encrypted information cannot be read until it is decrypted. ", "What is Cyber?", false, false);
+        myDb.insertData("Firewall", "Software designed to block malware from entering into the network. ", "What is Cyber?", false, false);
+        myDb.insertData("Hacker", "Attacker that seeks to compromise digital devices such as computers, smartphones, tablets or networks. They can have many motivations such as personal gain, make a statement, political reasons or simply because they can. ", "What is Cyber?", false, false);
+        myDb.insertData("Identity Theft", "Occurs when a criminal obtains or uses personal information that they have gained of another individual to assume their identity or access their online accounts. ", "What is Cyber?", false, false);
+        myDb.insertData("Keylogger", "Software that secretly records what you see, say or do on your device. ", "What is Cyber?", false, false);
+        myDb.insertData("Malware", "Software that harms devices, networks or individuals. It includes viruses, worms, ransomware and other programs. ", "What is Cyber?", false, false);
+        myDb.insertData("Network", "Two or more interconnected devices that can exchange data. ", "What is Cyber?", false, false);
+        myDb.insertData("Phishing", "An attempt to trick people into revealing sensitive information. The main method is by the use of emails or fake websites. ", "What is Cyber?", false, false);
+        myDb.insertData("Ransomware", "New form of malware that locks users out of their files or devices then demands payment to restore access. ", "What is Cyber?", false, false);
+        myDb.insertData("Server", "Computer or program that provides services on a network. E.g. Email server or web server. ", "What is Cyber?", false, false);
+        myDb.insertData("Social Engineering", "Methods cybercriminals use to get their victim to undertake some questionable action that usually involves sending money or providing confidential private information ", "What is Cyber?", false, false);
+        myDb.insertData("Software", "Package of code written in a programming language or languages instructing devices to perform certain tasks. ", "What is Cyber?", false, false);
+        myDb.insertData("Spam", "Unsolicited emails sent to many destination addresses. ", "What is Cyber?", false, false);
+        myDb.insertData("Spyware", "Form of malware that hides on your device, monitoring activity and has the potential to steal sensitive information such as passwords or banking information. ", "What is Cyber?", false, false);
+        myDb.insertData("Vulnerability", "Flaw or weakness that attackers can exploit to gain access to information or damage.", "What is Cyber?", false, false);
+        myDb.insertData("Virus", "A piece of code which is capable of copying itself and typically has a detrimental effect, such as corrupting the system or destroying data.", "What is Cyber?", false, false);
+        myDb.insertData("", "", "What is Cyber?", false, false);
 
-        myDb.insertData("Hello", "你好", "essentials", false, false);
-        myDb.insertData("How are you?", "你好吗", "essentials", false, false);
-        myDb.insertData("Thank you", "谢谢", "essentials", false, false);
-        myDb.insertData("Good", "好", "essentials", false, false);
-        myDb.insertData("Not good", "不好", "essentials", false, false);
-        myDb.insertData("Sorry", "对不起", "essentials", false, false);
-        myDb.insertData("Ok!", "好的", "essentials", false, false);
-        myDb.insertData("Good Morning", "早上好", "essentials", false, false);
-        myDb.insertData("Goodnight", "晚安", "essentials", false, false);
-        myDb.insertData("Good Evening", "晚上好", "essentials", false, false);
-        myDb.insertData("I am-", "我是", "essentials", false, false);
-        myDb.insertData("Bye", "再见", "essentials", false, false);
 
         myDb.insertData("Apple", "苹果", "food", false, false);
         myDb.insertData("Banana", "香蕉", "food", false, false);
@@ -333,7 +326,7 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertContentData("What is Cyber?", 2, "A Brief History", "Early on, we had old legacy systems such as mainframes with limited access. They were centrally managed without easy access to the mainframe and instead access was usually through command-line terminals. Hence attack routes and methods to access data or compromise the data was difficult. ");
         myDb.insertContentData("What is Cyber?", 2, "A Brief History", "As we digitally progressed, the need to connect became more effervescent beginning with wired local access networks (LAN) that soon transitioned to Wireless Local Area Networks (WLAN) or better known as Wi-Fi. This provided ease of connection for both honest individuals as well as users with malicious intent. ");
         myDb.insertContentData("What is Cyber?", 2, "A Brief History", "Instead of all data being stored on centralised servers, we now have distributed devices such as computers with their own computational power, servers with their own processing power and even servers in the Cloud. With services spread across networks and devices, many more vulnerabilities exist.");
-        myDb.insertContentData("What is Cyber?", 2, "A Brief History", "What is cybersecurity? Cybersecurity is how data, computer systems and networks are protected from digital attacks or compromises such as hackers or viruses. It is hence extremely important for organisations, governments and individuals to place a high focus on cybersecurity.");
+        myDb.insertContentData("What is Cyber?", 2, "A Brief History", "What is cybersecurizty? Cybersecurity is how data, computer systems and networks are protected from digital attacks or compromises such as hackers or viruses. It is hence extremely important for organisations, governments and individuals to place a high focus on cybersecurity.");
         myDb.insertContentData("What is Cyber?", 3, "Data Breaches", "If you keep up with the news, you will notice that every couple months, another large global company is hit by a data breach. This means customer payment information, logins and passwords are stolen. You may be left wondering, \"Now that this has occurred, what can I do to protect myself?\" Below are a few major steps to take as a precaution.");
         myDb.insertContentData("What is Cyber?", 3, "Data Breaches", "1.\tReset your password now. Change your password for any and all compromised accounts. Multi-factor authentication should also be enabled for services that allow this extra layer of security. With this enabled, if attackers steal login credentials, they will not be able to access your account without the other authentication mechanism. It is extremely difficult to brute-force through a multi-factor authentication system provided that most companies lock accounts when too many incorrect attempts are made.");
         myDb.insertContentData("What is Cyber?", 3, "Data Breaches", "2.\tMonitor your credit accounts. Observe any suspicious activity that arises. This is not just transactions that are to be looked out for but also where logins are from. Most banks and other digital service providers will notify when logins from unusual locations occur.");
@@ -341,10 +334,10 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertContentData("What is Cyber?", 3, "Data Breaches", "4.\tCarefully monitor your inbox. Avoid phishing emails at all costs as there will be numerous attempts to get you to provide personal information. Cybercriminals are opportunistic and know that many victims will expect to receive some kind of communication or statement regarding the breach or accounts that were hacked.");
         myDb.insertContentData("What is Cyber?", 4, "Phishing", "Phishing is the crime of deceiving individuals into exposing sensitive information such as passwords or payment information. There are many methods to reel a victim in but the most common is in the form of a malicious email or text message. These usually imitate an organisation that is trusted or a government office. Victims often fall for the message that appears from clouding better judgment with fear.");
         myDb.insertContentData("What is Cyber?", 4, "Phishing", "“Phishing is the simplest kind of cyberattack and, at the same time, the most dangerous and effective.” - Adam Kujawa, Director of Malwarebytes Labs Phishing attacks the most vulnerable and powerful computer on the planet: the human mind.” Attackers here are not exploiting a technical vulnerability on a device or system. They are using “social engineering. Why waste time trying to penetrate through multiple layers of security when you can trick someone into handing over the key to the lock.");
-        myDb.insertContentData("What is Cyber?", 4, "Phishing", "Types of phishing attacks: \n" + "-\tSpear phishing \n" + "-\tEmail phishing \n" + "-\tWhaling \n" + "-\tSmishing and Vishing \n" + "-\tWatering hole phishing \n" + "-\tClone phishing\n");
-        myDb.insertContentData("What is Cyber?", 4, "Phishing", "How to identify a phishing attack: \n" + "Knowing whether something is a phishing attempt isn't always the easiest, but with some discipline and common sense, you can avoid a lot of issues down the road. Look for something abnormal or suspicious. You should ask yourself if the message passes the \"smell test\". Try to trust your intuition and do not get too swayed by the fear the message could generate. Phishing attacks more often than not, use fear to cloud judgement. \n");
-        myDb.insertContentData("What is Cyber?", 4, "Phishing", "A few more signs of a phishing attempt:\n" + "-\tYou recognise the sender but it's not someone that usually sends you messages.\n" + "-\tThe message incites fear. Be careful when alarmist language or tone is used to create a sense of panic or urgency. Responsible organisations will not ask for personal details over the phone or internet.\n" + "-\tThe message contains some unusual attachments that don't seem quite right to be attached.\n" + "-\tThe message contains links that look suspicious. Be on the lookout for small spelling errors in the URL. You should always type in the URL yourself into your browser instead of clicking on the email link. To further this, don't click embedded hyperlinks without first hovering over it to see the destination URL.\n");
-        myDb.insertContentData("What is Cyber?", 4, "Phishing", "How do I protect myself against phishing? Many browsers have automatic checks on links to ensure they are safe before allowing you to enter. This is not a fool-proof method and ultimately it is still up to you to be the first line of defence. Important practices to stay safe:\n" + "-\tDon't open e-mails from senders you are not familiar with.\n" + "-\tDon't click on a link inside of an e-mail unless you know exactly where it is going.\n" + "-\tTo add extra security, if you receive an e-mail from a source you are unsure of, navigate to the provided link manually by entering the legitimate website address into your browser.\n" + "-\tLookout for the digital certificate of a website.\n" + "-\tIf you are asked to provide sensitive information, check that the URL starts with “HTTPS” instead of just “HTTP.” The “S” stands for “secure.”It's not guaranteeing that the site is legitimate, but most legitimate sites use HTTPS because it's more secure. HTTP sites, even legitimate ones, are vulnerable to hackers.\n" + "-\tHover the mouse over the link to see if it's legitimate.\n");
+        myDb.insertContentData("What is Cyber?", 4, "Phishing", "Types of phishing attacks: \n" + "-\tSpear phishing \n" + "-\tEmail phishing \n" + "-\tWhaling \n" + "-\tSmishing and Vishing \n" + "-\tWatering hole phishing \n" + "-\tClone phishing");
+        myDb.insertContentData("What is Cyber?", 4, "Phishing", "How to identify a phishing attack: \n" + "Knowing whether something is a phishing attempt isn't always the easiest, but with some discipline and common sense, you can avoid a lot of issues down the road. Look for something abnormal or suspicious. You should ask yourself if the message passes the \"smell test\". Try to trust your intuition and do not get too swayed by the fear the message could generate. Phishing attacks more often than not, use fear to cloud judgement.");
+        myDb.insertContentData("What is Cyber?", 4, "Phishing", "A few more signs of a phishing attempt:\n" + "-\tYou recognise the sender but it's not someone that usually sends you messages.\n" + "-\tThe message incites fear. Be careful when alarmist language or tone is used to create a sense of panic or urgency. Responsible organisations will not ask for personal details over the phone or internet.\n" + "-\tThe message contains some unusual attachments that don't seem quite right to be attached.\n" + "-\tThe message contains links that look suspicious. Be on the lookout for small spelling errors in the URL. You should always type in the URL yourself into your browser instead of clicking on the email link. To further this, don't click embedded hyperlinks without first hovering over it to see the destination URL.");
+        myDb.insertContentData("What is Cyber?", 4, "Phishing", "How do I protect myself against phishing? Many browsers have automatic checks on links to ensure they are safe before allowing you to enter. This is not a fool-proof method and ultimately it is still up to you to be the first line of defence. Important practices to stay safe:\n" + "-\tDon't open e-mails from senders you are not familiar with.\n" + "-\tDon't click on a link inside of an e-mail unless you know exactly where it is going.\n" + "-\tTo add extra security, if you receive an e-mail from a source you are unsure of, navigate to the provided link manually by entering the legitimate website address into your browser.\n" + "-\tLookout for the digital certificate of a website.\n" + "-\tIf you are asked to provide sensitive information, check that the URL starts with “HTTPS” instead of just “HTTP.” The “S” stands for “secure.”It's not guaranteeing that the site is legitimate, but most legitimate sites use HTTPS because it's more secure. HTTP sites, even legitimate ones, are vulnerable to hackers.\n" + "-\tHover the mouse over the link to see if it's legitimate.");
 
 
 

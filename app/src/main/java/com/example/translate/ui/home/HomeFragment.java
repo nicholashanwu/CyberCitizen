@@ -23,6 +23,7 @@ import com.makeramen.roundedimageview.RoundedImageView;
 public class HomeFragment extends Fragment {
 
 	private CardView mCvOneOne;
+	private CardView mCvOneTwo;
 	private Button mBtnStartHelp;
 
 	public View onCreateView(@NonNull LayoutInflater inflater,
@@ -37,6 +38,7 @@ public class HomeFragment extends Fragment {
 		super.onViewCreated(view, savedInstanceState);
 
 		mCvOneOne = view.findViewById(R.id.cvOneOne);
+		mCvOneTwo = view.findViewById(R.id.cvOneTwo);
 		mBtnStartHelp = view.findViewById(R.id.btnStartHelp);
 
 		mCvOneOne.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +47,15 @@ public class HomeFragment extends Fragment {
 				Bundle bundle = new Bundle();
 				bundle.putString("learningType", "What is Cyber?");
 				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_contentScrollerFragment, bundle);
+			}
+		});
+
+		mCvOneTwo.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bundle bundle = new Bundle();
+				bundle.putString("learningType", "What is Cyber?");
+				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_navigation_learning, bundle);
 			}
 		});
 
