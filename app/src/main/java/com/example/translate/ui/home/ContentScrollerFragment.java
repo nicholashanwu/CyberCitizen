@@ -4,17 +4,20 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
+import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -41,9 +44,10 @@ public class ContentScrollerFragment extends Fragment {
 	private ProgressBar mProgressBarContentPage;
 	private CardView mCvContent;
 	private RecyclerView mRecyclerView;
+	private NestedScrollView mSvContent;
 	private int pageNumber = 1;
 	private int totalPageCount;
-	private int progress = 0;
+	private int progress = 1;
 	private Cursor res;
 
 	public ContentScrollerFragment() {
@@ -72,6 +76,7 @@ public class ContentScrollerFragment extends Fragment {
 		mRecyclerView = view.findViewById(R.id.rvContent);
 		mTxtProgressPageNumbers = view.findViewById(R.id.txtProgressPageNumbers);
 		mFabBackContent = view.findViewById(R.id.fabBackContent);
+		mSvContent = view.findViewById(R.id.svContent);
 
 
 		myDb = new DatabaseHelper(getActivity());
@@ -82,7 +87,7 @@ public class ContentScrollerFragment extends Fragment {
 
 		setAdapter(res);
 
-		progress = 0;
+		progress = 1;
 		mProgressBarContentPage.setProgress(pageNumber);
 		mProgressBarContentPage.setMax(totalPageCount);
 
@@ -91,15 +96,18 @@ public class ContentScrollerFragment extends Fragment {
 		mFabContentDone.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
-
 				if(progress == res.getCount()){
 					moveToNextPage();
 				} else {
-
 					mAdapter.increaseCount();
 					progress++;
 
+					new Handler().postDelayed(new Runnable() {
+						@Override
+						public void run() {
+							mSvContent.fullScroll(ScrollView.FOCUS_DOWN);
+						}
+					}, 50);
 				}
 			}
 		});
@@ -108,12 +116,11 @@ public class ContentScrollerFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 
-				if(progress == 0) {
+				if(progress == 1) {
 					moveToPreviousPage();
 				} else {
-					progress--;
-
 					mAdapter.decreaseCount();
+					progress--;
 				}
 			}
 		});
@@ -147,7 +154,8 @@ public class ContentScrollerFragment extends Fragment {
 
 			pageNumber++;
 
-			setAdapter(getAllContent(learningType, pageNumber));
+			res = getAllContent(learningType, pageNumber);
+			setAdapter(res);
 			mTxtProgressPageNumbers.setText(pageNumber + "/" + totalPageCount);
 
 			progress = 1;
@@ -166,10 +174,11 @@ public class ContentScrollerFragment extends Fragment {
 
 			pageNumber--;
 
-			setAdapter(getAllContent(learningType, pageNumber));
+			res = getAllContent(learningType, pageNumber);
+			setAdapter(res);
 			mTxtProgressPageNumbers.setText(pageNumber + "/" + totalPageCount);
 
-			progress = 0;
+			progress = 1;
 		}
 
 	}

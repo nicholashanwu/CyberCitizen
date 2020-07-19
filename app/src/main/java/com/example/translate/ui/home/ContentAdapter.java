@@ -51,13 +51,11 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ContentV
 
 	@Override
 	public int getItemCount() {
-		//return mCursor.getCount();
+
 		return count;
 	}
 
 	public void increaseCount() {
-		System.out.println("count = " + count);
-		System.out.println("mCursor = " + mCursor.getCount());
 		if(count < mCursor.getCount()){
 			count++;
 		}

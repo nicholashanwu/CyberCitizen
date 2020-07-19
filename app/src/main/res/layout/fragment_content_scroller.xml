@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginBottom="32dp"
     android:background="#673AB7"
     tools:context=".ui.home.HomeFragment">
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/scrollView2"
+        android:id="@+id/svContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -76,6 +77,7 @@
                 android:id="@+id/cvContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="64dp"
                 app:cardCornerRadius="24dp">
 
                 <androidx.recyclerview.widget.RecyclerView
@@ -96,12 +98,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_marginLeft="16dp"
-        android:layout_marginBottom="64dp"
-        android:backgroundTint="@color/colorGreen"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="32dp"
         android:clickable="true"
         android:src="@drawable/outline_arrow_back_white_48"
-        app:backgroundTint="#00000000" />
+
+        app:backgroundTint="#FF9800"
+        app:rippleColor="#33FFFFFF" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabContentDone"
@@ -109,15 +112,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="64dp"
-        android:background="@null"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
         android:clickable="true"
-        android:elevation="16dp"
-        android:focusable="auto"
-        android:src="@drawable/baseline_done_white_48"
-        app:backgroundTint="@color/colorGreen"
-        app:elevation="8dp"
+        android:src="@drawable/outline_arrow_forward_white_48dp"
+        app:backgroundTint="#FF9800"
         app:rippleColor="#33FFFFFF" />
 
 </RelativeLayout>

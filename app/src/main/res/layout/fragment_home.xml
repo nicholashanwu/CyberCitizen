@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="24dp"
                 android:paddingBottom="72dp"
-                app:cardBackgroundColor="#F5F5F5"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="0dp"
                 app:cardMaxElevation="0dp">
@@ -54,13 +54,13 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginRight="6dp"
                         android:elevation="0dp"
                         app:cardCornerRadius="16dp"
-                        app:cardElevation="16dp"
-                        app:cardMaxElevation="16dp">
+                        app:cardElevation="0dp"
+                        app:cardMaxElevation="0dp">
 
                         <com.alespero.expandablecardview.ExpandableCardView
                             android:layout_width="match_parent"
@@ -97,13 +97,13 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginRight="6dp"
                         android:elevation="0dp"
                         app:cardCornerRadius="16dp"
-                        app:cardElevation="16dp"
-                        app:cardMaxElevation="16dp">
+                        app:cardElevation="0dp"
+                        app:cardMaxElevation="0dp">
 
                         <com.alespero.expandablecardview.ExpandableCardView
                             android:layout_width="match_parent"
@@ -140,13 +140,13 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginRight="6dp"
                         android:elevation="0dp"
                         app:cardCornerRadius="16dp"
-                        app:cardElevation="16dp"
-                        app:cardMaxElevation="16dp">
+                        app:cardElevation="0dp"
+                        app:cardMaxElevation="0dp">
 
                         <com.alespero.expandablecardview.ExpandableCardView
                             android:layout_width="match_parent"
@@ -183,13 +183,13 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginRight="6dp"
                         android:elevation="0dp"
                         app:cardCornerRadius="16dp"
-                        app:cardElevation="16dp"
-                        app:cardMaxElevation="16dp">
+                        app:cardElevation="0dp"
+                        app:cardMaxElevation="0dp">
 
                         <com.alespero.expandablecardview.ExpandableCardView
                             android:layout_width="match_parent"
@@ -227,14 +227,14 @@
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
-                        android:layout_marginLeft="16dp"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginRight="16dp"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginTop="6dp"
+                        android:layout_marginRight="6dp"
                         android:clipChildren="false"
                         android:clipToPadding="false"
                         app:cardCornerRadius="16dp"
-                        app:cardElevation="16dp"
-                        app:cardMaxElevation="16dp"
+                        app:cardElevation="0dp"
+                        app:cardMaxElevation="0dp"
                         app:contentPadding="8dp">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
