@@ -8,6 +8,45 @@
     android:background="#673AB7"
     tools:context=".ui.home.HomeFragment">
 
+    <ImageView
+        android:layout_width="200dp"
+        android:layout_height="150dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:alpha="0.8"
+        android:src="@drawable/book_lover" />
+
+    <TextView
+        android:id="@+id/txtContentScrollerTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="0dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Welcome To Cyber Citizen"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/txtContentScrollerPageTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/txtContentScrollerTitle"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="36dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Section"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp" />
+
     <androidx.core.widget.NestedScrollView
         android:id="@+id/svContent"
         android:layout_width="match_parent"
@@ -16,67 +55,13 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/txtContentScrollerTitle"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="36dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginRight="0dp"
-                android:fontFamily="@font/quicksand_bold"
-                android:text="Welcome To Cyber Citizen"
-                android:textColor="#FFFFFF"
-                android:textSize="12sp" />
-
-            <TextView
-                android:id="@+id/txtContentScrollerPageTitle"
-                android:layout_width="270dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="36dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginRight="0dp"
-                android:layout_marginBottom="32dp"
-                android:fontFamily="@font/quicksand_bold"
-                android:text="Welcome To Cyber Citizen"
-                android:textColor="#FFFFFF"
-                android:textSize="36sp" />
-
-            <TextView
-                android:id="@+id/txtProgressPageNumbers"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:letterSpacing="0.1"
-                android:text="Progress"
-                android:textAlignment="textEnd"
-                android:textAllCaps="true"
-                android:textAppearance="@style/TextAppearance.AppCompat.Small"
-                android:textColor="#FFFFFF"
-                android:textSize="10sp"
-                android:textStyle="bold" />
-
-            <ProgressBar
-                android:id="@+id/progressBarContentPage"
-                style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="16dp"
-                android:layout_marginRight="16dp"
-                android:layout_marginBottom="16dp"
-                android:progressTint="#FFFFFF" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cvContent"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="128dp"
                 android:layout_marginBottom="64dp"
                 app:cardCornerRadius="24dp">
 
@@ -118,5 +103,33 @@
         android:src="@drawable/outline_arrow_forward_white_48dp"
         app:backgroundTint="#FF9800"
         app:rippleColor="#33FFFFFF" />
+
+    <TextView
+        android:id="@+id/txtProgressPageNumbers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/svContent"
+        android:layout_marginLeft="96dp"
+        android:layout_marginRight="96dp"
+        android:layout_marginBottom="42dp"
+        android:letterSpacing="0.1"
+        android:text="Progress"
+        android:textAlignment="textEnd"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        android:textStyle="bold" />
+
+    <ProgressBar
+        android:id="@+id/progressBarContentPage"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_alignBottom="@id/svContent"
+        android:layout_marginLeft="96dp"
+        android:layout_marginRight="96dp"
+        android:layout_marginBottom="32dp"
+        android:progressTint="#FFFFFF" />
 
 </RelativeLayout>

@@ -83,7 +83,7 @@ public class ContentScrollerFragment extends Fragment {
 		res = getAllContent(learningType, pageNumber);
 
 		mTxtContentScrollerTitle.setText(learningType);
-		mTxtProgressPageNumbers.setText(pageNumber + "/" + totalPageCount);
+		mTxtProgressPageNumbers.setText("Page " + pageNumber + " of " + totalPageCount);
 
 		setAdapter(res);
 
@@ -156,7 +156,8 @@ public class ContentScrollerFragment extends Fragment {
 
 			res = getAllContent(learningType, pageNumber);
 			setAdapter(res);
-			mTxtProgressPageNumbers.setText(pageNumber + "/" + totalPageCount);
+			mTxtProgressPageNumbers.setText("Page " + pageNumber + " of " + totalPageCount);
+
 
 			progress = 1;
 		}

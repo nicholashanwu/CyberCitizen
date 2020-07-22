@@ -75,8 +75,8 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginRight="16dp"
                         app:cardCornerRadius="24dp"
-                        app:cardElevation="16dp"
-                        app:cardMaxElevation="16dp">
+                        app:cardElevation="0dp"
+                        app:cardMaxElevation="0dp">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -124,8 +124,8 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginRight="16dp"
                         app:cardCornerRadius="24dp"
-                        app:cardElevation="16dp"
-                        app:cardMaxElevation="16dp">
+                        app:cardElevation="0dp"
+                        app:cardMaxElevation="0dp">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -194,8 +194,8 @@
                         android:layout_marginRight="16dp"
                         android:layout_marginBottom="36dp"
                         app:cardCornerRadius="24dp"
-                        app:cardElevation="16dp"
-                        app:cardMaxElevation="16dp">
+                        app:cardElevation="0dp"
+                        app:cardMaxElevation="0dp">
 
                         <ImageView
                             android:layout_width="wrap_content"

@@ -4,39 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPurple"
     tools:context=".ui.home.HomeFragment">
 
+    <ImageView
+        android:layout_width="180dp"
+        android:layout_height="150dp"
+        android:alpha="0.7"
+        android:src="@drawable/security"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtHome"
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="21dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Welcome To\nCyber Citizen"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/colorPurple">
+        tools:layout_editor_absoluteY="128dp">
 
         <LinearLayout
-            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:animateLayoutChanges="true"
             android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/txtHome"
-                android:layout_width="270dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="36dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginRight="0dp"
-                android:layout_marginBottom="32dp"
-                android:fontFamily="@font/quicksand_bold"
-                android:text="Welcome To Cyber Citizen"
-                android:textColor="#FFFFFF"
-                android:textSize="36sp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="128dp"
                 android:layout_marginBottom="24dp"
                 android:paddingBottom="72dp"
                 app:cardBackgroundColor="#FFFFFF"
@@ -129,7 +136,7 @@
                             android:elevation="10dp"
                             android:fontFamily="sans-serif-medium"
                             android:letterSpacing="0.1"
-                            android:text="LEVEL ONE"
+                            android:text="LEVEL TWO"
                             android:textAllCaps="true"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
                             android:textSize="10sp"
@@ -172,7 +179,7 @@
                             android:elevation="10dp"
                             android:fontFamily="sans-serif-medium"
                             android:letterSpacing="0.1"
-                            android:text="LEVEL ONE"
+                            android:text="LEVEL THREE"
                             android:textAllCaps="true"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
                             android:textSize="10sp"
@@ -215,7 +222,7 @@
                             android:elevation="10dp"
                             android:fontFamily="sans-serif-medium"
                             android:letterSpacing="0.1"
-                            android:text="LEVEL ONE"
+                            android:text="LEVEL FOUR"
                             android:textAllCaps="true"
                             android:textAppearance="@style/TextAppearance.AppCompat.Small"
                             android:textSize="10sp"

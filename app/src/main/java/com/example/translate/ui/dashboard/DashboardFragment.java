@@ -28,22 +28,27 @@ import androidx.navigation.Navigation;
 public class DashboardFragment extends Fragment {
 
     private DatabaseHelper myDb;
-    private TextView mTxtAchievements;
-    private TextView mTxtTestsTaken;
-    private TextView mTxtWordsMastered;
-    private TextView mTxtLevel;
-    private TextView mTxtWordsAdded;
-    private TextView mTxtToNextLevel;
-    private RoundCornerProgressBar mPbExp;
-    private RoundCornerProgressBar mPbHd;
-    private RoundCornerProgressBar mPbD;
-    private RoundCornerProgressBar mPbC;
-    private RoundCornerProgressBar mPbP;
-    private RoundCornerProgressBar mPbF;
     private RoundCornerProgressBar mPbAchievement;
-    private RoundedImageView mBtnProfileImage;
+
     private CardView mBtnStartSaved;
     private CardView mBtnStartLearned;
+
+    private CardView mCvCoupons;
+    private CardView mCvBadges;
+
+    private View.OnClickListener couponsButtonClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            couponsButtonClicked();
+        }
+    };
+
+    private View.OnClickListener badgesButtonClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            badgesButtonClicked();
+        }
+    };
 
     public DashboardFragment() {
     }
@@ -64,31 +69,20 @@ public class DashboardFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         ExtendedFloatingActionButton mBtnAchievements = view.findViewById(R.id.btnAchievements);
-        mTxtAchievements = view.findViewById(R.id.txtAchievements);
-        mTxtTestsTaken = view.findViewById(R.id.txtTestsTaken);
-        mTxtWordsMastered = view.findViewById(R.id.txtWordsMastered);
-        mTxtLevel = view.findViewById(R.id.txtExperienceLevel);
-        mTxtWordsAdded = view.findViewById(R.id.txtWordsAdded);
-        mTxtToNextLevel = view.findViewById(R.id.txtToNextLevel);
-        mPbExp = view.findViewById(R.id.pbExp);
-        mPbHd = view.findViewById(R.id.pbHd);
-        mPbD = view.findViewById(R.id.pbD);
-        mPbC = view.findViewById(R.id.pbC);
-        mPbP = view.findViewById(R.id.pbP);
-        mPbF = view.findViewById(R.id.pbF);
+
         mPbAchievement = view.findViewById(R.id.pbAchievement);
-        mBtnProfileImage = view.findViewById(R.id.btnProfileImageDashboard);
+
         mBtnStartSaved = view.findViewById(R.id.btnStartSaved);
         mBtnStartLearned = view.findViewById(R.id.btnStartLearned);
 
-        Glide.with(getContext()).load(R.drawable.tzuyu).apply(new RequestOptions().override(100, 100)).into(mBtnProfileImage);
+        mCvCoupons = view.findViewById(R.id.cvCoupons);
+        mCvBadges = view.findViewById(R.id.cvBadges);
 
-        mBtnProfileImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(getView()).navigate(R.id.action_navigation_dashboard_to_navigation_profile);
-            }
-        });
+        mCvCoupons.setOnClickListener(couponsButtonClickListener);
+        mCvBadges.setOnClickListener(badgesButtonClickListener);
+
+
+
 
         mBtnAchievements.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -109,7 +103,7 @@ public class DashboardFragment extends Fragment {
 
         int level = getExperience(achievementCount);
 
-        mTxtLevel.setText(String.valueOf(level));
+//        mTxtLevel.setText(String.valueOf(level));
 
         myDb.close();
 
@@ -176,9 +170,9 @@ public class DashboardFragment extends Fragment {
         try (Cursor res = myDb.getScores()) {
 
             res.moveToFirst();
-            mTxtAchievements.setText(String.valueOf(res.getInt(2)));
+//            mTxtAchievements.setText(String.valueOf(res.getInt(2)));
             res.move(1);
-            mTxtTestsTaken.setText(String.valueOf(res.getInt(2)));
+//            mTxtTestsTaken.setText(String.valueOf(res.getInt(2)));
             if (res.getInt(2) > 30) {
                 if (myDb.progressAchievement("Tenacious Tester")) {
                     showAchievement("Tenacious Tester");
@@ -194,13 +188,13 @@ public class DashboardFragment extends Fragment {
             }
 
             res.move(1);
-            mTxtWordsMastered.setText(String.valueOf(res.getInt(2)));
+//            mTxtWordsMastered.setText(String.valueOf(res.getInt(2)));
             res.move(1);
-            mTxtLevel.setText(String.valueOf(res.getInt(2)));
+//            mTxtLevel.setText(String.valueOf(res.getInt(2)));
             res.move(1);
-            mTxtWordsAdded.setText(String.valueOf(res.getInt(2)));
+//            mTxtWordsAdded.setText(String.valueOf(res.getInt(2)));
             res.move(1);
-            mPbExp.setProgress(res.getInt(2));
+//            mPbExp.setProgress(res.getInt(2));
             res.move(1);
             int totalTests = 0;
 
@@ -219,17 +213,17 @@ public class DashboardFragment extends Fragment {
             int f = res.getInt(2);
             totalTests += f;
             res.move(1);
-            mPbHd.setMax(totalTests);
-            mPbD.setMax(totalTests);
-            mPbC.setMax(totalTests);
-            mPbP.setMax(totalTests);
-            mPbF.setMax(totalTests);
-
-            mPbHd.setProgress(hd);
-            mPbD.setProgress(d);
-            mPbC.setProgress(c);
-            mPbP.setProgress(p);
-            mPbF.setProgress(f);
+//            mPbHd.setMax(totalTests);
+//            mPbD.setMax(totalTests);
+//            mPbC.setMax(totalTests);
+//            mPbP.setMax(totalTests);
+//            mPbF.setMax(totalTests);
+//
+//            mPbHd.setProgress(hd);
+//            mPbD.setProgress(d);
+//            mPbC.setProgress(c);
+//            mPbP.setProgress(p);
+//            mPbF.setProgress(f);
 
         }
     }
@@ -239,34 +233,34 @@ public class DashboardFragment extends Fragment {
         int level;
         if (achievements >= 32) {
             level = 5;
-            mPbExp.setProgress(0);
-            mPbExp.setMax(1);
-            mTxtToNextLevel.setText("MAX LEVEL");
+//            mPbExp.setProgress(0);
+//            mPbExp.setMax(1);
+//            mTxtToNextLevel.setText("MAX LEVEL");
         } else if (achievements >= 24) {
             level = 4;
-            mPbExp.setMax(8);
-            mPbExp.setProgress(achievements - 24);
-            mTxtToNextLevel.setText(32 - achievements + " ACHIEVEMENTS TO GO");
+//            mPbExp.setMax(8);
+//            mPbExp.setProgress(achievements - 24);
+//            mTxtToNextLevel.setText(32 - achievements + " ACHIEVEMENTS TO GO");
         } else if (achievements >= 17) {
             level = 3;
-            mPbExp.setMax(7);
-            mPbExp.setProgress(achievements - 17);
-            mTxtToNextLevel.setText(24 - achievements + " ACHIEVEMENTS TO GO");
+//            mPbExp.setMax(7);
+//            mPbExp.setProgress(achievements - 17);
+//            mTxtToNextLevel.setText(24 - achievements + " ACHIEVEMENTS TO GO");
         } else if (achievements >= 11) {
             level = 2;
-            mPbExp.setMax(6);
-            mPbExp.setProgress(achievements - 11);
-            mTxtToNextLevel.setText(17 - achievements + " ACHIEVEMENTS TO GO");
+//            mPbExp.setMax(6);
+//            mPbExp.setProgress(achievements - 11);
+//            mTxtToNextLevel.setText(17 - achievements + " ACHIEVEMENTS TO GO");
         } else if (achievements >= 6) {
             level = 1;
-            mPbExp.setMax(5);
-            mPbExp.setProgress(achievements - 6);
-            mTxtToNextLevel.setText(11 - achievements + " ACHIEVEMENTS TO GO");
+//            mPbExp.setMax(5);
+//            mPbExp.setProgress(achievements - 6);
+//            mTxtToNextLevel.setText(11 - achievements + " ACHIEVEMENTS TO GO");
         } else {
             level = 0;
-            mPbExp.setMax(5);
-            mPbExp.setProgress(achievements);
-            mTxtToNextLevel.setText(6 - achievements + " ACHIEVEMENTS TO GO");
+//            mPbExp.setMax(5);
+//            mPbExp.setProgress(achievements);
+//            mTxtToNextLevel.setText(6 - achievements + " ACHIEVEMENTS TO GO");
         }
         return level;
     }
@@ -274,11 +268,14 @@ public class DashboardFragment extends Fragment {
     public int getAchievements() {
 
         Cursor cur = null;
+        int count = 0;
+
         try {
             cur = myDb.getAchieved();
             mPbAchievement.setMax(32);
             mPbAchievement.setProgress(cur.getCount());
-            mTxtAchievements.setText(cur.getCount() + "/32");
+            count = cur.getCount();
+//            mTxtAchievements.setText(cur.getCount() + "/32");
 
         } catch (Exception e) {
             // exception handling
@@ -288,7 +285,7 @@ public class DashboardFragment extends Fragment {
             }
         }
 
-        return cur.getCount();
+        return count;
     }
 
     public void getMyListWords() {
@@ -296,7 +293,7 @@ public class DashboardFragment extends Fragment {
         Cursor cur = myDb.getCategory("custom");
 
         try {
-            mTxtWordsAdded.setText(String.valueOf(cur.getCount()));
+//            mTxtWordsAdded.setText(String.valueOf(cur.getCount()));
         } catch (Exception e) {
             // exception handling
         } finally {
@@ -311,7 +308,7 @@ public class DashboardFragment extends Fragment {
         Cursor cur = myDb.getCategory("learned");
 
         try {
-            mTxtWordsMastered.setText(String.valueOf(cur.getCount()));
+//            mTxtWordsMastered.setText(String.valueOf(cur.getCount()));
         } catch (Exception e) {
             // exception handling
         } finally {
@@ -362,6 +359,14 @@ public class DashboardFragment extends Fragment {
         txtTitle.setText(title);
         builder.setView(view);
         builder.show();
+    }
+
+    private void couponsButtonClicked() {
+        //navigate to coupon page
+    }
+
+    private void badgesButtonClicked() {
+        //navigate to badges page
     }
 
 

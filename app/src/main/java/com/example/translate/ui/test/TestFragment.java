@@ -100,7 +100,7 @@ public class TestFragment extends Fragment {
 
         mProgressBar = view.findViewById(R.id.pbTest);
         mTxtProgress = view.findViewById(R.id.txtProgress);
-        mTxtChineseCharacter = view.findViewById(R.id.txtChineseCharacter);
+        mTxtChineseCharacter = view.findViewById(R.id.txtPhrase);
         mTxtLevelTitle = view.findViewById(R.id.txtLevelTitle);
         mTxtMessage = view.findViewById(R.id.txtMessage);
         mRbGroup = view.findViewById(R.id.rbGroup);

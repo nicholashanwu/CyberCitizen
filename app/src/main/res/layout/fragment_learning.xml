@@ -42,7 +42,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/txtChineseCharacter"
+                android:id="@+id/txtPhrase"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
@@ -50,7 +50,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginEnd="16dp"
                 android:fontFamily="@font/quicksand_bold"
-                android:text="@string/phrase_placeholder"
+                android:text="?"
                 android:textAlignment="center"
                 android:textSize="30sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +58,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/txtPinyin"
+                android:id="@+id/txtDefinition"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
@@ -70,7 +70,7 @@
                 android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/txtChineseCharacter" />
+                app:layout_constraintTop_toBottomOf="@+id/txtPhrase" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -42,7 +42,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/txtChineseCharacter"
+                android:id="@+id/txtPhrase"
                 android:layout_width="0dp"
                 android:layout_height="100dp"
                 android:layout_gravity="center_horizontal"
@@ -91,10 +91,10 @@
                 android:layout_width="64dp"
                 android:layout_height="64dp"
                 android:src="@mipmap/over_95"
-                app:layout_constraintBottom_toBottomOf="@+id/txtChineseCharacter"
+                app:layout_constraintBottom_toBottomOf="@+id/txtPhrase"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/txtChineseCharacter" />
+                app:layout_constraintTop_toTopOf="@+id/txtPhrase" />
 
             <TextView
                 android:id="@+id/txtTimer"

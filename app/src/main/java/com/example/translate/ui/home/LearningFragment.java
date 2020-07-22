@@ -34,8 +34,8 @@ public class LearningFragment extends Fragment {
 
 	private ExtendedFloatingActionButton mBtnBack;
 
-	private TextView mTxtChineseCharacter;
-	private TextView mTxtPinyin;
+	private TextView mTxtPhrase;
+	private TextView mTxtDefinition;
 	private TextView mTxtProgress;
 	private TextView mTxtLevelTitle;
 	private TextView mTxtSavedMessage;
@@ -84,8 +84,8 @@ public class LearningFragment extends Fragment {
 		FloatingActionButton mFabDone = view.findViewById(R.id.fabDone);
 		mProgressBar = view.findViewById(R.id.progressBar);
 		mTxtProgress = view.findViewById(R.id.txtProgress);
-		mTxtChineseCharacter = view.findViewById(R.id.txtChineseCharacter);
-		mTxtPinyin = view.findViewById(R.id.txtPinyin);
+		mTxtPhrase = view.findViewById(R.id.txtPhrase);
+		mTxtDefinition = view.findViewById(R.id.txtDefinition);
 		mTxtLevelTitle = view.findViewById(R.id.txtLevelTitle);
 		mTxtSavedMessage = view.findViewById(R.id.txtSavedMessage);
 		mTxtAnswerMessage = view.findViewById(R.id.txtAnswerMessage);
@@ -100,8 +100,8 @@ public class LearningFragment extends Fragment {
 
 		System.out.println("hi" + res.getCount());
 		setParameters(res);
-
-		setTitle(learningType);
+		mTxtLevelTitle.setText(learningType);
+		//setTitle(learningType);
 		mTxtAnswerMessage.setVisibility(View.GONE);
 		mTxtSavedMessage.setVisibility(View.GONE);
 		mTxtUnsavedMessage.setVisibility(View.GONE);
@@ -115,8 +115,8 @@ public class LearningFragment extends Fragment {
 				mFabAnswer.setImageResource(R.drawable.outline_visibility_off_white_48);
 
 				if (res.getPosition() < res.getCount()) {
-					mTxtChineseCharacter.setText(res.getString(1));
-					mTxtPinyin.setText(res.getString(2));
+					mTxtPhrase.setText("?");
+					mTxtDefinition.setText(res.getString(2));
 
 					hideMessages();
 
@@ -161,10 +161,10 @@ public class LearningFragment extends Fragment {
 		mFabAnswer.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				if (mTxtPinyin.getText().equals(res.getString(3))) {
-					hideAnswer();
-				} else {
+				if (mTxtPhrase.getText().equals("?")) {
 					showAnswer();
+				} else {
+					hideAnswer();
 				}
 			}
 		});
@@ -219,8 +219,8 @@ public class LearningFragment extends Fragment {
 		res.moveToFirst();
 
 
-		mTxtChineseCharacter.setText(res.getString(1));
-		mTxtPinyin.setText(res.getString(2));
+		mTxtPhrase.setText("?");
+		mTxtDefinition.setText(res.getString(2));
 
 		if (res.getString(5).equals("1")) {
 			mFabSave.setImageResource(R.drawable.baseline_bookmark_white_48);
@@ -391,20 +391,23 @@ public class LearningFragment extends Fragment {
 	}
 
 	private void hideAnswer() {
-		mTxtPinyin.setText(res.getString(1));
-
-		mTxtAnswerMessage.setVisibility(View.VISIBLE);
-		YoYo.with(Techniques.FadeInUp).duration(300).playOn(mTxtAnswerMessage);
-
-		mFabAnswer.setImageResource(R.drawable.baseline_visibility_white_48);
-	}
-
-	private void showAnswer() {
-		mTxtPinyin.setText(res.getString(3));
+		mTxtPhrase.setText("?");
 
 		YoYo.with(Techniques.FadeOutDown).duration(300).playOn(mTxtAnswerMessage);
 
+
 		mFabAnswer.setImageResource(R.drawable.outline_visibility_off_white_48);
+
+	}
+
+	private void showAnswer() {
+		mTxtPhrase.setText(res.getString(1));
+
+
+		mTxtAnswerMessage.setVisibility(View.VISIBLE);
+		YoYo.with(Techniques.FadeInUp).duration(300).playOn(mTxtAnswerMessage);
+		mFabAnswer.setImageResource(R.drawable.baseline_visibility_white_48);
+
 	}
 
 }
