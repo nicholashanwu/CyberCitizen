@@ -4,43 +4,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:animationCache="false"
+    android:background="@color/colorBlueDark"
     android:clipChildren="false"
     android:clipToPadding="false"
     tools:context=".ui.profile.CompassFragment">
 
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="21dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Career \nCompass"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPurple">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:animateLayoutChanges="true"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="270dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="36dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginRight="0dp"
-                android:layout_marginBottom="32dp"
-                android:fontFamily="@font/quicksand_bold"
-                android:text="Cyber Career Compass"
-                android:textColor="#FFFFFF"
-                android:textSize="36sp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:cardBackgroundColor="#F5F5F5"
+                android:layout_marginTop="128dp"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="24dp"
-                app:cardElevation="16dp"
-                app:cardMaxElevation="16dp">
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -83,7 +89,6 @@
                             android:layout_height="match_parent">
 
                             <ImageView
-                                android:id="@+id/imageView"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center|right"
@@ -94,7 +99,7 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <ImageView
-                                android:id="@+id/imageView11"
+                                android:id="@+id/imageView4"
                                 android:layout_width="108dp"
                                 android:layout_height="96dp"
                                 android:src="@drawable/google"
@@ -111,7 +116,7 @@
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toStartOf="@+id/imageView"
                                 app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintStart_toEndOf="@+id/imageView11"
+                                app:layout_constraintStart_toEndOf="@+id/imageView4"
                                 app:layout_constraintTop_toTopOf="parent" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -132,7 +137,7 @@
                             android:layout_height="match_parent">
 
                             <ImageView
-                                android:id="@+id/imageView12"
+                                android:id="@+id/imageView5"
                                 android:layout_width="108dp"
                                 android:layout_height="96dp"
                                 android:src="@drawable/microsoft"
@@ -141,7 +146,6 @@
                                 app:layout_constraintTop_toTopOf="parent" />
 
                             <ImageView
-                                android:id="@+id/imageView2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center|right"
@@ -162,7 +166,7 @@
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toStartOf="@+id/imageView2"
                                 app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintStart_toEndOf="@+id/imageView12"
+                                app:layout_constraintStart_toEndOf="@+id/imageView5"
                                 app:layout_constraintTop_toTopOf="parent" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
 

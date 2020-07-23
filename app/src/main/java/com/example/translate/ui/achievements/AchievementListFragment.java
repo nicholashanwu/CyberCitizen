@@ -1,4 +1,4 @@
-package com.example.translate.ui.dashboard;
+package com.example.translate.ui.achievements;
 
 import android.database.Cursor;
 import android.os.Bundle;
@@ -17,13 +17,13 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AchievementFragment extends Fragment {
+public class AchievementListFragment extends Fragment {
 
     private AchievementAdapter mAdapter;
     private DatabaseHelper myDb;
     private ExtendedFloatingActionButton mBtnBackAchievements;
 
-    public AchievementFragment() {
+    public AchievementListFragment() {
 
     }
 

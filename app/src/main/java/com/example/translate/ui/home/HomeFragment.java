@@ -24,7 +24,23 @@ public class HomeFragment extends Fragment {
 
 	private CardView mCvOneOne;
 	private CardView mCvOneTwo;
-	private Button mBtnStartHelp;
+	private CardView mCvOneThree;
+
+	private CardView mCvTwoOne;
+	private CardView mCvTwoTwo;
+	private CardView mCvTwoThree;
+	private CardView mCvTwoFour;
+
+	private CardView mCvThreeOne;
+	private CardView mCvThreeTwo;
+	private CardView mCvThreeThree;
+	private CardView mCvThreeFour;
+
+	private CardView mCvFourOne;
+	private CardView mCvFourTwo;
+	private CardView mCvFourThree;
+	private CardView mCvFourFour;
+
 
 	public View onCreateView(@NonNull LayoutInflater inflater,
 							 ViewGroup container, Bundle savedInstanceState) {
@@ -39,8 +55,24 @@ public class HomeFragment extends Fragment {
 
 		mCvOneOne = view.findViewById(R.id.cvOneOne);
 		mCvOneTwo = view.findViewById(R.id.cvOneTwo);
-		mBtnStartHelp = view.findViewById(R.id.btnStartHelp);
+		mCvOneThree = view.findViewById(R.id.cvOneThree);
 
+		mCvTwoOne = view.findViewById(R.id.cvTwoOne);
+		mCvTwoTwo = view.findViewById(R.id.cvTwoTwo);
+		mCvTwoThree = view.findViewById(R.id.cvTwoThree);
+		mCvTwoFour = view.findViewById(R.id.cvTwoFour);
+
+		mCvThreeOne = view.findViewById(R.id.cvThreeOne);
+		mCvThreeTwo = view.findViewById(R.id.cvThreeTwo);
+		mCvThreeThree = view.findViewById(R.id.cvThreeThree);
+		mCvThreeFour = view.findViewById(R.id.cvThreeFour);
+
+		mCvFourOne = view.findViewById(R.id.cvFourOne);
+		mCvFourTwo = view.findViewById(R.id.cvFourTwo);
+		mCvFourThree = view.findViewById(R.id.cvFourThree);
+		mCvFourFour = view.findViewById(R.id.cvFourFour);
+
+		// ***************************************** LEVEL ONE ***************************************** //
 		mCvOneOne.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -59,15 +91,122 @@ public class HomeFragment extends Fragment {
 			}
 		});
 
-		mBtnStartHelp.setOnClickListener(new View.OnClickListener() {
+		mCvOneThree.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Bundle bundle = new Bundle();
-				bundle.putString("learningType", "food");
+				bundle.putString("testingType", "What is Cyber?");
+				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_navigation_test, bundle);
+			}
+		});
+
+		// ***************************************** LEVEL TWO ***************************************** //
+
+		mCvTwoOne.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bundle bundle = new Bundle();
+				bundle.putString("learningType", "Cyber 101");
+				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_contentScrollerFragment, bundle);
+			}
+		});
+
+		mCvTwoTwo.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bundle bundle = new Bundle();
+				bundle.putString("learningType", "Cyber 101");
 				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_navigation_learning, bundle);
 			}
 		});
 
+		mCvTwoThree.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bundle bundle = new Bundle();
+				bundle.putString("testingType", "Cyber 101");
+				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_navigation_test, bundle);
+			}
+		});
+
+		mCvTwoFour.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//navigate to story scenario
+			}
+		});
+
+		// ***************************************** LEVEL THREE ***************************************** //
+
+		mCvThreeOne.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bundle bundle = new Bundle();
+				bundle.putString("learningType", "Social Engineering");
+				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_contentScrollerFragment, bundle);
+			}
+		});
+
+		mCvThreeTwo.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bundle bundle = new Bundle();
+				bundle.putString("learningType", "Social Engineering");
+				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_navigation_learning, bundle);
+			}
+		});
+
+		mCvThreeThree.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bundle bundle = new Bundle();
+				bundle.putString("testingType", "Social Engineering");
+				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_navigation_test, bundle);
+			}
+		});
+
+		mCvThreeFour.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//navigate to story scenario
+			}
+		});
+
+		// ***************************************** LEVEL FOUR ***************************************** //
+
+		mCvFourOne.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bundle bundle = new Bundle();
+				bundle.putString("learningType", "Protecting Yourself");
+				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_contentScrollerFragment, bundle);
+			}
+		});
+
+		mCvFourTwo.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bundle bundle = new Bundle();
+				bundle.putString("learningType", "Protecting Yourself");
+				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_navigation_learning, bundle);
+			}
+		});
+
+		mCvFourThree.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Bundle bundle = new Bundle();
+				bundle.putString("testingType", "Protecting Yourself");
+				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_navigation_test, bundle);
+			}
+		});
+
+		mCvFourFour.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				//navigate to story scenario
+			}
+		});
 
 	}
 

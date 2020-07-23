@@ -2,13 +2,11 @@ package com.example.translate.ui.profile;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -19,8 +17,7 @@ import androidx.navigation.Navigation;
 
 import com.example.translate.DatabaseHelper;
 import com.example.translate.R;
-import com.example.translate.ui.dashboard.AchievementAdapter;
-import com.makeramen.roundedimageview.RoundedImageView;
+import com.example.translate.ui.achievements.AchievementAdapter;
 
 public class CompassFragment extends Fragment {
 

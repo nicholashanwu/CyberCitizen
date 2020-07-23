@@ -36,7 +36,7 @@ import androidx.navigation.Navigation;
 public class TestFragment extends Fragment {
 
     private static final String TAG = "TestFragment";
-    private TextView mTxtChineseCharacter;
+    private TextView mTxtDefinition;
     private TextView mTxtLevelTitle;
     private TextView mTxtMessage;
     private TextView mTxtProgress;
@@ -100,7 +100,7 @@ public class TestFragment extends Fragment {
 
         mProgressBar = view.findViewById(R.id.pbTest);
         mTxtProgress = view.findViewById(R.id.txtProgress);
-        mTxtChineseCharacter = view.findViewById(R.id.txtPhrase);
+        mTxtDefinition = view.findViewById(R.id.txtPhrase);
         mTxtLevelTitle = view.findViewById(R.id.txtLevelTitle);
         mTxtMessage = view.findViewById(R.id.txtMessage);
         mRbGroup = view.findViewById(R.id.rbGroup);
@@ -175,7 +175,7 @@ public class TestFragment extends Fragment {
 
         if (res.getPosition() < res.getCount()) {
 
-            mTxtChineseCharacter.setText(res.getString(2));
+            mTxtDefinition.setText(res.getString(2));
 
             double progressDouble = (double) 100 * res.getPosition() / res.getCount();
             int progressInt = (int) progressDouble;
@@ -465,7 +465,7 @@ public class TestFragment extends Fragment {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Navigation.findNavController(getView()).navigate(R.id.action_navigation_test_to_navigation_test_home);
+                Navigation.findNavController(getView()).navigate(R.id.action_navigation_test_to_navigation_home);
             }
         });
 
@@ -480,15 +480,7 @@ public class TestFragment extends Fragment {
     }
 
     public void setTitle(String testingType) {
-        if (testingType.equals("numbers")) {
-            mTxtLevelTitle.setText("Numbers");
-        } else if (testingType.equals("essentials")) {
-            mTxtLevelTitle.setText("Essentials");
-        } else if (testingType.equals("food")) {
-            mTxtLevelTitle.setText("Food");
-        } else {
-            mTxtLevelTitle.setText("Help");
-        }
+        mTxtLevelTitle.setText(testingType);
 
     }
 
@@ -499,7 +491,7 @@ public class TestFragment extends Fragment {
         res.moveToFirst();
         mIvReaction.setVisibility(View.GONE);
 
-        mTxtChineseCharacter.setText(res.getString(2));
+        mTxtDefinition.setText(res.getString(1));
     }
 
     public void showReaction(boolean correct) {
@@ -593,7 +585,7 @@ public class TestFragment extends Fragment {
         builder.setNegativeButton("YES", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-                Navigation.findNavController(getView()).navigate(R.id.action_navigation_test_to_navigation_test_home);
+                Navigation.findNavController(getView()).navigate(R.id.action_navigation_test_to_navigation_home);
                 pauseTimer();
                 if (res != null) {
                     res.close();

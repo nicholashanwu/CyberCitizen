@@ -28,6 +28,9 @@
         <action
             android:id="@+id/action_navigation_home_to_contentScrollerFragment"
             app:destination="@id/contentScrollerFragment" />
+        <action
+            android:id="@+id/action_navigation_home_to_navigation_test"
+            app:destination="@id/navigation_test" />
     </fragment>
 
     <fragment
@@ -35,11 +38,6 @@
         android:name="com.example.translate.ui.test.TestHomeFragment"
         android:label="Test"
         tools:layout="@layout/fragment_test_home">
-        <action
-            android:id="@+id/action_navigation_test_home_to_testFragment"
-            app:destination="@id/navigation_test"
-            app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit" />
         <action
             android:id="@+id/action_navigation_test_home_to_navigation_profile"
             app:destination="@id/navigation_compass"
@@ -90,16 +88,14 @@
             android:name="testingType"
             app:argType="string" />
         <action
-            android:id="@+id/action_navigation_test_to_navigation_test_home"
-            app:destination="@id/navigation_test_home"
-            app:enterAnim="@anim/fragment_close_enter"
-            app:exitAnim="@anim/fragment_close_exit" />
+            android:id="@+id/action_navigation_test_to_navigation_home"
+            app:destination="@id/navigation_home" />
     </fragment>
 
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.translate.ui.dashboard.DashboardFragment"
+        android:name="com.example.translate.ui.achievements.AchievementFragment"
         android:label="Dashboard"
         tools:layout="@layout/fragment_dashboard">
         <action
@@ -115,10 +111,13 @@
         <action
             android:id="@+id/action_navigation_dashboard_to_navigation_learning"
             app:destination="@id/navigation_learning" />
+        <action
+            android:id="@+id/action_navigation_dashboard_to_couponFragment"
+            app:destination="@id/couponFragment" />
     </fragment>
     <fragment
         android:id="@+id/navigation_achievement"
-        android:name="com.example.translate.ui.dashboard.AchievementFragment"
+        android:name="com.example.translate.ui.achievements.AchievementListFragment"
         android:label="fragment_achievement"
         tools:layout="@layout/fragment_achievement">
         <action
@@ -145,5 +144,14 @@
         android:name="com.example.translate.ui.profile.GoogleFragment"
         android:label="fragment_google"
         tools:layout="@layout/fragment_google" />
+    <fragment
+        android:id="@+id/couponFragment"
+        android:name="com.example.translate.ui.achievements.CouponFragment"
+        android:label="fragment_coupon"
+        tools:layout="@layout/fragment_coupon" >
+        <action
+            android:id="@+id/action_couponFragment_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
+    </fragment>
 
 </navigation>

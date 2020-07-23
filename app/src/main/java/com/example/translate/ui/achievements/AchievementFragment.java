@@ -1,4 +1,4 @@
-package com.example.translate.ui.dashboard;
+package com.example.translate.ui.achievements;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -12,12 +12,10 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 import com.example.translate.DatabaseHelper;
 import com.example.translate.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.makeramen.roundedimageview.RoundedImageView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -25,13 +23,13 @@ import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-public class DashboardFragment extends Fragment {
+public class AchievementFragment extends Fragment {
 
     private DatabaseHelper myDb;
     private RoundCornerProgressBar mPbAchievement;
 
-    private CardView mBtnStartSaved;
-    private CardView mBtnStartLearned;
+    private ExtendedFloatingActionButton mBtnStartSaved;
+    private ExtendedFloatingActionButton mBtnStartMastered;
 
     private CardView mCvCoupons;
     private CardView mCvBadges;
@@ -50,7 +48,7 @@ public class DashboardFragment extends Fragment {
         }
     };
 
-    public DashboardFragment() {
+    public AchievementFragment() {
     }
 
     @Override
@@ -73,16 +71,13 @@ public class DashboardFragment extends Fragment {
         mPbAchievement = view.findViewById(R.id.pbAchievement);
 
         mBtnStartSaved = view.findViewById(R.id.btnStartSaved);
-        mBtnStartLearned = view.findViewById(R.id.btnStartLearned);
+        mBtnStartMastered = view.findViewById(R.id.btnStartMastered);
 
         mCvCoupons = view.findViewById(R.id.cvCoupons);
         mCvBadges = view.findViewById(R.id.cvBadges);
 
         mCvCoupons.setOnClickListener(couponsButtonClickListener);
         mCvBadges.setOnClickListener(badgesButtonClickListener);
-
-
-
 
         mBtnAchievements.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,8 +97,6 @@ public class DashboardFragment extends Fragment {
         int achievementCount = getAchievements();
 
         int level = getExperience(achievementCount);
-
-//        mTxtLevel.setText(String.valueOf(level));
 
         myDb.close();
 
@@ -125,7 +118,6 @@ public class DashboardFragment extends Fragment {
                         }
                     }
 
-
                     for (int i = 0; i < res.getCount(); i++) {
                         if (myDb.progressAchievement("Smart Saver")) {
                             showAchievement("Smart Saver");
@@ -142,7 +134,7 @@ public class DashboardFragment extends Fragment {
             }
         });
 
-        mBtnStartLearned.setOnClickListener(new View.OnClickListener() {
+        mBtnStartMastered.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Cursor res = myDb.getLearned();
@@ -363,6 +355,8 @@ public class DashboardFragment extends Fragment {
 
     private void couponsButtonClicked() {
         //navigate to coupon page
+        Navigation.findNavController(getView()).navigate(R.id.action_navigation_dashboard_to_couponFragment);
+
     }
 
     private void badgesButtonClicked() {

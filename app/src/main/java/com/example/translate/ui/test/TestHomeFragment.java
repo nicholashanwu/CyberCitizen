@@ -56,12 +56,12 @@ public class TestHomeFragment extends Fragment {
         Glide.with(getContext()).load(R.drawable.undraw_fatherhood_red).apply(new RequestOptions().override(800, 600).centerCrop()).into(mIvHelp);
 
 
-        mBtnStartNumbers.setOnClickListener(new View.OnClickListener() {
+        /*mBtnStartNumbers.setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override
             public void onClick(View view) {
                 Bundle bundle = new Bundle();
-                bundle.putString("testingType", "numbers");
+                bundle.putString("testingType", "What is Cyber?");
                 Navigation.findNavController(getView()).navigate(R.id.action_navigation_test_home_to_testFragment, bundle);
             }
         });
@@ -108,7 +108,7 @@ public class TestHomeFragment extends Fragment {
                 Navigation.findNavController(getView()).navigate(R.id.action_navigation_test_home_to_navigation_profile);
 
             }
-        });
+        });*/
 
     }
 

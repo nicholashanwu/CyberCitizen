@@ -334,9 +334,22 @@ public class LearningFragment extends Fragment {
 	}
 
 	private void hideMessages() {
-		YoYo.with(Techniques.FadeOutDown).duration(300).playOn(mTxtSavedMessage);
-		YoYo.with(Techniques.FadeOutDown).duration(300).playOn(mTxtUnsavedMessage);
-		YoYo.with(Techniques.FadeOutDown).duration(300).playOn(mTxtAnswerMessage);
+		if(mTxtSavedMessage.getVisibility() == View.VISIBLE){
+			YoYo.with(Techniques.FadeOutDown).duration(300).playOn(mTxtSavedMessage);
+			mTxtSavedMessage.setVisibility(View.GONE);
+		}
+
+		if(mTxtUnsavedMessage.getVisibility() == View.VISIBLE) {
+			YoYo.with(Techniques.FadeOutDown).duration(300).playOn(mTxtUnsavedMessage);
+			mTxtUnsavedMessage.setVisibility(View.GONE);
+
+		}
+
+		if(mTxtAnswerMessage.getVisibility() == View.VISIBLE) {
+			YoYo.with(Techniques.FadeOutDown).duration(300).playOn(mTxtAnswerMessage);
+			mTxtAnswerMessage.setVisibility(View.GONE);
+
+		}
 	}
 
 	private void advanceProgressBar() {
@@ -393,8 +406,8 @@ public class LearningFragment extends Fragment {
 	private void hideAnswer() {
 		mTxtPhrase.setText("?");
 
+		mTxtAnswerMessage.setVisibility(View.GONE);
 		YoYo.with(Techniques.FadeOutDown).duration(300).playOn(mTxtAnswerMessage);
-
 
 		mFabAnswer.setImageResource(R.drawable.outline_visibility_off_white_48);
 
@@ -402,7 +415,6 @@ public class LearningFragment extends Fragment {
 
 	private void showAnswer() {
 		mTxtPhrase.setText(res.getString(1));
-
 
 		mTxtAnswerMessage.setVisibility(View.VISIBLE);
 		YoYo.with(Techniques.FadeInUp).duration(300).playOn(mTxtAnswerMessage);

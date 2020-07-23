@@ -25,6 +25,7 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.lang.ref.WeakReference;
+import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -247,10 +248,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static void insertWordData(DatabaseHelper myDb, Activity activity) {
-
         myDb.insertData("Threat", "An event or an action that can compromise a system or violate security", "What is Cyber?", false, false);
         myDb.insertData("Exploit", "A way to breach security measures put in place for a machine through a loophole or vulnerability", "What is Cyber?", false, false);
         myDb.insertData("Vulnerability", "Existence of a weakness in the design or implementation that can lead to undesirable compromising events", "What is Cyber?", false, false);
+        myDb.insertData("Risk", "An expectation of loss if a particular threat exploits a particular vulnerability with a particular harmful result ", "What is Cyber?", false, false);
         myDb.insertData("Attacker", "Individual who compromises machine security through vulnerabilities for the purpose of stealing, manipulating of destroying data", "What is Cyber?", false, false);
         myDb.insertData("Attack", "Action performed by attackers that have the potential to harm the system of stored information", "What is Cyber?", false, false);
         myDb.insertData("Device Security", "The protection of the system from theft or damage to either the software, hardware or data present on the system. It will generally involve processes to safeguard against attackers from gaining access to the system and the data for malicious purposes", "What is Cyber?", false, false);
@@ -283,17 +284,21 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertData("Virus", "A piece of code which is capable of copying itself and typically has a detrimental effect, such as corrupting the system or destroying data", "Cyber 101", false, false);
         myDb.insertData("", "", "Cyber 101", false, false);
 
-        myDb.insertData("Police", "警察", "help", false, false);
-        myDb.insertData("Police Station", "警察局", "help", false, false);
-        myDb.insertData("Ambulance", "救护车", "help", false, false);
-        myDb.insertData("Hospital", "医院", "help", false, false);
-        myDb.insertData("Fire", "火", "help", false, false);
-        myDb.insertData("Drugstore", "药店", "help", false, false);
-        myDb.insertData("Help", "救命", "help", false, false);
-        myDb.insertData("Stay Away", "远离", "help", false, false);
-        myDb.insertData("Headache", "头痛", "help", false, false);
-        myDb.insertData("Hot Water", "热水", "help", false, false);
-        myDb.insertData("Go Away!", "走开", "help", false, false);
+        myDb.insertData("Social Engineering", "The act of manipulating individuals into disclosing confidential information. Social engineering aims to exploit human psychology rather than relying on technical hacking techniques, in order to gain access to sensitive data", "Social Engineering", false, false);
+        myDb.insertData("Phishing", "An attempt to fraudulently obtain confidential information by sending an email disguised as a trustworthy entity", "Social Engineering", false, false);
+        myDb.insertData("Spear Phishing", "Attack through the use of a fraudulent email at a specific target", "Social Engineering", false, false);
+        myDb.insertData("Whaling", "Use of phishing methods at high profile targets", "Social Engineering", false, false);
+        myDb.insertData("Vishing", "Phishing conducted over the phone", "Social Engineering", false, false);
+        myDb.insertData("Smishing", "Sending infected malware links via SMS ", "Social Engineering", false, false);
+        myDb.insertData("Pretexting", "When an individual lies to obtain privileged data ", "Social Engineering", false, false);
+        myDb.insertData("Baiting", "Use of physical media to disperse malware by appealing to victim’s curiosity or greed", "Social Engineering", false, false);
+        myDb.insertData("Watering Hole", "Sabotaging a specific group of users by infecting websites associated with the group", "Social Engineering", false, false);
+        myDb.insertData("Tailgating", "When an unauthorized person follows an authorized person into a secured premise", "Social Engineering", false, false);
+        myDb.insertData("Quid Pro Quo", "Attacker promises to perform a service in exchange for sensitive data from the victim", "Social Engineering", false, false);
+        myDb.insertData("Dumpster Diving", "Attacker steals sensitive data from trash", "Social Engineering", false, false);
+        myDb.insertData("Shoulder Surfing", "Attack steals sensitive data by reading over the victim’s shoulder", "Social Engineering", false, false);
+        myDb.insertData("", "", "Social Engineering", false, false);
+
 
     }
 
@@ -328,7 +333,7 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertContentData("What is Cyber?", 2, "A Brief History", "What is cybersecurity? Cybersecurity is how data, computer systems and networks are protected from digital attacks or compromises such as hackers or viruses. It is hence extremely important for organisations, governments and individuals to place a high focus on cybersecurity.");
 
 
-        myDb.insertContentData("Cyber 101?", 1, "Data Breaches", "If you keep up with the news, you will notice that every couple months, another large global company is hit by a data breach. This means customer payment information, logins and passwords are stolen. You may be left wondering, \"Now that this has occurred, what can I do to protect myself?\" Below are a few major steps to take as a precaution.");
+        myDb.insertContentData("Cyber 101", 1, "Data Breaches", "If you keep up with the news, you will notice that every couple months, another large global company is hit by a data breach. This means customer payment information, logins and passwords are stolen. You may be left wondering, \"Now that this has occurred, what can I do to protect myself?\" Below are a few major steps to take as a precaution.");
         myDb.insertContentData("Cyber 101", 1, "Data Breaches", "1.\tReset your password now. Change your password for any and all compromised accounts. Multi-factor authentication should also be enabled for services that allow this extra layer of security. With this enabled, if attackers steal login credentials, they will not be able to access your account without the other authentication mechanism. It is extremely difficult to brute-force through a multi-factor authentication system provided that most companies lock accounts when too many incorrect attempts are made.");
         myDb.insertContentData("Cyber 101", 1, "Data Breaches", "2.\tMonitor your credit accounts. Observe any suspicious activity that arises. This is not just transactions that are to be looked out for but also where logins are from. Most banks and other digital service providers will notify when logins from unusual locations occur.");
         myDb.insertContentData("Cyber 101", 1, "Data Breaches", "3.\tConsider freezing your account. Freezing your bank account makes it harder to access the credit and access reports. Contacting the financial institutions, notifying the team and requesting help and advice is the most suitable course of action.");
@@ -337,8 +342,18 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertContentData("Cyber 101", 2, "Phishing", "“Phishing is the simplest kind of cyberattack and, at the same time, the most dangerous and effective.” - Adam Kujawa, Director of Malwarebytes Labs Phishing attacks the most vulnerable and powerful computer on the planet: the human mind.” Attackers here are not exploiting a technical vulnerability on a device or system. They are using “social engineering. Why waste time trying to penetrate through multiple layers of security when you can trick someone into handing over the key to the lock.");
         myDb.insertContentData("Cyber 101", 2, "Phishing", "Types of phishing attacks: \n" + "-\tSpear phishing \n" + "-\tEmail phishing \n" + "-\tWhaling \n" + "-\tSmishing and Vishing \n" + "-\tWatering hole phishing \n" + "-\tClone phishing");
         myDb.insertContentData("Cyber 101", 2, "Phishing", "How to identify a phishing attack: \n" + "Knowing whether something is a phishing attempt isn't always the easiest, but with some discipline and common sense, you can avoid a lot of issues down the road. Look for something abnormal or suspicious. You should ask yourself if the message passes the \"smell test\". Try to trust your intuition and do not get too swayed by the fear the message could generate. Phishing attacks more often than not, use fear to cloud judgement.");
-        myDb.insertContentData("Cyber 101", 2, "Phishing", "A few more signs of a phishing attempt:\n" + "-\tYou recognise the sender but it's not someone that usually sends you messages.\n" + "-\tThe message incites fear. Be careful when alarmist language or tone is used to create a sense of panic or urgency. Responsible organisations will not ask for personal details over the phone or internet.\n" + "-\tThe message contains some unusual attachments that don't seem quite right to be attached.\n" + "-\tThe message contains links that look suspicious. Be on the lookout for small spelling errors in the URL. You should always type in the URL yourself into your browser instead of clicking on the email link. To further this, don't click embedded hyperlinks without first hovering over it to see the destination URL.");
-        myDb.insertContentData("Cyber 101", 2, "Phishing", "How do I protect myself against phishing? Many browsers have automatic checks on links to ensure they are safe before allowing you to enter. This is not a fool-proof method and ultimately it is still up to you to be the first line of defence. Important practices to stay safe:\n" + "-\tDon't open e-mails from senders you are not familiar with.\n" + "-\tDon't click on a link inside of an e-mail unless you know exactly where it is going.\n" + "-\tTo add extra security, if you receive an e-mail from a source you are unsure of, navigate to the provided link manually by entering the legitimate website address into your browser.\n" + "-\tLookout for the digital certificate of a website.\n" + "-\tIf you are asked to provide sensitive information, check that the URL starts with “HTTPS” instead of just “HTTP.” The “S” stands for “secure.”It's not guaranteeing that the site is legitimate, but most legitimate sites use HTTPS because it's more secure. HTTP sites, even legitimate ones, are vulnerable to hackers.\n" + "-\tHover the mouse over the link to see if it's legitimate.");
+        myDb.insertContentData("Cyber 101", 2, "Phishing", "A few more signs of a phishing attempt:\n" + "-\tYou recognise the sender but it's not someone that usually sends you messages.");
+        myDb.insertContentData("Cyber 101", 2, "Phishing", "-\tThe message incites fear. Be careful when alarmist language or tone is used to create a sense of panic or urgency. Responsible organisations will not ask for personal details over the phone or internet.");
+        myDb.insertContentData("Cyber 101", 2, "Phishing", "-\tThe message contains some unusual attachments that don't seem quite right to be attached.");
+        myDb.insertContentData("Cyber 101", 2, "Phishing", "-\tThe message contains links that look suspicious. Be on the lookout for small spelling errors in the URL. You should always type in the URL yourself into your browser instead of clicking on the email link. To further this, don't click embedded hyperlinks without first hovering over it to see the destination URL.");
+        myDb.insertContentData("Cyber 101", 2, "Phishing", "How do I protect myself against phishing? Many browsers have automatic checks on links to ensure they are safe before allowing you to enter. This is not a fool-proof method and ultimately it is still up to you to be the first line of defence. Important practices to stay safe:");
+        myDb.insertContentData("Cyber 101", 2, "Phishing", "-\tDon't open e-mails from senders you are not familiar with.");
+        myDb.insertContentData("Cyber 101", 2, "Phishing", "-\tDon't click on a link inside of an e-mail unless you know exactly where it is going.");
+        myDb.insertContentData("Cyber 101", 2, "Phishing", "-\tTo add extra security, if you receive an e-mail from a source you are unsure of, navigate to the provided link manually by entering the legitimate website address into your browser.");
+        myDb.insertContentData("Cyber 101", 2, "Phishing", "-\tLookout for the digital certificate of a website.");
+        myDb.insertContentData("Cyber 101", 2, "Phishing", "-\tIf you are asked to provide sensitive information, check that the URL starts with “HTTPS” instead of just “HTTP.” The “S” stands for “secure.”It doesn't guarantee that the site is legitimate, but most legitimate sites use HTTPS because it's more secure. HTTP sites, even legitimate ones, are vulnerable to hackers.");
+        myDb.insertContentData("Cyber 101", 2, "Phishing", "-\tHover the mouse over the link to see if it's legitimate.");
+
 
 
 
