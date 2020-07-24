@@ -11,17 +11,16 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
-import com.example.translate.DatabaseHelper;
-import com.example.translate.R;
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
+import com.example.translate.DatabaseHelper;
+import com.example.translate.R;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 public class AchievementFragment extends Fragment {
 
@@ -113,9 +112,6 @@ public class AchievementFragment extends Fragment {
 
                     if (myDb.progressAchievement("Dedicated")) {
                         showAchievement("Dedicated");
-                        if (myDb.progressAchievement("Self-Improver")) {
-                            showAchievement("Self-Improver");
-                        }
                     }
 
                     for (int i = 0; i < res.getCount(); i++) {
@@ -146,9 +142,6 @@ public class AchievementFragment extends Fragment {
                     Navigation.findNavController(getView()).navigate(R.id.action_navigation_dashboard_to_navigation_learning, bundle);
                     if (myDb.progressAchievement("Pursuing Perfection")) {
                         showAchievement("Pursuing Perfection");
-                        if (myDb.progressAchievement("Self-Improver")) {
-                            showAchievement("Self-Improver");
-                        }
                     }
                 }
                 res.close();

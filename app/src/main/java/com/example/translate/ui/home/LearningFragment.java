@@ -13,17 +13,17 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.example.translate.DatabaseHelper;
 import com.example.translate.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 public class LearningFragment extends Fragment {
 
@@ -180,32 +180,32 @@ public class LearningFragment extends Fragment {
 	}
 
 	public void checkAchievement() {
-		if (learningType.equals("numbers")) {
-			if (myDb.progressAchievement("Number Novice")) {
-				showAchievement("Number Novice");
-				if (myDb.progressAchievement("Lingo Learner")) {
-					showAchievement("Lingo Learner");
+		if (learningType.equals("What is Cyber?")) {
+			if (myDb.progressAchievement("Cyber Novice I")) {
+				showAchievement("Cyber Novice I");
+				if (myDb.progressAchievement("Cyber Scholar")) {
+					showAchievement("Cyber Scholar");
 				}
 			}
-		} else if (learningType.equals("essentials")) {
-			if (myDb.progressAchievement("Great Greeter")) {
-				showAchievement("Great Greeter");
-				if (myDb.progressAchievement("Lingo Learner")) {
-					showAchievement("Lingo Learner");
+		} else if (learningType.equals("Cyber 101")) {
+			if (myDb.progressAchievement("Cyber Skilled I")) {
+				showAchievement("Cyber Skilled I");
+				if (myDb.progressAchievement("Cyber Scholar")) {
+					showAchievement("Cyber Scholar");
 				}
 			}
-		} else if (learningType.equals("food")) {
-			if (myDb.progressAchievement("Food Fight")) {
-				showAchievement("Food Fight");
-				if (myDb.progressAchievement("Lingo Learner")) {
-					showAchievement("Lingo Learner");
+		} else if (learningType.equals("Social Engineering")) {
+			if (myDb.progressAchievement("Anti-Social Engineer I")) {
+				showAchievement("Anti-Social Engineer I");
+				if (myDb.progressAchievement("Cyber Scholar")) {
+					showAchievement("Cyber Scholar");
 				}
 			}
-		} else if (learningType.equals("help")) {
-			if (myDb.progressAchievement("Helping Hand")) {
-				showAchievement("Helping Hand");
-				if (myDb.progressAchievement("Lingo Learner")) {
-					showAchievement("Lingo Learner");
+		} else if (learningType.equals("Protecting Yourself")) {
+			if (myDb.progressAchievement("Cyber Defender I")) {
+				showAchievement("Cyber Defender I");
+				if (myDb.progressAchievement("Cyber Scholar")) {
+					showAchievement("Cyber Scholar");
 				}
 			}
 		}

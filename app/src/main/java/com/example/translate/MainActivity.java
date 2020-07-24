@@ -8,13 +8,11 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.MenuItem;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.NavOptions;
@@ -25,7 +23,6 @@ import androidx.navigation.ui.NavigationUI;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.lang.ref.WeakReference;
-import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,39 +30,58 @@ public class MainActivity extends AppCompatActivity {
     boolean isTest;
 
     public static void insertAchievementData(DatabaseHelper myDb, Activity activity) {
-        myDb.insertAchievementData("Number Novice", "Complete the Numbers learning module", 0, 1, false);
-        myDb.insertAchievementData("Great Greeter", "Complete the Essentials learning module", 0, 1, false);
-        myDb.insertAchievementData("Food Fight", "Complete the Food learning module", 0, 1, false);
-        myDb.insertAchievementData("Helping Hand", "Complete the Help learning module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Novice I", "Complete the What is Cyber? Learning module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Novice II", "Complete the What is Cyber? Flashcards module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Novice III", "Complete the What is Cyber? Quiz module", 0, 1, false);
+        myDb.insertAchievementData("Certified Cyber Novice", "Complete Level One: What is Cyber?", 0, 1, false);
+
+        myDb.insertAchievementData("Cyber Skilled I", "Complete the Cyber 101 Learning module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Skilled II", "Complete the Cyber 101 Flashcards module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Skilled III", "Complete the Cyber 101 Quiz module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Skilled IV", "Complete the Cyber 101 Story module", 0, 1, false);
+        myDb.insertAchievementData("Certified Cyber Skilled", "Complete Level Two: Cyber 101", 0, 1, false);
+
+        myDb.insertAchievementData("Anti-Social Engineer I", "Complete the Social Engineering Learning module", 0, 1, false);
+        myDb.insertAchievementData("Anti-Social Engineer II", "Complete the Social Engineering FLashcards module", 0, 1, false);
+        myDb.insertAchievementData("Anti-Social Engineer III", "Complete the Social Engineering Quiz module", 0, 1, false);
+        myDb.insertAchievementData("Anti-Social Engineer IV", "Complete the Social Engineering Story module", 0, 1, false);
+        myDb.insertAchievementData("Certified Anti-Social Engineer", "Complete Level Three: Social Engineering", 0, 1, false);
+
+        myDb.insertAchievementData("Cyber Defender I", "Complete the Protecting Yourself Learning module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Defender II", "Complete the Protecting Yourself FLashcards module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Defender III", "Complete the Protecting Yourself Quiz module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Defender IV", "Complete the Protecting Yourself Story module", 0, 1, false);
+        myDb.insertAchievementData("Certified Cyber Defender", "Complete Level Four: Protecting Yourself", 0, 1, false);
+
         myDb.insertAchievementData("Dedicated", "Revise your saved words", 0, 1, false);
         myDb.insertAchievementData("Pursuing Perfection", "Revise your mastered words", 0, 1, false);
-        myDb.insertAchievementData("Self-Improver", "Check out all components in your profile", 0, 3, false);
-        myDb.insertAchievementData("Lingo Learner", "Complete all learning modules", 0, 4, false);
-        myDb.insertAchievementData("Lingo Legend", "Complete a test without any mistakes", 0, 1, false);
-        myDb.insertAchievementData("Number Cruncher", "Complete the Numbers test module", 0, 1, false);
-        myDb.insertAchievementData("The Nice Guy", "Complete the Essentials test module", 0, 1, false);
-        myDb.insertAchievementData("Shef", "Complete the Food test module", 0, 1, false);
-        myDb.insertAchievementData("Public Service", "Complete the Help test module", 0, 1, false);
-        myDb.insertAchievementData("Lingo Lord", "Complete all test modules", 0, 4, false);
-        myDb.insertAchievementData("Nice Nine", "Achieve over 90% for any test", 0, 1, false);
-        myDb.insertAchievementData("Excellent Eight", "Achieve over 80% for any test", 0, 1, false);
-        myDb.insertAchievementData("Sensational Seven", "Achieve over 70% for any test", 0, 1, false);
-        myDb.insertAchievementData("Sexy Six", "Achieve over 60% for any test", 0, 1, false);
-        myDb.insertAchievementData("Did you even try?", "Achieve under 30% for any test", 0, 1, false);
+
+        myDb.insertAchievementData("Cyber Scholar", "Complete all Learning modules", 0, 4, false);
+        myDb.insertAchievementData("Cyber Specialist", "Complete all Quiz modules", 0, 4, false);
+
+        myDb.insertAchievementData("Cyber Savvy", "Complete a Quiz without any mistakes", 0, 1, false);
+        myDb.insertAchievementData("Nice Nine", "Achieve over 90% for any Quiz", 0, 1, false);
+        myDb.insertAchievementData("Excellent Eight", "Achieve over 80% for any Quiz", 0, 1, false);
+        myDb.insertAchievementData("Super Seven", "Achieve over 70% for any Quiz", 0, 1, false);
+        myDb.insertAchievementData("Sexy Six", "Achieve over 60% for any Quiz", 0, 1, false);
+        myDb.insertAchievementData("Did you even try?", "Achieve under 30% for any Quiz", 0, 1, false);
         myDb.insertAchievementData("Off to a Great Start", "Get the first answer wrong", 0, 1, false);
-        myDb.insertAchievementData("Abort?", "Get 3 answers wrong in a row", 0, 1, false);
+        myDb.insertAchievementData("Abort Mission?", "Get 3 answers wrong in a row", 0, 1, false);
         myDb.insertAchievementData("Abandon Ship!", "Get 5 answers wrong in a row", 0, 1, false);
         myDb.insertAchievementData("Oh Baby a Triple!", "Get 3 answers correct in a row", 0, 1, false);
         myDb.insertAchievementData("Pentakill!", "Get 5 answers correct in a row", 0, 1, false);
-        myDb.insertAchievementData("Average Addition", "Visit your My Words list", 0, 1, false);
-        myDb.insertAchievementData("Avid Addition", "Add 10 words to the My Words section", 0, 10, false);
-        myDb.insertAchievementData("Awesome Addition", "Add 50 words to the My Words section", 0, 50, false);
-        myDb.insertAchievementData("Ambitious Addition", "Add 500 words to the My Words section", 0, 500, false);
+
+        myDb.insertAchievementData("Instant Noodles!", "Get an answer correct within 1 second", 0, 1, false);
+        myDb.insertAchievementData("Slick Speedster!", "Get an answer correct within 2 seconds", 0, 1, false);
+
         myDb.insertAchievementData("Smart Saver", "Save 5 words", 0, 5, false);
         myDb.insertAchievementData("Sophisticated Saver", "Save 20 words", 0, 20, false);
-        myDb.insertAchievementData("Terrific Tester", "Take 10 tests", 0, 10, false);
-        myDb.insertAchievementData("Talented Tester", "Save 20 tests", 0, 20, false);
-        myDb.insertAchievementData("Tenacious Tester", "Save 30 tests words", 0, 30, false);
+        myDb.insertAchievementData("Terrific Tester", "Take 10 Quizzes", 0, 10, false);
+        myDb.insertAchievementData("Talented Tester", "Take 20 Quizzes", 0, 20, false);
+        myDb.insertAchievementData("Tenacious Tester", "Take 30 Quizzes", 0, 30, false);
+
+        //open a youtube link
+        //
 
 
     }

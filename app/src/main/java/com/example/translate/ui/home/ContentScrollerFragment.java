@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
@@ -23,6 +22,7 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.example.translate.DatabaseHelper;
@@ -40,8 +40,7 @@ public class ContentScrollerFragment extends Fragment {
 	private DatabaseHelper myDb;
 	private FloatingActionButton mFabContentDone;
 	private FloatingActionButton mFabBackContent;
-	private ProgressBar mProgressBarContent;
-	private ProgressBar mProgressBarContentPage;
+	private RoundCornerProgressBar mProgressBarContentPage;
 	private CardView mCvContent;
 	private RecyclerView mRecyclerView;
 	private NestedScrollView mSvContent;
@@ -148,7 +147,7 @@ public class ContentScrollerFragment extends Fragment {
 		if(pageNumber >= totalPageCount) {
 			showMessage("Congratulations!");
 		} else {
-			mProgressBarContentPage.setProgress(mProgressBarContentPage.getProgress() + 1, true);
+			mProgressBarContentPage.setProgress(mProgressBarContentPage.getProgress() + 1);
 			YoYo.with(Techniques.SlideOutLeft).duration(200).playOn(mCvContent);
 			YoYo.with(Techniques.SlideInRight).duration(200).delay(300).playOn(mCvContent);
 
@@ -169,7 +168,7 @@ public class ContentScrollerFragment extends Fragment {
 		if(pageNumber == 1) {
 			//do nothing
 		} else {
-			mProgressBarContentPage.setProgress(mProgressBarContentPage.getProgress() - 1, true);
+			mProgressBarContentPage.setProgress(mProgressBarContentPage.getProgress() - 1);
 			YoYo.with(Techniques.SlideOutRight).duration(200).playOn(mCvContent);
 			YoYo.with(Techniques.SlideInLeft).duration(200).delay(300).playOn(mCvContent);
 
@@ -197,6 +196,7 @@ public class ContentScrollerFragment extends Fragment {
 			public void onDismiss(DialogInterface dialog) {
 				res.close();
 				myDb.close();
+				mProgressBarContentPage.setProgress(0);
 				Navigation.findNavController(getView()).popBackStack();
 			}
 		});

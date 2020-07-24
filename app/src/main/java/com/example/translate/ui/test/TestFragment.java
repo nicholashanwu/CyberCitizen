@@ -17,6 +17,11 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.example.translate.DatabaseHelper;
@@ -27,11 +32,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Locale;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 
 public class TestFragment extends Fragment {
 
@@ -240,12 +240,12 @@ public class TestFragment extends Fragment {
             }
 
             if (mTxtScore.getText().equals("9") || mTxtScore.getText().equals("10")) {
-                if (myDb.progressAchievement("Instant Noodles")) {
-                    showAchievement("Instant Noodles");
+                if (myDb.progressAchievement("Instant Noodles!")) {
+                    showAchievement("Instant Noodles!");
                 }
             } else if (mTxtScore.getText().equals("8")) {
-                if (myDb.progressAchievement("Slick Speedster")) {
-                    showAchievement("Slick Speedster");
+                if (myDb.progressAchievement("Slick Speedster!")) {
+                    showAchievement("Slick Speedster!");
                 }
             }
 
@@ -267,8 +267,8 @@ public class TestFragment extends Fragment {
             }
 
             if (wrongStreak == 3) {
-                if (myDb.progressAchievement("Abort?")) {
-                    showAchievement("Abort?");
+                if (myDb.progressAchievement("Abort Mission?")) {
+                    showAchievement("Abort Mission?");
                 }
             } else if (wrongStreak == 5) {
                 if (myDb.progressAchievement("Abandon Ship!")) {
@@ -310,32 +310,32 @@ public class TestFragment extends Fragment {
         mProgressBar.setProgress(99, true);
         percentage = 100 * score / res.getCount();
 
-        if (testingType.equals("numbers")) {
-            if (myDb.progressAchievement("Number Cruncher")) {
-                showAchievement("Number Cruncher");
-                if (myDb.progressAchievement("Lingo Lord")) {
-                    showAchievement("Lingo Lord");
+        if (testingType.equals("What is Cyber?")) {
+            if (myDb.progressAchievement("Cyber Novice III")) {
+                showAchievement("Cyber Novice III");
+                if (myDb.progressAchievement("Cyber Specialist")) {
+                    showAchievement("Cyber Specialist");
                 }
             }
-        } else if (testingType.equals("essentials")) {
-            if (myDb.progressAchievement("The Nice Guy")) {
-                showAchievement("The Nice Guy");
-                if (myDb.progressAchievement("Lingo Lord")) {
-                    showAchievement("Lingo Lord");
+        } else if (testingType.equals("Cyber 101")) {
+            if (myDb.progressAchievement("Cyber Skilled III")) {
+                showAchievement("Cyber Skilled III");
+                if (myDb.progressAchievement("Cyber Specialist")) {
+                    showAchievement("Cyber Specialist");
                 }
             }
-        } else if (testingType.equals("food")) {
-            if (myDb.progressAchievement("Shef")) {
-                showAchievement("Shef");
-                if (myDb.progressAchievement("Lingo Lord")) {
-                    showAchievement("Lingo Lord");
+        } else if (testingType.equals("Social Engineering")) {
+            if (myDb.progressAchievement("Anti-Social Engineer III")) {
+                showAchievement("Anti-Social Engineer III");
+                if (myDb.progressAchievement("Cyber Specialist")) {
+                    showAchievement("Cyber Specialist");
                 }
             }
-        } else if (testingType.equals("help")) {
-            if (myDb.progressAchievement("Public Service")) {
-                showAchievement("Public Service");
-                if (myDb.progressAchievement("Lingo Lord")) {
-                    showAchievement("Lingo Lord");
+        } else if (testingType.equals("Protecting Yourself")) {
+            if (myDb.progressAchievement("Cyber Defender III")) {
+                showAchievement("Cyber Defender III");
+                if (myDb.progressAchievement("Cyber Specialist")) {
+                    showAchievement("Cyber Specialist");
                 }
             }
         } else {
@@ -343,8 +343,8 @@ public class TestFragment extends Fragment {
 
 
         if (percentage == 100) {
-            if (myDb.progressAchievement("Lingo Legend")) {
-                showAchievement("Lingo Legend");
+            if (myDb.progressAchievement("Cyber Savvy")) {
+                showAchievement("Cyber Savvy");
             }
         } else if (percentage >= 90 && percentage < 100) {
             if (myDb.progressAchievement("Nice Nine")) {
@@ -355,8 +355,8 @@ public class TestFragment extends Fragment {
                 showAchievement("Excellent Eight");
             }
         } else if (percentage >= 70 && percentage < 80) {
-            if (myDb.progressAchievement("Sensational Seven")) {
-                showAchievement("Sensational Seven");
+            if (myDb.progressAchievement("Super Seven")) {
+                showAchievement("Super Seven");
             }
         } else if (percentage >= 60 && percentage < 70) {
             if (myDb.progressAchievement("Sexy Six")) {
