@@ -47,7 +47,7 @@
 
     <fragment
         android:id="@+id/navigation_compass"
-        android:name="com.example.translate.ui.profile.CompassFragment"
+        android:name="com.example.translate.ui.compass.CompassFragment"
         android:label="Compass"
         tools:layout="@layout/fragment_compass" >
         <action
@@ -136,12 +136,16 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_resource"
-        android:name="com.example.translate.ui.profile.ResourceFragment"
+        android:name="com.example.translate.ui.compass.ResourceFragment"
         android:label="fragment_resource"
-        tools:layout="@layout/fragment_resource" />
+        tools:layout="@layout/fragment_resource" >
+        <action
+            android:id="@+id/action_navigation_resource_to_resourceYoutubeFragment"
+            app:destination="@id/resourceYoutubeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_google"
-        android:name="com.example.translate.ui.profile.GoogleFragment"
+        android:name="com.example.translate.ui.compass.GoogleFragment"
         android:label="fragment_google"
         tools:layout="@layout/fragment_google" />
     <fragment
@@ -152,6 +156,15 @@
         <action
             android:id="@+id/action_couponFragment_to_navigation_dashboard"
             app:destination="@id/navigation_dashboard" />
+    </fragment>
+    <fragment
+        android:id="@+id/resourceYoutubeFragment"
+        android:name="com.example.translate.ui.compass.resources.ResourceYoutubeFragment"
+        android:label="fragment_resource_youtube"
+        tools:layout="@layout/fragment_resource_youtube" >
+        <action
+            android:id="@+id/action_resourceYoutubeFragment_to_navigation_resource"
+            app:destination="@id/navigation_resource" />
     </fragment>
 
 </navigation>

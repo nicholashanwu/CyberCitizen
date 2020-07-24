@@ -88,7 +88,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom|center_horizontal"
-                            android:fontFamily="@font/quicksand_bold"
+                            android:fontFamily="@font/quicksand_medium"
                             android:text="Coupons >" />
 
                         <TextView
@@ -142,7 +142,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="bottom|center_horizontal"
-                            android:fontFamily="@font/quicksand_bold"
+                            android:fontFamily="@font/quicksand_medium"
                             android:text="Badges >" />
                     </androidx.cardview.widget.CardView>
 
@@ -219,7 +219,7 @@
                             android:layout_gravity="bottom|left"
                             android:layout_marginLeft="16dp"
                             android:layout_marginBottom="16dp"
-                            android:fontFamily="@font/quicksand_bold"
+                            android:fontFamily="@font/quicksand_medium"
                             android:maxLines="2"
                             android:minLines="2"
                             android:text="These are the words \nyou're familiar with!"
@@ -266,7 +266,7 @@
                             android:layout_gravity="bottom"
                             android:layout_marginLeft="16dp"
                             android:layout_marginBottom="16dp"
-                            android:fontFamily="@font/quicksand_bold"
+                            android:fontFamily="@font/quicksand_medium"
                             android:maxLines="2"
                             android:minLines="2"
                             android:text="Unsure of some words? \nLet's take another look!"

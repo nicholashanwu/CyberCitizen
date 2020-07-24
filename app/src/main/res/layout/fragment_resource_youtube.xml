@@ -4,48 +4,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:foregroundTint="#DDDDDD"
-    tools:context=".ui.compass.ResourceFragment">
+    android:animationCache="false"
+    android:background="@color/colorBlueDark"
+    android:clipChildren="false"
+    android:clipToPadding="false"
+    tools:context=".ui.compass.resources.ResourceYoutubeFragment">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="21dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Youtube"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorPurple">
-        di
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:animateLayoutChanges="true"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="270dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="36dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginRight="0dp"
-                android:layout_marginBottom="32dp"
-                android:fontFamily="@font/quicksand_bold"
-                android:text="Cyber Career Compass"
-                android:textColor="#FFFFFF"
-                android:textSize="36sp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="128dp"
+                app:cardBackgroundColor="#FFFFFF"
                 app:cardCornerRadius="24dp"
-                app:cardElevation="16dp"
-                app:cardMaxElevation="6dp"
-                app:contentPaddingBottom="72dp">
+                app:cardElevation="0dp"
+                app:cardMaxElevation="0dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingBottom="72dp">
 
 
                     <TextView
@@ -54,40 +61,22 @@
                         android:layout_marginLeft="24dp"
                         android:layout_marginTop="24dp"
                         android:layout_marginRight="24dp"
-                        android:text="Additional Resources"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="Cool Videos"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
-                    <androidx.cardview.widget.CardView
+                    <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="16dp"
+                        android:layout_marginLeft="24dp"
                         android:layout_marginTop="16dp"
-                        android:layout_marginRight="16dp"
-                        android:clipChildren="false"
-                        android:clipToPadding="false"
-                        app:cardCornerRadius="16dp"
-                        app:cardElevation="0dp"
-                        app:cardMaxElevation="0dp">
-
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="24dp"
-                            android:layout_marginRight="24dp"
-                            android:src="@drawable/linkedinlearning" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center|right"
-                            android:foregroundTint="#DDDDDD"
-                            android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
-                            android:tint="#DDDDDD" />
-                    </androidx.cardview.widget.CardView>
+                        android:layout_marginRight="24dp"
+                        android:fontFamily="@font/quicksand_medium"
+                        android:text="Videos we think you'll find interesting." />
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/cvYoutube"
+                        android:id="@+id/cvYoutubeFullCourse"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -98,22 +87,26 @@
                         app:cardMaxElevation="0dp">
 
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="24dp"
-                            android:layout_marginRight="24dp"
-                            android:src="@drawable/youtube" />
-
-                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|right"
-                            android:foregroundTint="#DDDDDD"
+                            android:layout_margin="8dp"
                             android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
                             android:tint="#DDDDDD" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:layout_marginEnd="24dp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="Cybersecurity Full Course\nfor Beginners"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cvYoutubeCareers"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
@@ -124,47 +117,90 @@
                         app:cardMaxElevation="0dp">
 
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="24dp"
-                            android:layout_marginRight="24dp"
-                            android:src="@drawable/acsc" />
-
-                        <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|right"
-                            android:foregroundTint="#DDDDDD"
+                            android:layout_margin="8dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginBottom="24dp"
                             android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
                             android:tint="#DDDDDD" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:layout_marginEnd="24dp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="An Introduction to\nCybersecurity Careers"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
+                        android:id="@+id/cvYoutubeCrashCourse"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginRight="16dp"
-                        android:layout_marginBottom="36dp"
                         app:cardCornerRadius="24dp"
                         app:cardElevation="0dp"
                         app:cardMaxElevation="0dp">
 
                         <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="24dp"
-                            android:layout_marginRight="24dp"
-                            android:src="@drawable/khanacademy" />
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center|right"
+                            android:layout_margin="8dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginBottom="24dp"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
+                            android:tint="#DDDDDD" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:layout_marginEnd="24dp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="Cybersecurity \nCrash Course"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cvYoutubeFiveLaws"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="16dp"
+                        app:cardCornerRadius="24dp"
+                        app:cardElevation="0dp"
+                        app:cardMaxElevation="0dp">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center|right"
-                            android:foregroundTint="#DDDDDD"
+                            android:layout_margin="8dp"
+                            android:layout_marginTop="24dp"
+                            android:layout_marginBottom="24dp"
                             android:src="@drawable/ic_baseline_keyboard_arrow_right_24"
                             android:tint="#DDDDDD" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="8dp"
+                            android:layout_marginEnd="24dp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="The Five Laws of\nCybersecurity"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
                     </androidx.cardview.widget.CardView>
+
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>

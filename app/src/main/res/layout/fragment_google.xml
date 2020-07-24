@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.profile.GoogleFragment">
+    tools:context=".ui.compass.GoogleFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -35,7 +35,6 @@
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:cardBackgroundColor="#F5F5F5"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="16dp"
                 app:cardMaxElevation="16dp"
@@ -55,6 +54,7 @@
                         android:layout_marginLeft="24dp"
                         android:layout_marginTop="24dp"
                         android:layout_marginRight="24dp"
+                        android:fontFamily="@font/quicksand_bold"
                         android:text="Project Details"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
@@ -83,6 +83,7 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_medium"
                                 android:text="Length: 2 Weeks \nDifficulty: Easy"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                                 app:layout_constraintBottom_toBottomOf="parent"
@@ -109,8 +110,10 @@
                             android:layout_margin="24dp"
                             android:layout_marginTop="24dp"
                             android:layout_marginBottom="24dp"
+                            android:fontFamily="@font/quicksand_medium"
                             android:text="At Google, cyber security is critical in keeping the world running. In this virtual project, you are tasked with testing phishing emails and helping us identifying why you think people fall for it."
-                            android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                            android:textSize="14sp" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -119,6 +122,7 @@
                         android:layout_width="100dp"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_bold"
                         android:text="ACCEPT" />
 
                 </LinearLayout>
