@@ -316,12 +316,18 @@ public class TestFragment extends Fragment {
                 if (myDb.progressAchievement("Cyber Specialist")) {
                     showAchievement("Cyber Specialist");
                 }
+                if (myDb.progressAchievement("Certified Cyber Novice")){
+                    showAchievement("Certified Cyber Novice");
+                }
             }
         } else if (testingType.equals("Cyber 101")) {
             if (myDb.progressAchievement("Cyber Skilled III")) {
                 showAchievement("Cyber Skilled III");
                 if (myDb.progressAchievement("Cyber Specialist")) {
                     showAchievement("Cyber Specialist");
+                }
+                if (myDb.progressAchievement("Certified Cyber Skilled")){
+                    showAchievement("Certified Cyber Skilled");
                 }
             }
         } else if (testingType.equals("Social Engineering")) {
@@ -330,12 +336,18 @@ public class TestFragment extends Fragment {
                 if (myDb.progressAchievement("Cyber Specialist")) {
                     showAchievement("Cyber Specialist");
                 }
+                if (myDb.progressAchievement("Certified Anti-Social Engineer")){
+                    showAchievement("Certified Anti-Social Engineer");
+                }
             }
         } else if (testingType.equals("Protecting Yourself")) {
             if (myDb.progressAchievement("Cyber Defender III")) {
                 showAchievement("Cyber Defender III");
                 if (myDb.progressAchievement("Cyber Specialist")) {
                     showAchievement("Cyber Specialist");
+                }
+                if (myDb.progressAchievement("Certified Cyber Defender")){
+                    showAchievement("Certified Cyber Defender");
                 }
             }
         } else {

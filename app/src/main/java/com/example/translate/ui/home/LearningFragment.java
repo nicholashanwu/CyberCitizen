@@ -181,43 +181,52 @@ public class LearningFragment extends Fragment {
 
 	public void checkAchievement() {
 		if (learningType.equals("What is Cyber?")) {
-			if (myDb.progressAchievement("Cyber Novice I")) {
-				showAchievement("Cyber Novice I");
+			if (myDb.progressAchievement("Cyber Novice II")) {
+				showAchievement("Cyber Novice II");
 				if (myDb.progressAchievement("Cyber Scholar")) {
 					showAchievement("Cyber Scholar");
+				}
+				if (myDb.progressAchievement("Certified Cyber Novice")){
+					showAchievement("Certified Cyber Novice");
 				}
 			}
 		} else if (learningType.equals("Cyber 101")) {
-			if (myDb.progressAchievement("Cyber Skilled I")) {
-				showAchievement("Cyber Skilled I");
+			if (myDb.progressAchievement("Cyber Skilled II")) {
+				showAchievement("Cyber Skilled II");
 				if (myDb.progressAchievement("Cyber Scholar")) {
 					showAchievement("Cyber Scholar");
+				}
+				if (myDb.progressAchievement("Certified Cyber Skilled")){
+					showAchievement("Certified Cyber Skilled");
 				}
 			}
 		} else if (learningType.equals("Social Engineering")) {
-			if (myDb.progressAchievement("Anti-Social Engineer I")) {
-				showAchievement("Anti-Social Engineer I");
+			if (myDb.progressAchievement("Anti-Social Engineer II")) {
+				showAchievement("Anti-Social Engineer II");
 				if (myDb.progressAchievement("Cyber Scholar")) {
 					showAchievement("Cyber Scholar");
+				}
+				if (myDb.progressAchievement("Certified Anti-Social Engineer")){
+					showAchievement("Certified Anti-Social Engineer");
 				}
 			}
 		} else if (learningType.equals("Protecting Yourself")) {
-			if (myDb.progressAchievement("Cyber Defender I")) {
-				showAchievement("Cyber Defender I");
+			if (myDb.progressAchievement("Cyber Defender II")) {
+				showAchievement("Cyber Defender II");
 				if (myDb.progressAchievement("Cyber Scholar")) {
 					showAchievement("Cyber Scholar");
 				}
+				if (myDb.progressAchievement("Certified Cyber Defender")){
+					showAchievement("Certified Cyber Defender");
+				}
 			}
 		}
-
-
 	}
 
 	public void setParameters(Cursor res) {
 		mProgressBar.setProgress(0, true);
 		mTxtProgress.setText("1/" + res.getCount());
 		res.moveToFirst();
-
 
 		mTxtPhrase.setText("?");
 		mTxtDefinition.setText(res.getString(2));
@@ -271,6 +280,14 @@ public class LearningFragment extends Fragment {
 		builder.setPositiveButton("AWESOME", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialogInterface, int i) {
+
+			}
+		});
+
+		builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+			@Override
+			public void onDismiss(DialogInterface dialog) {
+
 			}
 		});
 

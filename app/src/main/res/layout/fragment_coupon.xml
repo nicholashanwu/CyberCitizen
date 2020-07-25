@@ -54,22 +54,29 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginRight="24dp"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="Complete levels to get a random coupon!"
+                        android:textAlignment="center"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/btnStartMastered"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:layout_margin="16dp"
                         android:clickable="true"
-                        android:elevation="16dp"
                         android:foreground="?android:attr/selectableItemBackgroundBorderless"
                         app:cardCornerRadius="16dp"
-                        app:cardElevation="12dp"
-                        app:cardMaxElevation="12dp">
+                        app:cardElevation="0dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
                             android:layout_marginStart="8dp"
                             android:layout_marginTop="8dp"
                             android:fontFamily="@font/quicksand_bold"
@@ -78,42 +85,39 @@
                             android:textSize="20sp" />
 
 
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="$20 off your next purchase"
+                            android:textColor="#AB000000" />
+
                         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
 
                             android:layout_width="match_parent"
                             android:layout_height="32dp"
+                            android:layout_gravity="bottom"
                             app:rcBackgroundColor="#0A000000"
                             app:rcMax="100"
                             app:rcProgress="50"
                             app:rcProgressColors="@array/sample_progress_gradient"
                             app:rcRadius="16dp" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="bottom|left"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginBottom="8dp"
-                            android:fontFamily="@font/quicksand_medium"
-                            android:text="$20 off your next purchase"
-                            android:textColor="#AB000000" />
-
                     </androidx.cardview.widget.CardView>
 
                     <androidx.cardview.widget.CardView
-                        android:id="@+id/btnStartSaved"
                         android:layout_width="match_parent"
                         android:layout_height="100dp"
                         android:layout_marginLeft="16dp"
                         android:layout_marginRight="16dp"
                         android:layout_marginBottom="16dp"
                         android:clickable="true"
-                        android:elevation="16dp"
                         android:focusableInTouchMode="false"
                         android:foreground="?android:attr/selectableItemBackgroundBorderless"
                         app:cardCornerRadius="16dp"
-                        app:cardElevation="12dp"
-                        app:cardMaxElevation="12dp">
+                        app:cardElevation="0dp">
 
                         <TextView
                             android:layout_width="wrap_content"

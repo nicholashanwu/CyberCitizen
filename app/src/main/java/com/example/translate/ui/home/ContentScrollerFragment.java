@@ -145,7 +145,8 @@ public class ContentScrollerFragment extends Fragment {
 	private void moveToNextPage(){
 
 		if(pageNumber >= totalPageCount) {
-			showMessage("Congratulations!");
+			checkAchievement();
+			showMessage("Nice Work!");
 		} else {
 			mProgressBarContentPage.setProgress(mProgressBarContentPage.getProgress() + 1);
 			YoYo.with(Techniques.SlideOutLeft).duration(200).playOn(mCvContent);
@@ -197,7 +198,7 @@ public class ContentScrollerFragment extends Fragment {
 				res.close();
 				myDb.close();
 				mProgressBarContentPage.setProgress(0);
-				Navigation.findNavController(getView()).popBackStack();
+				Navigation.findNavController(getView()).navigate(R.id.action_contentScrollerFragment_to_navigation_home);
 			}
 		});
 
@@ -205,6 +206,59 @@ public class ContentScrollerFragment extends Fragment {
 		builder.setView(view);
 
 
+		builder.show();
+	}
+
+	public void checkAchievement() {
+		if (learningType.equals("What is Cyber?")) {
+			if (myDb.progressAchievement("Cyber Novice I")) {
+				showAchievement("Cyber Novice I");
+				if (myDb.progressAchievement("Certified Cyber Novice")){
+					showAchievement("Certified Cyber Novice");
+				}
+			}
+		} else if (learningType.equals("Cyber 101")) {
+			if (myDb.progressAchievement("Cyber Skilled I")) {
+				showAchievement("Cyber Skilled I");
+				if (myDb.progressAchievement("Certified Cyber Skilled")){
+					showAchievement("Certified Cyber Skilled");
+				}
+			}
+		} else if (learningType.equals("Social Engineering")) {
+			if (myDb.progressAchievement("Anti-Social Engineer I")) {
+				showAchievement("Anti-Social Engineer I");
+				if (myDb.progressAchievement("Certified Anti-Social Engineer")){
+					showAchievement("Certified Anti-Social Engineer");
+				}
+			}
+		} else if (learningType.equals("Protecting Yourself")) {
+			if (myDb.progressAchievement("Cyber Defender I")) {
+				showAchievement("Cyber Defender I");
+				if (myDb.progressAchievement("Certified Cyber Defender")){
+					showAchievement("Certified Cyber Defender");
+				}
+			}
+		}
+
+
+	}
+
+	private void showAchievement(String title) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(getContext(), R.style.Yellow));
+		View view = LayoutInflater.from(getActivity()).inflate(R.layout.custom_alert_dialog_achievement, null);
+		TextView txtTitle = view.findViewById(R.id.title);
+		ImageButton imageButton = view.findViewById(R.id.image);
+
+		imageButton.setImageResource(R.mipmap.over_95);
+
+		builder.setPositiveButton("AWESOME", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialogInterface, int i) {
+			}
+		});
+
+		txtTitle.setText(title);
+		builder.setView(view);
 		builder.show();
 	}
 

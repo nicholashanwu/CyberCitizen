@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import com.example.translate.R;
-
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.translate.R;
 
 public class AchievementAdapter extends RecyclerView.Adapter<AchievementAdapter.AchievementViewHolder> {
     private Context mContext;
@@ -43,7 +43,7 @@ public class AchievementAdapter extends RecyclerView.Adapter<AchievementAdapter.
     @Override
     public AchievementAdapter.AchievementViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(mContext);
-        View view = inflater.inflate(R.layout.row, parent, false);
+        View view = inflater.inflate(R.layout.row_achievement, parent, false);
         return new AchievementViewHolder(view);
     }
 

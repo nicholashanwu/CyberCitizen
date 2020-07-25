@@ -117,7 +117,7 @@
         android:layout_marginBottom="0dp"
         android:layout_toStartOf="@+id/fabContentDone"
         android:layout_toEndOf="@+id/fabBackContent"
-        app:rcBackgroundColor="#0A000000"
+        app:rcBackgroundColor="@color/colorPurpleDark"
         app:rcMax="100"
         app:rcProgress="0"
         app:rcAnimationEnable="true"

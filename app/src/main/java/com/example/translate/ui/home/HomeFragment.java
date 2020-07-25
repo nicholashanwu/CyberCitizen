@@ -1,26 +1,35 @@
 package com.example.translate.ui.home;
 
-import android.os.Build;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
+import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.RequiresApi;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
+import com.alespero.expandablecardview.ExpandableCardView;
+import com.example.translate.DatabaseHelper;
 import com.example.translate.R;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.makeramen.roundedimageview.RoundedImageView;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 public class HomeFragment extends Fragment {
+
+	private ExpandableCardView mEcvOne;
+	private ExpandableCardView mEcvTwo;
+	private ExpandableCardView mEcvThree;
+	private ExpandableCardView mEcvFour;
+
+	private ExtendedFloatingActionButton mBtnLockedTwo;
+	private ExtendedFloatingActionButton mBtnLockedThree;
+	private ExtendedFloatingActionButton mBtnLockedFour;
 
 	private CardView mCvOneOne;
 	private CardView mCvOneTwo;
@@ -41,11 +50,16 @@ public class HomeFragment extends Fragment {
 	private CardView mCvFourThree;
 	private CardView mCvFourFour;
 
+	private DatabaseHelper myDb;
+
 
 	public View onCreateView(@NonNull LayoutInflater inflater,
 							 ViewGroup container, Bundle savedInstanceState) {
 
 		View root = inflater.inflate(R.layout.fragment_home, container, false);
+
+		myDb = new DatabaseHelper(getContext());
+
 		return root;
 	}
 
@@ -71,6 +85,67 @@ public class HomeFragment extends Fragment {
 		mCvFourTwo = view.findViewById(R.id.cvFourTwo);
 		mCvFourThree = view.findViewById(R.id.cvFourThree);
 		mCvFourFour = view.findViewById(R.id.cvFourFour);
+
+		mEcvOne = view.findViewById(R.id.ecvOne);
+		mEcvTwo = view.findViewById(R.id.ecvTwo);
+		mEcvThree = view.findViewById(R.id.ecvThree);
+		mEcvFour = view.findViewById(R.id.ecvFour);
+
+		mBtnLockedTwo = view.findViewById(R.id.btnLockedTwo);
+		mBtnLockedThree = view.findViewById(R.id.btnLockedThree);
+		mBtnLockedFour = view.findViewById(R.id.btnLockedFour);
+
+
+
+
+		mEcvTwo.setVisibility(View.GONE);
+		mEcvThree.setVisibility(View.GONE);
+		mEcvFour.setVisibility(View.GONE);
+
+		mEcvTwo.setVisibility(View.VISIBLE);
+		mEcvThree.setVisibility(View.VISIBLE);
+		mEcvFour.setVisibility(View.VISIBLE);
+
+		if(myDb.checkAchievementStatus("Certified Cyber Novice")){
+			mEcvTwo.setVisibility(View.VISIBLE);
+			mBtnLockedTwo.setVisibility(View.GONE);
+		}
+
+		if(myDb.checkAchievementStatus("Certified Cyber Skilled")){
+			mEcvThree.setVisibility(View.VISIBLE);
+			mBtnLockedThree.setVisibility(View.GONE);
+
+		}
+
+		if(myDb.checkAchievementStatus("Certified Anti-Social Engineer")){
+			mEcvFour.setVisibility(View.VISIBLE);
+			mBtnLockedFour.setVisibility(View.GONE);
+
+		}
+
+		mBtnLockedTwo.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				showMessage("Complete Level One to unlock this section!");
+			}
+		});
+
+		mBtnLockedThree.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				showMessage("Complete Level Two to unlock this section!");
+			}
+		});
+
+		mBtnLockedFour.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				showMessage("Complete Level Three to unlock this section!");
+			}
+		});
+
+		// check complete achievements
+		// disable all cardviews that do not have the right achievement to unlock it
 
 		// ***************************************** LEVEL ONE ***************************************** //
 		mCvOneOne.setOnClickListener(new View.OnClickListener() {
@@ -210,6 +285,24 @@ public class HomeFragment extends Fragment {
 
 	}
 
+	private void showMessage(String title) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(getContext(), R.style.Green));
+		View view = LayoutInflater.from(getActivity()).inflate(R.layout.custom_alert_dialog_learning, null);
+		TextView txtTitle = view.findViewById(R.id.title);
+		ImageButton imageButton = view.findViewById(R.id.image);
+
+		imageButton.setImageResource(R.mipmap.over_50);
+
+		builder.setPositiveButton("OKAY", new DialogInterface.OnClickListener() {
+			@Override
+			public void onClick(DialogInterface dialogInterface, int i) {
+			}
+		});
+
+		txtTitle.setText(title);
+		builder.setView(view);
+		builder.show();
+	}
 
 
 }

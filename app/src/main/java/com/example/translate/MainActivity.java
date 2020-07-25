@@ -33,25 +33,25 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertAchievementData("Cyber Novice I", "Complete the What is Cyber? Learning module", 0, 1, false);
         myDb.insertAchievementData("Cyber Novice II", "Complete the What is Cyber? Flashcards module", 0, 1, false);
         myDb.insertAchievementData("Cyber Novice III", "Complete the What is Cyber? Quiz module", 0, 1, false);
-        myDb.insertAchievementData("Certified Cyber Novice", "Complete Level One: What is Cyber?", 0, 1, false);
+        myDb.insertAchievementData("Certified Cyber Novice", "Complete Level One: What is Cyber?", 0, 3, false);
 
         myDb.insertAchievementData("Cyber Skilled I", "Complete the Cyber 101 Learning module", 0, 1, false);
         myDb.insertAchievementData("Cyber Skilled II", "Complete the Cyber 101 Flashcards module", 0, 1, false);
         myDb.insertAchievementData("Cyber Skilled III", "Complete the Cyber 101 Quiz module", 0, 1, false);
         myDb.insertAchievementData("Cyber Skilled IV", "Complete the Cyber 101 Story module", 0, 1, false);
-        myDb.insertAchievementData("Certified Cyber Skilled", "Complete Level Two: Cyber 101", 0, 1, false);
+        myDb.insertAchievementData("Certified Cyber Skilled", "Complete Level Two: Cyber 101", 0, 4, false);
 
         myDb.insertAchievementData("Anti-Social Engineer I", "Complete the Social Engineering Learning module", 0, 1, false);
         myDb.insertAchievementData("Anti-Social Engineer II", "Complete the Social Engineering FLashcards module", 0, 1, false);
         myDb.insertAchievementData("Anti-Social Engineer III", "Complete the Social Engineering Quiz module", 0, 1, false);
         myDb.insertAchievementData("Anti-Social Engineer IV", "Complete the Social Engineering Story module", 0, 1, false);
-        myDb.insertAchievementData("Certified Anti-Social Engineer", "Complete Level Three: Social Engineering", 0, 1, false);
+        myDb.insertAchievementData("Certified Anti-Social Engineer", "Complete Level Three: Social Engineering", 0, 4, false);
 
         myDb.insertAchievementData("Cyber Defender I", "Complete the Protecting Yourself Learning module", 0, 1, false);
         myDb.insertAchievementData("Cyber Defender II", "Complete the Protecting Yourself FLashcards module", 0, 1, false);
         myDb.insertAchievementData("Cyber Defender III", "Complete the Protecting Yourself Quiz module", 0, 1, false);
         myDb.insertAchievementData("Cyber Defender IV", "Complete the Protecting Yourself Story module", 0, 1, false);
-        myDb.insertAchievementData("Certified Cyber Defender", "Complete Level Four: Protecting Yourself", 0, 1, false);
+        myDb.insertAchievementData("Certified Cyber Defender", "Complete Level Four: Protecting Yourself", 0, 4, false);
 
         myDb.insertAchievementData("Dedicated", "Revise your saved words", 0, 1, false);
         myDb.insertAchievementData("Pursuing Perfection", "Revise your mastered words", 0, 1, false);
@@ -66,10 +66,10 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertAchievementData("Sexy Six", "Achieve over 60% for any Quiz", 0, 1, false);
         myDb.insertAchievementData("Did you even try?", "Achieve under 30% for any Quiz", 0, 1, false);
         myDb.insertAchievementData("Off to a Great Start", "Get the first answer wrong", 0, 1, false);
-        myDb.insertAchievementData("Abort Mission?", "Get 3 answers wrong in a row", 0, 1, false);
-        myDb.insertAchievementData("Abandon Ship!", "Get 5 answers wrong in a row", 0, 1, false);
-        myDb.insertAchievementData("Oh Baby a Triple!", "Get 3 answers correct in a row", 0, 1, false);
-        myDb.insertAchievementData("Pentakill!", "Get 5 answers correct in a row", 0, 1, false);
+        myDb.insertAchievementData("Abort Mission?", "Get 3 answers wrong in a row_achievement", 0, 1, false);
+        myDb.insertAchievementData("Abandon Ship!", "Get 5 answers wrong in a row_achievement", 0, 1, false);
+        myDb.insertAchievementData("Oh Baby a Triple!", "Get 3 answers correct in a row_achievement", 0, 1, false);
+        myDb.insertAchievementData("Pentakill!", "Get 5 answers correct in a row_achievement", 0, 1, false);
 
         myDb.insertAchievementData("Instant Noodles!", "Get an answer correct within 1 second", 0, 1, false);
         myDb.insertAchievementData("Slick Speedster!", "Get an answer correct within 2 seconds", 0, 1, false);

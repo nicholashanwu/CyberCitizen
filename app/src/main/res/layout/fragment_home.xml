@@ -55,7 +55,8 @@
                     android:layout_height="wrap_content"
                     android:clipChildren="true"
                     android:clipToPadding="true"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:paddingBottom="32dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -72,14 +73,16 @@
                         android:textStyle="bold" />
 
                     <com.alespero.expandablecardview.ExpandableCardView
+                        android:id="@+id/ecvOne"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="6dp"
                         android:layout_marginRight="6dp"
+                        android:clickable="true"
                         android:clipChildren="false"
                         android:clipToPadding="false"
                         android:elevation="0dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+                        android:textAppearance="@style/QuicksandBold"
                         app:animationDuration="300"
                         app:expandOnClick="true"
                         app:inner_view="@layout/inner_layout_one"
@@ -101,10 +104,12 @@
                         android:textStyle="bold" />
 
                     <com.alespero.expandablecardview.ExpandableCardView
+                        android:id="@+id/ecvTwo"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="6dp"
                         android:layout_marginRight="6dp"
+                        android:clickable="true"
                         android:clipChildren="false"
                         android:clipToPadding="false"
                         android:elevation="8dp"
@@ -113,7 +118,22 @@
                         app:expandOnClick="true"
                         app:inner_view="@layout/inner_layout_two"
                         app:startExpanded="false"
-                        app:title="Cyber 101?" />
+                        app:title="Cyber 101?">
+
+                    </com.alespero.expandablecardview.ExpandableCardView>
+
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/btnLockedTwo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:backgroundTint="@color/colorPurple"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="LOCKED"
+                        android:textColor="#FFFFFF"
+                        app:icon="@drawable/ic_outline_lock_24"
+                        app:iconTint="#FFFFFF" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -130,10 +150,12 @@
                         android:textStyle="bold" />
 
                     <com.alespero.expandablecardview.ExpandableCardView
+                        android:id="@+id/ecvThree"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="6dp"
                         android:layout_marginRight="6dp"
+                        android:clickable="true"
                         android:clipChildren="false"
                         android:clipToPadding="false"
                         android:elevation="8dp"
@@ -144,6 +166,18 @@
                         app:startExpanded="false"
                         app:title="Social Engineering" />
 
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/btnLockedThree"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:backgroundTint="@color/colorPurple"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="LOCKED"
+                        android:textColor="#FFFFFF"
+                        app:icon="@drawable/ic_outline_lock_24"
+                        app:iconTint="#FFFFFF" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -160,11 +194,12 @@
                         android:textStyle="bold" />
 
                     <com.alespero.expandablecardview.ExpandableCardView
+                        android:id="@+id/ecvFour"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="6dp"
                         android:layout_marginRight="6dp"
-                        android:layout_marginBottom="16dp"
+                        android:clickable="true"
                         android:clipChildren="false"
                         android:clipToPadding="false"
                         android:elevation="8dp"
@@ -174,6 +209,20 @@
                         app:inner_view="@layout/inner_layout_four"
                         app:startExpanded="false"
                         app:title="Protecting Yourself" />
+
+                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                        android:id="@+id/btnLockedFour"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:backgroundTint="@color/colorPurple"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="LOCKED"
+                        android:textColor="#FFFFFF"
+                        app:icon="@drawable/ic_outline_lock_24"
+                        app:iconTint="#FFFFFF" />
 
                 </LinearLayout>
 

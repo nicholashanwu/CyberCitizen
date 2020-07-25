@@ -9,7 +9,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.translate.R;
 
-public class CouponFragment extends Fragment {
+public class BadgeFragment extends Fragment {
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -21,6 +21,6 @@ public class CouponFragment extends Fragment {
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
-		return inflater.inflate(R.layout.fragment_coupon, container, false);
+		return inflater.inflate(R.layout.fragment_badge, container, false);
 	}
 }
