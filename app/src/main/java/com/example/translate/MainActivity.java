@@ -371,6 +371,25 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertContentData("Cyber 101", 2, "Phishing", "-\tHover the mouse over the link to see if it's legitimate.");
 
 
+        myDb.insertContentData("Social Engineering", 1, "Introduction", "Social engineering is the act of manipulating individuals into disclosing confidential information. Social engineering aims to exploit human psychology rather than relying on technical hacking techniques, in order to gain access to sensitive data. ");
+        myDb.insertContentData("Social Engineering", 1, "Introduction", "It is one of most prolific \tand effective means of access securing systems and obtaining sensitive data however it is one that requires that least technical skills.");
+        myDb.insertContentData("Social Engineering", 1, "Introduction", "Social engineering takes advantage of the weakest link in any organisation’s security defences – people. ");
+        myDb.insertContentData("Social Engineering", 2, "Famous Social Engineering Attacks: Offer Something Sweet", "As any con artist will tell you, the easiest way to scam a mark is to exploit their own greed. This is the foundation of the classic Nigerian 419 scam, in which the scammer tries to convince the victim to help get supposedly ill-gotten cash out of their own country into a safe bank, offering a portion of the funds in exchange. ");
+        myDb.insertContentData("Social Engineering", 1, "Famous Social Engineering Attacks: Offer Something Sweet", "These \"Nigerian prince\" emails have been a running joke for decades, but they're still an effective social engineering technique that people fall for: in 2007 the treasurer of a sparsely populated Michigan county gave $1.2 million in public funds to such a scammer in the hopes of personally cashing in. ");
+        myDb.insertContentData("Social Engineering", 1, "Famous Social Engineering Attacks: Offer Something Sweet", "Another common lure is the prospect of a new, better job, which apparently is something far too many of us want: in a hugely embarrassing 2011 breach, the security company RSA was compromised when at least two low-level employees opened a malware file attached to a phishing email with the filename \"2011 recruitment plan.xls.\"");
+        myDb.insertContentData("Social Engineering", 1, "Famous Social Engineering Attacks: Act Like You're in Charge", "");
+        myDb.insertContentData("Social Engineering", 1, "Famous Social Engineering Attacks: Act Like You're in Charge", "");
+        myDb.insertContentData("Social Engineering", 1, "Famous Social Engineering Attacks: Act Like You're in Charge", "");
+        myDb.insertContentData("Social Engineering", 1, "Famous Social Engineering Attacks: Act Like You're in Charge", "");
+        myDb.insertContentData("Social Engineering", 1, "Famous Social Engineering Attacks: Act Like You're in Charge", "");
+        myDb.insertContentData("Social Engineering", 1, "Introduction", "");
+        myDb.insertContentData("Social Engineering", 1, "Introduction", "");
+        myDb.insertContentData("Social Engineering", 1, "Introduction", "");
+        myDb.insertContentData("Social Engineering", 1, "Introduction", "");
+        myDb.insertContentData("Social Engineering", 1, "Introduction", "");
+        myDb.insertContentData("Social Engineering", 1, "Introduction", "");
+
+
 
 
     }

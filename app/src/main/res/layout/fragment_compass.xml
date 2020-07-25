@@ -73,7 +73,8 @@
                         android:layout_marginTop="16dp"
                         android:layout_marginRight="24dp"
                         android:fontFamily="@font/quicksand_medium"
-                        android:text="Complete real virtual projects for leading cyber firms. All work contributes in a meaningful way and your efforts will be recognised!" />
+                        android:text="Complete real virtual projects for leading cyber firms. All work contributes in a meaningful way and your efforts will be recognised!"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cvGoogle"
@@ -112,15 +113,24 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="24dp"
+                                android:layout_marginTop="8dp"
                                 android:fontFamily="@font/quicksand_bold"
-                                android:text="Length: 2 Weeks \nDifficulty: Easy"
+                                android:text="Google"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                app:layout_constraintStart_toEndOf="@+id/imageView4"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="24dp"
+                                android:layout_marginBottom="16dp"
+                                android:fontFamily="@font/quicksand_medium"
+                                android:text="Length: 2 Weeks \nDifficulty: Easy"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toStartOf="@+id/imageView"
                                 app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintStart_toEndOf="@+id/imageView4"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                app:layout_constraintStart_toEndOf="@+id/imageView4" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </androidx.cardview.widget.CardView>
@@ -163,15 +173,25 @@
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginEnd="24dp"
+                                android:layout_marginTop="8dp"
                                 android:fontFamily="@font/quicksand_bold"
-                                android:text="Length: 3 Weeks\nDifficulty: Intermediate"
+                                android:text="Microsoft"
                                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                                app:layout_constraintStart_toEndOf="@+id/imageView5"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginEnd="24dp"
+                                android:layout_marginBottom="16dp"
+                                android:fontFamily="@font/quicksand_medium"
+                                android:text="Length: 3 Weeks\nDifficulty: Intermediate"
+                                android:textAppearance="@style/TextAppearance.AppCompat.Small"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toStartOf="@+id/imageView2"
                                 app:layout_constraintHorizontal_bias="0.0"
-                                app:layout_constraintStart_toEndOf="@+id/imageView5"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                app:layout_constraintStart_toEndOf="@+id/imageView5" />
                         </androidx.constraintlayout.widget.ConstraintLayout>
 
                     </androidx.cardview.widget.CardView>
@@ -217,10 +237,10 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center"
+                            android:layout_gravity="left"
                             android:layout_margin="24dp"
                             android:fontFamily="@font/quicksand_bold"
-                            android:text="Official resources, videos, tips and more!"
+                            android:text="Official resources, videos,\ntips and more!"
                             android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
 
                     </androidx.cardview.widget.CardView>
