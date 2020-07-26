@@ -95,16 +95,13 @@ public class HomeFragment extends Fragment {
 		mBtnLockedThree = view.findViewById(R.id.btnLockedThree);
 		mBtnLockedFour = view.findViewById(R.id.btnLockedFour);
 
-
-
-
 		mEcvTwo.setVisibility(View.GONE);
 		mEcvThree.setVisibility(View.GONE);
 		mEcvFour.setVisibility(View.GONE);
 
-//		mEcvTwo.setVisibility(View.VISIBLE);
-//		mEcvThree.setVisibility(View.VISIBLE);
-//		mEcvFour.setVisibility(View.VISIBLE);
+		mEcvTwo.setVisibility(View.VISIBLE);
+		mEcvThree.setVisibility(View.VISIBLE);
+		mEcvFour.setVisibility(View.VISIBLE);
 
 		if(myDb.checkAchievementStatus("Certified Cyber Novice")){
 			mEcvTwo.setVisibility(View.VISIBLE);
@@ -114,13 +111,11 @@ public class HomeFragment extends Fragment {
 		if(myDb.checkAchievementStatus("Certified Cyber Skilled")){
 			mEcvThree.setVisibility(View.VISIBLE);
 			mBtnLockedThree.setVisibility(View.GONE);
-
 		}
 
 		if(myDb.checkAchievementStatus("Certified Anti-Social Engineer")){
 			mEcvFour.setVisibility(View.VISIBLE);
 			mBtnLockedFour.setVisibility(View.GONE);
-
 		}
 
 		mBtnLockedTwo.setOnClickListener(new View.OnClickListener() {
