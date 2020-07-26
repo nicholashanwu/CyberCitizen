@@ -39,6 +39,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private static final String TYP_4 = "pageTitle";
 	private static final String TYP_5 = "content";
 
+	private static final String STORY_TABLE_NAME = "story_table";
+	private static final String CHA_1 = "id_pk";
+	private static final String CHA_2 = "storyId";
+	private static final String CHA_3 = "pageId";
+	private static final String CHA_4 = "pageContent";
+	private static final String CHA_5 = "answerOne";
+	private static final String CHA_6 = "answerTwo";
+	private static final String CHA_7 = "answerThree";
+	private static final String CHA_8 = "answerFour";
+
 
 	public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 2);
@@ -69,6 +79,15 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				"PAGENUMBER INTEGER, " +
 				"PAGETITLE TEXT, " +
 				"CONTENT TEXT)");
+
+		db.execSQL("CREATE TABLE " + STORY_TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+				"STORYID INTEGER, " +
+				"PAGEID INTEGER, " +
+				"PAGECONTENT TEXT, " +
+				"ANSWERONE TEXT, " +
+				"ANSWERTWO TEXT, " +
+				"ANSWERTHREE TEXT, " +
+				"ANSWERFOUR TEXT)");
 	}
 
     @Override
@@ -125,6 +144,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return result != -1;
 	}
 
+	public boolean insertStoryData(int storyId, int pageId, String pageContent, String answerOne, String answerTwo, String answerThree, String answerFour) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues contentValues = new ContentValues();
+		contentValues.put(CHA_2, storyId);
+		contentValues.put(CHA_3, pageId);
+		contentValues.put(CHA_4, pageContent);
+		contentValues.put(CHA_5, answerOne);
+		contentValues.put(CHA_6, answerTwo);
+		contentValues.put(CHA_7, answerThree);
+		contentValues.put(CHA_8, answerFour);
+		long result = db.insert(STORY_TABLE_NAME, null, contentValues);
+		return result != -1;
+	}
+
 	public Cursor getAllData() {
 		SQLiteDatabase db = this.getWritableDatabase();
 		return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
@@ -170,6 +203,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE learned = 1", null);
     }
+
+    public Cursor getStory(int storyId) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		return db.rawQuery("SELECT * FROM " + STORY_TABLE_NAME + " WHERE storyId = " + storyId + "", null);
+	}
 
 	public Cursor getSaveStatus(String phrase) {
 		SQLiteDatabase db = this.getWritableDatabase();

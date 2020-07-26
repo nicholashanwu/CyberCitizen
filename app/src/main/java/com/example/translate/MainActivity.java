@@ -29,63 +29,6 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomBar;
     boolean isTest;
 
-    public static void insertAchievementData(DatabaseHelper myDb, Activity activity) {
-        myDb.insertAchievementData("Cyber Novice I", "Complete the What is Cyber? Learning module", 0, 1, false);
-        myDb.insertAchievementData("Cyber Novice II", "Complete the What is Cyber? Flashcards module", 0, 1, false);
-        myDb.insertAchievementData("Cyber Novice III", "Complete the What is Cyber? Quiz module", 0, 1, false);
-        myDb.insertAchievementData("Certified Cyber Novice", "Complete Level One: What is Cyber?", 0, 3, false);
-
-        myDb.insertAchievementData("Cyber Skilled I", "Complete the Cyber 101 Learning module", 0, 1, false);
-        myDb.insertAchievementData("Cyber Skilled II", "Complete the Cyber 101 Flashcards module", 0, 1, false);
-        myDb.insertAchievementData("Cyber Skilled III", "Complete the Cyber 101 Quiz module", 0, 1, false);
-        myDb.insertAchievementData("Cyber Skilled IV", "Complete the Cyber 101 Story module", 0, 1, false);
-        myDb.insertAchievementData("Certified Cyber Skilled", "Complete Level Two: Cyber 101", 0, 4, false);
-
-        myDb.insertAchievementData("Anti-Social Engineer I", "Complete the Social Engineering Learning module", 0, 1, false);
-        myDb.insertAchievementData("Anti-Social Engineer II", "Complete the Social Engineering FLashcards module", 0, 1, false);
-        myDb.insertAchievementData("Anti-Social Engineer III", "Complete the Social Engineering Quiz module", 0, 1, false);
-        myDb.insertAchievementData("Anti-Social Engineer IV", "Complete the Social Engineering Story module", 0, 1, false);
-        myDb.insertAchievementData("Certified Anti-Social Engineer", "Complete Level Three: Social Engineering", 0, 4, false);
-
-        myDb.insertAchievementData("Cyber Defender I", "Complete the Protecting Yourself Learning module", 0, 1, false);
-        myDb.insertAchievementData("Cyber Defender II", "Complete the Protecting Yourself FLashcards module", 0, 1, false);
-        myDb.insertAchievementData("Cyber Defender III", "Complete the Protecting Yourself Quiz module", 0, 1, false);
-        myDb.insertAchievementData("Cyber Defender IV", "Complete the Protecting Yourself Story module", 0, 1, false);
-        myDb.insertAchievementData("Certified Cyber Defender", "Complete Level Four: Protecting Yourself", 0, 4, false);
-
-        myDb.insertAchievementData("Dedicated", "Revise your saved words", 0, 1, false);
-        myDb.insertAchievementData("Pursuing Perfection", "Revise your mastered words", 0, 1, false);
-
-        myDb.insertAchievementData("Cyber Scholar", "Complete all Learning modules", 0, 4, false);
-        myDb.insertAchievementData("Cyber Specialist", "Complete all Quiz modules", 0, 4, false);
-
-        myDb.insertAchievementData("Cyber Savvy", "Complete a Quiz without any mistakes", 0, 1, false);
-        myDb.insertAchievementData("Nice Nine", "Achieve over 90% for any Quiz", 0, 1, false);
-        myDb.insertAchievementData("Excellent Eight", "Achieve over 80% for any Quiz", 0, 1, false);
-        myDb.insertAchievementData("Super Seven", "Achieve over 70% for any Quiz", 0, 1, false);
-        myDb.insertAchievementData("Sexy Six", "Achieve over 60% for any Quiz", 0, 1, false);
-        myDb.insertAchievementData("Did you even try?", "Achieve under 30% for any Quiz", 0, 1, false);
-        myDb.insertAchievementData("Off to a Great Start", "Get the first answer wrong", 0, 1, false);
-        myDb.insertAchievementData("Abort Mission?", "Get 3 answers wrong in a row_achievement", 0, 1, false);
-        myDb.insertAchievementData("Abandon Ship!", "Get 5 answers wrong in a row_achievement", 0, 1, false);
-        myDb.insertAchievementData("Oh Baby a Triple!", "Get 3 answers correct in a row_achievement", 0, 1, false);
-        myDb.insertAchievementData("Pentakill!", "Get 5 answers correct in a row_achievement", 0, 1, false);
-
-        myDb.insertAchievementData("Instant Noodles!", "Get an answer correct within 1 second", 0, 1, false);
-        myDb.insertAchievementData("Slick Speedster!", "Get an answer correct within 2 seconds", 0, 1, false);
-
-        myDb.insertAchievementData("Smart Saver", "Save 5 words", 0, 5, false);
-        myDb.insertAchievementData("Sophisticated Saver", "Save 20 words", 0, 20, false);
-        myDb.insertAchievementData("Terrific Tester", "Take 10 Quizzes", 0, 10, false);
-        myDb.insertAchievementData("Talented Tester", "Take 20 Quizzes", 0, 20, false);
-        myDb.insertAchievementData("Tenacious Tester", "Take 30 Quizzes", 0, 30, false);
-
-        //open a youtube link
-        //
-
-
-    }
-
     private void setColors() {
         int[][] states = new int[][]{
                 new int[]{android.R.attr.state_enabled}, // enabled
@@ -263,81 +206,12 @@ public class MainActivity extends AppCompatActivity {
         editor.apply();
     }
 
-    public static void insertWordData(DatabaseHelper myDb, Activity activity) {
-        myDb.insertData("Threat", "An event or an action that can compromise a system or violate security", "What is Cyber?", false, false);
-        myDb.insertData("Exploit", "A way to breach security measures put in place for a machine through a loophole or vulnerability", "What is Cyber?", false, false);
-        myDb.insertData("Vulnerability", "Existence of a weakness in the design or implementation that can lead to undesirable compromising events", "What is Cyber?", false, false);
-        myDb.insertData("Risk", "An expectation of loss if a particular threat exploits a particular vulnerability with a particular harmful result ", "What is Cyber?", false, false);
-        myDb.insertData("Attacker", "Individual who compromises machine security through vulnerabilities for the purpose of stealing, manipulating of destroying data", "What is Cyber?", false, false);
-        myDb.insertData("Attack", "Action performed by attackers that have the potential to harm the system of stored information", "What is Cyber?", false, false);
-        myDb.insertData("Device Security", "The protection of the system from theft or damage to either the software, hardware or data present on the system. It will generally involve processes to safeguard against attackers from gaining access to the system and the data for malicious purposes", "What is Cyber?", false, false);
-        myDb.insertData("Confidentiality", "Information is only available to those who are authorised and should have access", "What is Cyber?", false, false);
-        myDb.insertData("Integrity", "Information is accurate, reliable and complete in its original intended form", "What is Cyber?", false, false);
-        myDb.insertData("Availability", "Information is accessible to those authorised whenever required", "What is Cyber?", false, false);
-        myDb.insertData("Authenticity", "Identification and assurance of the information's origin", "What is Cyber?", false, false);
-        myDb.insertData("Non-Repudiation", "Assurance that authenticity cannot be denied", "What is Cyber?", false, false);
-        myDb.insertData("", "", "What is Cyber?", false, false);
-
-        myDb.insertData("Antivirus Software", "Computer programs that can detect, block and remove viruses and malware", "Cyber 101", false, false);
-        myDb.insertData("Backup", "Extra copies of files and data that can be used to restore data when lost or damaged", "Cyber 101", false, false);
-        myDb.insertData("Data Breach", "A result of a cyberattack that allows cybercriminals to gain unauthorised access to a system or network to steal the private, sensitive or personal and financial data of users within", "Cyber 101", false, false);
-        myDb.insertData("DDos", "Distributed Denial of service attack that attempts to cause an online service unavailable by overwhelming it with a flood of traffic in packets", "Cyber 101", false, false);
-        myDb.insertData("Encryption", "Process of using codes to make readable text unreadable. Encrypted information cannot be read until it is decrypted", "Cyber 101", false, false);
-        myDb.insertData("Firewall", "Software designed to block malware from entering into the network", "Cyber 101", false, false);
-        myDb.insertData("Hacker", "Attacker that seeks to compromise digital devices such as computers, smartphones, tablets or networks. They can have many motivations such as personal gain, make a statement, political reasons or simply because they can", "Cyber 101", false, false);
-        myDb.insertData("Identity Theft", "Occurs when a criminal obtains or uses personal information that they have gained of another individual to assume their identity or access their online accounts", "Cyber 101", false, false);
-        myDb.insertData("Keylogger", "Software that secretly records what you see, say or do on your device", "Cyber 101", false, false);
-        myDb.insertData("Malware", "Software that harms devices, networks or individuals. It includes viruses, worms, ransomware and other programs", "Cyber 101", false, false);
-        myDb.insertData("Network", "Two or more interconnected devices that can exchange data", "Cyber 101", false, false);
-        myDb.insertData("Phishing", "An attempt to trick people into revealing sensitive information. The main method is by the use of emails or fake websites", "Cyber 101", false, false);
-        myDb.insertData("Ransomware", "New form of malware that locks users out of their files or devices then demands payment to restore access", "Cyber 101", false, false);
-        myDb.insertData("Server", "Computer or program that provides services on a network. E.g. Email server or web server", "Cyber 101", false, false);
-        myDb.insertData("Social Engineering", "Methods cybercriminals use to get their victim to undertake some questionable action that usually involves sending money or providing confidential private information", "Cyber 101", false, false);
-        myDb.insertData("Software", "Package of code written in a programming language or languages instructing devices to perform certain tasks", "Cyber 101", false, false);
-        myDb.insertData("Spam", "Unsolicited emails sent to many destination addresses", "Cyber 101", false, false);
-        myDb.insertData("Spyware", "Form of malware that hides on your device, monitoring activity and has the potential to steal sensitive information such as passwords or banking information", "Cyber 101", false, false);
-        myDb.insertData("Vulnerability", "Flaw or weakness that attackers can exploit to gain access to information or damage", "Cyber 101", false, false);
-        myDb.insertData("Virus", "A piece of code which is capable of copying itself and typically has a detrimental effect, such as corrupting the system or destroying data", "Cyber 101", false, false);
-        myDb.insertData("", "", "Cyber 101", false, false);
-
-        myDb.insertData("Social Engineering", "The act of manipulating individuals into disclosing confidential information. Social engineering aims to exploit human psychology rather than relying on technical hacking techniques, in order to gain access to sensitive data", "Social Engineering", false, false);
-        myDb.insertData("Phishing", "An attempt to fraudulently obtain confidential information by sending an email disguised as a trustworthy entity", "Social Engineering", false, false);
-        myDb.insertData("Spear Phishing", "Attack through the use of a fraudulent email at a specific target", "Social Engineering", false, false);
-        myDb.insertData("Whaling", "Use of phishing methods at high profile targets", "Social Engineering", false, false);
-        myDb.insertData("Vishing", "Phishing conducted over the phone", "Social Engineering", false, false);
-        myDb.insertData("Smishing", "Sending infected malware links via SMS ", "Social Engineering", false, false);
-        myDb.insertData("Pretexting", "When an individual lies to obtain privileged data ", "Social Engineering", false, false);
-        myDb.insertData("Baiting", "Use of physical media to disperse malware by appealing to victim’s curiosity or greed", "Social Engineering", false, false);
-        myDb.insertData("Watering Hole", "Sabotaging a specific group of users by infecting websites associated with the group", "Social Engineering", false, false);
-        myDb.insertData("Tailgating", "When an unauthorized person follows an authorized person into a secured premise", "Social Engineering", false, false);
-        myDb.insertData("Quid Pro Quo", "Attacker promises to perform a service in exchange for sensitive data from the victim", "Social Engineering", false, false);
-        myDb.insertData("Dumpster Diving", "Attacker steals sensitive data from trash", "Social Engineering", false, false);
-        myDb.insertData("Shoulder Surfing", "Attack steals sensitive data by reading over the victim’s shoulder", "Social Engineering", false, false);
-        myDb.insertData("", "", "Social Engineering", false, false);
-
-
-    }
-
     public void setStatusBarColor(int id) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             getWindow().setStatusBarColor(getResources().getColor(id, this.getTheme()));
         } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             getWindow().setStatusBarColor(getResources().getColor(id));
         }
-    }
-
-    public static void insertScoreData(DatabaseHelper myDb, Activity activity) {
-        myDb.insertScoreData("Achievements", 0);            //
-        myDb.insertScoreData("Tests Taken", 0);             //
-        myDb.insertScoreData("Mastered Words", 0);          //
-        myDb.insertScoreData("Level", 0);                   //
-        myDb.insertScoreData("Words Added", 0);
-        myDb.insertScoreData("Experience", 0);
-        myDb.insertScoreData("HD", 0);
-        myDb.insertScoreData("D", 0);
-        myDb.insertScoreData("C", 0);
-        myDb.insertScoreData("P", 0);
-        myDb.insertScoreData("F", 0);
     }
 
     public static void insertContentData(DatabaseHelper myDb, Activity activity) {
@@ -394,6 +268,149 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public static void insertWordData(DatabaseHelper myDb, Activity activity) {
+        myDb.insertData("Threat", "An event or an action that can compromise a system or violate security", "What is Cyber?", false, false);
+        myDb.insertData("Exploit", "A way to breach security measures put in place for a machine through a loophole or vulnerability", "What is Cyber?", false, false);
+        myDb.insertData("Vulnerability", "Existence of a weakness in the design or implementation that can lead to undesirable compromising events", "What is Cyber?", false, false);
+        myDb.insertData("Risk", "An expectation of loss if a particular threat exploits a particular vulnerability with a particular harmful result ", "What is Cyber?", false, false);
+        myDb.insertData("Attacker", "Individual who compromises machine security through vulnerabilities for the purpose of stealing, manipulating of destroying data", "What is Cyber?", false, false);
+        myDb.insertData("Attack", "Action performed by attackers that have the potential to harm the system of stored information", "What is Cyber?", false, false);
+        myDb.insertData("Device Security", "The protection of the system from theft or damage to either the software, hardware or data present on the system. It will generally involve processes to safeguard against attackers from gaining access to the system and the data for malicious purposes", "What is Cyber?", false, false);
+        myDb.insertData("Confidentiality", "Information is only available to those who are authorised and should have access", "What is Cyber?", false, false);
+        myDb.insertData("Integrity", "Information is accurate, reliable and complete in its original intended form", "What is Cyber?", false, false);
+        myDb.insertData("Availability", "Information is accessible to those authorised whenever required", "What is Cyber?", false, false);
+        myDb.insertData("Authenticity", "Identification and assurance of the information's origin", "What is Cyber?", false, false);
+        myDb.insertData("Non-Repudiation", "Assurance that authenticity cannot be denied", "What is Cyber?", false, false);
+        myDb.insertData("", "", "What is Cyber?", false, false);
+
+        myDb.insertData("Antivirus Software", "Computer programs that can detect, block and remove viruses and malware", "Cyber 101", false, false);
+        myDb.insertData("Backup", "Extra copies of files and data that can be used to restore data when lost or damaged", "Cyber 101", false, false);
+        myDb.insertData("Data Breach", "A result of a cyberattack that allows cybercriminals to gain unauthorised access to a system or network to steal the private, sensitive or personal and financial data of users within", "Cyber 101", false, false);
+        myDb.insertData("DDos", "Distributed Denial of service attack that attempts to cause an online service unavailable by overwhelming it with a flood of traffic in packets", "Cyber 101", false, false);
+        myDb.insertData("Encryption", "Process of using codes to make readable text unreadable. Encrypted information cannot be read until it is decrypted", "Cyber 101", false, false);
+        myDb.insertData("Firewall", "Software designed to block malware from entering into the network", "Cyber 101", false, false);
+        myDb.insertData("Hacker", "Attacker that seeks to compromise digital devices such as computers, smartphones, tablets or networks. They can have many motivations such as personal gain, make a statement, political reasons or simply because they can", "Cyber 101", false, false);
+        myDb.insertData("Identity Theft", "Occurs when a criminal obtains or uses personal information that they have gained of another individual to assume their identity or access their online accounts", "Cyber 101", false, false);
+        myDb.insertData("Keylogger", "Software that secretly records what you see, say or do on your device", "Cyber 101", false, false);
+        myDb.insertData("Malware", "Software that harms devices, networks or individuals. It includes viruses, worms, ransomware and other programs", "Cyber 101", false, false);
+        myDb.insertData("Network", "Two or more interconnected devices that can exchange data", "Cyber 101", false, false);
+        myDb.insertData("Phishing", "An attempt to trick people into revealing sensitive information. The main method is by the use of emails or fake websites", "Cyber 101", false, false);
+        myDb.insertData("Ransomware", "New form of malware that locks users out of their files or devices then demands payment to restore access", "Cyber 101", false, false);
+        myDb.insertData("Server", "Computer or program that provides services on a network. E.g. Email server or web server", "Cyber 101", false, false);
+        myDb.insertData("Social Engineering", "Methods cybercriminals use to get their victim to undertake some questionable action that usually involves sending money or providing confidential private information", "Cyber 101", false, false);
+        myDb.insertData("Software", "Package of code written in a programming language or languages instructing devices to perform certain tasks", "Cyber 101", false, false);
+        myDb.insertData("Spam", "Unsolicited emails sent to many destination addresses", "Cyber 101", false, false);
+        myDb.insertData("Spyware", "Form of malware that hides on your device, monitoring activity and has the potential to steal sensitive information such as passwords or banking information", "Cyber 101", false, false);
+        myDb.insertData("Vulnerability", "Flaw or weakness that attackers can exploit to gain access to information or damage", "Cyber 101", false, false);
+        myDb.insertData("Virus", "A piece of code which is capable of copying itself and typically has a detrimental effect, such as corrupting the system or destroying data", "Cyber 101", false, false);
+        myDb.insertData("", "", "Cyber 101", false, false);
+
+        myDb.insertData("Social Engineering", "The act of manipulating individuals into disclosing confidential information. Social engineering aims to exploit human psychology rather than relying on technical hacking techniques, in order to gain access to sensitive data", "Social Engineering", false, false);
+        myDb.insertData("Phishing", "An attempt to fraudulently obtain confidential information by sending an email disguised as a trustworthy entity", "Social Engineering", false, false);
+        myDb.insertData("Spear Phishing", "Attack through the use of a fraudulent email at a specific target", "Social Engineering", false, false);
+        myDb.insertData("Whaling", "Use of phishing methods at high profile targets", "Social Engineering", false, false);
+        myDb.insertData("Vishing", "Phishing conducted over the phone", "Social Engineering", false, false);
+        myDb.insertData("Smishing", "Sending infected malware links via SMS ", "Social Engineering", false, false);
+        myDb.insertData("Pretexting", "When an individual lies to obtain privileged data ", "Social Engineering", false, false);
+        myDb.insertData("Baiting", "Use of physical media to disperse malware by appealing to victim’s curiosity or greed", "Social Engineering", false, false);
+        myDb.insertData("Watering Hole", "Sabotaging a specific group of users by infecting websites associated with the group", "Social Engineering", false, false);
+        myDb.insertData("Tailgating", "When an unauthorized person follows an authorized person into a secured premise", "Social Engineering", false, false);
+        myDb.insertData("Quid Pro Quo", "Attacker promises to perform a service in exchange for sensitive data from the victim", "Social Engineering", false, false);
+        myDb.insertData("Dumpster Diving", "Attacker steals sensitive data from trash", "Social Engineering", false, false);
+        myDb.insertData("Shoulder Surfing", "Attack steals sensitive data by reading over the victim’s shoulder", "Social Engineering", false, false);
+        myDb.insertData("", "", "Social Engineering", false, false);
+
+
+    }
+
+    public static void insertStoryData(DatabaseHelper myDb, Activity activity) {
+        // storyId, pageId, pageContent, one, two, three, four
+        myDb.insertStoryData(0, 0, "You are a software engineer who works for Google. The team lead has piled on 3 projects for you to work on and you are having trouble keeping up. One of the projects is however quite simple and you are thinking about offloading to a friend who is also at Google. Your friend however recommends that you should get a third party engineer to do this for you. Do you decide to let the third party engineer take this on for you?", "Yes", "No", "", "");
+
+        myDb.insertStoryData(0, 1, "You tell your friend you don’t want to risk that. He doesn’t understand though, this is an easy task that any new engineer can complete and it won’t cost much. Select two risks that you will tell him.", "Customer personal details are given away and used for third party promotions", "Servers can be made vulnerable and hacked from unauthorised access", "The engineer may get hired and take your position", "The data you give him may be incorrect");
+        myDb.insertStoryData(0, 2, "You want to give the task to the engineer however you don’t want to give him sensitive company data. Consider the risks of giving information to the third party engineer.  Select an option.", "How risky can it be? I’m sure the engineer is trust-worthy.", "Tell your friend that it’s too high of a risk. ", "", "");
+
+        myDb.insertStoryData(0, 3, "Your friend understands your concerns. He suggests you talk to your team lead to rethink the task allocation. Do you want to?", "Yes", "No", "", "");
+        myDb.insertStoryData(0, 4, "You argue with your friend to no avail as he does not understand your points. He leaves you to make the decision on your own. How do you plan to complete this?", "Talk to the team lead and ask for an extension", "Use the third party engineer anyway", "Just do it on your own", "");
+        myDb.insertStoryData(0, 5, "You decide to go ahead and give the third party engineer the task. The engineer finishes the task for you. However, when you go to test the application you notice a virus has installed itself and your servers are compromised. Do you choose to report this to your team lead?", "Yes", "No", "", "");
+
+        myDb.insertStoryData(0, 6, "You decide to complete the task on your own and avoided all risk. You have understood the confidentiality of company data. In future, discussing with the team lead can reveal safer ways to complete work. ", "", "", "", "");
+        myDb.insertStoryData(0, 7, "After your talk with the team lead, he extends the deadline on your tasks by a week. You take this time to continue discussing with the team lead and he organises reliable employees to help you complete the tasks. You understood the risks of sharing company data and followed up appropriately. ", "", "", "", "");
+        myDb.insertStoryData(0, 8, "Your team lead is very worried about this situation and must not have company data leaked. He needs you and your friend to report your interactions with the third party engineer to ensure no security threats. Please reflect and select the options which would have prevented this.", "", "", "", "");
+        myDb.insertStoryData(0, 9, "Failing to report this, a security breach occurs and the engineer steals sensitive user data. The team lead finds out and is very worried as this will have huge ramifications on Google’s reputation and users. He needs you to log your interactions with the third party engineer to attempt to fix this issue. You will be held responsible for this. Please reflect and select the options which would have prevented this. ", "", "", "", "");
+    }
+
+    public static void insertScoreData(DatabaseHelper myDb, Activity activity) {
+        myDb.insertScoreData("Achievements", 0);            //
+        myDb.insertScoreData("Tests Taken", 0);             //
+        myDb.insertScoreData("Mastered Words", 0);          //
+        myDb.insertScoreData("Level", 0);                   //
+        myDb.insertScoreData("Words Added", 0);
+        myDb.insertScoreData("Experience", 0);
+        myDb.insertScoreData("HD", 0);
+        myDb.insertScoreData("D", 0);
+        myDb.insertScoreData("C", 0);
+        myDb.insertScoreData("P", 0);
+        myDb.insertScoreData("F", 0);
+    }
+
+    public static void insertAchievementData(DatabaseHelper myDb, Activity activity) {
+        myDb.insertAchievementData("Cyber Novice I", "Complete the What is Cyber? Learning module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Novice II", "Complete the What is Cyber? Flashcards module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Novice III", "Complete the What is Cyber? Quiz module", 0, 1, false);
+        myDb.insertAchievementData("Certified Cyber Novice", "Complete Level One: What is Cyber?", 0, 3, false);
+
+        myDb.insertAchievementData("Cyber Skilled I", "Complete the Cyber 101 Learning module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Skilled II", "Complete the Cyber 101 Flashcards module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Skilled III", "Complete the Cyber 101 Quiz module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Skilled IV", "Complete the Cyber 101 Story module", 0, 1, false);
+        myDb.insertAchievementData("Certified Cyber Skilled", "Complete Level Two: Cyber 101", 0, 4, false);
+
+        myDb.insertAchievementData("Anti-Social Engineer I", "Complete the Social Engineering Learning module", 0, 1, false);
+        myDb.insertAchievementData("Anti-Social Engineer II", "Complete the Social Engineering FLashcards module", 0, 1, false);
+        myDb.insertAchievementData("Anti-Social Engineer III", "Complete the Social Engineering Quiz module", 0, 1, false);
+        myDb.insertAchievementData("Anti-Social Engineer IV", "Complete the Social Engineering Story module", 0, 1, false);
+        myDb.insertAchievementData("Certified Anti-Social Engineer", "Complete Level Three: Social Engineering", 0, 4, false);
+
+        myDb.insertAchievementData("Cyber Defender I", "Complete the Protecting Yourself Learning module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Defender II", "Complete the Protecting Yourself FLashcards module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Defender III", "Complete the Protecting Yourself Quiz module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Defender IV", "Complete the Protecting Yourself Story module", 0, 1, false);
+        myDb.insertAchievementData("Certified Cyber Defender", "Complete Level Four: Protecting Yourself", 0, 4, false);
+
+        myDb.insertAchievementData("Dedicated", "Revise your saved words", 0, 1, false);
+        myDb.insertAchievementData("Pursuing Perfection", "Revise your mastered words", 0, 1, false);
+
+        myDb.insertAchievementData("Cyber Scholar", "Complete all Learning modules", 0, 4, false);
+        myDb.insertAchievementData("Cyber Specialist", "Complete all Quiz modules", 0, 4, false);
+
+        myDb.insertAchievementData("Cyber Savvy", "Complete a Quiz without any mistakes", 0, 1, false);
+        myDb.insertAchievementData("Nice Nine", "Achieve over 90% for any Quiz", 0, 1, false);
+        myDb.insertAchievementData("Excellent Eight", "Achieve over 80% for any Quiz", 0, 1, false);
+        myDb.insertAchievementData("Super Seven", "Achieve over 70% for any Quiz", 0, 1, false);
+        myDb.insertAchievementData("Sexy Six", "Achieve over 60% for any Quiz", 0, 1, false);
+        myDb.insertAchievementData("Did you even try?", "Achieve under 30% for any Quiz", 0, 1, false);
+        myDb.insertAchievementData("Off to a Great Start", "Get the first answer wrong", 0, 1, false);
+        myDb.insertAchievementData("Abort Mission?", "Get 3 answers wrong in a row_achievement", 0, 1, false);
+        myDb.insertAchievementData("Abandon Ship!", "Get 5 answers wrong in a row_achievement", 0, 1, false);
+        myDb.insertAchievementData("Oh Baby a Triple!", "Get 3 answers correct in a row_achievement", 0, 1, false);
+        myDb.insertAchievementData("Pentakill!", "Get 5 answers correct in a row_achievement", 0, 1, false);
+
+        myDb.insertAchievementData("Instant Noodles!", "Get an answer correct within 1 second", 0, 1, false);
+        myDb.insertAchievementData("Slick Speedster!", "Get an answer correct within 2 seconds", 0, 1, false);
+
+        myDb.insertAchievementData("Smart Saver", "Save 5 words", 0, 5, false);
+        myDb.insertAchievementData("Sophisticated Saver", "Save 20 words", 0, 20, false);
+        myDb.insertAchievementData("Terrific Tester", "Take 10 Quizzes", 0, 10, false);
+        myDb.insertAchievementData("Talented Tester", "Take 20 Quizzes", 0, 20, false);
+        myDb.insertAchievementData("Tenacious Tester", "Take 30 Quizzes", 0, 30, false);
+
+        //open a youtube link
+        //
+
+
+    }
+
     private void enableBottomBar(boolean enable) {
         for (int i = 0; i < bottomBar.getMenu().size(); i++) {
             bottomBar.getMenu().getItem(i).setEnabled(enable);
@@ -438,6 +455,7 @@ public class MainActivity extends AppCompatActivity {
             insertAchievementData(myDb, activity);
             insertScoreData(myDb, activity);
             insertContentData(myDb, activity);
+            insertStoryData(myDb, activity);
 
             return null;
         }
