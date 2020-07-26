@@ -102,9 +102,9 @@ public class HomeFragment extends Fragment {
 		mEcvThree.setVisibility(View.GONE);
 		mEcvFour.setVisibility(View.GONE);
 
-		mEcvTwo.setVisibility(View.VISIBLE);
-		mEcvThree.setVisibility(View.VISIBLE);
-		mEcvFour.setVisibility(View.VISIBLE);
+//		mEcvTwo.setVisibility(View.VISIBLE);
+//		mEcvThree.setVisibility(View.VISIBLE);
+//		mEcvFour.setVisibility(View.VISIBLE);
 
 		if(myDb.checkAchievementStatus("Certified Cyber Novice")){
 			mEcvTwo.setVisibility(View.VISIBLE);

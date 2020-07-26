@@ -65,7 +65,7 @@
                     android:lineSpacingExtra="1sp"
                     android:text="@string/phrase_placeholder"
                     android:textAlignment="center"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+                    android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
             </androidx.cardview.widget.CardView>
 
@@ -199,12 +199,13 @@
         style="?android:progressBarStyleHorizontal"
         android:layout_width="90dp"
         android:layout_height="90dp"
+        android:layout_marginBottom="64dp"
         android:elevation="8dp"
         android:progress="0"
         android:progressDrawable="@drawable/circle"
         android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/scrollView2" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

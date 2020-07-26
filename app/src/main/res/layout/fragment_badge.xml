@@ -57,11 +57,9 @@
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="24dp"
-                        android:layout_marginTop="24dp"
-                        android:layout_marginRight="24dp"
+                        android:layout_margin="16dp"
                         android:fontFamily="@font/quicksand_bold"
-                        android:text="Complete levels to collect badges. Show them off on your LinkedIn. "
+                        android:text="Complete levels to collect LinkedIn badges"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 

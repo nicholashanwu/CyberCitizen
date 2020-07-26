@@ -242,36 +242,7 @@ public class StoryFragment extends Fragment {
 
 		}
 
-
-//		if (percentage == 100) {
-//			if (myDb.progressAchievement("Cyber Savvy")) {
-//				showAchievement("Cyber Savvy");
-//			}
-//		} else if (percentage >= 90 && percentage < 100) {
-//			if (myDb.progressAchievement("Nice Nine")) {
-//				showAchievement("Nice Nine");
-//			}
-//		} else if (percentage >= 80 && percentage < 90) {
-//			if (myDb.progressAchievement("Excellent Eight")) {
-//				showAchievement("Excellent Eight");
-//			}
-//		} else if (percentage >= 70 && percentage < 80) {
-//			if (myDb.progressAchievement("Super Seven")) {
-//				showAchievement("Super Seven");
-//			}
-//		} else if (percentage >= 60 && percentage < 70) {
-//			if (myDb.progressAchievement("Sexy Six")) {
-//				showAchievement("Sexy Six");
-//			}
-//		} else if (percentage < 30) {
-//			if (myDb.progressAchievement("Did you even try?")) {
-//				showAchievement("Did you even try?");
-//			}
-//		} else {
-//
-//		}
-
-		showMessage("You're Finished!");
+		showMessage("You completed the story!");
 		if (res != null) {
 			res.close();
 			myDb.close();
@@ -303,36 +274,27 @@ public class StoryFragment extends Fragment {
 
 	private void showMessage(String title) {
 		AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(getContext(), R.style.Red));
-		View view = LayoutInflater.from(getActivity()).inflate(R.layout.custom_alert_dialog, null);
+		View view = LayoutInflater.from(getActivity()).inflate(R.layout.custom_alert_dialog_test, null);
 		TextView txtTitle = view.findViewById(R.id.title);
 		ImageButton imageButton = view.findViewById(R.id.image);
-		TextView mTxtMessage = view.findViewById(R.id.message);
-		TextView mTxtLearned = view.findViewById(R.id.txtLearned);
-		TextView mTxtMastered = view.findViewById(R.id.txtMastered);
-		TextView mTxtForgot = view.findViewById(R.id.txtForgot);
+		TextView mTxtMessage = view.findViewById(R.id.txtMessage);
 
-//		if (percentage > 85) {
-//			myDb.updateScore("HD");
-//			imageButton.setImageResource(R.mipmap.over_95);
-//		} else if (percentage > 75) {
-//			myDb.updateScore("D");
-//			imageButton.setImageResource(R.mipmap.over_75);
-//		} else if (percentage > 65) {
-//			myDb.updateScore("C");
-//			imageButton.setImageResource(R.mipmap.over_65);
-//		} else if (percentage > 50) {
-//			myDb.updateScore("P");
-//			imageButton.setImageResource(R.mipmap.over_50);
-//		} else if (percentage > 40) {
-//			myDb.updateScore("F");
-//			imageButton.setImageResource(R.mipmap.over_40);
-//		} else if (percentage > 30) {
-//			myDb.updateScore("F");
-//			imageButton.setImageResource(R.mipmap.over_30);
-//		} else {
-//			myDb.updateScore("F");
-//			imageButton.setImageResource(R.mipmap.under_30);
-//		}
+		if (storyId == 0) {
+			if (nextPageId == 6) {
+				imageButton.setImageResource(R.mipmap.over_75);
+				mTxtMessage.setText("You did well - but you could do even better!");
+			} else if (nextPageId == 7) {
+				imageButton.setImageResource(R.mipmap.over_95);
+				mTxtMessage.setText("Excellent work!");
+			} else if (nextPageId == 8) {
+				imageButton.setImageResource(R.mipmap.over_50);
+				mTxtMessage.setText("That was close. You almost leaked company data - give it another go!");
+			} else {
+				imageButton.setImageResource(R.mipmap.under_30);
+				mTxtMessage.setText("Oh no.");
+			}
+		}
+
 
 		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 			@Override
