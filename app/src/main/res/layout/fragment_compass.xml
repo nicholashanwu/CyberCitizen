@@ -105,10 +105,11 @@
                                 android:id="@+id/imageView4"
                                 android:layout_width="108dp"
                                 android:layout_height="96dp"
-                                android:src="@drawable/google"
+                                android:src="@drawable/compass_google"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/compass_google" />
 
                             <TextView
                                 android:layout_width="wrap_content"
@@ -153,10 +154,11 @@
                                 android:id="@+id/imageView5"
                                 android:layout_width="108dp"
                                 android:layout_height="96dp"
-                                android:src="@drawable/microsoft"
+                                android:src="@drawable/compass_microsoft"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
-                                app:layout_constraintTop_toTopOf="parent" />
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/compass_microsoft" />
 
                             <ImageView
                                 android:layout_width="wrap_content"

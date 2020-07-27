@@ -16,6 +16,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabTokens"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTint="#FFFFFF"
+        android:elevation="0dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:outlineProvider="none"
+        android:text="tokenCount"
+        android:textColor="#FFFFFF"
+        android:translationZ="0dp"
+        app:backgroundTint="@color/transparent"
+        app:elevation="0dp"
+        app:icon="@drawable/ic_outline_fiber_smart_record_24"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:pressedTranslationZ="0dp"
+        app:rippleColor="@null" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -49,64 +70,232 @@
                 app:cardElevation="0dp"
                 app:cardMaxElevation="0dp">
 
-                <LinearLayout
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:layout_height="match_parent">
 
                     <TextView
-                        android:layout_width="match_parent"
+                        android:id="@+id/textView6"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_margin="16dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
                         android:fontFamily="@font/quicksand_bold"
-                        android:text="Complete levels to collect LinkedIn badges"
+                        android:text="Collect Cybercoins to get LinkedIn badges"
                         android:textAlignment="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-                    <androidx.gridlayout.widget.GridLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="300dp"
-                        app:columnCount="3"
-                        app:rowCount="3">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/b1"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        app:cardElevation="0dp"
+                        app:layout_columnWeight="1"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toStartOf="@id/b2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView6"
+                        app:layout_rowWeight="1">
 
-                        <androidx.cardview.widget.CardView
-                            app:layout_columnWeight="1"
-                            app:layout_rowWeight="1" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="24dp"
+                            android:src="@drawable/badge_boulder"
+                            android:tint="#1A000000"
+                            android:tintMode="multiply"
+                            app:srcCompat="@drawable/badge_boulder" />
+                    </androidx.cardview.widget.CardView>
 
-                        <androidx.cardview.widget.CardView
-                            app:layout_columnWeight="1"
-                            app:layout_rowWeight="1" />
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/b2"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        app:cardElevation="0dp"
+                        app:layout_columnWeight="1"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toStartOf="@id/b3"
+                        app:layout_constraintStart_toEndOf="@+id/b1"
+                        app:layout_constraintTop_toTopOf="@+id/b1"
+                        app:layout_rowWeight="1">
 
-                        <androidx.cardview.widget.CardView
-                            app:layout_columnWeight="1"
-                            app:layout_rowWeight="1" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="24dp"
+                            android:src="@drawable/badge_cascade"
+                            android:tint="#1A000000"
+                            android:tintMode="multiply"
+                            app:srcCompat="@drawable/badge_cascade" />
+                    </androidx.cardview.widget.CardView>
 
-                        <androidx.cardview.widget.CardView
-                            app:layout_columnWeight="1"
-                            app:layout_rowWeight="1" />
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/b3"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="16dp"
+                        app:cardElevation="0dp"
+                        app:layout_columnWeight="1"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/b2"
+                        app:layout_constraintTop_toTopOf="@+id/b2"
+                        app:layout_rowWeight="1">
 
-                        <androidx.cardview.widget.CardView
-                            app:layout_columnWeight="1"
-                            app:layout_rowWeight="1" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="24dp"
+                            android:src="@drawable/badge_thunder"
+                            android:tint="#1A000000"
+                            android:tintMode="multiply"
+                            app:srcCompat="@drawable/badge_thunder" />
+                    </androidx.cardview.widget.CardView>
 
-                        <androidx.cardview.widget.CardView
-                            app:layout_columnWeight="1"
-                            app:layout_rowWeight="1" />
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/b4"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        app:cardElevation="0dp"
+                        app:layout_columnWeight="1"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toStartOf="@+id/b5"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/b1"
+                        app:layout_rowWeight="1">
 
-                        <androidx.cardview.widget.CardView
-                            app:layout_columnWeight="1"
-                            app:layout_rowWeight="1" />
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="24dp"
+                            android:src="@drawable/badge_rainbow"
+                            android:tint="#1A000000"
+                            android:tintMode="multiply"
+                            app:srcCompat="@drawable/badge_rainbow" />
+                    </androidx.cardview.widget.CardView>
 
-                        <androidx.cardview.widget.CardView
-                            app:layout_columnWeight="1"
-                            app:layout_rowWeight="1" />
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/b5"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        app:cardElevation="0dp"
+                        app:layout_columnWeight="1"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toStartOf="@+id/b6"
+                        app:layout_constraintStart_toEndOf="@id/b4"
+                        app:layout_constraintTop_toBottomOf="@+id/b2"
+                        app:layout_rowWeight="1">
 
-                        <androidx.cardview.widget.CardView
-                            app:layout_columnWeight="1"
-                            app:layout_rowWeight="1" />
-                    </androidx.gridlayout.widget.GridLayout>
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="24dp"
+                            android:src="@drawable/badge_soul"
+                            android:tint="#1A000000"
+                            android:tintMode="multiply"
+                            app:srcCompat="@drawable/badge_soul" />
+                    </androidx.cardview.widget.CardView>
 
-                </LinearLayout>
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/b6"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        app:cardElevation="0dp"
+                        app:layout_columnWeight="1"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/b5"
+                        app:layout_constraintTop_toBottomOf="@+id/b3"
+                        app:layout_rowWeight="1">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="24dp"
+                            android:src="@drawable/badge_marsh"
+                            android:tint="#1A000000"
+                            android:tintMode="multiply"
+                            app:srcCompat="@drawable/badge_marsh" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/b7"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        app:cardElevation="0dp"
+                        app:layout_columnWeight="1"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toStartOf="@+id/b8"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/b4"
+                        app:layout_rowWeight="1">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="24dp"
+                            android:src="@drawable/badge_volcano"
+                            android:tint="#1A000000"
+                            android:tintMode="multiply"
+                            app:srcCompat="@drawable/badge_volcano" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/b8"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="8dp"
+                        app:cardElevation="0dp"
+                        app:layout_columnWeight="1"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toStartOf="@+id/b9"
+                        app:layout_constraintStart_toEndOf="@id/b7"
+                        app:layout_constraintTop_toBottomOf="@+id/b5"
+                        app:layout_rowWeight="1">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="24dp"
+                            android:src="@drawable/badge_earth"
+                            android:tint="#1A000000"
+                            android:tintMode="multiply"
+                            app:srcCompat="@drawable/badge_earth" />
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/b9"
+                        android:layout_width="0dp"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp"
+                        app:cardElevation="0dp"
+                        app:layout_columnWeight="1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintDimensionRatio="1:1"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/b8"
+                        app:layout_constraintTop_toBottomOf="@+id/b6"
+                        app:layout_rowWeight="1" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </androidx.cardview.widget.CardView>
 

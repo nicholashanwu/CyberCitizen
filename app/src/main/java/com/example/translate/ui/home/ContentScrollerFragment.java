@@ -248,13 +248,19 @@ public class ContentScrollerFragment extends Fragment {
 		View view = LayoutInflater.from(getActivity()).inflate(R.layout.custom_alert_dialog_achievement, null);
 		TextView txtTitle = view.findViewById(R.id.title);
 		ImageButton imageButton = view.findViewById(R.id.image);
+		TextView mTxtAchievementDescription = view.findViewById(R.id.txtAchievementDescription);
+
+		String description = myDb.returnAchievementDescription(title);
+		mTxtAchievementDescription.setText(description);
 
 		imageButton.setImageResource(R.mipmap.over_95);
 
 		builder.setPositiveButton("AWESOME", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialogInterface, int i) {
+
 			}
+
 		});
 
 		txtTitle.setText(title);

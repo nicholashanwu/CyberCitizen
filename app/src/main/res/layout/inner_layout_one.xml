@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/authentication" />
+            app:srcCompat="@drawable/home_authentication" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -60,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/scrum_board" />
+            app:srcCompat="@drawable/home_scrum_board" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -93,7 +93,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:scaleType="centerCrop"
-            app:srcCompat="@drawable/knowledge__two_color" />
+            app:srcCompat="@drawable/home_knowledge_two_color" />
 
         <TextView
             android:layout_width="wrap_content"

@@ -402,17 +402,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static void insertScoreData(DatabaseHelper myDb, Activity activity) {
-        myDb.insertScoreData("Achievements", 0);            //
-        myDb.insertScoreData("Tests Taken", 0);             //
-        myDb.insertScoreData("Mastered Words", 0);          //
-        myDb.insertScoreData("Level", 0);                   //
-        myDb.insertScoreData("Words Added", 0);
-        myDb.insertScoreData("Experience", 0);
-        myDb.insertScoreData("HD", 0);
-        myDb.insertScoreData("D", 0);
-        myDb.insertScoreData("C", 0);
-        myDb.insertScoreData("P", 0);
-        myDb.insertScoreData("F", 0);
+        myDb.insertScoreData("Achievements", 0);
+        myDb.insertScoreData("Tests Taken", 0);
+        myDb.insertScoreData("Tokens", 0);
+
+
     }
 
     public static void insertAchievementData(DatabaseHelper myDb, Activity activity) {

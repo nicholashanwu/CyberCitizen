@@ -16,6 +16,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabTokens"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTint="#FFFFFF"
+        android:elevation="0dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:outlineProvider="none"
+        android:text="tokenCount"
+        android:textColor="#FFFFFF"
+        android:translationZ="0dp"
+        app:backgroundTint="@color/transparent"
+        app:elevation="0dp"
+        app:icon="@drawable/ic_outline_fiber_smart_record_24"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:pressedTranslationZ="0dp"
+        app:rippleColor="@null" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -30,6 +51,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
+        android:id="@+id/scrollView4"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

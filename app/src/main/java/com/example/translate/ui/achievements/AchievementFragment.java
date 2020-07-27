@@ -29,6 +29,7 @@ public class AchievementFragment extends Fragment {
 
     private ExtendedFloatingActionButton mBtnStartSaved;
     private ExtendedFloatingActionButton mBtnStartMastered;
+    private ExtendedFloatingActionButton mFabTokens;
 
     private CardView mCvCoupons;
     private CardView mCvBadges;
@@ -71,6 +72,7 @@ public class AchievementFragment extends Fragment {
 
         mBtnStartSaved = view.findViewById(R.id.btnStartSaved);
         mBtnStartMastered = view.findViewById(R.id.btnStartMastered);
+        mFabTokens = view.findViewById(R.id.fabTokens);
 
         mCvCoupons = view.findViewById(R.id.cvCoupons);
         mCvBadges = view.findViewById(R.id.cvBadges);
@@ -87,15 +89,10 @@ public class AchievementFragment extends Fragment {
 
         myDb = new DatabaseHelper(getActivity());
 
-        getValues();
-
-        getMyListWords();
-
-        getMastered();
-
         int achievementCount = getAchievements();
 
-        int level = getExperience(achievementCount);
+        mFabTokens.setText(String.valueOf(myDb.getTokens()));
+        myDb.addTokens();
 
         myDb.close();
 
@@ -150,105 +147,6 @@ public class AchievementFragment extends Fragment {
 
     }
 
-    public void getValues() {
-
-        try (Cursor res = myDb.getScores()) {
-
-            res.moveToFirst();
-//            mTxtAchievements.setText(String.valueOf(res.getInt(2)));
-            res.move(1);
-//            mTxtTestsTaken.setText(String.valueOf(res.getInt(2)));
-            if (res.getInt(2) > 30) {
-                if (myDb.progressAchievement("Tenacious Tester")) {
-                    showAchievement("Tenacious Tester");
-                }
-            } else if (res.getInt(2) > 20) {
-                if (myDb.progressAchievement("Talented Tester")) {
-                    showAchievement("Talented Tester");
-                }
-            } else if (res.getInt(2) > 10) {
-                if (myDb.progressAchievement("Tenacious Tester")) {
-                    showAchievement("Tenacious Tester");
-                }
-            }
-
-            res.move(1);
-//            mTxtWordsMastered.setText(String.valueOf(res.getInt(2)));
-            res.move(1);
-//            mTxtLevel.setText(String.valueOf(res.getInt(2)));
-            res.move(1);
-//            mTxtWordsAdded.setText(String.valueOf(res.getInt(2)));
-            res.move(1);
-//            mPbExp.setProgress(res.getInt(2));
-            res.move(1);
-            int totalTests = 0;
-
-            int hd = res.getInt(2);
-            totalTests += hd;
-            res.move(1);
-            int d = res.getInt(2);
-            totalTests += d;
-            res.move(1);
-            int c = res.getInt(2);
-            totalTests += c;
-            res.move(1);
-            int p = res.getInt(2);
-            totalTests += p;
-            res.move(1);
-            int f = res.getInt(2);
-            totalTests += f;
-            res.move(1);
-//            mPbHd.setMax(totalTests);
-//            mPbD.setMax(totalTests);
-//            mPbC.setMax(totalTests);
-//            mPbP.setMax(totalTests);
-//            mPbF.setMax(totalTests);
-//
-//            mPbHd.setProgress(hd);
-//            mPbD.setProgress(d);
-//            mPbC.setProgress(c);
-//            mPbP.setProgress(p);
-//            mPbF.setProgress(f);
-
-        }
-    }
-
-    public int getExperience(int achievements) {
-
-        int level;
-        if (achievements >= 32) {
-            level = 5;
-//            mPbExp.setProgress(0);
-//            mPbExp.setMax(1);
-//            mTxtToNextLevel.setText("MAX LEVEL");
-        } else if (achievements >= 24) {
-            level = 4;
-//            mPbExp.setMax(8);
-//            mPbExp.setProgress(achievements - 24);
-//            mTxtToNextLevel.setText(32 - achievements + " ACHIEVEMENTS TO GO");
-        } else if (achievements >= 17) {
-            level = 3;
-//            mPbExp.setMax(7);
-//            mPbExp.setProgress(achievements - 17);
-//            mTxtToNextLevel.setText(24 - achievements + " ACHIEVEMENTS TO GO");
-        } else if (achievements >= 11) {
-            level = 2;
-//            mPbExp.setMax(6);
-//            mPbExp.setProgress(achievements - 11);
-//            mTxtToNextLevel.setText(17 - achievements + " ACHIEVEMENTS TO GO");
-        } else if (achievements >= 6) {
-            level = 1;
-//            mPbExp.setMax(5);
-//            mPbExp.setProgress(achievements - 6);
-//            mTxtToNextLevel.setText(11 - achievements + " ACHIEVEMENTS TO GO");
-        } else {
-            level = 0;
-//            mPbExp.setMax(5);
-//            mPbExp.setProgress(achievements);
-//            mTxtToNextLevel.setText(6 - achievements + " ACHIEVEMENTS TO GO");
-        }
-        return level;
-    }
 
     public int getAchievements() {
 
@@ -273,42 +171,15 @@ public class AchievementFragment extends Fragment {
         return count;
     }
 
-    public void getMyListWords() {
-
-        Cursor cur = myDb.getCategory("custom");
-
-        try {
-//            mTxtWordsAdded.setText(String.valueOf(cur.getCount()));
-        } catch (Exception e) {
-            // exception handling
-        } finally {
-            if (cur != null) {
-                cur.close();
-            }
-        }
-    }
-
-    public void getMastered() {
-
-        Cursor cur = myDb.getCategory("learned");
-
-        try {
-//            mTxtWordsMastered.setText(String.valueOf(cur.getCount()));
-        } catch (Exception e) {
-            // exception handling
-        } finally {
-            if (cur != null) {
-                cur.close();
-            }
-        }
-
-    }
 
     private void showAchievement(String title) {
         AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(getContext(), R.style.Yellow));
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.custom_alert_dialog_achievement, null);
         TextView txtTitle = view.findViewById(R.id.title);
         ImageButton imageButton = view.findViewById(R.id.image);
+        TextView mTxtAchievementDescription = view.findViewById(R.id.txtAchievementDescription);
+
+        mTxtAchievementDescription.setText(myDb.returnAchievementDescription(title));
 
         imageButton.setImageResource(R.mipmap.over_95);
 

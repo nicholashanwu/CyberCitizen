@@ -16,6 +16,27 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/fabTokens"
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableTint="#FFFFFF"
+        android:elevation="0dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:outlineProvider="none"
+        android:text="tokenCount"
+        android:textColor="#FFFFFF"
+        android:translationZ="0dp"
+        app:backgroundTint="@color/transparent"
+        app:elevation="0dp"
+        app:icon="@drawable/ic_outline_fiber_smart_record_24"
+        app:iconTint="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:pressedTranslationZ="0dp"
+        app:rippleColor="@null" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -80,7 +101,7 @@
                             android:layout_marginStart="8dp"
                             android:layout_marginTop="8dp"
                             android:fontFamily="@font/quicksand_bold"
-                            android:text="eBay"
+                            android:text="Amazon"
                             android:textColor="#FF444444"
                             android:textSize="20sp" />
 
@@ -136,6 +157,182 @@
                             android:layout_marginStart="8dp"
                             android:fontFamily="@font/quicksand_medium"
                             android:text="Free Large Chips and Burger"
+                            android:textColor="#AB000000" />
+
+                        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:layout_gravity="bottom"
+                            app:rcBackgroundColor="#0A000000"
+                            app:rcMax="100"
+                            app:rcProgress="50"
+                            app:rcProgressColors="@array/sample_progress_gradient"
+                            app:rcRadius="16dp" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:clickable="true"
+                        android:focusableInTouchMode="false"
+                        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="JB HiFi"
+                            android:textColor="#FF444444"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="$15 off your next purchase"
+                            android:textColor="#AB000000" />
+
+                        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:layout_gravity="bottom"
+                            app:rcBackgroundColor="#0A000000"
+                            app:rcMax="100"
+                            app:rcProgress="50"
+                            app:rcProgressColors="@array/sample_progress_gradient"
+                            app:rcRadius="16dp" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:clickable="true"
+                        android:focusableInTouchMode="false"
+                        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="Myer"
+                            android:textColor="#FF444444"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="$20 Myer Gift Card"
+                            android:textColor="#AB000000" />
+
+                        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:layout_gravity="bottom"
+                            app:rcBackgroundColor="#0A000000"
+                            app:rcMax="100"
+                            app:rcProgress="50"
+                            app:rcProgressColors="@array/sample_progress_gradient"
+                            app:rcRadius="16dp" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:clickable="true"
+                        android:focusableInTouchMode="false"
+                        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="Steam"
+                            android:textColor="#FF444444"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="$15 Steam Gift Card"
+                            android:textColor="#AB000000" />
+
+                        <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
+
+                            android:layout_width="match_parent"
+                            android:layout_height="32dp"
+                            android:layout_gravity="bottom"
+                            app:rcBackgroundColor="#0A000000"
+                            app:rcMax="100"
+                            app:rcProgress="50"
+                            app:rcProgressColors="@array/sample_progress_gradient"
+                            app:rcRadius="16dp" />
+
+                    </androidx.cardview.widget.CardView>
+
+                    <androidx.cardview.widget.CardView
+                        android:layout_width="match_parent"
+                        android:layout_height="100dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginRight="16dp"
+                        android:layout_marginBottom="16dp"
+                        android:clickable="true"
+                        android:focusableInTouchMode="false"
+                        android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="Bunnings"
+                            android:textColor="#FF444444"
+                            android:textSize="20sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="$30 Bunnings Gift Card"
                             android:textColor="#AB000000" />
 
                         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar

@@ -253,6 +253,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	////
 
+	public String returnAchievementDescription(String achievementName) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor res = db.rawQuery("SELECT description FROM " + A_TABLE_NAME + " WHERE name = '" + achievementName + "' ", null);
+		res.moveToFirst();
+		return res.getString(0);
+
+	}
+
     public boolean progressAchievement(String achievementName) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -271,6 +279,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 contentValues.put(ATT_6, "1");
                 db.update(A_TABLE_NAME, contentValues, "name = ?", new String[]{achievementName});
                 updateScore(achievementName);
+                addTokens();
                 return true;
             } else {
                 return false;
@@ -298,6 +307,26 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public void updateScore(String name) {
         SQLiteDatabase db = this.getWritableDatabase();
         db.execSQL("UPDATE " + SCORE_TABLE_NAME + " SET score = score + 1 WHERE name = '" + name + "'");
+
+	}
+
+	public int getTokens() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor res = db.rawQuery("SELECT * FROM " + SCORE_TABLE_NAME + " WHERE name = 'Tokens'", null);
+		res.moveToFirst();
+		int tokens = res.getInt(2);
+		return tokens;
+	}
+
+	public void addTokens() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("UPDATE " + SCORE_TABLE_NAME + " SET score = score + 200 WHERE name = 'Tokens'");
+
+	}
+
+	public void spendTokens() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("UPDATE " + SCORE_TABLE_NAME + " SET score = score - 1000 WHERE name = 'Tokens'");
 
 	}
 
