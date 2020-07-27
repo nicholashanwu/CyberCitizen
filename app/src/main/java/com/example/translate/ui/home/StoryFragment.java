@@ -64,7 +64,7 @@ public class StoryFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
-		myDb = new DatabaseHelper(getContext());
+		myDb = DatabaseHelper.getInstance(getContext().getApplicationContext());
 
 		mTxtContent = view.findViewById(R.id.txtStoryContent);
 		mTxtLevelTitle = view.findViewById(R.id.txtLevelTitle);
@@ -245,7 +245,6 @@ public class StoryFragment extends Fragment {
 		showMessage("You completed the story!");
 		if (res != null) {
 			res.close();
-			myDb.close();
 		}
 
 	}
@@ -343,7 +342,6 @@ public class StoryFragment extends Fragment {
 				Navigation.findNavController(getView()).navigate(R.id.action_storyFragment_to_navigation_home);
 				if (res != null) {
 					res.close();
-					myDb.close();
 				}
 
 			}

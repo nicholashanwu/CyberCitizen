@@ -57,7 +57,7 @@ public class CompassFragment extends Fragment {
         mCvAdditionalResources.setOnClickListener(additionalResourcesClickListener);
         mCvGoogle.setOnClickListener(googleClickListener);
 
-        myDb = new DatabaseHelper(getActivity());
+        myDb = DatabaseHelper.getInstance(getActivity().getApplicationContext());
 
     }
 

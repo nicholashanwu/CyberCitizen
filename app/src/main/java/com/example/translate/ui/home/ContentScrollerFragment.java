@@ -78,7 +78,7 @@ public class ContentScrollerFragment extends Fragment {
 		mSvContent = view.findViewById(R.id.svContent);
 
 
-		myDb = new DatabaseHelper(getActivity());
+		myDb = DatabaseHelper.getInstance(getActivity().getApplicationContext());
 		res = getAllContent(learningType, pageNumber);
 
 		mTxtContentScrollerTitle.setText(learningType);
@@ -104,9 +104,10 @@ public class ContentScrollerFragment extends Fragment {
 					new Handler().postDelayed(new Runnable() {
 						@Override
 						public void run() {
-							mSvContent.fullScroll(ScrollView.FOCUS_DOWN);
+							mRecyclerView.smoothScrollToPosition(mAdapter.getItemCount() - 1);
+							//mSvContent.fullScroll(ScrollView.FOCUS_DOWN);
 						}
-					}, 50);
+					}, 100);
 				}
 			}
 		});
@@ -196,7 +197,6 @@ public class ContentScrollerFragment extends Fragment {
 			@Override
 			public void onDismiss(DialogInterface dialog) {
 				res.close();
-				myDb.close();
 				mProgressBarContentPage.setProgress(0);
 				Navigation.findNavController(getView()).navigate(R.id.action_contentScrollerFragment_to_navigation_home);
 			}

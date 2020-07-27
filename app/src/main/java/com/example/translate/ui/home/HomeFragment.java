@@ -58,7 +58,7 @@ public class HomeFragment extends Fragment {
 
 		View root = inflater.inflate(R.layout.fragment_home, container, false);
 
-		myDb = new DatabaseHelper(getContext());
+		myDb = DatabaseHelper.getInstance(getContext().getApplicationContext());
 
 		return root;
 	}

@@ -17,6 +17,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -83,6 +84,18 @@ public class TestFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                if(res != null) {
+                    res.close();
+                }
+                Navigation.findNavController(getView()).navigate(R.id.action_navigation_test_to_navigation_home);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+
     }
 
     @Override
@@ -96,7 +109,7 @@ public class TestFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        myDb = new DatabaseHelper(getContext());
+        myDb = DatabaseHelper.getInstance(getContext().getApplicationContext());
 
         mProgressBar = view.findViewById(R.id.pbTest);
         mTxtProgress = view.findViewById(R.id.txtProgress);
@@ -353,7 +366,6 @@ public class TestFragment extends Fragment {
         } else {
         }
 
-
         if (percentage == 100) {
             if (myDb.progressAchievement("Cyber Savvy")) {
                 showAchievement("Cyber Savvy");
@@ -382,12 +394,9 @@ public class TestFragment extends Fragment {
 
         }
 
-        myDb.updateScore("Tests Taken");
-
         showMessage("You're Finished!");
         if (res != null) {
             res.close();
-            myDb.close();
         }
 
     }
@@ -601,7 +610,6 @@ public class TestFragment extends Fragment {
                 pauseTimer();
                 if (res != null) {
                     res.close();
-                    myDb.close();
                 }
 
             }

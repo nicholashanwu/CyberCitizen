@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -56,6 +57,15 @@ public class LearningFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+
+		OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+			@Override
+			public void handleOnBackPressed() {
+				res.close();
+				Navigation.findNavController(getView()).navigate(R.id.action_navigation_learning_to_navigation_home);
+			}
+		};
+		requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
 	}
 
 	@Override
@@ -77,7 +87,7 @@ public class LearningFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
-		myDb = new DatabaseHelper(getContext());
+		myDb = DatabaseHelper.getInstance(getContext().getApplicationContext());
 
 		mFabAnswer = view.findViewById(R.id.fabAnswer);
 		mFabSave = view.findViewById(R.id.fabSave);
@@ -96,12 +106,9 @@ public class LearningFragment extends Fragment {
 
 
 		res = getData(learningType);
-		//res = myDb.getCategory(learningType);
 
-		System.out.println("hi" + res.getCount());
 		setParameters(res);
 		mTxtLevelTitle.setText(learningType);
-		//setTitle(learningType);
 		mTxtAnswerMessage.setVisibility(View.GONE);
 		mTxtSavedMessage.setVisibility(View.GONE);
 		mTxtUnsavedMessage.setVisibility(View.GONE);
@@ -134,7 +141,6 @@ public class LearningFragment extends Fragment {
 
 					if (res != null) {
 						res.close();
-						myDb.close();
 					}
 
 					returnToFragment();
@@ -346,7 +352,6 @@ public class LearningFragment extends Fragment {
 				}
 				if (res != null) {
 					res.close();
-					myDb.close();
 				}
 			}
 		});

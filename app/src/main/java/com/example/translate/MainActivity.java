@@ -2,6 +2,7 @@ package com.example.translate;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
@@ -479,23 +480,16 @@ public class MainActivity extends AppCompatActivity {
         builder.show();
     }
 
-    @Override
-    public void onBackPressed() {
-        if (isTest) {
-            showMessage("", "Please go back by using the button in the top left");
-        } else {
-            super.onBackPressed();
-        }
-    }
 
     private static class initDatabase extends AsyncTask<Void, Void, Void> {
 
         WeakReference<MainActivity> activityWeakReference;
 
         DatabaseHelper myDb;
+
         initDatabase(MainActivity activity) {
             activityWeakReference = new WeakReference<MainActivity>(activity);
-            myDb = new DatabaseHelper(activity);
+            myDb = DatabaseHelper.getInstance(activity);
         }
 
         @Override
@@ -518,7 +512,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(Void aVoid) {
             super.onPostExecute(aVoid);
-            myDb.close();
         }
 
     }

@@ -87,14 +87,12 @@ public class AchievementFragment extends Fragment {
             }
         });
 
-        myDb = new DatabaseHelper(getActivity());
+        myDb = DatabaseHelper.getInstance(getActivity().getApplicationContext());
 
-        int achievementCount = getAchievements();
 
         mFabTokens.setText(String.valueOf(myDb.getTokens()));
-        myDb.addTokens();
 
-        myDb.close();
+
 
         mBtnStartSaved.setOnClickListener(new View.OnClickListener() {
             @Override

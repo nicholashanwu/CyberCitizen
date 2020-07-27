@@ -82,7 +82,7 @@
                         android:layout_marginTop="24dp"
                         android:layout_marginRight="24dp"
                         android:fontFamily="@font/quicksand_bold"
-                        android:text="Complete levels to get a random coupon!"
+                        android:text="Get achievements to get coupons!"
                         android:textAlignment="center"
                         android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
@@ -116,7 +116,7 @@
                             android:textColor="#AB000000" />
 
                         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-
+                            android:id="@+id/rpbAmazon"
                             android:layout_width="match_parent"
                             android:layout_height="32dp"
                             android:layout_gravity="bottom"
@@ -125,6 +125,25 @@
                             app:rcProgress="50"
                             app:rcProgressColors="@array/sample_progress_gradient"
                             app:rcRadius="16dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_margin="8dp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="2000 coins"
+                            android:textColor="@color/colorYellowDark" />
+
+                        <TextView
+                            android:id="@+id/txtAmazon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:layout_marginBottom="6dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="RAN_DOM_CODE"
+                            android:visibility="visible" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -160,7 +179,7 @@
                             android:textColor="#AB000000" />
 
                         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-
+                            android:id="@+id/rpbKfc"
                             android:layout_width="match_parent"
                             android:layout_height="32dp"
                             android:layout_gravity="bottom"
@@ -169,6 +188,26 @@
                             app:rcProgress="50"
                             app:rcProgressColors="@array/sample_progress_gradient"
                             app:rcRadius="16dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_margin="8dp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="1000 coins"
+                            android:textColor="@color/colorYellowDark" />
+
+                        <TextView
+                            android:id="@+id/txtKfc"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:layout_marginBottom="6dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="RAN_DOM_CODE"
+                            android:visibility="visible" />
+
 
                     </androidx.cardview.widget.CardView>
 
@@ -204,7 +243,7 @@
                             android:textColor="#AB000000" />
 
                         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-
+                            android:id="@+id/rpbJb"
                             android:layout_width="match_parent"
                             android:layout_height="32dp"
                             android:layout_gravity="bottom"
@@ -213,6 +252,25 @@
                             app:rcProgress="50"
                             app:rcProgressColors="@array/sample_progress_gradient"
                             app:rcRadius="16dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_margin="8dp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="1500 coins"
+                            android:textColor="@color/colorYellowDark" />
+
+                        <TextView
+                            android:id="@+id/txtJb"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:layout_marginBottom="6dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="RAN_DOM_CODE"
+                            android:visibility="visible" />
 
                     </androidx.cardview.widget.CardView>
 
@@ -248,7 +306,7 @@
                             android:textColor="#AB000000" />
 
                         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-
+                            android:id="@+id/rpbMyer"
                             android:layout_width="match_parent"
                             android:layout_height="32dp"
                             android:layout_gravity="bottom"
@@ -257,6 +315,26 @@
                             app:rcProgress="50"
                             app:rcProgressColors="@array/sample_progress_gradient"
                             app:rcRadius="16dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_margin="8dp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="2000 coins"
+                            android:textColor="@color/colorYellowDark" />
+
+                        <TextView
+                            android:id="@+id/txtMyer"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:layout_marginBottom="6dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="RAN_DOM_CODE"
+                            android:visibility="visible" />
+
 
                     </androidx.cardview.widget.CardView>
 
@@ -292,7 +370,7 @@
                             android:textColor="#AB000000" />
 
                         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-
+                            android:id="@+id/rpbSteam"
                             android:layout_width="match_parent"
                             android:layout_height="32dp"
                             android:layout_gravity="bottom"
@@ -301,6 +379,26 @@
                             app:rcProgress="50"
                             app:rcProgressColors="@array/sample_progress_gradient"
                             app:rcRadius="16dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_margin="8dp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="1500 coins"
+                            android:textColor="@color/colorYellowDark" />
+
+                        <TextView
+                            android:id="@+id/txtSteam"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:layout_marginBottom="6dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="RAN_DOM_CODE"
+                            android:visibility="visible" />
+
 
                     </androidx.cardview.widget.CardView>
 
@@ -336,7 +434,7 @@
                             android:textColor="#AB000000" />
 
                         <com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar
-
+                            android:id="@+id/rpbBunnings"
                             android:layout_width="match_parent"
                             android:layout_height="32dp"
                             android:layout_gravity="bottom"
@@ -345,6 +443,26 @@
                             app:rcProgress="50"
                             app:rcProgressColors="@array/sample_progress_gradient"
                             app:rcRadius="16dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="right"
+                            android:layout_margin="8dp"
+                            android:fontFamily="@font/quicksand_bold"
+                            android:text="2000 coins"
+                            android:textColor="@color/colorYellowDark" />
+
+                        <TextView
+                            android:id="@+id/txtBunnings"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="bottom|center_horizontal"
+                            android:layout_marginBottom="6dp"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="RAN_DOM_CODE"
+                            android:visibility="visible" />
+
 
                     </androidx.cardview.widget.CardView>
                 </LinearLayout>

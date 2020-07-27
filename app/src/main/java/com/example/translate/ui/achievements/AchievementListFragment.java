@@ -10,6 +10,7 @@ import com.example.translate.DatabaseHelper;
 import com.example.translate.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -21,7 +22,7 @@ public class AchievementListFragment extends Fragment {
 
     private AchievementAdapter mAdapter;
     private DatabaseHelper myDb;
-    private ExtendedFloatingActionButton mBtnBackAchievements;
+    private Cursor res;
 
     public AchievementListFragment() {
 
@@ -30,6 +31,15 @@ public class AchievementListFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+            @Override
+            public void handleOnBackPressed() {
+                res.close();
+                Navigation.findNavController(getView()).navigate(R.id.action_navigation_achievement_to_navigation_dashboard);
+            }
+        };
+        requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+
     }
 
     @Override
@@ -42,22 +52,9 @@ public class AchievementListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        mBtnBackAchievements = view.findViewById(R.id.btnBackAchievements);
-
-        myDb = new DatabaseHelper(getActivity());
-        final Cursor res = getAllAchievements();
+        myDb = DatabaseHelper.getInstance(getActivity().getApplicationContext());
+        res = getAllAchievements();
         setAdapter(view, res);
-
-        mBtnBackAchievements.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Navigation.findNavController(getView()).navigate(R.id.action_navigation_achievement_to_navigation_dashboard);
-                if (res != null) {
-                    res.close();
-                    myDb.close();
-                }
-            }
-        });
 
     }
 

@@ -8,24 +8,26 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String DATABASE_NAME = "language.db";
+	private static DatabaseHelper sInstance;
 
-    private static final String TABLE_NAME = "content_table";
+	private static final String DATABASE_NAME = "language.db";
 
-    private static final String COL_1 = "id_pk";
-    private static final String COL_2 = "phrase";
-    private static final String COL_3 = "definition";
-    private static final String COL_4 = "category";
-    private static final String COL_5 = "learned";
-    private static final String COL_6 = "saved";
+	private static final String TABLE_NAME = "content_table";
 
-    private static final String A_TABLE_NAME = "achievement_table";
-    private static final String ATT_1 = "id_pk";
-    private static final String ATT_2 = "name";
-    private static final String ATT_3 = "description";
-    private static final String ATT_4 = "currentProgress";
-    private static final String ATT_5 = "totalProgress";
-    private static final String ATT_6 = "complete";
+	private static final String COL_1 = "id_pk";
+	private static final String COL_2 = "phrase";
+	private static final String COL_3 = "definition";
+	private static final String COL_4 = "category";
+	private static final String COL_5 = "learned";
+	private static final String COL_6 = "saved";
+
+	private static final String A_TABLE_NAME = "achievement_table";
+	private static final String ATT_1 = "id_pk";
+	private static final String ATT_2 = "name";
+	private static final String ATT_3 = "description";
+	private static final String ATT_4 = "currentProgress";
+	private static final String ATT_5 = "totalProgress";
+	private static final String ATT_6 = "complete";
 
 	private static final String SCORE_TABLE_NAME = "score_table";
 	private static final String VAR_1 = "id_pk";
@@ -49,26 +51,33 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	private static final String CHA_7 = "answerThree";
 	private static final String CHA_8 = "answerFour";
 
+	public static synchronized DatabaseHelper getInstance(Context context) {
+		if (sInstance == null) {
+			sInstance = new DatabaseHelper(context.getApplicationContext());
+		}
+		return sInstance;
+	}
 
-	public DatabaseHelper(Context context) {
-        super(context, DATABASE_NAME, null, 2);
-    }
+	private DatabaseHelper(Context context) {
+		super(context, DATABASE_NAME, null, 2);
+	}
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "PHRASE TEXT, " +
-                "DEFINITION TEXT, " +
-                "CATEGORY TEXT, " +
-                "LEARNED BOOLEAN, " +
-                "SAVED BOOLEAN)");
 
-        db.execSQL("CREATE TABLE " + A_TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "NAME TEXT, " +
-                "DESCRIPTION TEXT, " +
-                "CURRENTPROGRESS TEXT, " +
-                "TOTALPROGRESS TEXT, " +
-                "COMPLETE BOOLEAN)");
+	@Override
+	public void onCreate(SQLiteDatabase db) {
+		db.execSQL("CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+				"PHRASE TEXT, " +
+				"DEFINITION TEXT, " +
+				"CATEGORY TEXT, " +
+				"LEARNED BOOLEAN, " +
+				"SAVED BOOLEAN)");
+
+		db.execSQL("CREATE TABLE " + A_TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
+				"NAME TEXT, " +
+				"DESCRIPTION TEXT, " +
+				"CURRENTPROGRESS TEXT, " +
+				"TOTALPROGRESS TEXT, " +
+				"COMPLETE BOOLEAN)");
 
 		db.execSQL("CREATE TABLE " + SCORE_TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
 				"NAME TEXT, " +
@@ -90,39 +99,39 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				"ANSWERFOUR TEXT)");
 	}
 
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
-        db.execSQL("DROP TABLE IF EXISTS " + A_TABLE_NAME);
-        db.execSQL("DROP TABLE IF EXISTS " + SCORE_TABLE_NAME);
-        db.execSQL("DROP TABLE IF EXISTS " + SENTENCE_TABLE_NAME);
+	@Override
+	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+		db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
+		db.execSQL("DROP TABLE IF EXISTS " + A_TABLE_NAME);
+		db.execSQL("DROP TABLE IF EXISTS " + SCORE_TABLE_NAME);
+		db.execSQL("DROP TABLE IF EXISTS " + SENTENCE_TABLE_NAME);
 
-        onCreate(db);
-    }
+		onCreate(db);
+	}
 
-    public boolean insertData(String phrase, String definition, String category, boolean learned, boolean saved) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_2, phrase);
-        contentValues.put(COL_3, definition);
-        contentValues.put(COL_4, category);
-        contentValues.put(COL_5, learned);
-        contentValues.put(COL_6, saved);
-        long result = db.insert(TABLE_NAME, null, contentValues);
-        return result != -1;
-    }
+	public boolean insertData(String phrase, String definition, String category, boolean learned, boolean saved) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues contentValues = new ContentValues();
+		contentValues.put(COL_2, phrase);
+		contentValues.put(COL_3, definition);
+		contentValues.put(COL_4, category);
+		contentValues.put(COL_5, learned);
+		contentValues.put(COL_6, saved);
+		long result = db.insert(TABLE_NAME, null, contentValues);
+		return result != -1;
+	}
 
-    public boolean insertAchievementData(String name, String description, int currentProgress, int totalProgress, boolean complete) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(ATT_2, name);
-        contentValues.put(ATT_3, description);
-        contentValues.put(ATT_4, currentProgress);
-        contentValues.put(ATT_5, totalProgress);
-        contentValues.put(ATT_6, complete);
-        long result = db.insert(A_TABLE_NAME, null, contentValues);
-        return result != -1;
-    }
+	public boolean insertAchievementData(String name, String description, int currentProgress, int totalProgress, boolean complete) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues contentValues = new ContentValues();
+		contentValues.put(ATT_2, name);
+		contentValues.put(ATT_3, description);
+		contentValues.put(ATT_4, currentProgress);
+		contentValues.put(ATT_5, totalProgress);
+		contentValues.put(ATT_6, complete);
+		long result = db.insert(A_TABLE_NAME, null, contentValues);
+		return result != -1;
+	}
 
 	public boolean insertScoreData(String name, int count) {
 		SQLiteDatabase db = this.getWritableDatabase();
@@ -163,10 +172,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
 	}
 
-    public Cursor getAchievements() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        return db.rawQuery("SELECT * FROM " + A_TABLE_NAME, null);
-    }
+	public Cursor getAchievements() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		return db.rawQuery("SELECT * FROM " + A_TABLE_NAME, null);
+	}
 
 	public Cursor getScores() {
 		SQLiteDatabase db = this.getWritableDatabase();
@@ -175,36 +184,37 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	public Cursor getContentCategory(String category, int pageNumber) {
 		SQLiteDatabase db = this.getWritableDatabase();
-		return db.rawQuery("SELECT * FROM " + SENTENCE_TABLE_NAME + " WHERE category = '" + category + "' AND pagenumber = '" + pageNumber +"'" , null);
+		return db.rawQuery("SELECT * FROM " + SENTENCE_TABLE_NAME + " WHERE category = '" + category + "' AND pagenumber = '" + pageNumber + "'", null);
 	}
 
 	public int getContentCategoryPageCount(String category, int pageNumber) {
 		SQLiteDatabase db = this.getWritableDatabase();
-		Cursor c = db.rawQuery("SELECT MAX(pagenumber) FROM " + SENTENCE_TABLE_NAME + " WHERE category = '" + category + "'", null);
-		c.moveToFirst();
-		return c.getInt(0);
+		Cursor res = db.rawQuery("SELECT MAX(pagenumber) FROM " + SENTENCE_TABLE_NAME + " WHERE category = '" + category + "'", null);
+		res.moveToFirst();
+		int count = res.getInt(0);
+		res.close();
+		return count;
 	}
 
 
+	////////////////////////////////////////////
 
-    ////////////////////////////////////////////
+	public Cursor getCategory(String category) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE category = '" + category + "'", null);
+	}
 
-    public Cursor getCategory(String category) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE category = '" + category + "'", null);
-    }
+	public Cursor getSaved() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE saved = 1", null);
+	}
 
-    public Cursor getSaved() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE saved = 1", null);
-    }
+	public Cursor getLearned() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE learned = 1", null);
+	}
 
-    public Cursor getLearned() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        return db.rawQuery("SELECT * FROM " + TABLE_NAME + " WHERE learned = 1", null);
-    }
-
-    public Cursor getStory(int storyId) {
+	public Cursor getStory(int storyId) {
 		SQLiteDatabase db = this.getWritableDatabase();
 		return db.rawQuery("SELECT * FROM " + STORY_TABLE_NAME + " WHERE storyId = " + storyId + "", null);
 	}
@@ -234,22 +244,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	}
 
 	public void dropTable() {
-        SQLiteDatabase db = this.getWritableDatabase();
+		SQLiteDatabase db = this.getWritableDatabase();
 		db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
 		onCreate(db);
-    }
+	}
 
 	////
 
-    public void clearMyList() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("delete from " + TABLE_NAME + " WHERE category = 'custom'");
-    }
+	public void clearMyList() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("delete from " + TABLE_NAME + " WHERE category = 'custom'");
+	}
 
-    public void deletePhrase(String phraseEn) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("delete from " + TABLE_NAME + " WHERE category = 'custom' AND phraseEn = '" + phraseEn + "' ");
-    }
+	public void deletePhrase(String phraseEn) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("delete from " + TABLE_NAME + " WHERE category = 'custom' AND phraseEn = '" + phraseEn + "' ");
+	}
 
 	////
 
@@ -257,56 +267,59 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		SQLiteDatabase db = this.getWritableDatabase();
 		Cursor res = db.rawQuery("SELECT description FROM " + A_TABLE_NAME + " WHERE name = '" + achievementName + "' ", null);
 		res.moveToFirst();
-		return res.getString(0);
+		String description = res.getString(0);
+		res.close();
+		return description;
+	}
+
+	public boolean progressAchievement(String achievementName) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		ContentValues contentValues = new ContentValues();
+		Cursor res = db.rawQuery("SELECT currentProgress, totalProgress, complete FROM " + A_TABLE_NAME + " WHERE name = '" + achievementName + "' ", null);
+		res.moveToFirst();
+		int curPro = Integer.valueOf(res.getString(0));
+		int totPro = Integer.valueOf(res.getString(1));
+		String com = res.getString(2);
+		res.close();
+		if (com.equals("0")) {                   //if has not been achieved, add 1 to progress
+			curPro++;
+			contentValues.put(ATT_4, curPro);
+			db.update(A_TABLE_NAME, contentValues, "name = ?", new String[]{achievementName});
+
+			if (curPro == totPro) {
+				contentValues.put(ATT_6, "1");
+				db.update(A_TABLE_NAME, contentValues, "name = ?", new String[]{achievementName});
+				updateScore(achievementName);
+				addTokens();
+				return true;
+			} else {
+				return false;
+			}
+		} else {
+			return false;
+		}
 
 	}
 
-    public boolean progressAchievement(String achievementName) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        ContentValues contentValues = new ContentValues();
-        Cursor res = db.rawQuery("SELECT currentProgress, totalProgress, complete FROM " + A_TABLE_NAME + " WHERE name = '" + achievementName + "' ", null);
-        res.moveToFirst();
-        int curPro = Integer.valueOf(res.getString(0));
-        int totPro = Integer.valueOf(res.getString(1));
-        String com = res.getString(2);
-        res.close();
-        if (com.equals("0")) {                   //if has not been achieved, add 1 to progress
-            curPro++;
-            contentValues.put(ATT_4, curPro);
-            db.update(A_TABLE_NAME, contentValues, "name = ?", new String[]{achievementName});
+	public boolean checkAchievementStatus(String achievementName) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor res = db.rawQuery("SELECT complete FROM " + A_TABLE_NAME + " WHERE name = '" + achievementName + "' ", null);
+		res.moveToFirst();
+		boolean status = res.getString(0).equals("1");
+		res.close();
+		return status;
+	}
 
-            if (curPro == totPro) {
-                contentValues.put(ATT_6, "1");
-                db.update(A_TABLE_NAME, contentValues, "name = ?", new String[]{achievementName});
-                updateScore(achievementName);
-                addTokens();
-                return true;
-            } else {
-                return false;
-            }
-        } else {
-            return false;
-        }
-
-    }
-
-    public boolean checkAchievementStatus(String achievementName) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor res = db.rawQuery("SELECT complete FROM " + A_TABLE_NAME + " WHERE name = '" + achievementName + "' ", null);
-        res.moveToFirst();
-        return res.getString(0).equals("1");
-    }
-
-    public Cursor getAchieved() {
-        SQLiteDatabase db = this.getWritableDatabase();
-        return db.rawQuery("SELECT * FROM " + A_TABLE_NAME + " WHERE complete = '1'", null);
-    }
+	public Cursor getAchieved() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		return db.rawQuery("SELECT * FROM " + A_TABLE_NAME + " WHERE complete = '1'", null);
+	}
 
 	////
 
-    public void updateScore(String name) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("UPDATE " + SCORE_TABLE_NAME + " SET score = score + 1 WHERE name = '" + name + "'");
+	public void updateScore(String name) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("UPDATE " + SCORE_TABLE_NAME + " SET score = score + 1 WHERE name = '" + name + "'");
 
 	}
 
@@ -315,6 +328,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		Cursor res = db.rawQuery("SELECT * FROM " + SCORE_TABLE_NAME + " WHERE name = 'Tokens'", null);
 		res.moveToFirst();
 		int tokens = res.getInt(2);
+		res.close();
 		return tokens;
 	}
 
@@ -324,9 +338,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	}
 
-	public void spendTokens() {
+	public void spendTokens(int cost) {
 		SQLiteDatabase db = this.getWritableDatabase();
-		db.execSQL("UPDATE " + SCORE_TABLE_NAME + " SET score = score - 1000 WHERE name = 'Tokens'");
+		db.execSQL("UPDATE " + SCORE_TABLE_NAME + " SET score = score - cost WHERE name = 'Tokens'");
 
 	}
 
