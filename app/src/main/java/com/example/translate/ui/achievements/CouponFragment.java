@@ -45,6 +45,48 @@ public class CouponFragment extends Fragment {
 
 	}
 
+	private View.OnClickListener redeemAmazonClickListener = new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			mRpbAmazonButtonClicked();
+		}
+	};
+
+	private View.OnClickListener redeemKfcClickListener = new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			mRpbKfcButtonClicked();
+		}
+	};
+
+	private View.OnClickListener redeemJbClickListener = new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			mRpbJbButtonClicked();
+		}
+	};
+
+	private View.OnClickListener redeemMyerClickListener = new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			mRpbMyerButtonClicked();
+		}
+	};
+
+	private View.OnClickListener redeemSteamClickListener = new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			mRpbSteamButtonClicked();
+		}
+	};
+
+	private View.OnClickListener redeemBunningsClickListener = new View.OnClickListener() {
+		@Override
+		public void onClick(View v) {
+			mRpbBunningsButtonClicked();
+		}
+	};
+
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
@@ -75,13 +117,53 @@ public class CouponFragment extends Fragment {
 
 		tokenCount = myDb.getTokens();
 
-
 		mFabTokens.setText(String.valueOf(tokenCount));
 
-		tokenCount = 1000;
 
+		refreshProgress();
+
+	}
+
+	private void mRpbAmazonButtonClicked() {
+		myDb.spendTokens(TOKEN_AMAZON);
+		mFabTokens.setText(String.valueOf(myDb.getTokens()));
+		refreshProgress();
+	}
+
+	private void mRpbKfcButtonClicked() {
+		myDb.spendTokens(TOKEN_KFC);
+		mFabTokens.setText(String.valueOf(myDb.getTokens()));
+		refreshProgress();
+	}
+
+	private void mRpbJbButtonClicked() {
+		myDb.spendTokens(TOKEN_JB);
+		mFabTokens.setText(String.valueOf(myDb.getTokens()));
+		refreshProgress();
+	}
+
+	private void mRpbMyerButtonClicked() {
+		myDb.spendTokens(TOKEN_MYER);
+		mFabTokens.setText(String.valueOf(myDb.getTokens()));
+		refreshProgress();
+	}
+
+	private void mRpbSteamButtonClicked() {
+		myDb.spendTokens(TOKEN_STEAM);
+		mFabTokens.setText(String.valueOf(myDb.getTokens()));
+		refreshProgress();
+	}
+
+	private void mRpbBunningsButtonClicked() {
+		myDb.spendTokens(TOKEN_BUNNINGS);
+		mFabTokens.setText(String.valueOf(myDb.getTokens()));
+		refreshProgress();
+	}
+
+	private void refreshProgress() {
 		if (tokenCount >= TOKEN_AMAZON) {
 			mTxtAmazon.setText("TAP TO UNLOCK");
+			mRpbAmazon.setOnClickListener(redeemAmazonClickListener);
 		} else {
 			mTxtAmazon.setText((TOKEN_AMAZON - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
 		}
@@ -89,6 +171,7 @@ public class CouponFragment extends Fragment {
 
 		if (tokenCount >= TOKEN_KFC) {
 			mTxtKfc.setText("TAP TO UNLOCK");
+			mRpbKfc.setOnClickListener(redeemKfcClickListener);
 		} else {
 			mTxtKfc.setText((TOKEN_KFC - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
 		}
@@ -96,6 +179,7 @@ public class CouponFragment extends Fragment {
 
 		if (tokenCount >= TOKEN_JB) {
 			mTxtJb.setText("TAP TO UNLOCK");
+			mRpbJb.setOnClickListener(redeemJbClickListener);
 		} else {
 			mTxtJb.setText((TOKEN_JB - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
 		}
@@ -103,6 +187,7 @@ public class CouponFragment extends Fragment {
 
 		if (tokenCount >= TOKEN_MYER) {
 			mTxtMyer.setText("TAP TO UNLOCK");
+			mRpbMyer.setOnClickListener(redeemMyerClickListener);
 		} else {
 			mTxtMyer.setText((TOKEN_MYER - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
 		}
@@ -110,12 +195,14 @@ public class CouponFragment extends Fragment {
 
 		if (tokenCount >= TOKEN_STEAM) {
 			mTxtSteam.setText("TAP TO UNLOCK");
+			mRpbSteam.setOnClickListener(redeemSteamClickListener);
 		} else {
 			mTxtSteam.setText((TOKEN_STEAM - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
 		}
 
 		if (tokenCount >= TOKEN_BUNNINGS) {
 			mTxtBunnings.setText("TAP TO UNLOCK");
+			mRpbBunnings.setOnClickListener(redeemBunningsClickListener);
 		} else {
 			mTxtBunnings.setText((TOKEN_BUNNINGS - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
 		}
@@ -127,12 +214,5 @@ public class CouponFragment extends Fragment {
 		mRpbMyer.setProgress(100 * tokenCount / TOKEN_MYER);
 		mRpbSteam.setProgress(100 * tokenCount / TOKEN_STEAM);
 		mRpbBunnings.setProgress(100 * tokenCount / TOKEN_BUNNINGS);
-
-		mRpbAmazon.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				System.out.println("hi");
-			}
-		});
 	}
 }

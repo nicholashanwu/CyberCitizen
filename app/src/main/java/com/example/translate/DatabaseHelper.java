@@ -340,7 +340,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	public void spendTokens(int cost) {
 		SQLiteDatabase db = this.getWritableDatabase();
-		db.execSQL("UPDATE " + SCORE_TABLE_NAME + " SET score = score - cost WHERE name = 'Tokens'");
+		db.execSQL("UPDATE " + SCORE_TABLE_NAME + " SET score = score - " + cost + " WHERE name = 'Tokens'");
 
 	}
 
