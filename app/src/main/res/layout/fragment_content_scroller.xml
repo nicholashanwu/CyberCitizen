@@ -51,8 +51,10 @@
         android:id="@+id/cvContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_above="@+id/progressBarContentPage"
         android:layout_below="@id/txtContentScrollerPageTitle"
-        android:layout_marginBottom="96dp"
+        android:layout_marginBottom="8dp"
+        android:animateLayoutChanges="true"
         app:cardCornerRadius="24dp">
 
         <androidx.recyclerview.widget.RecyclerView
@@ -62,12 +64,14 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="16dp"
+            android:animateLayoutChanges="false" />
 
         <androidx.core.widget.NestedScrollView
             android:id="@+id/svContent"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true">
 
         </androidx.core.widget.NestedScrollView>
     </androidx.cardview.widget.CardView>

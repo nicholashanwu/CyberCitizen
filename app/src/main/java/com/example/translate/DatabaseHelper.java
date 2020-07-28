@@ -167,19 +167,56 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return result != -1;
 	}
 
-	public Cursor getAllData() {
+	public int getCountWords() {
 		SQLiteDatabase db = this.getWritableDatabase();
-		return db.rawQuery("SELECT * FROM " + TABLE_NAME, null);
+		Cursor res = db.rawQuery("SELECT COUNT(*) FROM " + TABLE_NAME, null);
+		res.moveToFirst();
+		int count = res.getInt(0);
+		res.close();
+		return count;
 	}
+
+	public int getCountAchievements() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor res = db.rawQuery("SELECT COUNT(*) FROM " + A_TABLE_NAME, null);
+		res.moveToFirst();
+		int count = res.getInt(0);
+		res.close();
+		return count;
+	}
+
+	public int getCountScores() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor res = db.rawQuery("SELECT COUNT(*) FROM " + SCORE_TABLE_NAME, null);
+		res.moveToFirst();
+		int count = res.getInt(0);
+		res.close();
+		return count;
+	}
+
+	public int getCountContent() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor res = db.rawQuery("SELECT COUNT(*) FROM " + SENTENCE_TABLE_NAME, null);
+		res.moveToFirst();
+		int count = res.getInt(0);
+		res.close();
+		return count;
+	}
+
+	public int getCountStory() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor res = db.rawQuery("SELECT COUNT(*) FROM " + STORY_TABLE_NAME, null);
+		res.moveToFirst();
+		int count = res.getInt(0);
+		res.close();
+		return count;
+	}
+
+
 
 	public Cursor getAchievements() {
 		SQLiteDatabase db = this.getWritableDatabase();
 		return db.rawQuery("SELECT * FROM " + A_TABLE_NAME, null);
-	}
-
-	public Cursor getScores() {
-		SQLiteDatabase db = this.getWritableDatabase();
-		return db.rawQuery("SELECT * FROM " + SCORE_TABLE_NAME, null);
 	}
 
 	public Cursor getContentCategory(String category, int pageNumber) {
