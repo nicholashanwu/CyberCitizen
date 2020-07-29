@@ -1,4 +1,4 @@
-package com.example.translate.ui.test;
+package com.example.translate.ui.learn;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -27,7 +27,6 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.example.translate.DatabaseHelper;
 import com.example.translate.R;
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
@@ -36,7 +35,6 @@ import java.util.Locale;
 
 public class TestFragment extends Fragment {
 
-    private static final String TAG = "TestFragment";
     private TextView mTxtDefinition;
     private TextView mTxtLevelTitle;
     private TextView mTxtMessage;
@@ -51,7 +49,6 @@ public class TestFragment extends Fragment {
     private RadioButton mRbAnswerThree;
     private ProgressBar mProgressBar;
     private FloatingActionButton mFabSubmit;
-    private ExtendedFloatingActionButton mBtnBack;
 
     private View view;
 
@@ -91,7 +88,8 @@ public class TestFragment extends Fragment {
                 if(res != null) {
                     res.close();
                 }
-                Navigation.findNavController(getView()).navigate(R.id.action_navigation_test_to_navigation_home);
+                pauseTimer();
+                Navigation.findNavController(getView()).popBackStack();
             }
         };
         requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
@@ -124,7 +122,6 @@ public class TestFragment extends Fragment {
         mTxtScore = view.findViewById(R.id.txtScore);
         mIvReaction = view.findViewById(R.id.ivReaction);
         mTxtTimer = view.findViewById(R.id.txtTimer);
-        mBtnBack = view.findViewById(R.id.btnBack);
 
         testingType = getArguments().getString("testingType");
 
@@ -168,12 +165,6 @@ public class TestFragment extends Fragment {
             }
         });
 
-        mBtnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showBackConfirmation("Are you sure you want to exit?", "");
-            }
-        });
 
     }
 
@@ -203,7 +194,6 @@ public class TestFragment extends Fragment {
                 startTimer(answerIndex, res);
             }
 
-
             mRbAnswerOne.setText(answerList.get(0));
             mRbAnswerTwo.setText(answerList.get(1));
             mRbAnswerThree.setText(answerList.get(2));
@@ -212,7 +202,6 @@ public class TestFragment extends Fragment {
             mRbAnswerThree.setTextColor(Color.parseColor("#444444"));
 
             answered = false;
-
 
         } else {
             finishTest(res);
@@ -486,7 +475,7 @@ public class TestFragment extends Fragment {
         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Navigation.findNavController(getView()).navigate(R.id.action_navigation_test_to_navigation_home);
+                Navigation.findNavController(getView()).popBackStack();
             }
         });
 
@@ -497,7 +486,8 @@ public class TestFragment extends Fragment {
         mTxtForgot.setText("Forgot " + forgotten + " words...");
 
         builder.setView(view);
-        builder.show();
+        AlertDialog dialog = builder.show();
+        dialog.setCanceledOnTouchOutside(false);
     }
 
     public void setTitle(String testingType) {
@@ -589,38 +579,6 @@ public class TestFragment extends Fragment {
         mTxtViewCountDown.setText(timeLeftFormatted);
     }
 
-    private void showBackConfirmation(String title, String message) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(getContext(), R.style.Red));
-        View view = LayoutInflater.from(getActivity()).inflate(R.layout.custom_alert_dialog_test, null);
-        TextView txtTitle = view.findViewById(R.id.title);
-        ImageButton imageButton = view.findViewById(R.id.image);
-
-        imageButton.setImageResource(R.mipmap.over_30);
-
-        builder.setPositiveButton("CANCEL", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-
-            }
-        });
-        builder.setNegativeButton("YES", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Navigation.findNavController(getView()).navigate(R.id.action_navigation_test_to_navigation_home);
-                pauseTimer();
-                if (res != null) {
-                    res.close();
-                }
-
-            }
-        });
-
-        txtTitle.setText(title);
-        builder.setView(view);
-        builder.show();
-
-    }
-
     private void showAchievement(String title) {
         AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(getContext(), R.style.Yellow));
         View view = LayoutInflater.from(getActivity()).inflate(R.layout.custom_alert_dialog_achievement, null);
@@ -643,7 +601,8 @@ public class TestFragment extends Fragment {
 
         txtTitle.setText(title);
         builder.setView(view);
-        builder.show();
+        AlertDialog dialog = builder.show();
+        dialog.setCanceledOnTouchOutside(false);
     }
 
 

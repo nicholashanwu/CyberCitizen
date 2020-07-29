@@ -1,4 +1,4 @@
-package com.example.translate.ui.home;
+package com.example.translate.ui.learn;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;

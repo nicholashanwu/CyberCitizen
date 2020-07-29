@@ -1,4 +1,4 @@
-package com.example.translate.ui.home;
+package com.example.translate.ui.learn;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -10,7 +10,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -193,20 +192,21 @@ public class ContentScrollerFragment extends Fragment {
 
 		imageButton.setImageResource(R.mipmap.over_75);
 
-		builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
+		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 			@Override
-			public void onDismiss(DialogInterface dialog) {
+			public void onClick(DialogInterface dialog, int which) {
 				res.close();
-				mProgressBarContentPage.setProgress(0);
-				Navigation.findNavController(getView()).navigate(R.id.action_contentScrollerFragment_to_navigation_home);
+				Navigation.findNavController(getView()).popBackStack();
 			}
 		});
+
 
 		txtTitle.setText(title);
 		builder.setView(view);
 
 
-		builder.show();
+		AlertDialog dialog = builder.show();
+		dialog.setCanceledOnTouchOutside(false);
 	}
 
 	public void checkAchievement() {
@@ -265,7 +265,8 @@ public class ContentScrollerFragment extends Fragment {
 
 		txtTitle.setText(title);
 		builder.setView(view);
-		builder.show();
+		AlertDialog dialog = builder.show();
+		dialog.setCanceledOnTouchOutside(false);
 	}
 
 }

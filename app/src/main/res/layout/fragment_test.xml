@@ -5,22 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:transitionGroup="true"
-    tools:context=".ui.test.TestFragment"
+    tools:context=".ui.learn.TestFragment"
     tools:targetApi="lollipop">
-
-    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
-        android:id="@+id/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:textColor="#FFFFFF"
-        app:backgroundTint="@color/colorRed"
-        app:icon="@drawable/abc_vector_test"
-        app:iconTint="#FFFFFF"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:rippleColor="#33FFFFFF" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"

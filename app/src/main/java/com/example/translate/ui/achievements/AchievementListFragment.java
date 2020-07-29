@@ -35,7 +35,7 @@ public class AchievementListFragment extends Fragment {
             @Override
             public void handleOnBackPressed() {
                 res.close();
-                Navigation.findNavController(getView()).navigate(R.id.action_navigation_achievement_to_navigation_dashboard);
+                Navigation.findNavController(getView()).popBackStack();
             }
         };
         requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);

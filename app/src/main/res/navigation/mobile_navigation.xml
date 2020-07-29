@@ -10,7 +10,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.translate.ui.home.HomeFragment"
+        android:name="com.example.translate.ui.learn.HomeFragment"
         android:label="Learn"
         tools:layout="@layout/fragment_home">
         <action
@@ -27,25 +27,25 @@
             app:exitAnim="@anim/slide_out_left" />
         <action
             android:id="@+id/action_navigation_home_to_contentScrollerFragment"
-            app:destination="@id/contentScrollerFragment" />
+            app:destination="@id/contentScrollerFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
         <action
             android:id="@+id/action_navigation_home_to_navigation_test"
-            app:destination="@id/navigation_test" />
+            app:destination="@id/navigation_test"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
         <action
             android:id="@+id/action_navigation_home_to_storyFragment"
-            app:destination="@id/storyFragment" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/navigation_test_home"
-        android:name="com.example.translate.ui.test.TestHomeFragment"
-        android:label="Test"
-        tools:layout="@layout/fragment_test_home">
-        <action
-            android:id="@+id/action_navigation_test_home_to_navigation_profile"
-            app:destination="@id/navigation_compass"
-            app:enterAnim="@anim/slide_in_right"
-            app:exitAnim="@anim/slide_out_left" />
+            app:destination="@id/storyFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
     </fragment>
 
     <fragment
@@ -55,44 +55,39 @@
         tools:layout="@layout/fragment_compass" >
         <action
             android:id="@+id/action_navigation_compass_to_navigation_resource"
-            app:destination="@id/navigation_resource" />
+            app:destination="@id/navigation_resource"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
         <action
             android:id="@+id/action_navigation_compass_to_navigation_google"
-            app:destination="@id/navigation_google" />
+            app:destination="@id/navigation_google"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
     </fragment>
 
     <fragment
         android:id="@+id/navigation_learning"
-        android:name="com.example.translate.ui.home.LearningFragment"
+        android:name="com.example.translate.ui.learn.FlashcardsFragment"
         android:label="Learn"
         tools:layout="@layout/fragment_learning">
         <argument
             android:name="learningType"
             app:argType="string" />
-        <action
-            android:id="@+id/action_navigation_learning_to_navigation_home"
-            app:destination="@id/navigation_home"
-            app:enterAnim="@anim/fragment_close_enter"
-            app:exitAnim="@anim/fragment_close_exit" />
-        <action
-            android:id="@+id/action_navigation_learning_to_navigation_profile"
-            app:destination="@id/navigation_compass"
-            app:enterAnim="@anim/fragment_close_enter"
-            app:exitAnim="@anim/fragment_close_exit" />
     </fragment>
 
 
     <fragment
         android:id="@+id/navigation_test"
-        android:name="com.example.translate.ui.test.TestFragment"
+        android:name="com.example.translate.ui.learn.TestFragment"
         android:label="Test"
         tools:layout="@layout/fragment_test">
         <argument
             android:name="testingType"
             app:argType="string" />
-        <action
-            android:id="@+id/action_navigation_test_to_navigation_home"
-            app:destination="@id/navigation_home" />
     </fragment>
 
 
@@ -105,7 +100,9 @@
             android:id="@+id/action_navigation_dashboard_to_navigation_achievement"
             app:destination="@id/navigation_achievement"
             app:enterAnim="@anim/fragment_open_enter"
-            app:exitAnim="@anim/fragment_open_exit" />
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
         <action
             android:id="@+id/action_navigation_dashboard_to_navigation_profile"
             app:destination="@id/navigation_compass"
@@ -113,33 +110,35 @@
             app:exitAnim="@anim/slide_out_left" />
         <action
             android:id="@+id/action_navigation_dashboard_to_navigation_learning"
-            app:destination="@id/navigation_learning" />
+            app:destination="@id/navigation_learning"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
         <action
             android:id="@+id/action_navigation_dashboard_to_couponFragment"
-            app:destination="@id/couponFragment" />
+            app:destination="@id/couponFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
         <action
             android:id="@+id/action_navigation_dashboard_to_badgeFragment"
-            app:destination="@id/badgeFragment" />
+            app:destination="@id/badgeFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
     </fragment>
     <fragment
         android:id="@+id/navigation_achievement"
         android:name="com.example.translate.ui.achievements.AchievementListFragment"
         android:label="fragment_achievement"
-        tools:layout="@layout/fragment_achievement">
-        <action
-            android:id="@+id/action_navigation_achievement_to_navigation_dashboard"
-            app:destination="@id/navigation_dashboard"
-            app:enterAnim="@anim/fragment_close_enter"
-            app:exitAnim="@anim/fragment_close_exit" />
-    </fragment>
+        tools:layout="@layout/fragment_achievement"/>
     <fragment
         android:id="@+id/contentScrollerFragment"
-        android:name="com.example.translate.ui.home.ContentScrollerFragment"
-        android:label="ContentScrollerFragment" >
-        <action
-            android:id="@+id/action_contentScrollerFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
-    </fragment>
+        android:name="com.example.translate.ui.learn.ContentScrollerFragment"
+        android:label="ContentScrollerFragment" />
     <fragment
         android:id="@+id/navigation_resource"
         android:name="com.example.translate.ui.compass.ResourceFragment"
@@ -147,7 +146,11 @@
         tools:layout="@layout/fragment_resource" >
         <action
             android:id="@+id/action_navigation_resource_to_resourceYoutubeFragment"
-            app:destination="@id/resourceYoutubeFragment" />
+            app:destination="@id/resourceYoutubeFragment"
+            app:enterAnim="@anim/fragment_open_enter"
+            app:exitAnim="@anim/fragment_open_exit"
+            app:popEnterAnim="@anim/fragment_close_enter"
+            app:popExitAnim="@anim/fragment_close_exit" />
     </fragment>
     <fragment
         android:id="@+id/navigation_google"
@@ -158,29 +161,17 @@
         android:id="@+id/couponFragment"
         android:name="com.example.translate.ui.achievements.CouponFragment"
         android:label="fragment_coupon"
-        tools:layout="@layout/fragment_coupon" >
-        <action
-            android:id="@+id/action_couponFragment_to_navigation_dashboard"
-            app:destination="@id/navigation_dashboard" />
-    </fragment>
+        tools:layout="@layout/fragment_coupon" />
     <fragment
         android:id="@+id/resourceYoutubeFragment"
         android:name="com.example.translate.ui.compass.resources.ResourceYoutubeFragment"
         android:label="fragment_resource_youtube"
-        tools:layout="@layout/fragment_resource_youtube" >
-        <action
-            android:id="@+id/action_resourceYoutubeFragment_to_navigation_resource"
-            app:destination="@id/navigation_resource" />
-    </fragment>
+        tools:layout="@layout/fragment_resource_youtube" />
     <fragment
         android:id="@+id/storyFragment"
-        android:name="com.example.translate.ui.home.StoryFragment"
+        android:name="com.example.translate.ui.learn.StoryFragment"
         android:label="fragment_story"
-        tools:layout="@layout/fragment_story" >
-        <action
-            android:id="@+id/action_storyFragment_to_navigation_home"
-            app:destination="@id/navigation_home" />
-    </fragment>
+        tools:layout="@layout/fragment_story" />
     <fragment
         android:id="@+id/badgeFragment"
         android:name="com.example.translate.ui.achievements.BadgeFragment"

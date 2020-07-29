@@ -218,7 +218,9 @@ public class AchievementFragment extends Fragment {
 
         txtTitle.setText(title);
         builder.setView(view);
-        builder.show();
+        AlertDialog dialog = builder.show();
+        dialog.setCanceledOnTouchOutside(false);
+
     }
 
     private void showMessage(String title, String message) {
@@ -239,7 +241,8 @@ public class AchievementFragment extends Fragment {
 
         txtTitle.setText(title);
         builder.setView(view);
-        builder.show();
+        AlertDialog dialog = builder.show();
+        dialog.setCanceledOnTouchOutside(false);
     }
 
     private void couponsButtonClicked() {

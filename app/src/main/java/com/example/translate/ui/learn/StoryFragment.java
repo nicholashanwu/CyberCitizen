@@ -1,4 +1,4 @@
-package com.example.translate.ui.home;
+package com.example.translate.ui.learn;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -298,15 +298,15 @@ public class StoryFragment extends Fragment {
 		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
-				Navigation.findNavController(getView()).navigate(R.id.action_storyFragment_to_navigation_home);
+				Navigation.findNavController(getView()).popBackStack();
 			}
 		});
 
 		txtTitle.setText(title);
 
 
-		builder.setView(view);
-		builder.show();
+		AlertDialog dialog = builder.show();
+		dialog.setCanceledOnTouchOutside(false);
 	}
 
 	public void setTitle(String storyId) {
@@ -339,7 +339,7 @@ public class StoryFragment extends Fragment {
 		builder.setNegativeButton("YES", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialogInterface, int i) {
-				Navigation.findNavController(getView()).navigate(R.id.action_storyFragment_to_navigation_home);
+				Navigation.findNavController(getView()).popBackStack();
 				if (res != null) {
 					res.close();
 				}
@@ -375,7 +375,8 @@ public class StoryFragment extends Fragment {
 
 		txtTitle.setText(title);
 		builder.setView(view);
-		builder.show();
+		AlertDialog dialog = builder.show();
+		dialog.setCanceledOnTouchOutside(false);
 	}
 
 

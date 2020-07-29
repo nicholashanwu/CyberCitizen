@@ -1,4 +1,4 @@
-package com.example.translate.ui.home;
+package com.example.translate.ui.learn;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -23,17 +23,14 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.example.translate.DatabaseHelper;
 import com.example.translate.R;
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-public class LearningFragment extends Fragment {
+public class FlashcardsFragment extends Fragment {
 
 	private FloatingActionButton mFabSave;
 	private FloatingActionButton mFabAnswer;
 
 	private ProgressBar mProgressBar;
-
-	private ExtendedFloatingActionButton mBtnBack;
 
 	private TextView mTxtPhrase;
 	private TextView mTxtDefinition;
@@ -51,7 +48,7 @@ public class LearningFragment extends Fragment {
 
 	private int progressInt = 0;
 
-	public LearningFragment() {
+	public FlashcardsFragment() {
 	}
 
 	@Override
@@ -62,7 +59,7 @@ public class LearningFragment extends Fragment {
 			@Override
 			public void handleOnBackPressed() {
 				res.close();
-				Navigation.findNavController(getView()).navigate(R.id.action_navigation_learning_to_navigation_home);
+				Navigation.findNavController(getView()).popBackStack();
 			}
 		};
 		requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
@@ -100,7 +97,6 @@ public class LearningFragment extends Fragment {
 		mTxtSavedMessage = view.findViewById(R.id.txtSavedMessage);
 		mTxtAnswerMessage = view.findViewById(R.id.txtAnswerMessage);
 		mTxtUnsavedMessage = view.findViewById(R.id.txtUnsavedMessage);
-		mBtnBack = view.findViewById(R.id.btnBack);
 
 		learningType = getArguments().getString("learningType");
 
@@ -135,17 +131,16 @@ public class LearningFragment extends Fragment {
 
 					fillProgressBar();
 
-					showMessage("You're Finished!");
-
-					checkAchievement();
-
 					if (res != null) {
 						res.close();
 					}
 
-					returnToFragment();
-
 					mProgressBar.setProgress(0, true);
+
+					checkAchievement();
+
+					showMessage("You're Finished!");
+
 				}
 			}
 		});
@@ -176,12 +171,6 @@ public class LearningFragment extends Fragment {
 		});
 
 
-		mBtnBack.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				showBackConfirmation("Are you sure you want to exit?", learningType);
-			}
-		});
 
 	}
 
@@ -286,20 +275,14 @@ public class LearningFragment extends Fragment {
 		builder.setPositiveButton("AWESOME", new DialogInterface.OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialogInterface, int i) {
-
-			}
-		});
-
-		builder.setOnDismissListener(new DialogInterface.OnDismissListener() {
-			@Override
-			public void onDismiss(DialogInterface dialog) {
-
+				Navigation.findNavController(getView()).popBackStack();
 			}
 		});
 
 		txtTitle.setText(title);
 		builder.setView(view);
-		builder.show();
+		AlertDialog dialog = builder.show();
+		dialog.setCanceledOnTouchOutside(false);
 	}
 
 	private void showAchievement(String title) {
@@ -324,42 +307,10 @@ public class LearningFragment extends Fragment {
 
 		txtTitle.setText(title);
 		builder.setView(view);
-		builder.show();
+		AlertDialog dialog = builder.show();
+		dialog.setCanceledOnTouchOutside(false);
 	}
 
-	private void showBackConfirmation(String title, final String learningType) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(getContext(), R.style.Green));
-		View view = LayoutInflater.from(getActivity()).inflate(R.layout.custom_alert_dialog_learning, null);
-		TextView txtTitle = view.findViewById(R.id.title);
-		ImageButton imageButton = view.findViewById(R.id.image);
-
-		imageButton.setImageResource(R.mipmap.over_30);
-
-		builder.setPositiveButton("CANCEL", new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialogInterface, int i) {
-
-			}
-
-		});
-		builder.setNegativeButton("YES", new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialogInterface, int i) {
-				if (learningType.equals("saved") || learningType.equals("learned")) {
-					Navigation.findNavController(getView()).navigate(R.id.action_navigation_learning_to_navigation_profile);
-				} else {
-					Navigation.findNavController(getView()).navigate(R.id.action_navigation_learning_to_navigation_home);
-				}
-				if (res != null) {
-					res.close();
-				}
-			}
-		});
-
-		txtTitle.setText(title);
-		builder.setView(view);
-		builder.show();
-	}
 
 	private void hideMessages() {
 		if(mTxtSavedMessage.getVisibility() == View.VISIBLE){
@@ -399,13 +350,7 @@ public class LearningFragment extends Fragment {
 		mProgressBar.setProgress(100, true);
 	}
 
-	private void returnToFragment() {
-		if (learningType.equals("saved") || learningType.equals("learned")) {
-			Navigation.findNavController(getView()).navigate(R.id.action_navigation_learning_to_navigation_profile);
-		} else {
-			Navigation.findNavController(getView()).navigate(R.id.action_navigation_learning_to_navigation_home);
-		}
-	}
+
 
 	private void markAsUnsaved() {
 		myDb.updateSave(res.getString(1), false);

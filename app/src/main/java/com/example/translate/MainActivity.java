@@ -150,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_test_home, R.id.navigation_compass, R.id.navigation_dashboard)
+                R.id.navigation_home, R.id.navigation_compass, R.id.navigation_dashboard)
                 .build();
 
         final NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
@@ -169,9 +169,6 @@ public class MainActivity extends AppCompatActivity {
                 if (destination.getId() == R.id.navigation_home) {
                     bottomBar.setBackgroundColor(getResources().getColor(R.color.colorPurpleDark));
                     setStatusBarColor(R.color.colorPurpleDark);
-                } else if (destination.getId() == R.id.navigation_test_home) {
-                    bottomBar.setBackgroundColor(getResources().getColor(R.color.colorRedDark));
-                    setStatusBarColor(R.color.colorRedDark);
                 } else if (destination.getId() == R.id.navigation_compass) {
                     bottomBar.setBackgroundColor(getResources().getColor(R.color.colorBlueDark));
                     setStatusBarColor(R.color.colorBlueDark);
@@ -477,14 +474,6 @@ public class MainActivity extends AppCompatActivity {
             bottomBar.getMenu().getItem(i).setEnabled(enable);
         }
     }
-
-    public void showMessage(String title, String message) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle(title);
-        builder.setMessage(message);
-        builder.show();
-    }
-
 
     private static class initDatabase extends AsyncTask<Void, Void, Void> {
 
