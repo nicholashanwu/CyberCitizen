@@ -123,6 +123,8 @@
                             app:rcBackgroundColor="#0A000000"
                             app:rcMax="100"
                             app:rcProgress="50"
+                            app:rcAnimationEnable="true"
+                            app:rcAnimationSpeedScale="1"
                             app:rcProgressColors="@array/sample_progress_gradient"
                             app:rcRadius="16dp" />
 
@@ -187,6 +189,8 @@
                             app:rcBackgroundColor="#0A000000"
                             app:rcMax="100"
                             app:rcProgress="50"
+                            app:rcAnimationEnable="true"
+                            app:rcAnimationSpeedScale="1"
                             app:rcProgressColors="@array/sample_progress_gradient"
                             app:rcRadius="16dp" />
 
@@ -251,6 +255,8 @@
                             app:rcBackgroundColor="#0A000000"
                             app:rcMax="100"
                             app:rcProgress="50"
+                            app:rcAnimationEnable="true"
+                            app:rcAnimationSpeedScale="1"
                             app:rcProgressColors="@array/sample_progress_gradient"
                             app:rcRadius="16dp" />
 
@@ -314,6 +320,8 @@
                             app:rcBackgroundColor="#0A000000"
                             app:rcMax="100"
                             app:rcProgress="50"
+                            app:rcAnimationEnable="true"
+                            app:rcAnimationSpeedScale="1"
                             app:rcProgressColors="@array/sample_progress_gradient"
                             app:rcRadius="16dp" />
 
@@ -378,6 +386,8 @@
                             app:rcBackgroundColor="#0A000000"
                             app:rcMax="100"
                             app:rcProgress="50"
+                            app:rcAnimationEnable="true"
+                            app:rcAnimationSpeedScale="1"
                             app:rcProgressColors="@array/sample_progress_gradient"
                             app:rcRadius="16dp" />
 
@@ -442,6 +452,8 @@
                             app:rcBackgroundColor="#0A000000"
                             app:rcMax="100"
                             app:rcProgress="50"
+                            app:rcAnimationEnable="true"
+                            app:rcAnimationSpeedScale="1"
                             app:rcProgressColors="@array/sample_progress_gradient"
                             app:rcRadius="16dp" />
 

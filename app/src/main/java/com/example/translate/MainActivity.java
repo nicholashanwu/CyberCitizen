@@ -343,7 +343,6 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertData("Availability", "Information is accessible to those authorised whenever required", "What is Cyber?", false, false);
         myDb.insertData("Authenticity", "Identification and assurance of the information's origin", "What is Cyber?", false, false);
         myDb.insertData("Non-Repudiation", "Assurance that authenticity cannot be denied", "What is Cyber?", false, false);
-        myDb.insertData("", "", "What is Cyber?", false, false);
 
         myDb.insertData("Antivirus Software", "Computer programs that can detect, block and remove viruses and malware", "Cyber 101", false, false);
         myDb.insertData("Backup", "Extra copies of files and data that can be used to restore data when lost or damaged", "Cyber 101", false, false);
@@ -365,7 +364,6 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertData("Spyware", "Form of malware that hides on your device, monitoring activity and has the potential to steal sensitive information such as passwords or banking information", "Cyber 101", false, false);
         myDb.insertData("Vulnerability", "Flaw or weakness that attackers can exploit to gain access to information or damage", "Cyber 101", false, false);
         myDb.insertData("Virus", "A piece of code which is capable of copying itself and typically has a detrimental effect, such as corrupting the system or destroying data", "Cyber 101", false, false);
-        myDb.insertData("", "", "Cyber 101", false, false);
 
         myDb.insertData("Social Engineering", "The act of manipulating individuals into disclosing confidential information. Social engineering aims to exploit human psychology rather than relying on technical hacking techniques, in order to gain access to sensitive data", "Social Engineering", false, false);
         myDb.insertData("Phishing", "An attempt to fraudulently obtain confidential information by sending an email disguised as a trustworthy entity", "Social Engineering", false, false);
@@ -380,7 +378,6 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertData("Quid Pro Quo", "Attacker promises to perform a service in exchange for sensitive data from the victim", "Social Engineering", false, false);
         myDb.insertData("Dumpster Diving", "Attacker steals sensitive data from trash", "Social Engineering", false, false);
         myDb.insertData("Shoulder Surfing", "Attack steals sensitive data by reading over the victim’s shoulder", "Social Engineering", false, false);
-        myDb.insertData("", "", "Social Engineering", false, false);
 
 
     }
@@ -405,7 +402,15 @@ public class MainActivity extends AppCompatActivity {
     public static void insertScoreData(DatabaseHelper myDb, Activity activity) {
         myDb.insertScoreData("Achievements", 0);
         myDb.insertScoreData("Tests Taken", 0);
+        myDb.insertScoreData("Coupon Progress", 0);
+        myDb.insertScoreData("Badge Progress", 0);
         myDb.insertScoreData("Tokens", 0);
+        myDb.insertScoreData("Amazon", 0);
+        myDb.insertScoreData("KFC", 0);
+        myDb.insertScoreData("Jb", 0);
+        myDb.insertScoreData("Myer", 0);
+        myDb.insertScoreData("Steam", 0);
+        myDb.insertScoreData("Bunnings", 0);
 
 
     }
@@ -447,10 +452,10 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertAchievementData("Sexy Six", "Achieve over 60% for any Quiz", 0, 1, false);
         myDb.insertAchievementData("Did you even try?", "Achieve under 30% for any Quiz", 0, 1, false);
         myDb.insertAchievementData("Off to a Great Start", "Get the first answer wrong", 0, 1, false);
-        myDb.insertAchievementData("Abort Mission?", "Get 3 answers wrong in a row_achievement", 0, 1, false);
-        myDb.insertAchievementData("Abandon Ship!", "Get 5 answers wrong in a row_achievement", 0, 1, false);
-        myDb.insertAchievementData("Oh Baby a Triple!", "Get 3 answers correct in a row_achievement", 0, 1, false);
-        myDb.insertAchievementData("Pentakill!", "Get 5 answers correct in a row_achievement", 0, 1, false);
+        myDb.insertAchievementData("Abort Mission?", "Get 3 answers wrong in a row", 0, 1, false);
+        myDb.insertAchievementData("Abandon Ship!", "Get 5 answers wrong in a row", 0, 1, false);
+        myDb.insertAchievementData("Oh Baby a Triple!", "Get 3 answers correct in a row", 0, 1, false);
+        myDb.insertAchievementData("Pentakill!", "Get 5 answers correct in a row", 0, 1, false);
 
         myDb.insertAchievementData("Instant Noodles!", "Get an answer correct within 1 second", 0, 1, false);
         myDb.insertAchievementData("Slick Speedster!", "Get an answer correct within 2 seconds", 0, 1, false);

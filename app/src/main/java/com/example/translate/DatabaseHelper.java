@@ -327,6 +327,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				contentValues.put(ATT_6, "1");
 				db.update(A_TABLE_NAME, contentValues, "name = ?", new String[]{achievementName});
 				updateScore(achievementName);
+				incrementAchievements();
+
+				if(getAchieved() % 5 == 0) {
+					incrementBadges();
+				}
 				addTokens();
 				return true;
 			} else {
@@ -347,9 +352,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		return status;
 	}
 
-	public Cursor getAchieved() {
+	public int getAchieved() {
 		SQLiteDatabase db = this.getWritableDatabase();
-		return db.rawQuery("SELECT * FROM " + A_TABLE_NAME + " WHERE complete = '1'", null);
+		Cursor res = db.rawQuery("SELECT score FROM " + SCORE_TABLE_NAME + " WHERE name = 'Achievements'", null);
+		res.moveToFirst();
+		int count = res.getInt(0);
+		res.close();
+		return count;
 	}
 
 	////
@@ -357,6 +366,56 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public void updateScore(String name) {
 		SQLiteDatabase db = this.getWritableDatabase();
 		db.execSQL("UPDATE " + SCORE_TABLE_NAME + " SET score = score + 1 WHERE name = '" + name + "'");
+
+	}
+
+	public int getScore(String name) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor res = db.rawQuery("SELECT score FROM " + SCORE_TABLE_NAME + " WHERE name = '" + name + "'", null);
+		res.moveToFirst();
+		int score = res.getInt(0);
+		res.close();
+		return score;
+
+	}
+
+	public int getCouponProgress() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor res = db.rawQuery("SELECT * FROM " + SCORE_TABLE_NAME + " WHERE name = 'Coupon Progress'", null);
+		res.moveToFirst();
+		int progress = res.getInt(2);
+		res.close();
+		return progress;
+	}
+
+	public int getBadgeProgress() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		Cursor res = db.rawQuery("SELECT * FROM " + SCORE_TABLE_NAME + " WHERE name = 'Badge Progress'", null);
+		res.moveToFirst();
+		int progress = res.getInt(2);
+		res.close();
+		return progress;
+	}
+
+	public void progressCoupons(){
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("UPDATE " + SCORE_TABLE_NAME + " SET score = score + 1 WHERE name = 'Coupon Progress'");
+	}
+
+	public void progressBadges() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("UPDATE " + SCORE_TABLE_NAME + " SET score = score + 1 WHERE name = 'Badge Progress'");
+	}
+
+	public void incrementAchievements() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("UPDATE " + SCORE_TABLE_NAME + " SET score = score + 1 WHERE name = 'Achievements'");
+
+	}
+
+	public void incrementBadges() {
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("UPDATE " + SCORE_TABLE_NAME + " SET score = score + 1 WHERE name = 'Badge Progress'");
 
 	}
 

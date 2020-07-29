@@ -3,12 +3,14 @@ package com.example.translate.ui.achievements;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,6 +35,12 @@ public class AchievementFragment extends Fragment {
 
     private CardView mCvCoupons;
     private CardView mCvBadges;
+
+    private TextView mTxtCouponProgress;
+    private TextView mTxtBadgeProgress;
+
+    private ProgressBar mPbCoupons;
+    private ProgressBar mPbBadges;
 
     private View.OnClickListener couponsButtonClickListener = new View.OnClickListener() {
         @Override
@@ -77,8 +85,17 @@ public class AchievementFragment extends Fragment {
         mCvCoupons = view.findViewById(R.id.cvCoupons);
         mCvBadges = view.findViewById(R.id.cvBadges);
 
+        mPbBadges = view.findViewById(R.id.progressBarBadges);
+        mPbCoupons = view.findViewById(R.id.progressBarCoupons);
+
+        mTxtCouponProgress = view.findViewById(R.id.txtCouponProgress);
+        mTxtBadgeProgress = view.findViewById(R.id.txtBadgeProgress);
+
         mCvCoupons.setOnClickListener(couponsButtonClickListener);
         mCvBadges.setOnClickListener(badgesButtonClickListener);
+
+        myDb = DatabaseHelper.getInstance(getActivity().getApplicationContext());
+
 
         mBtnAchievements.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,10 +104,20 @@ public class AchievementFragment extends Fragment {
             }
         });
 
-        myDb = DatabaseHelper.getInstance(getActivity().getApplicationContext());
 
 
         mFabTokens.setText(String.valueOf(myDb.getTokens()));
+
+
+        mPbCoupons.setProgress(myDb.getCouponProgress());
+        mTxtCouponProgress.setText(myDb.getCouponProgress() + "/6");
+
+        mPbBadges.setProgress(myDb.getBadgeProgress());
+        mTxtBadgeProgress.setText(myDb.getBadgeProgress() + "/8");
+
+
+
+
 
 
 
@@ -146,28 +173,28 @@ public class AchievementFragment extends Fragment {
     }
 
 
-    public int getAchievements() {
-
-        Cursor cur = null;
-        int count = 0;
-
-        try {
-            cur = myDb.getAchieved();
-            mPbAchievement.setMax(32);
-            mPbAchievement.setProgress(cur.getCount());
-            count = cur.getCount();
-//            mTxtAchievements.setText(cur.getCount() + "/32");
-
-        } catch (Exception e) {
-            // exception handling
-        } finally {
-            if (cur != null) {
-                cur.close();
-            }
-        }
-
-        return count;
-    }
+//    public int getAchievements() {
+//
+//        Cursor cur = null;
+//        int count = 0;
+//
+//        try {
+//            cur = myDb.getAchieved();
+//            mPbAchievement.setMax(32);
+//            mPbAchievement.setProgress(cur.getCount());
+//            count = cur.getCount();
+////            mTxtAchievements.setText(cur.getCount() + "/32");
+//
+//        } catch (Exception e) {
+//            // exception handling
+//        } finally {
+//            if (cur != null) {
+//                cur.close();
+//            }
+//        }
+//
+//        return count;
+//    }
 
 
     private void showAchievement(String title) {
@@ -223,6 +250,7 @@ public class AchievementFragment extends Fragment {
 
     private void badgesButtonClicked() {
         //navigate to badges page
+        Navigation.findNavController(getView()).navigate(R.id.action_navigation_dashboard_to_badgeFragment);
     }
 
 

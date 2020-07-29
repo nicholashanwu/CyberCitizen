@@ -11,6 +11,8 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
+import com.daimajia.androidanimations.library.Techniques;
+import com.daimajia.androidanimations.library.YoYo;
 import com.example.translate.DatabaseHelper;
 import com.example.translate.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
@@ -120,99 +122,162 @@ public class CouponFragment extends Fragment {
 		mFabTokens.setText(String.valueOf(tokenCount));
 
 
+
 		refreshProgress();
 
 	}
 
+
+
 	private void mRpbAmazonButtonClicked() {
 		myDb.spendTokens(TOKEN_AMAZON);
 		mFabTokens.setText(String.valueOf(myDb.getTokens()));
+		myDb.updateScore("Amazon");
+		myDb.progressCoupons();
+		YoYo.with(Techniques.Tada).duration(500).playOn(mRpbAmazon);
+		YoYo.with(Techniques.Tada).duration(500).playOn(mTxtAmazon);
+		mRpbAmazon.setOnClickListener(null);
 		refreshProgress();
 	}
 
 	private void mRpbKfcButtonClicked() {
 		myDb.spendTokens(TOKEN_KFC);
 		mFabTokens.setText(String.valueOf(myDb.getTokens()));
+		myDb.updateScore("KFC");
+		myDb.progressCoupons();
+		YoYo.with(Techniques.Tada).duration(500).playOn(mRpbKfc);
+		YoYo.with(Techniques.Tada).duration(500).playOn(mTxtKfc);
+		mRpbKfc.setOnClickListener(null);
 		refreshProgress();
 	}
 
 	private void mRpbJbButtonClicked() {
 		myDb.spendTokens(TOKEN_JB);
 		mFabTokens.setText(String.valueOf(myDb.getTokens()));
+		myDb.updateScore("Jb");
+		myDb.progressCoupons();
+		YoYo.with(Techniques.Tada).duration(500).playOn(mRpbJb);
+		YoYo.with(Techniques.Tada).duration(500).playOn(mTxtJb);
+		mRpbJb.setOnClickListener(null);
 		refreshProgress();
 	}
 
 	private void mRpbMyerButtonClicked() {
 		myDb.spendTokens(TOKEN_MYER);
 		mFabTokens.setText(String.valueOf(myDb.getTokens()));
+		myDb.updateScore("Myer");
+		myDb.progressCoupons();
+		YoYo.with(Techniques.Tada).duration(500).playOn(mRpbMyer);
+		YoYo.with(Techniques.Tada).duration(500).playOn(mTxtMyer);
+		mRpbMyer.setOnClickListener(null);
 		refreshProgress();
 	}
 
 	private void mRpbSteamButtonClicked() {
 		myDb.spendTokens(TOKEN_STEAM);
 		mFabTokens.setText(String.valueOf(myDb.getTokens()));
+		myDb.updateScore("Steam");
+		myDb.progressCoupons();
+		YoYo.with(Techniques.Tada).duration(500).playOn(mRpbSteam);
+		YoYo.with(Techniques.Tada).duration(500).playOn(mTxtSteam);
+		mRpbSteam.setOnClickListener(null);
 		refreshProgress();
 	}
 
 	private void mRpbBunningsButtonClicked() {
 		myDb.spendTokens(TOKEN_BUNNINGS);
 		mFabTokens.setText(String.valueOf(myDb.getTokens()));
+		myDb.updateScore("Bunnings");
+		myDb.progressCoupons();
+		YoYo.with(Techniques.Tada).duration(500).playOn(mRpbBunnings);
+		YoYo.with(Techniques.Tada).duration(500).playOn(mTxtBunnings);
+		mRpbBunnings.setOnClickListener(null);
 		refreshProgress();
 	}
 
 	private void refreshProgress() {
-		if (tokenCount >= TOKEN_AMAZON) {
+
+		tokenCount = myDb.getTokens();
+
+		if(myDb.getScore("Amazon") != 0) {
+			mTxtAmazon.setText("PRIMETIME");
+			mRpbAmazon.setProgress(0);
+		} else if (tokenCount >= TOKEN_AMAZON) {
 			mTxtAmazon.setText("TAP TO UNLOCK");
 			mRpbAmazon.setOnClickListener(redeemAmazonClickListener);
+			mRpbAmazon.setProgress(100 * tokenCount / TOKEN_AMAZON);
 		} else {
 			mTxtAmazon.setText((TOKEN_AMAZON - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
+			mRpbAmazon.setProgress(100 * tokenCount / TOKEN_AMAZON);
+			mRpbAmazon.setOnClickListener(null);
 		}
 
-
-		if (tokenCount >= TOKEN_KFC) {
+		if(myDb.getScore("KFC") != 0) {
+			mTxtKfc.setText("FINGERLICKINGOOD");
+			mRpbKfc.setProgress(0);
+		} else if (tokenCount >= TOKEN_KFC) {
 			mTxtKfc.setText("TAP TO UNLOCK");
 			mRpbKfc.setOnClickListener(redeemKfcClickListener);
+			mRpbKfc.setProgress(100 * tokenCount / TOKEN_KFC);
 		} else {
 			mTxtKfc.setText((TOKEN_KFC - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
+			mRpbKfc.setProgress(100 * tokenCount / TOKEN_KFC);
+			mRpbKfc.setOnClickListener(null);
 		}
 
-
-		if (tokenCount >= TOKEN_JB) {
+		if(myDb.getScore("Jb") != 0) {
+			mTxtJb.setText("SALESALESALESALE");
+			mRpbJb.setProgress(0);
+		} else 	if (tokenCount >= TOKEN_JB) {
 			mTxtJb.setText("TAP TO UNLOCK");
 			mRpbJb.setOnClickListener(redeemJbClickListener);
+			mRpbJb.setProgress(100 * tokenCount / TOKEN_JB);
 		} else {
 			mTxtJb.setText((TOKEN_JB - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
+			mRpbJb.setProgress(100 * tokenCount / TOKEN_JB);
+			mRpbJb.setOnClickListener(null);
 		}
 
-
-		if (tokenCount >= TOKEN_MYER) {
+		if(myDb.getScore("Myer") != 0) {
+			mTxtMyer.setText("ISMYSTORE");
+			mRpbMyer.setProgress(0);
+		} else if (tokenCount >= TOKEN_MYER) {
 			mTxtMyer.setText("TAP TO UNLOCK");
 			mRpbMyer.setOnClickListener(redeemMyerClickListener);
+			mRpbMyer.setProgress(100 * tokenCount / TOKEN_MYER);
 		} else {
 			mTxtMyer.setText((TOKEN_MYER - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
+			mRpbMyer.setProgress(100 * tokenCount / TOKEN_MYER);
+			mRpbMyer.setOnClickListener(null);
 		}
 
 
-		if (tokenCount >= TOKEN_STEAM) {
+		if(myDb.getScore("Steam") != 0) {
+			mTxtSteam.setText("PCMASTERRACE");
+			mRpbSteam.setProgress(0);
+		} else if (tokenCount >= TOKEN_STEAM) {
 			mTxtSteam.setText("TAP TO UNLOCK");
 			mRpbSteam.setOnClickListener(redeemSteamClickListener);
+			mRpbSteam.setProgress(100 * tokenCount / TOKEN_STEAM);
 		} else {
 			mTxtSteam.setText((TOKEN_STEAM - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
+			mRpbSteam.setProgress(100 * tokenCount / TOKEN_STEAM);
+			mRpbSteam.setOnClickListener(null);
 		}
 
-		if (tokenCount >= TOKEN_BUNNINGS) {
+		if(myDb.getScore("Bunnings") != 0) {
+			mTxtBunnings.setText("LOWESTPRICES...");
+			mRpbBunnings.setProgress(0);
+		} else if (tokenCount >= TOKEN_BUNNINGS) {
 			mTxtBunnings.setText("TAP TO UNLOCK");
 			mRpbBunnings.setOnClickListener(redeemBunningsClickListener);
+			mRpbBunnings.setProgress(100 * tokenCount / TOKEN_BUNNINGS);
 		} else {
 			mTxtBunnings.setText((TOKEN_BUNNINGS - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
+			mRpbBunnings.setProgress(100 * tokenCount / TOKEN_BUNNINGS);
+			mRpbBunnings.setOnClickListener(null);
 		}
 
 
-		mRpbAmazon.setProgress(100 * tokenCount / TOKEN_AMAZON);
-		mRpbKfc.setProgress(100 * tokenCount / TOKEN_KFC);
-		mRpbJb.setProgress(100 * tokenCount / TOKEN_JB);
-		mRpbMyer.setProgress(100 * tokenCount / TOKEN_MYER);
-		mRpbSteam.setProgress(100 * tokenCount / TOKEN_STEAM);
-		mRpbBunnings.setProgress(100 * tokenCount / TOKEN_BUNNINGS);
 	}
 }
