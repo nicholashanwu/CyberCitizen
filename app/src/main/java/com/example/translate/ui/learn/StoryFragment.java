@@ -26,27 +26,31 @@ import com.example.translate.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import org.w3c.dom.Text;
+
 public class StoryFragment extends Fragment {
 
 	private TextView mTxtContent;
 	private TextView mTxtLevelTitle;
 	private TextView mTxtMessage;
+	private TextView mTxtEarnedCoins;
 	private RadioGroup mRbGroup;
 	private RadioButton mRbAnswerOne;
 	private RadioButton mRbAnswerTwo;
 	private RadioButton mRbAnswerThree;
 	private RadioButton mRbAnswerFour;
 	private FloatingActionButton mFabSubmit;
-	private ExtendedFloatingActionButton mBtnBack;
 
 	private DatabaseHelper myDb;
 	private Cursor res;
 
 	private boolean answered;
 	private boolean endReached = false;
+	private boolean pass = false;
 
 	private int storyId;
 	private int nextPageId = 0;
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -69,19 +73,19 @@ public class StoryFragment extends Fragment {
 		mTxtContent = view.findViewById(R.id.txtStoryContent);
 		mTxtLevelTitle = view.findViewById(R.id.txtLevelTitle);
 		mTxtMessage = view.findViewById(R.id.txtMessage);
+		mTxtEarnedCoins = view.findViewById(R.id.txtEarnedCoins);
 		mRbGroup = view.findViewById(R.id.rbGroup);
 		mRbAnswerOne = view.findViewById(R.id.rbAnswerOne);
 		mRbAnswerTwo = view.findViewById(R.id.rbAnswerTwo);
 		mRbAnswerThree = view.findViewById(R.id.rbAnswerThree);
 		mRbAnswerFour = view.findViewById(R.id.rbAnswerFour);
 		mFabSubmit = view.findViewById(R.id.fabSubmitAnswer);
-		mBtnBack = view.findViewById(R.id.btnBack);
 
 		storyId = getArguments().getInt("storyId");
 
 		res = getData(storyId);
 		setParameters(res);
-		setTitle("Story " + storyId);
+		setTitle(storyId);
 
 		showNextQuestion(res);
 
@@ -92,10 +96,12 @@ public class StoryFragment extends Fragment {
 				if (!answered) {
 					if (mRbAnswerOne.isChecked() || mRbAnswerTwo.isChecked() || mRbAnswerThree.isChecked() || mRbAnswerFour.isChecked()) {
 						checkAnswer(res);
-
 					} else if (endReached) {
 						finishTest();
-
+					} else if (pass) {
+						checkAnswer(res);
+//						showNextQuestion(res);
+						pass = false;
 					} else {
 						mTxtMessage.setText("Please choose an answer");
 						YoYo.with(Techniques.FadeInDown).duration(300).playOn(mTxtMessage);
@@ -110,12 +116,6 @@ public class StoryFragment extends Fragment {
 			}
 		});
 
-		mBtnBack.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				showBackConfirmation("Are you sure you want to exit?", "");
-			}
-		});
 
 	}
 
@@ -128,23 +128,28 @@ public class StoryFragment extends Fragment {
 
 		mRbGroup.clearCheck();
 
+		mRbAnswerOne.setVisibility(View.VISIBLE);
+		mRbAnswerTwo.setVisibility(View.VISIBLE);
 		mRbAnswerThree.setVisibility(View.VISIBLE);
 		mRbAnswerFour.setVisibility(View.VISIBLE);
 
-		mTxtContent.setText(res.getString(3));
+		if(res != null){
+			mTxtContent.setText(res.getString(3));
 
-		if (res.getString(4).equals("")) {
-			mRbAnswerOne.setVisibility(View.GONE);
+			if (res.getString(4).equals("")) {
+				mRbAnswerOne.setVisibility(View.GONE);
+			}
+			if (res.getString(5).equals("")) {
+				mRbAnswerTwo.setVisibility(View.GONE);
+			}
+			if (res.getString(6).equals("")) {
+				mRbAnswerThree.setVisibility(View.GONE);
+			}
+			if (res.getString(7).equals("")) {
+				mRbAnswerFour.setVisibility(View.GONE);
+			}
 		}
-		if (res.getString(5).equals("")) {
-			mRbAnswerTwo.setVisibility(View.GONE);
-		}
-		if (res.getString(6).equals("")) {
-			mRbAnswerThree.setVisibility(View.GONE);
-		}
-		if (res.getString(7).equals("")) {
-			mRbAnswerFour.setVisibility(View.GONE);
-		}
+
 
 		mRbAnswerOne.setText(res.getString(4));
 		mRbAnswerTwo.setText(res.getString(5));
@@ -165,7 +170,6 @@ public class StoryFragment extends Fragment {
 		int answerNum = mRbGroup.indexOfChild(rbSelected) + 1;
 
 		if (storyId == 0) {                // ------------------------ STORY ONE------------------------
-
 			if (nextPageId == 0) {
 				if (answerNum == 1) {            // yes
 					nextPageId = 2;
@@ -214,14 +218,72 @@ public class StoryFragment extends Fragment {
 				// do nothing
 			}
 
-		}
-		res.moveToFirst();
-		while (res.moveToNext()) {
-			if (res.getInt(2) == nextPageId) {
-				showNextQuestion(res);
+		} else if (storyId == 1) {
+			System.out.println("HIHFIUSIUFISUFH");
+			if (nextPageId == 0) {
+				if (answerNum == 1 || answerNum == 4) {
+					nextPageId = 1;
+					pass = true;
+					addCoins();
+				} else {
+					nextPageId = 2;
+					pass = true;
+				}
+			} else if (nextPageId == 1 || nextPageId == 2) {
+				nextPageId = 3;
+			} else if (nextPageId == 3) {
+				if (answerNum == 1) {
+					nextPageId = 5;
+					addCoins();
+					pass = true;
+				} else {
+					nextPageId = 4;
+					pass = true;
+				}
+			} else if (nextPageId == 4 || nextPageId == 5) {
+				nextPageId = 6;
+
+			} else if (nextPageId == 6) {
+				if (answerNum == 1) {
+					nextPageId = 7;
+					pass = true;
+				} else {
+					nextPageId = 8;
+					pass = true;
+					addCoins();
+				}
+			} else if (nextPageId == 7 || nextPageId == 8) {
+				nextPageId = 9;
+			} else if (nextPageId == 9) {
+				if (answerNum == 1) {
+					nextPageId = 10;
+					endReached = true;
+					addCoins();
+				} else {
+					nextPageId = 11;
+					endReached = true;
+				}
+			} else {
+
 			}
 		}
 
+
+		res.moveToFirst();
+		while (res.moveToNext()) {
+			if (res.getInt(1) == storyId && res.getInt(2) == nextPageId) {
+				showNextQuestion(res);
+			}
+
+		}
+
+	}
+
+	private void addCoins() {
+		myDb.addTokens(50);
+		mTxtEarnedCoins.setVisibility(View.VISIBLE);
+		YoYo.with(Techniques.BounceInUp).duration(200).playOn(mTxtEarnedCoins);
+		YoYo.with(Techniques.FadeOutUp).delay(400).duration(200).playOn(mTxtEarnedCoins);
 	}
 
 	private void finishTest() {
@@ -292,8 +354,10 @@ public class StoryFragment extends Fragment {
 				imageButton.setImageResource(R.mipmap.under_30);
 				mTxtMessage.setText("Oh no.");
 			}
+		} else if (storyId == 1) {
+			imageButton.setImageResource(R.mipmap.over_75);
+			mTxtMessage.setText("Nice work! \nP.S. Did you get all the coins?");
 		}
-
 
 		builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
 			@Override
@@ -304,12 +368,12 @@ public class StoryFragment extends Fragment {
 
 		txtTitle.setText(title);
 
-
+		builder.setView(view);
 		AlertDialog dialog = builder.show();
 		dialog.setCanceledOnTouchOutside(false);
 	}
 
-	public void setTitle(String storyId) {
+	public void setTitle(int storyId) {
 		mTxtLevelTitle.setText("Story " + (storyId + 1));
 
 	}
@@ -319,38 +383,6 @@ public class StoryFragment extends Fragment {
 		res.moveToFirst();
 
 		mTxtContent.setText(res.getString(3));
-	}
-
-
-	private void showBackConfirmation(String title, String message) {
-		AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(getContext(), R.style.Red));
-		View view = LayoutInflater.from(getActivity()).inflate(R.layout.custom_alert_dialog_test, null);
-		TextView txtTitle = view.findViewById(R.id.title);
-		ImageButton imageButton = view.findViewById(R.id.image);
-
-		imageButton.setImageResource(R.mipmap.over_30);
-
-		builder.setPositiveButton("CANCEL", new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialogInterface, int i) {
-
-			}
-		});
-		builder.setNegativeButton("YES", new DialogInterface.OnClickListener() {
-			@Override
-			public void onClick(DialogInterface dialogInterface, int i) {
-				Navigation.findNavController(getView()).popBackStack();
-				if (res != null) {
-					res.close();
-				}
-
-			}
-		});
-
-		txtTitle.setText(title);
-		builder.setView(view);
-		builder.show();
-
 	}
 
 	private void showAchievement(String title) {

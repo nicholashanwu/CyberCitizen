@@ -127,7 +127,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-
         SharedPreferences prefs = getSharedPreferences("prefs", MODE_PRIVATE);
         boolean firstStart = prefs.getBoolean("firstStart", true);
 
@@ -136,7 +135,6 @@ public class MainActivity extends AppCompatActivity {
             task.execute();
             updateSharedPreferences();
         }
-
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.hide();
@@ -213,6 +211,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static void insertContentData(DatabaseHelper myDb, Activity activity) {
+
         myDb.insertContentData("What is Cyber?", 1, "Introduction", "Would you be comfortable living in a house that some stranger had access to? What if the door couldn't be locked or there was a hidden underground tunnel leading to the basement? Would you feel as though your safety and privacy is upheld? Using the internet and digital services is that house. If you need to store your personal belongings there, how do you go about protecting it?");
         myDb.insertContentData("What is Cyber?", 1, "Introduction", "The revolution of applications, IoT, computer and mobile devices has paved the way for cyberattacks leaving both individuals and companies vulnerable. With the vast number of ways in which attacks can occur, the question is \"when\" not \"if\".");
         myDb.insertContentData("What is Cyber?", 2, "A Brief History", "Early on, we had old legacy systems such as mainframes with limited access. They were centrally managed without easy access to the mainframe and instead access was usually through command-line terminals. Hence attack routes and methods to access data or compromise the data was difficult. ");
@@ -394,6 +393,26 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertStoryData(0, 7, "After your talk with the team lead, he extends the deadline on your tasks by a week. You take this time to continue discussing with the team lead and he organises reliable employees to help you complete the tasks. You understood the risks of sharing company data and followed up appropriately. ", "", "", "", "");
         myDb.insertStoryData(0, 8, "Your team lead is very worried about this situation and must not have company data leaked. He needs you and your friend to report your interactions with the third party engineer to ensure no security threats. Please reflect and select the options which would have prevented this.", "", "", "", "");
         myDb.insertStoryData(0, 9, "Failing to report this, a security breach occurs and the engineer steals sensitive user data. The team lead finds out and is very worried as this will have huge ramifications on Google’s reputation and users. He needs you to log your interactions with the third party engineer to attempt to fix this issue. You will be held responsible for this. Please reflect and select the options which would have prevented this. ", "", "", "", "");
+
+
+        //story 2
+        myDb.insertStoryData(1, 0, "You are browsing Instagram and see an Influencer’s post about a raffle for a pair of sneakers. They are partnering with a website and all you need to do is register on their website and share a post tagging the company. What looks suspicious to you?", "The link looks suspicious", "The shoes look fake", "The name sounds wrong", "There's no likes or comments");
+        myDb.insertStoryData(1, 1, "Congratulations you’ve identified the red flags that this scheme is presenting. By avoiding this scam, your personal information remains safe.", "", "", "", "");
+        myDb.insertStoryData(1, 2, "You’ve decided to join the raffle and you apply. A few weeks pass and it seems like you have not won the raffle. The raffle company however send you promotional spam to purchase their products. You’ve been added to their advertising list.", "", "", "", "");
+
+        myDb.insertStoryData(1, 3, "You continue to browse and your friend messages you asking for your Netflix password so that they can watch a movie. Is there any inherent risk in you sharing this?", "I won't share my password. It's risky.", "Sure, I trust my friend so I'll give him my password.", "", "");
+        myDb.insertStoryData(1, 4, "You decide to share your password. By doing this, there is a risk of your friend sharing your password to others. And thus your Netflix account has been compromised. ", "", "", "", "");
+        myDb.insertStoryData(1, 5, "Your Netflix account is safe and you keep browsing with peace of mind.", "", "", "", "");
+
+        myDb.insertStoryData(1, 6, "You continue to browse Instagram and you decide to post a photo. Somebody comments on your photo saying they really like your photo and would like to collaborate with you. They message you privately and go into details about the collaboration. They want you to download an application, and have you post your content there to become a “creator”. Do you want to download the app?", "Yes", "No", "", "");
+        myDb.insertStoryData(1, 7, "The app you download takes your information and shares it with third party companies. Companies will now send you constant spam emails and your identity is at risk of fraud. Be wary of what applications you download.", "", "", "", "");
+        myDb.insertStoryData(1, 8, "Researching further into the application you see that the application is only new. They want to gain revenue and are attracting people to use their app whilst also sharing their private information to third party companies.", "", "", "", "");
+
+        myDb.insertStoryData(1, 9, "You continue to browse. There is an advertisement for a sale going on a website. You do not want to see this as this website seems unsafe. Do you know how to prevent these advertisements from showing on your feed?", "Yes, click on the post and select Why am I seeing this ad and then Hide all ads from this advertiser.", "Nope, I'll be fine.", "", "");
+        myDb.insertStoryData(1, 10, "Congratulations you are cyber secure and you are aware of the risks of using apps such as Instagram.", "", "", "", "");
+        myDb.insertStoryData(1, 11, "You could change the privacy settings on your social media accounts or request to not see ads like this. Take a look at the learning module to find out about how you can browse social media with low risk.", "", "", "", "");
+
+
     }
 
     public static void insertScoreData(DatabaseHelper myDb, Activity activity) {
@@ -421,7 +440,7 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertAchievementData("Cyber Skilled I", "Complete the Cyber 101 Learning module", 0, 1, false);
         myDb.insertAchievementData("Cyber Skilled II", "Complete the Cyber 101 Flashcards module", 0, 1, false);
         myDb.insertAchievementData("Cyber Skilled III", "Complete the Cyber 101 Quiz module", 0, 1, false);
-        myDb.insertAchievementData("Cyber Skilled IV", "Complete the Cyber 101 Story module", 0, 1, false);
+        myDb.insertAchievementData("Cyber Skilled IV", "Complete the Cyber 101 Story 1 module", 0, 1, false);
         myDb.insertAchievementData("Certified Cyber Skilled", "Complete Level Two: Cyber 101", 0, 4, false);
 
         myDb.insertAchievementData("Anti-Social Engineer I", "Complete the Social Engineering Learning module", 0, 1, false);

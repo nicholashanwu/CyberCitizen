@@ -134,8 +134,8 @@ public class CouponFragment extends Fragment {
 		mFabTokens.setText(String.valueOf(myDb.getTokens()));
 		myDb.updateScore("Amazon");
 		myDb.progressCoupons();
-		YoYo.with(Techniques.Tada).duration(500).playOn(mRpbAmazon);
-		YoYo.with(Techniques.Tada).duration(500).playOn(mTxtAmazon);
+		YoYo.with(Techniques.Tada).duration(1000).playOn(mRpbAmazon);
+		YoYo.with(Techniques.Tada).duration(1000).playOn(mTxtAmazon);
 		mRpbAmazon.setOnClickListener(null);
 		refreshProgress();
 	}
@@ -145,8 +145,8 @@ public class CouponFragment extends Fragment {
 		mFabTokens.setText(String.valueOf(myDb.getTokens()));
 		myDb.updateScore("KFC");
 		myDb.progressCoupons();
-		YoYo.with(Techniques.Tada).duration(500).playOn(mRpbKfc);
-		YoYo.with(Techniques.Tada).duration(500).playOn(mTxtKfc);
+		YoYo.with(Techniques.Tada).duration(1000).playOn(mRpbKfc);
+		YoYo.with(Techniques.Tada).duration(1000).playOn(mTxtKfc);
 		mRpbKfc.setOnClickListener(null);
 		refreshProgress();
 	}
@@ -156,8 +156,8 @@ public class CouponFragment extends Fragment {
 		mFabTokens.setText(String.valueOf(myDb.getTokens()));
 		myDb.updateScore("Jb");
 		myDb.progressCoupons();
-		YoYo.with(Techniques.Tada).duration(500).playOn(mRpbJb);
-		YoYo.with(Techniques.Tada).duration(500).playOn(mTxtJb);
+		YoYo.with(Techniques.Tada).duration(1000).playOn(mRpbJb);
+		YoYo.with(Techniques.Tada).duration(1000).playOn(mTxtJb);
 		mRpbJb.setOnClickListener(null);
 		refreshProgress();
 	}
@@ -167,8 +167,8 @@ public class CouponFragment extends Fragment {
 		mFabTokens.setText(String.valueOf(myDb.getTokens()));
 		myDb.updateScore("Myer");
 		myDb.progressCoupons();
-		YoYo.with(Techniques.Tada).duration(500).playOn(mRpbMyer);
-		YoYo.with(Techniques.Tada).duration(500).playOn(mTxtMyer);
+		YoYo.with(Techniques.Tada).duration(1000).playOn(mRpbMyer);
+		YoYo.with(Techniques.Tada).duration(1000).playOn(mTxtMyer);
 		mRpbMyer.setOnClickListener(null);
 		refreshProgress();
 	}
@@ -178,8 +178,8 @@ public class CouponFragment extends Fragment {
 		mFabTokens.setText(String.valueOf(myDb.getTokens()));
 		myDb.updateScore("Steam");
 		myDb.progressCoupons();
-		YoYo.with(Techniques.Tada).duration(500).playOn(mRpbSteam);
-		YoYo.with(Techniques.Tada).duration(500).playOn(mTxtSteam);
+		YoYo.with(Techniques.Tada).duration(1000).playOn(mRpbSteam);
+		YoYo.with(Techniques.Tada).duration(1000).playOn(mTxtSteam);
 		mRpbSteam.setOnClickListener(null);
 		refreshProgress();
 	}
@@ -189,8 +189,8 @@ public class CouponFragment extends Fragment {
 		mFabTokens.setText(String.valueOf(myDb.getTokens()));
 		myDb.updateScore("Bunnings");
 		myDb.progressCoupons();
-		YoYo.with(Techniques.Tada).duration(500).playOn(mRpbBunnings);
-		YoYo.with(Techniques.Tada).duration(500).playOn(mTxtBunnings);
+		YoYo.with(Techniques.Tada).duration(1000).playOn(mRpbBunnings);
+		YoYo.with(Techniques.Tada).duration(1000).playOn(mTxtBunnings);
 		mRpbBunnings.setOnClickListener(null);
 		refreshProgress();
 	}
@@ -199,15 +199,19 @@ public class CouponFragment extends Fragment {
 
 		tokenCount = myDb.getTokens();
 
+
+
 		if(myDb.getScore("Amazon") != 0) {
 			mTxtAmazon.setText("PRIMETIME");
-			mRpbAmazon.setProgress(0);
+			mRpbAmazon.setProgress(0
+			);
 		} else if (tokenCount >= TOKEN_AMAZON) {
 			mTxtAmazon.setText("TAP TO UNLOCK");
 			mRpbAmazon.setOnClickListener(redeemAmazonClickListener);
 			mRpbAmazon.setProgress(100 * tokenCount / TOKEN_AMAZON);
 		} else {
-			mTxtAmazon.setText((TOKEN_AMAZON - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
+
+			mTxtAmazon.setText(TOKEN_AMAZON - tokenCount + " TOKENS LEFT TO UNLOCK");
 			mRpbAmazon.setProgress(100 * tokenCount / TOKEN_AMAZON);
 			mRpbAmazon.setOnClickListener(null);
 		}
@@ -220,7 +224,7 @@ public class CouponFragment extends Fragment {
 			mRpbKfc.setOnClickListener(redeemKfcClickListener);
 			mRpbKfc.setProgress(100 * tokenCount / TOKEN_KFC);
 		} else {
-			mTxtKfc.setText((TOKEN_KFC - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
+			mTxtKfc.setText(TOKEN_KFC - tokenCount + " TOKENS LEFT TO UNLOCK");
 			mRpbKfc.setProgress(100 * tokenCount / TOKEN_KFC);
 			mRpbKfc.setOnClickListener(null);
 		}
@@ -233,7 +237,7 @@ public class CouponFragment extends Fragment {
 			mRpbJb.setOnClickListener(redeemJbClickListener);
 			mRpbJb.setProgress(100 * tokenCount / TOKEN_JB);
 		} else {
-			mTxtJb.setText((TOKEN_JB - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
+			mTxtJb.setText(TOKEN_JB - tokenCount + " TOKENS LEFT TO UNLOCK");
 			mRpbJb.setProgress(100 * tokenCount / TOKEN_JB);
 			mRpbJb.setOnClickListener(null);
 		}
@@ -246,7 +250,7 @@ public class CouponFragment extends Fragment {
 			mRpbMyer.setOnClickListener(redeemMyerClickListener);
 			mRpbMyer.setProgress(100 * tokenCount / TOKEN_MYER);
 		} else {
-			mTxtMyer.setText((TOKEN_MYER - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
+			mTxtMyer.setText(TOKEN_MYER - tokenCount + " TOKENS LEFT TO UNLOCK");
 			mRpbMyer.setProgress(100 * tokenCount / TOKEN_MYER);
 			mRpbMyer.setOnClickListener(null);
 		}
@@ -260,7 +264,7 @@ public class CouponFragment extends Fragment {
 			mRpbSteam.setOnClickListener(redeemSteamClickListener);
 			mRpbSteam.setProgress(100 * tokenCount / TOKEN_STEAM);
 		} else {
-			mTxtSteam.setText((TOKEN_STEAM - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
+			mTxtSteam.setText(TOKEN_STEAM - tokenCount + " TOKENS LEFT TO UNLOCK");
 			mRpbSteam.setProgress(100 * tokenCount / TOKEN_STEAM);
 			mRpbSteam.setOnClickListener(null);
 		}
@@ -273,7 +277,7 @@ public class CouponFragment extends Fragment {
 			mRpbBunnings.setOnClickListener(redeemBunningsClickListener);
 			mRpbBunnings.setProgress(100 * tokenCount / TOKEN_BUNNINGS);
 		} else {
-			mTxtBunnings.setText((TOKEN_BUNNINGS - tokenCount) / 200 + " ACHIEVEMENTS LEFT TO UNLOCK");
+			mTxtBunnings.setText(TOKEN_BUNNINGS - tokenCount + " TOKENS LEFT TO UNLOCK");
 			mRpbBunnings.setProgress(100 * tokenCount / TOKEN_BUNNINGS);
 			mRpbBunnings.setOnClickListener(null);
 		}

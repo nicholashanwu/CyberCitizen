@@ -3,6 +3,7 @@ package com.example.translate.ui.learn;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -56,16 +57,9 @@ public class HomeFragment extends Fragment {
 	public View onCreateView(@NonNull LayoutInflater inflater,
 							 ViewGroup container, Bundle savedInstanceState) {
 
-		View root = inflater.inflate(R.layout.fragment_home, container, false);
+		View view = inflater.inflate(R.layout.fragment_home, container, false);
 
 		myDb = DatabaseHelper.getInstance(getContext().getApplicationContext());
-
-		return root;
-	}
-
-	@Override
-	public void onViewCreated(View view, Bundle savedInstanceState) {
-		super.onViewCreated(view, savedInstanceState);
 
 		mCvOneOne = view.findViewById(R.id.cvOneOne);
 		mCvOneTwo = view.findViewById(R.id.cvOneTwo);
@@ -82,8 +76,6 @@ public class HomeFragment extends Fragment {
 		mCvThreeFour = view.findViewById(R.id.cvThreeFour);
 
 		mCvFourOne = view.findViewById(R.id.cvFourOne);
-		mCvFourTwo = view.findViewById(R.id.cvFourTwo);
-		mCvFourThree = view.findViewById(R.id.cvFourThree);
 		mCvFourFour = view.findViewById(R.id.cvFourFour);
 
 		mEcvOne = view.findViewById(R.id.ecvOne);
@@ -99,9 +91,16 @@ public class HomeFragment extends Fragment {
 		mEcvThree.setVisibility(View.GONE);
 		mEcvFour.setVisibility(View.GONE);
 
-//		mEcvTwo.setVisibility(View.VISIBLE);
-//		mEcvThree.setVisibility(View.VISIBLE);
-//		mEcvFour.setVisibility(View.VISIBLE);
+		mEcvTwo.setVisibility(View.VISIBLE);
+		mEcvThree.setVisibility(View.VISIBLE);
+		mEcvFour.setVisibility(View.VISIBLE);
+
+		return view;
+	}
+
+	@Override
+	public void onViewCreated(View view, Bundle savedInstanceState) {
+		super.onViewCreated(view, savedInstanceState);
 
 		if(myDb.checkAchievementStatus("Certified Cyber Novice")){
 			mEcvTwo.setVisibility(View.VISIBLE);
@@ -141,6 +140,7 @@ public class HomeFragment extends Fragment {
 
 		// check complete achievements
 		// disable all cardviews that do not have the right achievement to unlock it
+
 
 		// ***************************************** LEVEL ONE ***************************************** //
 		mCvOneOne.setOnClickListener(new View.OnClickListener() {
@@ -241,7 +241,10 @@ public class HomeFragment extends Fragment {
 		mCvThreeFour.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//navigate to story scenario
+				Bundle bundle = new Bundle();
+				bundle.putInt("storyId", 1);
+				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_storyFragment, bundle);
+
 			}
 		});
 
@@ -253,24 +256,6 @@ public class HomeFragment extends Fragment {
 				Bundle bundle = new Bundle();
 				bundle.putString("learningType", "Protecting Yourself");
 				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_contentScrollerFragment, bundle);
-			}
-		});
-
-		mCvFourTwo.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Bundle bundle = new Bundle();
-				bundle.putString("learningType", "Protecting Yourself");
-				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_navigation_learning, bundle);
-			}
-		});
-
-		mCvFourThree.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Bundle bundle = new Bundle();
-				bundle.putString("testingType", "Protecting Yourself");
-				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_navigation_test, bundle);
 			}
 		});
 

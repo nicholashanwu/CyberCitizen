@@ -345,9 +345,18 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	public boolean checkAchievementStatus(String achievementName) {
 		SQLiteDatabase db = this.getWritableDatabase();
-		Cursor res = db.rawQuery("SELECT complete FROM " + A_TABLE_NAME + " WHERE name = '" + achievementName + "' ", null);
+		Cursor res = db.rawQuery("SELECT complete FROM " + A_TABLE_NAME + " WHERE name = '" + achievementName + "'", null);
 		res.moveToFirst();
-		boolean status = res.getString(0).equals("1");
+		boolean status = false;
+
+		if(res.getCount() != 0) {
+			if (res.getString(0).equals(1)) {
+				status = true;
+			}
+		} else {
+			status = false;
+		}
+
 		res.close();
 		return status;
 	}
@@ -431,6 +440,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public void addTokens() {
 		SQLiteDatabase db = this.getWritableDatabase();
 		db.execSQL("UPDATE " + SCORE_TABLE_NAME + " SET score = score + 200 WHERE name = 'Tokens'");
+
+	}
+
+	public void addTokens(int amount) {
+		SQLiteDatabase db = this.getWritableDatabase();
+		db.execSQL("UPDATE " + SCORE_TABLE_NAME + " SET score = score + " + amount + " WHERE name = 'Tokens'");
 
 	}
 
