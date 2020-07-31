@@ -20,6 +20,7 @@ import android.widget.TextView;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -49,6 +50,7 @@ public class TestFragment extends Fragment {
     private RadioButton mRbAnswerThree;
     private ProgressBar mProgressBar;
     private FloatingActionButton mFabSubmit;
+    private CardView mCvDefinition;
 
     private View view;
 
@@ -122,9 +124,11 @@ public class TestFragment extends Fragment {
         mTxtScore = view.findViewById(R.id.txtScore);
         mIvReaction = view.findViewById(R.id.ivReaction);
         mTxtTimer = view.findViewById(R.id.txtTimer);
+        mCvDefinition = view.findViewById(R.id.cvDefinition);
+        mTxtViewCountDown = view.findViewById(R.id.txtTimer);
+
 
         testingType = getArguments().getString("testingType");
-
         res = getData(testingType);
 
         setParameters(res);
@@ -132,7 +136,6 @@ public class TestFragment extends Fragment {
 
         showNextQuestion(res);
 
-        mTxtViewCountDown = view.findViewById(R.id.txtTimer);
 
         updateCountDownText();
 

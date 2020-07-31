@@ -28,7 +28,21 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabUnlock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="72dp"
+        android:clickable="true"
+        android:src="@drawable/ic_baseline_lock_open_24"
+        app:backgroundTint="@color/colorYellowDark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white" />
+
     <ScrollView
+        android:id="@+id/scrollView5"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:layout_editor_absoluteY="128dp">
@@ -162,7 +176,7 @@
                         app:expandOnClick="true"
                         app:inner_view="@layout/inner_layout_three"
                         app:startExpanded="false"
-                        app:title="Social Engineering" >
+                        app:title="Social Engineering">
 
                     </com.alespero.expandablecardview.ExpandableCardView>
 

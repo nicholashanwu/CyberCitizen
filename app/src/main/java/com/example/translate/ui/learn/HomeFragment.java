@@ -21,6 +21,7 @@ import com.alespero.expandablecardview.ExpandableCardView;
 import com.example.translate.DatabaseHelper;
 import com.example.translate.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class HomeFragment extends Fragment {
 
@@ -28,6 +29,8 @@ public class HomeFragment extends Fragment {
 	private ExpandableCardView mEcvTwo;
 	private ExpandableCardView mEcvThree;
 	private ExpandableCardView mEcvFour;
+
+	private FloatingActionButton mFabUnlock;
 
 	private Button mBtnLockedTwo;
 	private Button mBtnLockedThree;
@@ -88,13 +91,8 @@ public class HomeFragment extends Fragment {
 		mBtnLockedThree = view.findViewById(R.id.btnLockedThree);
 		mBtnLockedFour = view.findViewById(R.id.btnLockedFour);
 
-		mEcvTwo.setVisibility(View.GONE);
-		mEcvThree.setVisibility(View.GONE);
-		mEcvFour.setVisibility(View.GONE);
+		mFabUnlock = view.findViewById(R.id.fabUnlock);
 
-//		mEcvTwo.setVisibility(View.VISIBLE);
-//		mEcvThree.setVisibility(View.VISIBLE);
-//		mEcvFour.setVisibility(View.VISIBLE);
 
 		return view;
 	}
@@ -103,17 +101,17 @@ public class HomeFragment extends Fragment {
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
-		if(myDb.checkAchievementStatus("Certified Cyber Novice")){
+		if (myDb.checkAchievementStatus("Certified Cyber Novice")) {
 			mEcvTwo.setVisibility(View.VISIBLE);
 			mBtnLockedTwo.setVisibility(View.GONE);
 		}
 
-		if(myDb.checkAchievementStatus("Certified Cyber Skilled")){
+		if (myDb.checkAchievementStatus("Certified Cyber Skilled")) {
 			mEcvThree.setVisibility(View.VISIBLE);
 			mBtnLockedThree.setVisibility(View.GONE);
 		}
 
-		if(myDb.checkAchievementStatus("Certified Anti-Social Engineer")){
+		if (myDb.checkAchievementStatus("Certified Anti-Social Engineer")) {
 			mEcvFour.setVisibility(View.VISIBLE);
 			mBtnLockedFour.setVisibility(View.GONE);
 		}
@@ -245,7 +243,6 @@ public class HomeFragment extends Fragment {
 				Bundle bundle = new Bundle();
 				bundle.putInt("storyId", 1);
 				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_storyFragment, bundle);
-
 			}
 		});
 
@@ -264,6 +261,31 @@ public class HomeFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				//navigate to story scenario
+			}
+		});
+
+
+		mFabUnlock.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				if (mEcvTwo.getVisibility() == View.GONE) {
+					mEcvTwo.setVisibility(View.VISIBLE);
+					mEcvThree.setVisibility(View.VISIBLE);
+					mEcvFour.setVisibility(View.VISIBLE);
+					mBtnLockedTwo.setVisibility(View.GONE);
+					mBtnLockedThree.setVisibility(View.GONE);
+					mBtnLockedFour.setVisibility(View.GONE);
+					mFabUnlock.setImageResource(R.drawable.ic_outline_lock_24);
+				} else {
+					mEcvTwo.setVisibility(View.GONE);
+					mEcvThree.setVisibility(View.GONE);
+					mEcvFour.setVisibility(View.GONE);
+					mBtnLockedTwo.setVisibility(View.VISIBLE);
+					mBtnLockedThree.setVisibility(View.VISIBLE);
+					mBtnLockedFour.setVisibility(View.VISIBLE);
+					mFabUnlock.setImageResource(R.drawable.ic_baseline_lock_open_24);
+				}
+
 			}
 		});
 
