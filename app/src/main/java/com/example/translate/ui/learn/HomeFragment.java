@@ -8,6 +8,7 @@ import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
@@ -28,9 +29,9 @@ public class HomeFragment extends Fragment {
 	private ExpandableCardView mEcvThree;
 	private ExpandableCardView mEcvFour;
 
-	private ExtendedFloatingActionButton mBtnLockedTwo;
-	private ExtendedFloatingActionButton mBtnLockedThree;
-	private ExtendedFloatingActionButton mBtnLockedFour;
+	private Button mBtnLockedTwo;
+	private Button mBtnLockedThree;
+	private Button mBtnLockedFour;
 
 	private CardView mCvOneOne;
 	private CardView mCvOneTwo;
@@ -91,9 +92,9 @@ public class HomeFragment extends Fragment {
 		mEcvThree.setVisibility(View.GONE);
 		mEcvFour.setVisibility(View.GONE);
 
-		mEcvTwo.setVisibility(View.VISIBLE);
-		mEcvThree.setVisibility(View.VISIBLE);
-		mEcvFour.setVisibility(View.VISIBLE);
+//		mEcvTwo.setVisibility(View.VISIBLE);
+//		mEcvThree.setVisibility(View.VISIBLE);
+//		mEcvFour.setVisibility(View.VISIBLE);
 
 		return view;
 	}

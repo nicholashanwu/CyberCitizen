@@ -111,6 +111,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	public boolean insertData(String phrase, String definition, String category, boolean learned, boolean saved) {
 		SQLiteDatabase db = this.getWritableDatabase();
+
 		ContentValues contentValues = new ContentValues();
 		contentValues.put(COL_2, phrase);
 		contentValues.put(COL_3, definition);
@@ -118,11 +119,14 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		contentValues.put(COL_5, learned);
 		contentValues.put(COL_6, saved);
 		long result = db.insert(TABLE_NAME, null, contentValues);
+
+
 		return result != -1;
 	}
 
 	public boolean insertAchievementData(String name, String description, int currentProgress, int totalProgress, boolean complete) {
 		SQLiteDatabase db = this.getWritableDatabase();
+
 		ContentValues contentValues = new ContentValues();
 		contentValues.put(ATT_2, name);
 		contentValues.put(ATT_3, description);
@@ -130,31 +134,38 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		contentValues.put(ATT_5, totalProgress);
 		contentValues.put(ATT_6, complete);
 		long result = db.insert(A_TABLE_NAME, null, contentValues);
+
+
 		return result != -1;
 	}
 
 	public boolean insertScoreData(String name, int count) {
 		SQLiteDatabase db = this.getWritableDatabase();
+
 		ContentValues contentValues = new ContentValues();
 		contentValues.put(VAR_2, name);
 		contentValues.put(VAR_3, count);
 		long result = db.insert(SCORE_TABLE_NAME, null, contentValues);
+
 		return result != -1;
 	}
 
 	public boolean insertContentData(String category, int pageNumber, String pageTitle, String content) {
 		SQLiteDatabase db = this.getWritableDatabase();
+
 		ContentValues contentValues = new ContentValues();
 		contentValues.put(TYP_2, category);
 		contentValues.put(TYP_3, pageNumber);
 		contentValues.put(TYP_4, pageTitle);
 		contentValues.put(TYP_5, content);
 		long result = db.insert(SENTENCE_TABLE_NAME, null, contentValues);
+
 		return result != -1;
 	}
 
 	public boolean insertStoryData(int storyId, int pageId, String pageContent, String answerOne, String answerTwo, String answerThree, String answerFour) {
 		SQLiteDatabase db = this.getWritableDatabase();
+
 		ContentValues contentValues = new ContentValues();
 		contentValues.put(CHA_2, storyId);
 		contentValues.put(CHA_3, pageId);
@@ -164,6 +175,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		contentValues.put(CHA_7, answerThree);
 		contentValues.put(CHA_8, answerFour);
 		long result = db.insert(STORY_TABLE_NAME, null, contentValues);
+
 		return result != -1;
 	}
 

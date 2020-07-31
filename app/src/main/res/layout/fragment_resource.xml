@@ -4,39 +4,44 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:foregroundTint="#DDDDDD"
+    android:background="@color/colorBlueDark"
     tools:context=".ui.compass.ResourceFragment">
 
+    <TextView
+        android:layout_width="270dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="21dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="Career Compass"
+        android:textColor="#FFFFFF"
+        android:textSize="36sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/map"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorBlueDark">
+        android:layout_height="match_parent">
         di
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:animateLayoutChanges="true"
             android:orientation="vertical">
-
-            <TextView
-                android:layout_width="270dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginLeft="36dp"
-                android:layout_marginTop="0dp"
-                android:layout_marginEnd="32dp"
-                android:layout_marginRight="0dp"
-                android:layout_marginBottom="32dp"
-                android:fontFamily="@font/quicksand_bold"
-                android:text="Cyber Career Compass"
-                android:textColor="#FFFFFF"
-                android:textSize="36sp" />
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="128dp"
                 android:paddingBottom="16dp"
                 app:cardCornerRadius="24dp"
                 app:cardElevation="0dp">
@@ -55,10 +60,9 @@
                         android:layout_marginLeft="24dp"
                         android:layout_marginTop="24dp"
                         android:layout_marginRight="24dp"
-                        android:fontFamily="@font/quicksand_bold"
                         android:text="Additional Resources"
                         android:textAlignment="center"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Large" />
+                        android:textAppearance="@style/SubHeading" />
 
                     <androidx.cardview.widget.CardView
                         android:id="@+id/cvLinkedin"

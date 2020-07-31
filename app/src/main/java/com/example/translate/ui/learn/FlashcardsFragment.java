@@ -4,7 +4,10 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Handler;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +19,7 @@ import android.widget.TextView;
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
@@ -39,6 +43,8 @@ public class FlashcardsFragment extends Fragment {
 	private TextView mTxtSavedMessage;
 	private TextView mTxtAnswerMessage;
 	private TextView mTxtUnsavedMessage;
+
+	private CardView mCardView;
 
 	private Cursor res;
 
@@ -97,6 +103,7 @@ public class FlashcardsFragment extends Fragment {
 		mTxtSavedMessage = view.findViewById(R.id.txtSavedMessage);
 		mTxtAnswerMessage = view.findViewById(R.id.txtAnswerMessage);
 		mTxtUnsavedMessage = view.findViewById(R.id.txtUnsavedMessage);
+		mCardView = view.findViewById(R.id.cvPhrase);
 
 		learningType = getArguments().getString("learningType");
 
@@ -109,37 +116,39 @@ public class FlashcardsFragment extends Fragment {
 		mTxtSavedMessage.setVisibility(View.GONE);
 		mTxtUnsavedMessage.setVisibility(View.GONE);
 
-
 		mFabDone.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 
-				res.move(1);
 				mFabAnswer.setImageResource(R.drawable.outline_visibility_off_white_48);
 
-				if (res.getPosition() < res.getCount()) {
-					mTxtPhrase.setText("?");
-					mTxtDefinition.setText(res.getString(2));
+				if (res.move(1)) {
 
 					hideMessages();
-
 					advanceProgressBar();
-
 					showSavedStatus();
+					YoYo.with(Techniques.SlideOutLeft).duration(300).playOn(mCardView);
+					YoYo.with(Techniques.SlideInRight).delay(200).duration(300).playOn(mCardView);
+
+					new CountDownTimer(250, 250) {
+						public void onTick(long millisUntilFinished) {
+						}
+						public void onFinish() {
+							mTxtPhrase.setText("?");
+							mTxtDefinition.setText(res.getString(2));
+						}
+					}.start();
 
 				} else {
 
 					fillProgressBar();
-
 					if (res != null) {
 						res.close();
 					}
-
 					mProgressBar.setProgress(0, true);
-
 					checkAchievement();
-
 					showMessage("You're Finished!");
+
 
 				}
 			}

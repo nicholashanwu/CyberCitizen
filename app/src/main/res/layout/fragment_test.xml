@@ -4,21 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorRed"
     android:transitionGroup="true"
     tools:context=".ui.learn.TestFragment"
     tools:targetApi="lollipop">
 
+
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
+        style="@style/RoundedFlatCard"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="4dp"
-        app:layout_constraintBottom_toTopOf="@+id/rbGroup"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/cvAnswerOne"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView5">
@@ -32,13 +31,15 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginStart="16dp"
-                android:layout_marginEnd="16dp"
-                android:fontFamily="@font/quicksand_bold"
+                android:layout_marginStart="32dp"
+                android:layout_marginEnd="32dp"
+                android:fontFamily="@font/quicksand_medium"
                 android:gravity="center|center_horizontal|center_vertical"
+                android:lineSpacingExtra="4sp"
                 android:text="@string/phrase_placeholder"
                 android:textAlignment="center"
-                android:textSize="24sp"
+                android:textAppearance="@style/SubHeading"
+                android:textColor="@color/secondaryBlack"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -51,6 +52,7 @@
                 android:layout_marginBottom="40dp"
                 android:fontFamily="@font/quicksand_bold"
                 android:text="TextView"
+                android:textAppearance="@style/SubTitle"
                 android:textColor="@color/colorRed"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -64,11 +66,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:fontFamily="@font/quicksand_bold"
                 android:letterSpacing="0.1"
                 android:textAlignment="textEnd"
+                android:textAppearance="@style/SubHeading"
                 android:textColor="@color/colorGreen"
-                android:textSize="24sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -88,10 +89,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                android:fontFamily="@font/quicksand_bold"
                 android:text="timer"
+                android:textAppearance="@style/SubHeading"
                 android:textColor="@color/colorRed"
-                android:textSize="24sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -105,10 +105,9 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="150dp"
         android:layout_marginEnd="150dp"
-        android:fontFamily="@font/quicksand_bold"
         android:text="QUIZ"
         android:textAlignment="center"
-        android:textSize="36sp"
+        android:textAppearance="@style/TitleHeading"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -123,11 +122,108 @@
         android:letterSpacing="0.1"
         android:text="QUIZ"
         android:textAlignment="center"
-        android:textSize="14sp"
-        android:textStyle="bold"
+        android:textAppearance="@style/SubHeading"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtLevelTitle" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvAnswerOne"
+        style="@style/RoundedFlatCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <RadioGroup
+            android:id="@+id/rbGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:layout_marginEnd="8dp"
+            android:elevation="10dp">
+
+            <RadioButton
+                android:id="@+id/rbAnswerOne"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginLeft="8dp"
+                android:buttonTint="@color/colorRed"
+                android:elevation="10dp"
+                android:fontFamily="@font/quicksand_medium"
+                android:includeFontPadding="false"
+                android:paddingBottom="1dp"
+                android:text="answerOne"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/SubTitle"
+                android:textColor="@color/secondaryBlack" />
+
+            <RadioButton
+                android:id="@+id/rbAnswerTwo"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:buttonTint="@color/colorRed"
+                android:elevation="10dp"
+                android:fontFamily="@font/quicksand_medium"
+                android:includeFontPadding="false"
+                android:paddingBottom="1dp"
+                android:text="answerTwo"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/SubTitle"
+                android:textColor="@color/secondaryBlack" />
+
+            <RadioButton
+                android:id="@+id/rbAnswerThree"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:buttonTint="@color/colorRed"
+                android:elevation="10dp"
+                android:fontFamily="@font/quicksand_medium"
+                android:includeFontPadding="false"
+                android:paddingBottom="1dp"
+                android:text="answerThree"
+                android:textAlignment="viewStart"
+                android:textAppearance="@style/SubTitle"
+                android:textColor="@color/secondaryBlack" />
+
+        </RadioGroup>
+    </androidx.cardview.widget.CardView>
+
+    <ProgressBar
+        android:id="@+id/pbTest"
+        style="?android:progressBarStyleHorizontal"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="8dp"
+        android:elevation="8dp"
+        android:progress="0"
+        android:progressDrawable="@drawable/circle_test"
+        android:translationZ="90dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cvAnswerOne"
+        app:layout_constraintEnd_toEndOf="@id/cvAnswerOne"
+        app:layout_constraintTop_toTopOf="@+id/cvAnswerOne" />
+
+    <TextView
+        android:id="@+id/txtProgress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="4dp"
+        android:text="@string/progress_placeholder"
+        android:textAlignment="textStart"
+        android:textAppearance="@style/BodyText"
+        android:textColor="@color/secondaryBlack"
+        app:layout_constraintBottom_toTopOf="@+id/pbTest"
+        app:layout_constraintEnd_toEndOf="@+id/fabSubmitAnswer"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="@+id/fabSubmitAnswer" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fabSubmitAnswer"
@@ -151,140 +247,5 @@
         app:layout_constraintTop_toTopOf="@+id/pbTest"
         app:layout_constraintVertical_bias="0.25"
         app:tint="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/txtProgress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginBottom="4dp"
-        android:fontFamily="@font/quicksand_bold"
-        android:text="@string/progress_placeholder"
-        android:textAlignment="textStart"
-        app:layout_constraintBottom_toTopOf="@+id/pbTest"
-        app:layout_constraintEnd_toEndOf="@+id/pbTest"
-        app:layout_constraintStart_toStartOf="@+id/pbTest" />
-
-    <ProgressBar
-        android:id="@+id/pbTest"
-        style="?android:progressBarStyleHorizontal"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:elevation="8dp"
-        android:progress="0"
-        android:progressDrawable="@drawable/circle"
-        android:translationZ="90dp"
-        app:layout_constraintBottom_toBottomOf="@+id/rbGroup"
-        app:layout_constraintEnd_toEndOf="@+id/cardView"
-        app:layout_constraintTop_toTopOf="@+id/rbGroup" />
-
-    <RadioGroup
-        android:id="@+id/rbGroup"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="72dp"
-        android:elevation="10dp"
-        android:padding="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/pbTest"
-        app:layout_constraintStart_toStartOf="@+id/cardView">
-
-        <RadioButton
-            android:id="@+id/rbAnswerOne"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginLeft="8dp"
-            android:buttonTint="@color/colorRed"
-            android:elevation="10dp"
-            android:fontFamily="@font/quicksand_medium"
-            android:includeFontPadding="false"
-            android:paddingBottom="1dp"
-            android:text="answerOne"
-            android:textAlignment="viewStart"
-            android:textColor="@android:color/secondary_text_light"
-            android:textSize="18sp" />
-
-        <RadioButton
-            android:id="@+id/rbAnswerTwo"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:buttonTint="@color/colorRed"
-            android:elevation="10dp"
-            android:fontFamily="@font/quicksand_medium"
-            android:includeFontPadding="false"
-            android:paddingBottom="1dp"
-            android:text="answerTwo"
-            android:textAlignment="viewStart"
-            android:textColor="@android:color/secondary_text_light"
-            android:textSize="18sp" />
-
-        <RadioButton
-            android:id="@+id/rbAnswerThree"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            android:buttonTint="@color/colorRed"
-            android:elevation="10dp"
-            android:fontFamily="@font/quicksand_medium"
-            android:includeFontPadding="false"
-            android:paddingBottom="1dp"
-            android:text="answerThree"
-            android:textAlignment="viewStart"
-            android:textColor="@android:color/secondary_text_light"
-            android:textSize="18sp" />
-
-    </RadioGroup>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvAnswerOne"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginEnd="8dp"
-        android:background="@color/colorGreen"
-        android:elevation="0dp"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="4dp"
-        app:cardMaxElevation="4dp"
-        app:layout_constraintEnd_toStartOf="@+id/pbTest"
-        app:layout_constraintStart_toStartOf="@+id/rbGroup"
-        app:layout_constraintTop_toTopOf="@+id/rbGroup">
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvAnswerTwo"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:elevation="0dp"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="4dp"
-        app:cardMaxElevation="4dp"
-        app:layout_constraintEnd_toStartOf="@+id/pbTest"
-        app:layout_constraintStart_toStartOf="@+id/rbGroup"
-        app:layout_constraintTop_toBottomOf="@+id/cvAnswerOne">
-
-    </androidx.cardview.widget.CardView>
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cvAnswerThree"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:elevation="0dp"
-        app:cardCornerRadius="24dp"
-        app:cardElevation="4dp"
-        app:cardMaxElevation="4dp"
-        app:layout_constraintEnd_toStartOf="@+id/pbTest"
-        app:layout_constraintStart_toStartOf="@+id/rbGroup"
-        app:layout_constraintTop_toBottomOf="@+id/cvAnswerTwo">
-
-    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

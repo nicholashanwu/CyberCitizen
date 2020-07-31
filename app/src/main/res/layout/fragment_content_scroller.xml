@@ -42,10 +42,8 @@
         android:layout_marginTop="0dp"
         android:layout_marginRight="16dp"
         android:layout_marginBottom="8dp"
-        android:fontFamily="@font/quicksand_bold"
         android:text="really long ass text to test how long this can go"
-        android:textColor="#FFFFFF"
-        android:textSize="36sp" />
+        android:textAppearance="@style/TitleHeading" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cvContent"
@@ -141,7 +139,7 @@
         android:text="Progress"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textAppearance="@style/BodyText"
         android:textColor="#FFFFFF"
         android:textStyle="bold"
         android:translationZ="10dp" />

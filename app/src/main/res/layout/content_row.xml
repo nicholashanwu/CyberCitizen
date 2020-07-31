@@ -14,7 +14,7 @@
         android:lineSpacingExtra="8sp"
         android:text="content"
         android:textAllCaps="false"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textAppearance="@style/BodyText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

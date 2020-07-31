@@ -82,7 +82,6 @@
                         android:clipChildren="false"
                         android:clipToPadding="false"
                         android:elevation="0dp"
-                        android:textAppearance="@style/QuicksandBold"
                         app:animationDuration="300"
                         app:expandOnClick="true"
                         app:inner_view="@layout/inner_layout_one"
@@ -113,7 +112,6 @@
                         android:clipChildren="false"
                         android:clipToPadding="false"
                         android:elevation="8dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                         app:animationDuration="300"
                         app:expandOnClick="true"
                         app:inner_view="@layout/inner_layout_two"
@@ -122,18 +120,19 @@
 
                     </com.alespero.expandablecardview.ExpandableCardView>
 
-                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    <Button
                         android:id="@+id/btnLockedTwo"
-                        android:layout_width="wrap_content"
+                        style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="16dp"
-                        android:backgroundTint="@color/colorPurple"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/quicksand_bold"
-                        android:text="LOCKED"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#AD000000"
                         app:icon="@drawable/ic_outline_lock_24"
-                        app:iconTint="#FFFFFF" />
+                        app:iconGravity="textEnd"
+                        app:iconTint="#AD000000" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -159,25 +158,27 @@
                         android:clipChildren="false"
                         android:clipToPadding="false"
                         android:elevation="8dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                         app:animationDuration="300"
                         app:expandOnClick="true"
                         app:inner_view="@layout/inner_layout_three"
                         app:startExpanded="false"
-                        app:title="Social Engineering" />
+                        app:title="Social Engineering" >
 
-                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    </com.alespero.expandablecardview.ExpandableCardView>
+
+                    <Button
                         android:id="@+id/btnLockedThree"
-                        android:layout_width="wrap_content"
+                        style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="16dp"
-                        android:backgroundTint="@color/colorPurple"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/quicksand_bold"
-                        android:text="LOCKED"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#AD000000"
                         app:icon="@drawable/ic_outline_lock_24"
-                        app:iconTint="#FFFFFF" />
+                        app:iconGravity="textEnd"
+                        app:iconTint="#AD000000" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -203,26 +204,25 @@
                         android:clipChildren="false"
                         android:clipToPadding="false"
                         android:elevation="8dp"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
                         app:animationDuration="300"
                         app:expandOnClick="true"
                         app:inner_view="@layout/inner_layout_four"
                         app:startExpanded="false"
                         app:title="Protecting Yourself" />
 
-                    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+                    <Button
                         android:id="@+id/btnLockedFour"
-                        android:layout_width="wrap_content"
+                        style="@style/Widget.MaterialComponents.Button.TextButton.Dialog.Icon"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"
-                        android:layout_marginTop="16dp"
-                        android:layout_marginBottom="16dp"
-                        android:backgroundTint="@color/colorPurple"
+                        android:layout_marginStart="0dp"
+                        android:layout_marginTop="8dp"
                         android:fontFamily="@font/quicksand_bold"
-                        android:text="LOCKED"
-                        android:textColor="#FFFFFF"
+                        android:textColor="#AD000000"
                         app:icon="@drawable/ic_outline_lock_24"
-                        app:iconTint="#FFFFFF" />
+                        app:iconGravity="textEnd"
+                        app:iconTint="#AD000000" />
 
                 </LinearLayout>
 

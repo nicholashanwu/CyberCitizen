@@ -20,10 +20,37 @@
         <item name="android:windowBackground">@null</item>
     </style>
 
-    <style name="QuicksandBold" parent="@android:style/TextAppearance.Medium">
-        <item name="android:textSize">40sp</item>
-        <item name="android:textStyle">bold</item>
+    <style name="TitleHeading" parent="@android:style/TextAppearance.Small">
+        <item name="android:textSize">36sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/quicksand_bold</item>
     </style>
+
+    <style name="SubHeading" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@color/primaryBlack</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+    </style>
+
+    <style name="SubTitle" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@color/secondaryBlack</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">@font/quicksand_bold</item>
+    </style>
+
+    <style name="BodyText" parent="TextAppearance.AppCompat.Body2">
+        <item name="android:textColor">@color/secondaryBlack</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:fontFamily">@font/quicksand_medium</item>
+    </style>
+
+
+    <style name="RoundedFlatCard" parent="CardView">
+        <item name="cardCornerRadius">32dp</item>
+        <item name="cardElevation">0dp</item>
+
+    </style>
+
 
     <style name="Red">
         <item name="colorPrimary">@color/colorRed</item>

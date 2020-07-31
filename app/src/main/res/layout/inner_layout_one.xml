@@ -34,9 +34,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|left"
             android:layout_margin="16dp"
-            android:fontFamily="@font/quicksand_bold"
             android:text="Learning"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/SubTitle"
             android:textColor="#FFFFFF" />
     </androidx.cardview.widget.CardView>
 
@@ -67,9 +66,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|left"
             android:layout_margin="16dp"
-            android:fontFamily="@font/quicksand_bold"
             android:text="Flashcards"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/SubTitle"
             android:textColor="#FFFFFF" />
     </androidx.cardview.widget.CardView>
 
@@ -100,9 +98,8 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|left"
             android:layout_margin="16dp"
-            android:fontFamily="@font/quicksand_bold"
             android:text="Quiz"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textAppearance="@style/SubTitle"
             android:textColor="#FFFFFF" />
     </androidx.cardview.widget.CardView>
 

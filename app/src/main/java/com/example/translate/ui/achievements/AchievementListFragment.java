@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.example.translate.DatabaseHelper;
 import com.example.translate.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
@@ -23,6 +25,8 @@ public class AchievementListFragment extends Fragment {
     private AchievementAdapter mAdapter;
     private DatabaseHelper myDb;
     private Cursor res;
+    private RoundCornerProgressBar mRpbAchievements;
+    private TextView mTxtAchievementProgress;
 
     public AchievementListFragment() {
 
@@ -52,9 +56,19 @@ public class AchievementListFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
+        mRpbAchievements = view.findViewById(R.id.rpbAchievements);
+        mTxtAchievementProgress = view.findViewById(R.id.txtAchievementProgress);
+
         myDb = DatabaseHelper.getInstance(getActivity().getApplicationContext());
         res = getAllAchievements();
         setAdapter(view, res);
+
+        int max = myDb.getCountAchievements();
+        int completed = myDb.getAchieved();
+
+        mRpbAchievements.setMax(max);
+        mRpbAchievements.setProgress(completed);
+        mTxtAchievementProgress.setText(completed + " achievements of " + max + " completed");
 
     }
 

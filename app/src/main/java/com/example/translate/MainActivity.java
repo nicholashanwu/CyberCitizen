@@ -166,17 +166,18 @@ public class MainActivity extends AppCompatActivity {
                 isTest = false;
                 if (destination.getId() == R.id.navigation_home) {
                     bottomBar.setBackgroundColor(getResources().getColor(R.color.colorPurpleDark));
-                    setStatusBarColor(R.color.colorPurpleDark);
+                    setStatusBarColor(R.color.colorPurple);
                 } else if (destination.getId() == R.id.navigation_compass) {
                     bottomBar.setBackgroundColor(getResources().getColor(R.color.colorBlueDark));
                     setStatusBarColor(R.color.colorBlueDark);
                 } else if (destination.getId() == R.id.navigation_learning) {
                     isTest = true;
                     bottomBar.setBackgroundColor(Color.parseColor("#444444"));
-                    setStatusBarColor(R.color.colorPurpleDark);
+                    setStatusBarColor(R.color.colorGreenDark);
                     enableBottomBar(false);
                 } else if (destination.getId() == R.id.navigation_test) {
                     isTest = true;
+                    setStatusBarColor(R.color.colorRedDark);
                     bottomBar.setBackgroundColor(Color.parseColor("#444444"));
                     enableBottomBar(false);
                 }  else if (destination.getId() == R.id.navigation_dashboard) {
@@ -211,6 +212,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public static void insertContentData(DatabaseHelper myDb, Activity activity) {
+        myDb.getWritableDatabase().beginTransaction();
 
         myDb.insertContentData("What is Cyber?", 1, "Introduction", "Would you be comfortable living in a house that some stranger had access to? What if the door couldn't be locked or there was a hidden underground tunnel leading to the basement? Would you feel as though your safety and privacy is upheld? Using the internet and digital services is that house. If you need to store your personal belongings there, how do you go about protecting it?");
         myDb.insertContentData("What is Cyber?", 1, "Introduction", "The revolution of applications, IoT, computer and mobile devices has paved the way for cyberattacks leaving both individuals and companies vulnerable. With the vast number of ways in which attacks can occur, the question is \"when\" not \"if\".");
@@ -322,11 +324,14 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+        myDb.getWritableDatabase().setTransactionSuccessful();
+        myDb.getWritableDatabase().endTransaction();
 
     }
 
     public static void insertWordData(DatabaseHelper myDb, Activity activity) {
+        myDb.getWritableDatabase().beginTransaction();
+
         myDb.insertData("Threat", "An event or an action that can compromise a system or violate security", "What is Cyber?", false, false);
         myDb.insertData("Exploit", "A way to breach security measures put in place for a machine through a loophole or vulnerability", "What is Cyber?", false, false);
         myDb.insertData("Vulnerability", "Existence of a weakness in the design or implementation that can lead to undesirable compromising events", "What is Cyber?", false, false);
@@ -375,11 +380,16 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertData("Dumpster Diving", "Attacker steals sensitive data from trash", "Social Engineering", false, false);
         myDb.insertData("Shoulder Surfing", "Attack steals sensitive data by reading over the victim’s shoulder", "Social Engineering", false, false);
 
+        myDb.getWritableDatabase().setTransactionSuccessful();
+        myDb.getWritableDatabase().endTransaction();
+
 
     }
 
     public static void insertStoryData(DatabaseHelper myDb, Activity activity) {
-        // storyId, pageId, pageContent, one, two, three, four
+
+        myDb.getWritableDatabase().beginTransaction();
+
         myDb.insertStoryData(0, 0, "You are a software engineer who works for Google. The team lead has piled on 3 projects for you to work on and you are having trouble keeping up. One of the projects is however quite simple and you are thinking about offloading to a friend who is also at Google. Your friend however recommends that you should get a third party engineer to do this for you. Do you decide to let the third party engineer take this on for you?", "Yes", "No", "", "");
 
         myDb.insertStoryData(0, 1, "You tell your friend you don’t want to risk that. He doesn’t understand though, this is an easy task that any new engineer can complete and it won’t cost much. Select two risks that you will tell him.", "Customer personal details are given away and used for third party promotions", "Servers can be made vulnerable and hacked from unauthorised access", "The engineer may get hired and take your position", "The data you give him may be incorrect");
@@ -393,7 +403,6 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertStoryData(0, 7, "After your talk with the team lead, he extends the deadline on your tasks by a week. You take this time to continue discussing with the team lead and he organises reliable employees to help you complete the tasks. You understood the risks of sharing company data and followed up appropriately. ", "", "", "", "");
         myDb.insertStoryData(0, 8, "Your team lead is very worried about this situation and must not have company data leaked. He needs you and your friend to report your interactions with the third party engineer to ensure no security threats. Please reflect and select the options which would have prevented this.", "", "", "", "");
         myDb.insertStoryData(0, 9, "Failing to report this, a security breach occurs and the engineer steals sensitive user data. The team lead finds out and is very worried as this will have huge ramifications on Google’s reputation and users. He needs you to log your interactions with the third party engineer to attempt to fix this issue. You will be held responsible for this. Please reflect and select the options which would have prevented this. ", "", "", "", "");
-
 
         //story 2
         myDb.insertStoryData(1, 0, "You are browsing Instagram and see an Influencer’s post about a raffle for a pair of sneakers. They are partnering with a website and all you need to do is register on their website and share a post tagging the company. What looks suspicious to you?", "The link looks suspicious", "The shoes look fake", "The name sounds wrong", "There's no likes or comments");
@@ -412,10 +421,15 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertStoryData(1, 10, "Congratulations you are cyber secure and you are aware of the risks of using apps such as Instagram.", "", "", "", "");
         myDb.insertStoryData(1, 11, "You could change the privacy settings on your social media accounts or request to not see ads like this. Take a look at the learning module to find out about how you can browse social media with low risk.", "", "", "", "");
 
+        myDb.getWritableDatabase().setTransactionSuccessful();
+        myDb.getWritableDatabase().endTransaction();
+
 
     }
 
     public static void insertScoreData(DatabaseHelper myDb, Activity activity) {
+        myDb.getWritableDatabase().beginTransaction();
+
         myDb.insertScoreData("Achievements", 0);
         myDb.insertScoreData("Tests Taken", 0);
         myDb.insertScoreData("Coupon Progress", 0);
@@ -428,10 +442,15 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertScoreData("Steam", 0);
         myDb.insertScoreData("Bunnings", 0);
 
+        myDb.getWritableDatabase().setTransactionSuccessful();
+        myDb.getWritableDatabase().endTransaction();
 
     }
 
     public static void insertAchievementData(DatabaseHelper myDb, Activity activity) {
+
+        myDb.getWritableDatabase().beginTransaction();
+
         myDb.insertAchievementData("Cyber Novice I", "Complete the What is Cyber? Learning module", 0, 1, false);
         myDb.insertAchievementData("Cyber Novice II", "Complete the What is Cyber? Flashcards module", 0, 1, false);
         myDb.insertAchievementData("Cyber Novice III", "Complete the What is Cyber? Quiz module", 0, 1, false);
@@ -482,8 +501,8 @@ public class MainActivity extends AppCompatActivity {
         myDb.insertAchievementData("Talented Tester", "Take 20 Quizzes", 0, 20, false);
         myDb.insertAchievementData("Tenacious Tester", "Take 30 Quizzes", 0, 30, false);
 
-        //open a youtube link
-        //
+        myDb.getWritableDatabase().setTransactionSuccessful();
+        myDb.getWritableDatabase().endTransaction();
 
 
     }
@@ -499,10 +518,18 @@ public class MainActivity extends AppCompatActivity {
         WeakReference<MainActivity> activityWeakReference;
 
         DatabaseHelper myDb;
+        long startTime;
+        long finishTime;
 
         initDatabase(MainActivity activity) {
             activityWeakReference = new WeakReference<MainActivity>(activity);
             myDb = DatabaseHelper.getInstance(activity);
+        }
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            startTime = System.currentTimeMillis();
         }
 
         @Override
@@ -524,6 +551,10 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Void aVoid) {
+
+            finishTime = System.currentTimeMillis();
+            System.out.println(finishTime - startTime);
+
             super.onPostExecute(aVoid);
         }
 
