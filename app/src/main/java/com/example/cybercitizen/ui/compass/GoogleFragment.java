@@ -1,4 +1,4 @@
-package com.example.translate.ui.compass;
+package com.example.cybercitizen.ui.compass;
 
 import android.os.Bundle;
 
@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.translate.R;
+import com.example.cybercitizen.R;
 
 
 public class GoogleFragment extends Fragment {

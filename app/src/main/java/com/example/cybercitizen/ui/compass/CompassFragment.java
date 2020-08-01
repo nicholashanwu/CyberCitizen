@@ -1,23 +1,18 @@
-package com.example.translate.ui.compass;
+package com.example.cybercitizen.ui.compass;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
-import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
-import com.example.translate.DatabaseHelper;
-import com.example.translate.R;
-import com.example.translate.ui.achievements.AchievementAdapter;
+import com.example.cybercitizen.DatabaseHelper;
+import com.example.cybercitizen.R;
+import com.example.cybercitizen.ui.achievements.AchievementAdapter;
 
 public class CompassFragment extends Fragment {
 

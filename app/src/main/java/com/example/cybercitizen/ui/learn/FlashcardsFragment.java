@@ -1,13 +1,11 @@
-package com.example.translate.ui.learn;
+package com.example.cybercitizen.ui.learn;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.res.Configuration;
 import android.database.Cursor;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.os.Handler;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,8 +23,8 @@ import androidx.navigation.Navigation;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.example.translate.DatabaseHelper;
-import com.example.translate.R;
+import com.example.cybercitizen.DatabaseHelper;
+import com.example.cybercitizen.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class FlashcardsFragment extends Fragment {

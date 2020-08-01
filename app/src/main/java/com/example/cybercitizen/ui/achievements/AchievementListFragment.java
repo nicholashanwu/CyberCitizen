@@ -1,4 +1,4 @@
-package com.example.translate.ui.achievements;
+package com.example.cybercitizen.ui.achievements;
 
 import android.database.Cursor;
 import android.os.Bundle;
@@ -8,9 +8,8 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
-import com.example.translate.DatabaseHelper;
-import com.example.translate.R;
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.example.cybercitizen.DatabaseHelper;
+import com.example.cybercitizen.R;
 
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;

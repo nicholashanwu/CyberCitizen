@@ -1,4 +1,4 @@
-package com.example.translate.ui.achievements;
+package com.example.cybercitizen.ui.achievements;
 
 public class Achievement {
 

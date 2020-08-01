@@ -1,4 +1,4 @@
-package com.example.translate.ui.achievements;
+package com.example.cybercitizen.ui.achievements;
 
 import android.graphics.PorterDuff;
 import android.os.Bundle;
@@ -12,9 +12,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.example.translate.DatabaseHelper;
-import com.example.translate.R;
-import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
+import com.example.cybercitizen.DatabaseHelper;
+import com.example.cybercitizen.R;
 
 public class BadgeFragment extends Fragment {
 

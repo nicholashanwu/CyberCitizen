@@ -1,4 +1,4 @@
-package com.example.translate.ui.compass.resources;
+package com.example.cybercitizen.ui.compass.resources;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -13,7 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.translate.R;
+import com.example.cybercitizen.R;
 
 public class ResourceYoutubeFragment extends Fragment {
 

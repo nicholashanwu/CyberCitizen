@@ -36,7 +36,7 @@
                 android:layout_alignParentEnd="true"
                 android:layout_margin="16dp"
                 android:fontFamily="@font/quicksand_bold"
-                android:text="?"
+                android:text=" ? "
                 android:textAlignment="center"
                 android:textSize="30sp" />
 

@@ -1,4 +1,4 @@
-package com.example.translate.ui.learn;
+package com.example.cybercitizen.ui.learn;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -24,10 +24,9 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.example.translate.DatabaseHelper;
-import com.example.translate.R;
+import com.example.cybercitizen.DatabaseHelper;
+import com.example.cybercitizen.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
 
 public class ContentScrollerFragment extends Fragment {
 
@@ -42,22 +41,15 @@ public class ContentScrollerFragment extends Fragment {
 	private RoundCornerProgressBar mProgressBarContentPage;
 	private CardView mCvContent;
 	private RecyclerView mRecyclerView;
-	private NestedScrollView mSvContent;
-	private int pageNumber = 1;
-	private int totalPageCount;
-	private int progress = 1;
 	private Cursor res;
-
-	public ContentScrollerFragment() {
-		// Required empty public constructor
-	}
+	private int totalPageCount;
+	private int pageNumber = 0;
+	private int progress = 0;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 							 Bundle savedInstanceState) {
-
 		View view = inflater.inflate(R.layout.fragment_content_scroller, container, false);
-
 		return view;
 	}
 
@@ -65,7 +57,6 @@ public class ContentScrollerFragment extends Fragment {
 	public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
 
-		learningType = getArguments().getString("learningType");
 		mTxtContentScrollerTitle = view.findViewById(R.id.txtContentScrollerTitle);
 		mTxtContentScrollerPageTitle = view.findViewById(R.id.txtContentScrollerPageTitle);
 		mFabContentDone = view.findViewById(R.id.fabContentDone);
@@ -74,22 +65,15 @@ public class ContentScrollerFragment extends Fragment {
 		mRecyclerView = view.findViewById(R.id.rvContent);
 		mTxtProgressPageNumbers = view.findViewById(R.id.txtProgressPageNumbers);
 		mFabBackContent = view.findViewById(R.id.fabBackContent);
-		mSvContent = view.findViewById(R.id.svContent);
-
+		learningType = getArguments().getString("learningType");
 
 		myDb = DatabaseHelper.getInstance(getActivity().getApplicationContext());
-		res = getAllContent(learningType, pageNumber);
 
 		mTxtContentScrollerTitle.setText(learningType);
-		mTxtProgressPageNumbers.setText("Page " + pageNumber + " of " + totalPageCount);
-
-		setAdapter(res);
-
-		progress = 1;
-		mProgressBarContentPage.setProgress(pageNumber);
 		mProgressBarContentPage.setMax(totalPageCount);
 
-		System.out.println(res.getCount());
+		res = getAllContent(learningType, pageNumber);
+		moveToNextPage();
 
 		mFabContentDone.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -99,12 +83,10 @@ public class ContentScrollerFragment extends Fragment {
 				} else {
 					mAdapter.increaseCount();
 					progress++;
-
 					new Handler().postDelayed(new Runnable() {
 						@Override
 						public void run() {
 							mRecyclerView.smoothScrollToPosition(mAdapter.getItemCount() - 1);
-							//mSvContent.fullScroll(ScrollView.FOCUS_DOWN);
 						}
 					}, 100);
 				}

@@ -1,4 +1,4 @@
-package com.example.translate.ui.achievements;
+package com.example.cybercitizen.ui.achievements;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.translate.R;
+import com.example.cybercitizen.R;
 
 public class AchievementAdapter extends RecyclerView.Adapter<AchievementAdapter.AchievementViewHolder> {
     private Context mContext;

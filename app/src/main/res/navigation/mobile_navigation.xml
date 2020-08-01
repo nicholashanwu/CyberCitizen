@@ -10,7 +10,7 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.example.translate.ui.learn.HomeFragment"
+        android:name="com.example.cybercitizen.ui.learn.HomeFragment"
         android:label="Learn"
         tools:layout="@layout/fragment_home">
         <action
@@ -50,7 +50,7 @@
 
     <fragment
         android:id="@+id/navigation_compass"
-        android:name="com.example.translate.ui.compass.CompassFragment"
+        android:name="com.example.cybercitizen.ui.compass.CompassFragment"
         android:label="Compass"
         tools:layout="@layout/fragment_compass" >
         <action
@@ -71,7 +71,7 @@
 
     <fragment
         android:id="@+id/navigation_learning"
-        android:name="com.example.translate.ui.learn.FlashcardsFragment"
+        android:name="com.example.cybercitizen.ui.learn.FlashcardsFragment"
         android:label="Learn"
         tools:layout="@layout/fragment_learning">
         <argument
@@ -82,7 +82,7 @@
 
     <fragment
         android:id="@+id/navigation_test"
-        android:name="com.example.translate.ui.learn.TestFragment"
+        android:name="com.example.cybercitizen.ui.learn.TestFragment"
         android:label="Test"
         tools:layout="@layout/fragment_test">
         <argument
@@ -93,7 +93,7 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.translate.ui.achievements.AchievementFragment"
+        android:name="com.example.cybercitizen.ui.achievements.AchievementFragment"
         android:label="Dashboard"
         tools:layout="@layout/fragment_dashboard">
         <action
@@ -132,16 +132,16 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_achievement"
-        android:name="com.example.translate.ui.achievements.AchievementListFragment"
+        android:name="com.example.cybercitizen.ui.achievements.AchievementListFragment"
         android:label="fragment_achievement"
         tools:layout="@layout/fragment_achievement"/>
     <fragment
         android:id="@+id/contentScrollerFragment"
-        android:name="com.example.translate.ui.learn.ContentScrollerFragment"
+        android:name="com.example.cybercitizen.ui.learn.ContentScrollerFragment"
         android:label="ContentScrollerFragment" />
     <fragment
         android:id="@+id/navigation_resource"
-        android:name="com.example.translate.ui.compass.ResourceFragment"
+        android:name="com.example.cybercitizen.ui.compass.ResourceFragment"
         android:label="fragment_resource"
         tools:layout="@layout/fragment_resource" >
         <action
@@ -154,27 +154,27 @@
     </fragment>
     <fragment
         android:id="@+id/navigation_google"
-        android:name="com.example.translate.ui.compass.GoogleFragment"
+        android:name="com.example.cybercitizen.ui.compass.GoogleFragment"
         android:label="fragment_google"
         tools:layout="@layout/fragment_google" />
     <fragment
         android:id="@+id/couponFragment"
-        android:name="com.example.translate.ui.achievements.CouponFragment"
+        android:name="com.example.cybercitizen.ui.achievements.CouponFragment"
         android:label="fragment_coupon"
         tools:layout="@layout/fragment_coupon" />
     <fragment
         android:id="@+id/resourceYoutubeFragment"
-        android:name="com.example.translate.ui.compass.resources.ResourceYoutubeFragment"
+        android:name="com.example.cybercitizen.ui.compass.resources.ResourceYoutubeFragment"
         android:label="fragment_resource_youtube"
         tools:layout="@layout/fragment_resource_youtube" />
     <fragment
         android:id="@+id/storyFragment"
-        android:name="com.example.translate.ui.learn.StoryFragment"
+        android:name="com.example.cybercitizen.ui.learn.StoryFragment"
         android:label="fragment_story"
         tools:layout="@layout/fragment_story" />
     <fragment
         android:id="@+id/badgeFragment"
-        android:name="com.example.translate.ui.achievements.BadgeFragment"
+        android:name="com.example.cybercitizen.ui.achievements.BadgeFragment"
         android:label="fragment_badge"
         tools:layout="@layout/fragment_badge" />
 

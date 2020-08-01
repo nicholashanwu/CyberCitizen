@@ -1,4 +1,4 @@
-package com.example.translate;
+package com.example.cybercitizen;
 
 import org.junit.Test;
 

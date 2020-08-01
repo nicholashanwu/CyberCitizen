@@ -1,4 +1,4 @@
-package com.example.translate.ui.learn;
+package com.example.cybercitizen.ui.learn;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.translate.R;
+import com.example.cybercitizen.R;
 
 public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ContentViewHolder> {
 	private Context mContext;
@@ -27,7 +27,6 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ContentV
 		public ContentViewHolder(View itemView) {
 			super(itemView);
 			mName = itemView.findViewById(R.id.txtContent);
-
 		}
 	}
 
@@ -43,15 +42,12 @@ public class ContentAdapter extends RecyclerView.Adapter<ContentAdapter.ContentV
 		if (!mCursor.moveToPosition(position)) {
 			return;
 		}
-		//count = position;
 		String name = mCursor.getString(4);
-
 		holder.mName.setText(name);
 	}
 
 	@Override
 	public int getItemCount() {
-
 		return count;
 	}
 

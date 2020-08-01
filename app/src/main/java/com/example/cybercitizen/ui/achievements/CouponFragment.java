@@ -1,4 +1,4 @@
-package com.example.translate.ui.achievements;
+package com.example.cybercitizen.ui.achievements;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -13,8 +13,8 @@ import androidx.fragment.app.Fragment;
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
-import com.example.translate.DatabaseHelper;
-import com.example.translate.R;
+import com.example.cybercitizen.DatabaseHelper;
+import com.example.cybercitizen.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 public class CouponFragment extends Fragment {

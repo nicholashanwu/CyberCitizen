@@ -1,9 +1,8 @@
-package com.example.translate.ui.achievements;
+package com.example.cybercitizen.ui.achievements;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
-import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
@@ -20,8 +19,8 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
-import com.example.translate.DatabaseHelper;
-import com.example.translate.R;
+import com.example.cybercitizen.DatabaseHelper;
+import com.example.cybercitizen.R;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
 public class AchievementFragment extends Fragment {
