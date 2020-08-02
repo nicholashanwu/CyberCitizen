@@ -43,6 +43,7 @@ public class TestFragment extends Fragment {
     private TextView mTxtScore;
     private TextView mTxtTimer;
     private TextView mTxtViewCountDown;
+    private TextView mTxtEarnedCoinsTest;
     private ImageView mIvReaction;
     private RadioGroup mRbGroup;
     private RadioButton mRbAnswerOne;
@@ -126,6 +127,7 @@ public class TestFragment extends Fragment {
         mTxtTimer = view.findViewById(R.id.txtTimer);
         mCvDefinition = view.findViewById(R.id.cvDefinition);
         mTxtViewCountDown = view.findViewById(R.id.txtTimer);
+        mTxtEarnedCoinsTest = view.findViewById(R.id.txtEarnedCoinsTest);
 
 
         testingType = getArguments().getString("testingType");
@@ -526,6 +528,7 @@ public class TestFragment extends Fragment {
             mIvReaction.setVisibility(View.VISIBLE);
             YoYo.with(Techniques.FadeInUp).duration(300).playOn(mIvReaction);
             YoYo.with(Techniques.FadeOutUp).duration(300).delay(700).playOn(mIvReaction);
+            addCoins();
         } else {
             mIvReaction.setImageResource(badList.get(0));
             mIvReaction.setVisibility(View.VISIBLE);
@@ -580,6 +583,13 @@ public class TestFragment extends Fragment {
         String timeLeftFormatted = String.format(Locale.getDefault(), "%02d", seconds);
 
         mTxtViewCountDown.setText(timeLeftFormatted);
+    }
+
+    private void addCoins() {
+        myDb.addTokens(10);
+        mTxtEarnedCoinsTest.setVisibility(View.VISIBLE);
+        YoYo.with(Techniques.BounceInUp).duration(200).playOn(mTxtEarnedCoinsTest);
+        YoYo.with(Techniques.FadeOutUp).delay(400).duration(200).playOn(mTxtEarnedCoinsTest);
     }
 
     private void showAchievement(String title) {
