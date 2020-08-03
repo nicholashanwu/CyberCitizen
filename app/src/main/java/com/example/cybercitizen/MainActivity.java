@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
 		NavGraph graph = navController.getNavInflater().inflate(R.navigation.mobile_navigation);
 
 
-		if (firstStart) {
+		if (true) {
 
 			graph.setStartDestination(R.id.onboardingFragment);
 			navController.setGraph(graph);
@@ -152,6 +152,9 @@ public class MainActivity extends AppCompatActivity {
 					isTest = true;
 					bottomBar.setBackgroundColor(Color.parseColor("#444444"));
 					enableBottomBar(false);
+				} else if (destination.getId() == R.id.onboardingFragment) {
+					enableBottomBar(false);
+					setStatusBarColor(R.color.secondaryBlack);
 				}
 
 			}

@@ -4,21 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#772D2D"
     tools:context="com.example.cybercitizen.OnboardingFragment">
 
-    <androidx.viewpager.widget.ViewPager
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/vpOnboarding"
-        android:layout_above="@id/llDots"></androidx.viewpager.widget.ViewPager>
+        android:layout_height="wrap_content"
+        style="@style/RoundedFlatCard"
+        android:layout_marginTop="64dp">
 
-    <LinearLayout
-        android:id="@+id/llDots"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:orientation="horizontal"></LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/vpOnboarding"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@id/llDots"></androidx.viewpager.widget.ViewPager>
+
+            <LinearLayout
+                android:id="@+id/llDots"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:orientation="horizontal"></LinearLayout>
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
 
 
 </RelativeLayout>
