@@ -5,7 +5,7 @@
     android:id="@+id/mobile_navigation"
     app:itemIconTint="@color/colorBlue"
 
-    app:startDestination="@id/navigation_home">
+    >
 
 
     <fragment
@@ -52,7 +52,7 @@
         android:id="@+id/navigation_compass"
         android:name="com.example.cybercitizen.ui.compass.CompassFragment"
         android:label="Compass"
-        tools:layout="@layout/fragment_compass" >
+        tools:layout="@layout/fragment_compass">
         <action
             android:id="@+id/action_navigation_compass_to_navigation_resource"
             app:destination="@id/navigation_resource"
@@ -134,7 +134,7 @@
         android:id="@+id/navigation_achievement"
         android:name="com.example.cybercitizen.ui.achievements.AchievementListFragment"
         android:label="fragment_achievement"
-        tools:layout="@layout/fragment_achievement"/>
+        tools:layout="@layout/fragment_achievement" />
     <fragment
         android:id="@+id/contentScrollerFragment"
         android:name="com.example.cybercitizen.ui.learn.ContentScrollerFragment"
@@ -143,7 +143,7 @@
         android:id="@+id/navigation_resource"
         android:name="com.example.cybercitizen.ui.compass.ResourceFragment"
         android:label="fragment_resource"
-        tools:layout="@layout/fragment_resource" >
+        tools:layout="@layout/fragment_resource">
         <action
             android:id="@+id/action_navigation_resource_to_resourceYoutubeFragment"
             app:destination="@id/resourceYoutubeFragment"
@@ -177,5 +177,10 @@
         android:name="com.example.cybercitizen.ui.achievements.BadgeFragment"
         android:label="fragment_badge"
         tools:layout="@layout/fragment_badge" />
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.example.cybercitizen.OnboardingFragment"
+        android:label="fragment_onboarding"
+        tools:layout="@layout/fragment_onboarding" />
 
 </navigation>

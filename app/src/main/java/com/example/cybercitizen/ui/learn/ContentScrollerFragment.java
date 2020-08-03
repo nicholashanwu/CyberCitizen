@@ -42,7 +42,7 @@ public class ContentScrollerFragment extends Fragment {
 	private CardView mCvContent;
 	private RecyclerView mRecyclerView;
 	private Cursor res;
-	private int totalPageCount;
+	private int totalPageCount = 0;
 	private int pageNumber = 0;
 	private int progress = 0;
 
@@ -69,20 +69,25 @@ public class ContentScrollerFragment extends Fragment {
 
 		myDb = DatabaseHelper.getInstance(getActivity().getApplicationContext());
 
+		res = getAllContent(learningType, pageNumber);
 		mTxtContentScrollerTitle.setText(learningType);
 		mProgressBarContentPage.setMax(totalPageCount);
+		mProgressBarContentPage.setProgress(pageNumber);
 
-		res = getAllContent(learningType, pageNumber);
 		moveToNextPage();
 
 		mFabContentDone.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
+				System.out.println(mProgressBarContentPage.getProgress());
 				if(progress == res.getCount()){
 					moveToNextPage();
 				} else {
 					mAdapter.increaseCount();
 					progress++;
+					mProgressBarContentPage.setSecondaryProgress((float) progress/res.getCount() * totalPageCount);
+
+					System.out.println((float) progress/res.getCount() * totalPageCount);
 					new Handler().postDelayed(new Runnable() {
 						@Override
 						public void run() {
@@ -96,16 +101,17 @@ public class ContentScrollerFragment extends Fragment {
 		mFabBackContent.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
 				if(progress == 1) {
 					moveToPreviousPage();
 				} else {
 					mAdapter.decreaseCount();
 					progress--;
+
+					mProgressBarContentPage.setSecondaryProgress((float) progress/res.getCount() * totalPageCount);
+
 				}
 			}
 		});
-
 	}
 
 	private Cursor getAllContent(String learningType, int pageNumber) {
@@ -130,7 +136,7 @@ public class ContentScrollerFragment extends Fragment {
 			checkAchievement();
 			showMessage("Nice Work!");
 		} else {
-			mProgressBarContentPage.setProgress(mProgressBarContentPage.getProgress() + 1);
+			mProgressBarContentPage.setProgress(pageNumber + 1);
 			YoYo.with(Techniques.SlideOutLeft).duration(200).playOn(mCvContent);
 			YoYo.with(Techniques.SlideInRight).duration(200).delay(300).playOn(mCvContent);
 
@@ -140,8 +146,8 @@ public class ContentScrollerFragment extends Fragment {
 			setAdapter(res);
 			mTxtProgressPageNumbers.setText("Page " + pageNumber + " of " + totalPageCount);
 
-
 			progress = 1;
+			mProgressBarContentPage.setSecondaryProgress((float) progress/res.getCount() * totalPageCount);
 		}
 
 	}
@@ -149,9 +155,9 @@ public class ContentScrollerFragment extends Fragment {
 	private void moveToPreviousPage(){
 
 		if(pageNumber == 1) {
-			//do nothing
+			Navigation.findNavController(getView()).popBackStack();
 		} else {
-			mProgressBarContentPage.setProgress(mProgressBarContentPage.getProgress() - 1);
+			mProgressBarContentPage.setProgress(pageNumber - 1);
 			YoYo.with(Techniques.SlideOutRight).duration(200).playOn(mCvContent);
 			YoYo.with(Techniques.SlideInLeft).duration(200).delay(300).playOn(mCvContent);
 
@@ -162,6 +168,7 @@ public class ContentScrollerFragment extends Fragment {
 			mTxtProgressPageNumbers.setText("Page " + pageNumber + " of " + totalPageCount);
 
 			progress = 1;
+			mProgressBarContentPage.setSecondaryProgress((float) progress/res.getCount() * totalPageCount);
 		}
 
 	}
@@ -182,10 +189,8 @@ public class ContentScrollerFragment extends Fragment {
 			}
 		});
 
-
 		txtTitle.setText(title);
 		builder.setView(view);
-
 
 		AlertDialog dialog = builder.show();
 		dialog.setCanceledOnTouchOutside(false);
