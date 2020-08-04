@@ -24,6 +24,7 @@ import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
 import com.example.cybercitizen.DatabaseHelper;
 import com.example.cybercitizen.R;
+import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class StoryFragment extends Fragment {
@@ -37,7 +38,7 @@ public class StoryFragment extends Fragment {
 	private RadioButton mRbAnswerTwo;
 	private RadioButton mRbAnswerThree;
 	private RadioButton mRbAnswerFour;
-	private FloatingActionButton mFabSubmit;
+	private ExtendedFloatingActionButton mFabSubmit;
 
 	private DatabaseHelper myDb;
 	private Cursor res;
@@ -56,7 +57,7 @@ public class StoryFragment extends Fragment {
 		OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
 			@Override
 			public void handleOnBackPressed() {
-				if(res != null) {
+				if (res != null) {
 					res.close();
 				}
 				Navigation.findNavController(getView()).popBackStack();
@@ -123,8 +124,6 @@ public class StoryFragment extends Fragment {
 				}
 			}
 		});
-
-
 	}
 
 	@Override
@@ -141,7 +140,7 @@ public class StoryFragment extends Fragment {
 		mRbAnswerThree.setVisibility(View.VISIBLE);
 		mRbAnswerFour.setVisibility(View.VISIBLE);
 
-		if(res != null){
+		if (res != null) {
 			mTxtContent.setText(res.getString(3));
 
 			if (res.getString(4).equals("")) {
@@ -227,7 +226,6 @@ public class StoryFragment extends Fragment {
 			}
 
 		} else if (storyId == 1) {
-			System.out.println("HIHFIUSIUFISUFH");
 			if (nextPageId == 0) {
 				if (answerNum == 1 || answerNum == 4) {
 					nextPageId = 1;
@@ -274,17 +272,67 @@ public class StoryFragment extends Fragment {
 			} else {
 
 			}
+		} else if (storyId == 2) {
+			if (nextPageId == 0) {
+				if (answerNum == 1) {
+					nextPageId = 1;
+				} else if (answerNum == 2) {
+					nextPageId = 1;
+				} else {
+					nextPageId = 2;
+				}
+			} else if (nextPageId == 1) {
+				if (answerNum == 1 || answerNum == 2 || answerNum == 3) {
+					nextPageId = 2;
+				}
+			} else if (nextPageId == 2) {
+				if (answerNum == 1 || answerNum == 2 || answerNum == 3) {
+					nextPageId = 3;
+				}
+			} else if (nextPageId == 3) {
+				if (answerNum == 1) {
+					nextPageId = 4;
+				} else {
+					nextPageId = 6;
+				}
+			} else if (nextPageId == 4) {
+				if (answerNum == 1) {
+					nextPageId = 5;
+				} else {
+					nextPageId = 7;
+				}
+			} else if (nextPageId == 5) {
+				if (answerNum == 1) {
+					nextPageId = 7;
+				} else {
+					nextPageId = 9;        //positive
+					endReached = true;
+				}
+			} else if (nextPageId == 6) {
+				if (answerNum == 1 || answerNum == 2) {
+					nextPageId = 7;
+				}
+			} else if (nextPageId == 7) {
+				if (answerNum == 1 || answerNum == 2 || answerNum == 3) {
+					nextPageId = 8;
+				}
+			} else {
+				if (answerNum == 1) {
+					nextPageId = 10;    //negative
+					endReached = true;
+				} else {
+					nextPageId = 11;    //negative
+					endReached = true;
+				}
+			}
 		}
-
 
 		res.moveToFirst();
 		while (res.moveToNext()) {
 			if (res.getInt(1) == storyId && res.getInt(2) == nextPageId) {
 				showNextQuestion(res);
 			}
-
 		}
-
 	}
 
 	private void addCoins() {
@@ -382,7 +430,14 @@ public class StoryFragment extends Fragment {
 	}
 
 	public void setTitle(int storyId) {
-		mTxtLevelTitle.setText("Story " + (storyId + 1));
+		if(storyId == 0) {
+			mTxtLevelTitle.setText("Workplace Dangers");
+		} else if (storyId == 1) {
+			mTxtLevelTitle.setText("Innocent Instagram?");
+		} else {
+			mTxtLevelTitle.setText("IT Director");
+		}
+
 
 	}
 

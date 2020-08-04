@@ -66,7 +66,7 @@
                     android:gravity="bottom|center_horizontal"
                     android:lineSpacingExtra="1sp"
                     android:text="@string/phrase_placeholder"
-                    android:textAlignment="center"
+                    android:textAlignment="viewStart"
                     android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
             </androidx.cardview.widget.CardView>
@@ -156,25 +156,22 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
         android:id="@+id/fabSubmitAnswer"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_gravity="bottom|center_horizontal"
-        android:layout_margin="72dp"
-        android:layout_weight="1"
-        android:background="@null"
-        android:clickable="true"
-        android:elevation="8dp"
-        android:focusable="auto"
-        android:src="@drawable/baseline_done_white_48"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="72dp"
+        android:drawableTint="#FFFFFF"
+        android:fontFamily="@font/quicksand_bold"
+        android:text="NEXT"
+        android:textColor="#FFFFFF"
         app:backgroundTint="@color/colorRed"
-        app:elevation="8dp"
-        app:fabCustomSize="64dp"
+        app:icon="@drawable/baseline_done_white_48"
+        app:iconTint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:tint="#FFFFFF" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/txtEarnedCoins"

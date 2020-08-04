@@ -42,6 +42,7 @@
                 android:layout_below="@id/vpOnboarding"
                 android:layout_alignParentLeft="true"
                 android:elevation="0dp"
+                android:fontFamily="@font/quicksand_bold"
                 android:text="BACK"
                 android:textColor="@color/secondaryBlack"
                 android:visibility="invisible"
@@ -55,6 +56,7 @@
                 android:layout_below="@id/vpOnboarding"
                 android:layout_alignParentRight="true"
                 android:elevation="0dp"
+                android:fontFamily="@font/quicksand_bold"
                 android:text="NEXT"
                 android:textColor="@color/secondaryBlack"
                 app:elevation="0dp" />

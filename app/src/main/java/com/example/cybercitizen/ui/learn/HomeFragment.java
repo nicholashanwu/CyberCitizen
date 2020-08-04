@@ -258,7 +258,9 @@ public class HomeFragment extends Fragment {
 		mCvFourFour.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				//navigate to story scenario
+				Bundle bundle = new Bundle();
+				bundle.putInt("storyId", 2);
+				Navigation.findNavController(getView()).navigate(R.id.action_navigation_home_to_storyFragment, bundle);
 			}
 		});
 
