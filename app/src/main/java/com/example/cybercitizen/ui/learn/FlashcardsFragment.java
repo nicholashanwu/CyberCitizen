@@ -41,19 +41,11 @@ public class FlashcardsFragment extends Fragment {
 	private TextView mTxtSavedMessage;
 	private TextView mTxtAnswerMessage;
 	private TextView mTxtUnsavedMessage;
-
 	private CardView mCardView;
-
 	private Cursor res;
-
 	private String learningType;
-
 	private DatabaseHelper myDb;
-
 	private int progressInt = 0;
-
-	public FlashcardsFragment() {
-	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -62,7 +54,9 @@ public class FlashcardsFragment extends Fragment {
 		OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
 			@Override
 			public void handleOnBackPressed() {
-				res.close();
+				if(res != null) {
+					res.close();
+				}
 				Navigation.findNavController(getView()).popBackStack();
 			}
 		};
@@ -74,14 +68,12 @@ public class FlashcardsFragment extends Fragment {
 							 Bundle savedInstanceState) {
 
 		View view = inflater.inflate(R.layout.fragment_learning, container, false);
-
 		return view;
 	}
 
 	@Override
 	public void onConfigurationChanged(@NonNull Configuration newConfig) {
 		super.onConfigurationChanged(newConfig);
-
 	}
 
 	@Override
@@ -121,7 +113,6 @@ public class FlashcardsFragment extends Fragment {
 				mFabAnswer.setImageResource(R.drawable.outline_visibility_off_white_48);
 
 				if (res.move(1)) {
-
 					hideMessages();
 					advanceProgressBar();
 					showSavedStatus();
@@ -136,9 +127,7 @@ public class FlashcardsFragment extends Fragment {
 							mTxtDefinition.setText(res.getString(2));
 						}
 					}.start();
-
 				} else {
-
 					fillProgressBar();
 					if (res != null) {
 						res.close();
@@ -146,8 +135,6 @@ public class FlashcardsFragment extends Fragment {
 					mProgressBar.setProgress(0, true);
 					checkAchievement();
 					showMessage("You're Finished!");
-
-
 				}
 			}
 		});
@@ -155,8 +142,6 @@ public class FlashcardsFragment extends Fragment {
 		mFabSave.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-
-
 				if (res.getString(5).equals("1")) {
 					markAsUnsaved();
 				} else {
@@ -176,8 +161,6 @@ public class FlashcardsFragment extends Fragment {
 				}
 			}
 		});
-
-
 
 	}
 
@@ -346,6 +329,8 @@ public class FlashcardsFragment extends Fragment {
 
 	private void showSavedStatus() {
 		if (res.getString(5).equals("1")) {
+
+
 			mFabSave.setImageResource(R.drawable.baseline_bookmark_white_48);
 		} else {
 			mFabSave.setImageResource(R.drawable.outline_bookmark_border_white_48);

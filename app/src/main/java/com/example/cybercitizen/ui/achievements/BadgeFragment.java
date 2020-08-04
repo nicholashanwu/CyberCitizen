@@ -8,9 +8,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.example.cybercitizen.DatabaseHelper;
 import com.example.cybercitizen.R;
@@ -34,7 +36,13 @@ public class BadgeFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+			@Override
+			public void handleOnBackPressed() {
+				Navigation.findNavController(getView()).popBackStack();
+			}
+		};
+		requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
 	}
 
 	@Override

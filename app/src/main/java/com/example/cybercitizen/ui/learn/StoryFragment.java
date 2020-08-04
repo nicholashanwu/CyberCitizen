@@ -14,6 +14,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -52,6 +53,16 @@ public class StoryFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+			@Override
+			public void handleOnBackPressed() {
+				if(res != null) {
+					res.close();
+				}
+				Navigation.findNavController(getView()).popBackStack();
+			}
+		};
+		requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
 	}
 
 	@Override

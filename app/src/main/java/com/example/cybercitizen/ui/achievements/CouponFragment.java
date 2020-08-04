@@ -6,9 +6,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import com.akexorcist.roundcornerprogressbar.RoundCornerProgressBar;
 import com.daimajia.androidanimations.library.Techniques;
@@ -44,7 +46,13 @@ public class CouponFragment extends Fragment {
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-
+		OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+			@Override
+			public void handleOnBackPressed() {
+				Navigation.findNavController(getView()).popBackStack();
+			}
+		};
+		requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
 	}
 
 	private View.OnClickListener redeemAmazonClickListener = new View.OnClickListener() {

@@ -1,6 +1,7 @@
 package com.example.cybercitizen;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,8 +15,8 @@ import androidx.viewpager.widget.PagerAdapter;
 
 public class SliderAdapter extends PagerAdapter {
 
-	Context context;
-	LayoutInflater layoutInflater;
+	private Context context;
+	private LayoutInflater layoutInflater;
 
 	public SliderAdapter(Context context) {
 		this.context = context;
@@ -32,32 +33,22 @@ public class SliderAdapter extends PagerAdapter {
 			R.drawable.onboarding_journey
 	};
 
-	public String[] slide_headings = {
-			"text1",
-			"text2",
-			"text3",
-			"text4",
-			"text5",
-			"text6",
-			"text7",
-			"text8",
+	public String[] slide_descs = {
+			"Welcome to Cyber Citizen",
+			"Equipping you with the information and tools to become a responsible citizen who is aware of the dangers within the cyber space.",
+			"Ditch the books - we have the information you'll actually want to read.",
+			"Play a part in real-world cybersecurity simulations. Every choice you make affects the outcome!",
+			"Earn CyberCoins by completing modules and redeem coupons to use at your favourite places!",
+			"We've partnered with industry leaders to deliver you real experience. ",
+			"Earn LinkedIn badges to show off your cybersecurity accreditations. ",
+			"Taking you on a rewarding journey to becoming a Cyber Citizen in a Cyber World"
 	};
 
-	public String[] slide_descs = {
-			"Lorem ipsum",
-			"Lorem ipsum",
-			"Lorem ipsum",
-			"Lorem ipsum",
-			"Lorem ipsum",
-			"Lorem ipsum",
-			"Lorem ipsum",
-			"Lorem ipsum"
-	};
 
 
 	@Override
 	public int getCount() {
-		return slide_headings.length;
+		return slide_descs.length;
 	}
 
 	@Override
@@ -72,11 +63,9 @@ public class SliderAdapter extends PagerAdapter {
 		View view = layoutInflater.inflate(R.layout.onboarding_slide_layout, container, false);
 
 		ImageView slideImageView = (ImageView) view.findViewById(R.id.ivOnboardingSlide);
-		TextView slideHeading = (TextView) view.findViewById(R.id.txtOnboardingHeading);
 		TextView slideDescription = (TextView) view.findViewById(R.id.txtOnboardingDescription);
 
 		slideImageView.setImageResource(slide_images[position]);
-		slideHeading.setText(slide_headings[position]);
 		slideDescription.setText(slide_descs[position]);
 
 		container.addView(view);

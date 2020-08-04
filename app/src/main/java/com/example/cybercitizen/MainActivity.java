@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -33,8 +34,6 @@ public class MainActivity extends AppCompatActivity {
 
 	private BottomNavigationView bottomBar;
 	boolean isTest;
-
-
 
 	private void setColors() {
 		int[][] states = new int[][]{
@@ -105,12 +104,10 @@ public class MainActivity extends AppCompatActivity {
 		NavGraph graph = navController.getNavInflater().inflate(R.navigation.mobile_navigation);
 
 
-		if (true) {
-
+		if (firstStart) {
 			graph.setStartDestination(R.id.onboardingFragment);
 			navController.setGraph(graph);
-
-
+			bottomBar.setVisibility(View.GONE);
 
 			initDatabase task = new initDatabase(this);
 			task.execute();
@@ -118,8 +115,6 @@ public class MainActivity extends AppCompatActivity {
 		} else {
 			graph.setStartDestination(R.id.navigation_home);
 			navController.setGraph(graph);
-
-
 		}
 
 		setAnimations(navController);

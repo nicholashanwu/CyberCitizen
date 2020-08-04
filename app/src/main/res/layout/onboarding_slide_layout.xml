@@ -17,28 +17,16 @@
         app:srcCompat="@drawable/onboarding_cyber_security" />
 
     <TextView
-        android:id="@+id/txtOnboardingHeading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="TextView"
-        android:textAppearance="@style/TitleHeading"
-        android:textColor="@color/secondaryBlack"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivOnboardingSlide" />
-
-    <TextView
         android:id="@+id/txtOnboardingDescription"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="128dp"
+        android:layout_marginBottom="64dp"
         android:text="TextView"
+        android:textAlignment="center"
         android:textAppearance="@style/BodyText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtOnboardingHeading" />
+        app:layout_constraintTop_toBottomOf="@+id/ivOnboardingSlide" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

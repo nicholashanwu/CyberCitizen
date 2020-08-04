@@ -2,16 +2,19 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rlOnboarding"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#772D2D"
+    android:background="#5bc1eb"
+    android:elevation="0dp"
     tools:context="com.example.cybercitizen.OnboardingFragment">
 
     <androidx.cardview.widget.CardView
+        style="@style/RoundedFlatCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/RoundedFlatCard"
-        android:layout_marginTop="64dp">
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="64dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -26,10 +29,35 @@
             <LinearLayout
                 android:id="@+id/llDots"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:orientation="horizontal"></LinearLayout>
+
+            <Button
+                android:id="@+id/btnPrevious"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/vpOnboarding"
+                android:layout_alignParentLeft="true"
+                android:elevation="0dp"
+                android:text="BACK"
+                android:textColor="@color/secondaryBlack"
+                android:visibility="invisible"
+                app:elevation="0dp" />
+
+            <Button
+                android:id="@+id/btnNext"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/vpOnboarding"
+                android:layout_alignParentRight="true"
+                android:elevation="0dp"
+                android:text="NEXT"
+                android:textColor="@color/secondaryBlack"
+                app:elevation="0dp" />
         </RelativeLayout>
 
     </androidx.cardview.widget.CardView>

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
@@ -45,6 +46,21 @@ public class ContentScrollerFragment extends Fragment {
 	private int totalPageCount = 0;
 	private int pageNumber = 0;
 	private int progress = 0;
+
+	@Override
+	public void onCreate(@Nullable Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		OnBackPressedCallback callback = new OnBackPressedCallback(true /* enabled by default */) {
+			@Override
+			public void handleOnBackPressed() {
+				if(res != null) {
+					res.close();
+				}
+				Navigation.findNavController(getView()).popBackStack();
+			}
+		};
+		requireActivity().getOnBackPressedDispatcher().addCallback(this, callback);
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
