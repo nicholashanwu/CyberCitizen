@@ -91,13 +91,21 @@ public class HomeFragment extends Fragment {
 
 		mFabUnlock = view.findViewById(R.id.fabUnlock);
 
-
 		return view;
 	}
 
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		super.onViewCreated(view, savedInstanceState);
+
+		mEcvTwo.setVisibility(View.GONE);
+		mEcvThree.setVisibility(View.GONE);
+		mEcvFour.setVisibility(View.GONE);
+
+//		mEcvTwo.setVisibility(View.VISIBLE);
+//		mEcvThree.setVisibility(View.VISIBLE);
+//		mEcvFour.setVisibility(View.VISIBLE);
+
 
 		if (myDb.checkAchievementStatus("Certified Cyber Novice")) {
 			mEcvTwo.setVisibility(View.VISIBLE);
@@ -134,6 +142,9 @@ public class HomeFragment extends Fragment {
 				showMessage("Complete Level Three to unlock this section!");
 			}
 		});
+
+
+
 
 		// check complete achievements
 		// disable all cardviews that do not have the right achievement to unlock it

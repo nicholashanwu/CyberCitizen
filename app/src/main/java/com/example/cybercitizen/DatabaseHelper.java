@@ -362,7 +362,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 		boolean status = false;
 
 		if(res.getCount() != 0) {
-			if (res.getString(0).equals(1)) {
+			if (res.getInt(0) == 1) {
 				status = true;
 			}
 		} else {

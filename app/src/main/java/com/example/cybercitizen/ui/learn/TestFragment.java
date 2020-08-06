@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.database.Cursor;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.ContextThemeWrapper;
@@ -60,9 +61,6 @@ public class TestFragment extends Fragment {
 
     private int percentage;
     private int score = 0;
-    private int learned = 0;
-    private int mastered = 0;
-    private int forgotten = 0;
     private int wrongStreak = 0;
     private int rightStreak = 0;
 
@@ -189,7 +187,9 @@ public class TestFragment extends Fragment {
             double progressDouble = (double) 100 * res.getPosition() / res.getCount();
             int progressInt = (int) progressDouble;
             mTxtProgress.setText((res.getPosition() + 1) + "/" + res.getCount());
-            mProgressBar.setProgress(progressInt, true);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                mProgressBar.setProgress(progressInt, true);
+            }
 
             answerList = (ArrayList<String>) getAnswerList(res.getPosition(), res).clone();
 
@@ -229,10 +229,8 @@ public class TestFragment extends Fragment {
 
 
             if (res.getString(5).equals("1")) {
-                mastered++;
                 myDb.updateLearned(res.getString(1), true);
             } else {
-                learned++;
                 myDb.updateLearned(res.getString(1), true);
             }
 
@@ -269,7 +267,6 @@ public class TestFragment extends Fragment {
                 }
             }
             if (res.getString(5).equals("1")) {
-                forgotten++;
                 myDb.updateLearned(res.getString(1), false);
             }
 
@@ -314,7 +311,9 @@ public class TestFragment extends Fragment {
 
     private void finishTest(Cursor res) {
         mTxtProgress.setText("");
-        mProgressBar.setProgress(99, true);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            mProgressBar.setProgress(99, true);
+        }
         percentage = 100 * score / res.getCount();
 
         if (testingType.equals("What is Cyber?")) {
@@ -450,9 +449,6 @@ public class TestFragment extends Fragment {
         TextView txtTitle = view.findViewById(R.id.title);
         ImageButton imageButton = view.findViewById(R.id.image);
         TextView mTxtMessage = view.findViewById(R.id.message);
-        TextView mTxtLearned = view.findViewById(R.id.txtLearned);
-        TextView mTxtMastered = view.findViewById(R.id.txtMastered);
-        TextView mTxtForgot = view.findViewById(R.id.txtForgot);
 
         if (percentage > 85) {
             myDb.updateScore("HD");
@@ -486,9 +482,6 @@ public class TestFragment extends Fragment {
 
         txtTitle.setText(title);
         mTxtMessage.setText(percentage + "%");
-        mTxtLearned.setText("Learned " + learned + " new words!");
-        mTxtMastered.setText("Mastered " + mastered + " words!");
-        mTxtForgot.setText("Forgot " + forgotten + " words...");
 
         builder.setView(view);
         AlertDialog dialog = builder.show();
